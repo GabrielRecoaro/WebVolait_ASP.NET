@@ -12,27 +12,41 @@ namespace WebVolait.ViewModels
     public class CadastroClienteViewModel
     {
 
-        [Display(Name = "Nome")]
-        [Required(ErrorMessage = "Informe seu nome")]
-        [MaxLength(100, ErrorMessage = "O nome deve ter no máximo 100 caracteres")]
-        public string UsuNome { get; set; }
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(100)]
+        [Display(Name = "Nome", AutoGenerateFilter = false)]
+        public string NomeCliente { get; set; }
 
-        [Required(ErrorMessage = "Informe seu login")]
-        [MaxLength(50, ErrorMessage = "O login deve ter no máximo 50 caracteres")]
-        [Remote("SelectLogin", "Autenticacao", ErrorMessage = "O login já existe!")]
-        public string Login { get; set; }
+        [Display(Name = "Nome Social")]
+        [MaxLength(50)]
+        public string NomeSocialCliente { get; set; }
 
-        [Required(ErrorMessage = "Informe sua senha")]
-        [MaxLength(50, ErrorMessage = "A senha deve ter no máximo 50 caracteres")]
-        [MinLength(6, ErrorMessage = "A senha deve ter no mínimo 6 caracteres")]
+        [Display(Name = "E-mail")]
+        public string EmailCliente { get; set; }
+
+        [Display(Name = "Número de Telefone")]
+        public string TelefoneCliente { get; set; }
+
+        [Display(Name = "Endereço")]
+        public string EnderecoCliente { get; set; }
+
+        [Display(Name = "Login")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(50)]
+        public string LoginCliente { get; set; }
+
         [DataType(DataType.Password)]
-        public string Senha { get; set; }
+        [Display(Name = "Senha")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(100)]
+        public string SenhaCliente { get; set; }
 
-        [Display(Name = "Confirme a senha")]
-        [Required(ErrorMessage = "Confirme sua senha")]
         [DataType(DataType.Password)]
-        [Compare(nameof(Senha), ErrorMessage = "As senhas não são iguais")]
-        public string ConfirmaSenha { get; set; }
+        [Display(Name = "Confirme sua senha")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(100)]
+        [Compare("Password", ErrorMessage = "As senhas não coincidem")]
+        public string ConfirmaSenhaCliente { get; set; }
 
     }
 }
