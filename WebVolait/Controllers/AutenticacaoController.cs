@@ -6,9 +6,10 @@ using System.Web.Mvc;
 
 namespace WebVolait.Controllers
 {
-    public class HomeController : Controller
+    public class AutenticacaoController : Controller
     {
-        public ActionResult Index()
+        
+        public ActionResult InsertCliente()
         {
             return View();
         }
