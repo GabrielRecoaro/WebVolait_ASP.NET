@@ -12,45 +12,45 @@ namespace WebVolait.Models
 
 
 
-        public int CPFFunc { get; set; }
+        public int CPFFuncionario { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         [Display(Name = "Nome", AutoGenerateFilter = false)]
-        public string NomeFunc { get; set; }
+        public string NomeFuncionario { get; set; }
 
         [Display(Name = "Nome Social")]
         [MaxLength(50)]
-        public string NomeSocialFunc { get; set; }
+        public string NomeSocialFuncionario { get; set; }
 
         [Display(Name = "E-mail")]
-        public string EmailFunc { get; set; }
+        public string EmailFuncionario { get; set; }
 
         [Display(Name = "Número de Telefone")]
-        public string TelefoneFunc { get; set; }
+        public string TelefoneFuncionario { get; set; }
 
         [Display(Name = "Login")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(50)]
-        public string LoginFunc { get; set; }
+        public string LoginFuncionario { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        public string SenhaFunc { get; set; }
+        public string SenhaFuncionario { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirme sua senha")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         [Compare("Password", ErrorMessage = "As senhas não coincidem")]
-        public string ConfirmaSenhaFunc { get; set; }
+        public string ConfirmaSenhaFuncionario { get; set; }
 
         [Display(Name = "")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        public string FuncaoFunc { get; set; }
+        public string FuncaoFuncionario { get; set; }
 
     }
 }
