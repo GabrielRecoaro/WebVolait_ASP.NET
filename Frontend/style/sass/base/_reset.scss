@@ -46,3 +46,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: $body-text;
+	font-family: "Inter", sans-serif;
+	width: 100vw;
+	max-width: 100%;
+	// overflow-x: none;
+}
