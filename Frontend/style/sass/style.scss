@@ -3,13 +3,15 @@
 @import 'abstracts/_font-size';
 
 // Base
-@import 'base/_reset';
+@import 'base/reset';
 
 // Components
+@import 'components/_button';
 
 // Layout
-@import 'components/_header';
-@import 'components/_footer';
+@import 'layout/_header';
+@import 'layout/_footer';
+@import 'layout/container';
 
 // Pages
 @import 'pages/_home';
@@ -17,5 +19,6 @@
 // Themes
 
 // Vendors
+@import 'vendors/normalize';
 
 // node-sass -w --output-style compressed Frontend/style/sass/style.scss Frontend/style/css/style.css
