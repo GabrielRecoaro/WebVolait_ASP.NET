@@ -1,0 +1,109 @@
+.form {
+    text-align: center;
+    font-size: $body-text;
+    max-width: 450px;
+    padding: 0px;
+    &__title {
+        font-size: $heading-one;
+        color: $primary_color;
+    }
+    &__text {
+        text-align: right;
+    }
+    &__text {
+        margin: 10px;
+    }
+    &__accent-text {
+        a {
+            color: $primary-color;
+        }
+    }
+    #input_name-error.error,
+    #input_email-error.error,
+    #input_subject-error.error,
+    #input_message-error.error {
+        display: block;
+        margin-top: 5px;
+        color: #e43232;
+    }
+    &__area {
+        width: 100%;
+        margin-top: 25px;
+        position: relative;
+        &__input {
+            font-size: 14px;
+            background: none;
+            border: 2px solid rgb(209, 208, 208);
+            outline: none;
+            color: $black-color;
+            width: 100%;
+            letter-spacing: 2px;
+            border-radius: 5px;
+            padding: 15px;
+            transition: .3s ease-in-out;    
+            &.error {
+                border: 2px solid #e43232;
+                &:focus {
+                    border: 2px solid #e43232;
+                }
+                    &:focus ~ .form__area__label,
+                    &:valid ~ .form__area__label {
+                    top: -8px;
+                    left: 12px;
+                    font-size: 14px;
+                    color: #e43232;
+                }
+            }
+            &:focus {
+                border: 2px solid $primary_color;
+            }
+            &:focus ~ .form__area__label,
+            &:valid ~ .form__area__label {
+                background: $white_color;
+                top: -8px;
+                left: 12px;
+                font-size: 14px;
+                color: $primary_color;
+            }
+            &:valid {
+                // border: 2px solid $primary-color;
+            }
+        }
+        &__label {
+            padding: 0px 5px;
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            pointer-events: none;
+            transition: .3s ease-in-out;    
+            color: rgb(160, 160, 160);
+        }
+        &__textarea {
+            textarea {
+                resize: none;
+                height: 125px;
+            }
+        }
+    }
+    &__area-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+        flex-wrap: wrap;
+        div {
+            flex: 1 1 250px;
+        }
+    }
+    &__area-flex-title {
+        margin: 0 0 30px 0;
+    }
+    .button{
+        &.button--submit {
+            margin-top: 50px;
+            background-color: $primary-color;
+            color: $white-color;
+            width: 100%;
+        }
+    }
+}

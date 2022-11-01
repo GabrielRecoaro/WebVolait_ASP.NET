@@ -7,13 +7,14 @@
         justify-content: space-between;
         align-items: center;
         height: 12vh;
+        background-color: inherit;
     }
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 999;
-    background-color: $white-color;
+    background-color: #ffffff;
     transition: all 0.3s ease-in;
     &__logo {
         img {
@@ -88,6 +89,11 @@
                         transform-origin: left;
                     }
                 }
+                .button {
+                    a {
+                        color: $white-color !important; 
+                    }
+                }
             }
         }
     }
@@ -133,7 +139,6 @@
                     padding: 0 0 20px 0;
                     gap: 10px;
                     &__item {
-                        display: block;
                         width: 100%;
                         opacity: 0;
                         padding: 0;

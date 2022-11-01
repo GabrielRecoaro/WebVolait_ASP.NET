@@ -6,8 +6,6 @@
     margin: 0;
     padding: 0;
     border: none;
-    a {
-        padding: 10px 15px !important;
-        color: $white-color !important; 
-    }
+    cursor: pointer;
+    color: $white-color;
 }
