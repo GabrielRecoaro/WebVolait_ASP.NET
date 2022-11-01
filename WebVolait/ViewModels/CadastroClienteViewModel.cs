@@ -41,11 +41,12 @@ namespace WebVolait.ViewModels
         [MaxLength(100)]
         public string SenhaCliente { get; set; }
 
-        [DataType(DataType.Password)]
+       
         [Display(Name = "Confirme sua senha")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        [Compare("Password", ErrorMessage = "As senhas não coincidem")]
+        [DataType(DataType.Password)]
+        [Compare(nameof(SenhaCliente), ErrorMessage = "As senhas não coincidem")]
         public string ConfirmaSenhaCliente { get; set; }
 
     }

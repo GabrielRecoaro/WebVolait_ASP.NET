@@ -31,23 +31,11 @@ namespace WebVolait.Models
         [Display(Name = "Endereço")]
         public string EnderecoCliente { get; set; }
 
-        [Display(Name = "Login")]
-        [Required(ErrorMessage = "O campo é obrigatório")]
-        [MaxLength(50)]
-        public string LoginCliente { get; set; }
-
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         public string SenhaCliente { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirme sua senha")]
-        [Required(ErrorMessage = "O campo é obrigatório")]
-        [MaxLength(100)]
-        [Compare("Password", ErrorMessage = "As senhas não coincidem")]
-        public string ConfirmaSenhaCliente { get; set; }
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
@@ -55,9 +43,12 @@ namespace WebVolait.Models
         public void InsertCliente(Cliente cliente)
         {
             conexao.Open();
-            command.CommandText = "call spInsertCliente (@NomeCliente, @LoginCliente, @SenhaCliente);";
+            command.CommandText = "call spInsertCli (@CPFCliente, @NomeCliente, @NomeSocialCliente, @NomeCliente, @EmailCliente, @TelefoneCliente, @SenhaCliente);";
+            command.Parameters.Add("@CPFCliente", MySqlDbType.VarChar).Value = cliente.CPFCliente;
             command.Parameters.Add("@NomeCliente", MySqlDbType.VarChar).Value = cliente.NomeCliente;
-            command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = cliente.LoginCliente;
+            command.Parameters.Add("@NomeSocialCliente", MySqlDbType.VarChar).Value = cliente.NomeSocialCliente;
+            command.Parameters.Add("@EmailCliente", MySqlDbType.VarChar).Value = cliente.EmailCliente;
+            command.Parameters.Add("@TelefoneCliente", MySqlDbType.VarChar).Value = cliente.TelefoneCliente;
             command.Parameters.Add("@SenhaCliente", MySqlDbType.VarChar).Value = cliente.SenhaCliente;
             command.Connection = conexao;
             command.ExecuteNonQuery();
