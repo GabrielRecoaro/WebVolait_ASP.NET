@@ -9,7 +9,6 @@ namespace WebVolait.ViewModels
 {
     public class CadastroFuncionarioViewModel
     {
-
         public int CPFFuncionario { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
@@ -26,11 +25,6 @@ namespace WebVolait.ViewModels
 
         [Display(Name = "Número de Telefone")]
         public string TelefoneFuncionario { get; set; }
-
-        [Display(Name = "Login")]
-        [Required(ErrorMessage = "O campo é obrigatório")]
-        [MaxLength(50)]
-        public string LoginFuncionario { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
@@ -49,7 +43,5 @@ namespace WebVolait.ViewModels
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         public string FuncaoFuncionario { get; set; }
-
-
     }
 }

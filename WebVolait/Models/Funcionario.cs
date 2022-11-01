@@ -27,11 +27,6 @@ namespace WebVolait.Models
         [Display(Name = "Número de Telefone")]
         public string TelefoneFuncionario { get; set; }
 
-        [Display(Name = "Login")]
-        [Required(ErrorMessage = "O campo é obrigatório")]
-        [MaxLength(50)]
-        public string LoginFuncionario { get; set; }
-
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         [Required(ErrorMessage = "O campo é obrigatório")]

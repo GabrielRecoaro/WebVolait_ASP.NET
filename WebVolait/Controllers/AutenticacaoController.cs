@@ -17,6 +17,11 @@ namespace WebVolait.Controllers
             return View();
         }
 
+        public ActionResult InsertFuncionario()
+        {
+            return View();
+        }
+
         [HttpPost]
 
         public ActionResult InsertCliente(CadastroClienteViewModel viewmodel) 
