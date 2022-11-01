@@ -43,7 +43,7 @@ namespace WebVolait.Models
         public void InsertCliente(Cliente cliente)
         {
             conexao.Open();
-            command.CommandText = "call spInsertCli (@CPFCliente, @NomeCliente, @NomeSocialCliente, @NomeCliente, @EmailCliente, @TelefoneCliente, @SenhaCliente);";
+            command.CommandText = "call spInsertCli (@CPFCliente, @NomeCliente, @NomeSocialCliente, @EmailCliente, @TelefoneCliente, @SenhaCliente);";
             command.Parameters.Add("@CPFCliente", MySqlDbType.VarChar).Value = cliente.CPFCliente;
             command.Parameters.Add("@NomeCliente", MySqlDbType.VarChar).Value = cliente.NomeCliente;
             command.Parameters.Add("@NomeSocialCliente", MySqlDbType.VarChar).Value = cliente.NomeSocialCliente;
