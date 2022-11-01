@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Xml.Linq;
 
-namespace WebVolait.Models
+namespace WebVolait.ViewModels
 {
-    public class Funcionario
+    public class CadastroFuncionarioViewModel
     {
 
         public int CPFFuncionario { get; set; }
@@ -37,11 +37,19 @@ namespace WebVolait.Models
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         public string SenhaFuncionario { get; set; }
-  
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirme sua senha")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(100)]
+        [Compare("Password", ErrorMessage = "As senhas não coincidem")]
+        public string ConfirmaSenhaFuncionario { get; set; }
+
         [Display(Name = "")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         public string FuncaoFuncionario { get; set; }
+
 
     }
 }
