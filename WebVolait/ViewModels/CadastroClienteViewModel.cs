@@ -13,6 +13,10 @@ namespace WebVolait.ViewModels
     {
 
         [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "CPF", AutoGenerateFilter = false)]
+        public int CPFCliente { get; set; }
+
+        [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         [Display(Name = "Nome", AutoGenerateFilter = false)]
         public string NomeCliente { get; set; }
@@ -27,13 +31,6 @@ namespace WebVolait.ViewModels
         [Display(Name = "Número de Telefone")]
         public string TelefoneCliente { get; set; }
 
-        [Display(Name = "Endereço")]
-        public string EnderecoCliente { get; set; }
-
-        [Display(Name = "Login")]
-        [Required(ErrorMessage = "O campo é obrigatório")]
-        [MaxLength(50)]
-        public string LoginCliente { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
@@ -41,11 +38,12 @@ namespace WebVolait.ViewModels
         [MaxLength(100)]
         public string SenhaCliente { get; set; }
 
-        [DataType(DataType.Password)]
+       
         [Display(Name = "Confirme sua senha")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        [Compare("Password", ErrorMessage = "As senhas não coincidem")]
+        [DataType(DataType.Password)]
+        [Compare(nameof(SenhaCliente), ErrorMessage = "As senhas não coincidem")]
         public string ConfirmaSenhaCliente { get; set; }
 
     }
