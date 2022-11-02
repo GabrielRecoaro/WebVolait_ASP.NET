@@ -8,7 +8,7 @@ using WebVolait.ViewModels;
 
 namespace WebVolait.Controllers
 {
-    public class AutenticacaoController : Controller
+    public class AutenticacaoClienteController : Controller
     {
         [HttpGet]
         
@@ -17,10 +17,6 @@ namespace WebVolait.Controllers
             return View();
         }
 
-        public ActionResult InsertFuncionario()
-        {
-            return View();
-        }
 
         [HttpPost]
 
@@ -40,9 +36,13 @@ namespace WebVolait.Controllers
                 SenhaCliente = viewmodel.SenhaCliente
 
             };
+
             novocliente.InsertCliente(novocliente);
             
             return RedirectToAction("Index", "Home"); 
+
         }
+
+
     }
 }

@@ -9,6 +9,7 @@ namespace WebVolait.ViewModels
 {
     public class CadastroFuncionarioViewModel
     {
+        [Display(Name = "CPF")]
         public int CPFFuncionario { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
@@ -36,10 +37,10 @@ namespace WebVolait.ViewModels
         [Display(Name = "Confirme sua senha")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        [Compare("Password", ErrorMessage = "As senhas não coincidem")]
+        [Compare(nameof(SenhaFuncionario), ErrorMessage = "As senhas não coincidem")]
         public string ConfirmaSenhaFuncionario { get; set; }
 
-        [Display(Name = "")]
+        [Display(Name = "Função")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         public string FuncaoFuncionario { get; set; }

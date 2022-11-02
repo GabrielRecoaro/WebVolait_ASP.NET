@@ -138,7 +138,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Controllers\AutenticacaoController.cs" />
+    <Compile Include="Controllers\AutenticacaoClienteController.cs" />
+    <Compile Include="Controllers\AutenticacaoFuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,8 +194,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Autenticacao\InsertCliente.cshtml" />
-    <Content Include="Views\Autenticacao\InsertFuncionario.cshtml" />
+    <Content Include="Views\AutenticacaoCliente\InsertCliente.cshtml" />
+    <Content Include="Views\Home\Cadastro.cshtml" />
+    <Content Include="Views\AutenticacaoFuncionario\InsertFuncionario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
