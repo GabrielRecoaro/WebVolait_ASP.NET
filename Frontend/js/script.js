@@ -55,18 +55,21 @@ navigationMenu.init();
 let scrollPage = window.pageYOffset;
 let header = document.querySelector(".header");
 
-window.addEventListener("scroll", () => {
-    let lastScrollPage = window.pageYOffset;
-    if(scrollPage > lastScrollPage) {
-        header.style.top = "0";
-        if(lastScrollPage > 0) {
-            header.classList.add("header--shadow");
+if(header) {
+    window.addEventListener("scroll", () => {
+        let lastScrollPage = window.pageYOffset;
+        if(scrollPage > lastScrollPage) {
+            header.style.top = "0";
+            if(lastScrollPage > 0) {
+                header.classList.add("header--shadow");
+            } else {
+                header.classList.remove("header--shadow");
+            }
         } else {
-            header.classList.remove("header--shadow");
+            hideHeader = (window.innerHeight) / 8;
+            header.style.top = `-${hideHeader}px`;
         }
-    } else {
-        hideHeader = (window.innerHeight) / 8;
-        header.style.top = `-${hideHeader}px`;
-    }
-    scrollPage = lastScrollPage;
-});
+        scrollPage = lastScrollPage;
+    });
+}
+
