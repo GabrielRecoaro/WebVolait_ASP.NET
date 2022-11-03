@@ -9,7 +9,5 @@ html {
 body {
 	font-size: $body-text;
 	font-family: "Inter", sans-serif;
-	width: 100vw;
-	max-width: 100%;
-	overflow-x: none;
+	overflow-x: hidden;
 }
