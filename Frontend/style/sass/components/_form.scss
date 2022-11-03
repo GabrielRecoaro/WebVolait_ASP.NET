@@ -9,9 +9,12 @@
     }
     &__text {
         text-align: right;
+        color: $grey-color;
+        margin: 20px 0;
+        line-height: 24px;
     }
     &__text {
-        margin: 10px;
+        margin: 10px 0;
     }
     &__accent-text {
         a {

@@ -1,5 +1,6 @@
 .content-main.login,
-.content-main.sign-up {
+.content-main.sign-up,
+.content-main.contact {
     .container {
         width: 100vw;
         max-width: 100%;
@@ -24,7 +25,6 @@
         flex-direction: column;
         align-items: flex;
         justify-content: space-between;
-
         color: $white-color;
         font-size: $body-text;
         &__bottom {
@@ -63,9 +63,20 @@
         .form {
             display: block;
             width: 100%;
+            &__text {
+                text-align: left;
+            }
             &__accent-text {
                 color: $primary-color;
             }
         }
+    }
+}
+.content-main.margin {
+    margin-top: 12vh;
+}
+@media (max-width: 110px) {
+    .content-main.margin {
+        margin-top: 10vh;
     }
 }
