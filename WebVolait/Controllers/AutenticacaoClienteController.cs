@@ -17,7 +17,6 @@ namespace WebVolait.Controllers
             return View();
         }
 
-
         [HttpPost]
 
         public ActionResult InsertCliente(CadastroClienteViewModel viewmodel) 
@@ -42,7 +41,5 @@ namespace WebVolait.Controllers
             return RedirectToAction("Index", "Home"); 
 
         }
-
-
     }
 }
