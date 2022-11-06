@@ -27,10 +27,10 @@ namespace WebVolait.Controllers
             return View(cliente);
         }
 
-        public ActionResult SelectLogin(string vEmailCliente)
+        public ActionResult SelectLogin(string vLoginCliente)
         {
             bool LoginExists;
-            string login = new Cliente().SelectLogin(vEmailCliente);
+            string login = new Cliente().SelectLogin(vLoginCliente);
 
             if (login.Length == 0)
                 LoginExists = false;
@@ -65,7 +65,7 @@ namespace WebVolait.Controllers
                 CPFCliente = viewmodel.CPFCliente,
                 NomeCliente = viewmodel.NomeCliente,
                 NomeSocialCliente = viewmodel.NomeSocialCliente,
-                EmailCliente = viewmodel.EmailCliente,
+                LoginCliente = viewmodel.LoginCliente,
                 TelefoneCliente = viewmodel.TelefoneCliente,
                 SenhaCliente = viewmodel.SenhaCliente
 

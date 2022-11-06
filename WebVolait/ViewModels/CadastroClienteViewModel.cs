@@ -26,7 +26,7 @@ namespace WebVolait.ViewModels
         public string NomeSocialCliente { get; set; }
 
         [Display(Name = "E-mail")]
-        public string EmailCliente { get; set; }
+        public string LoginCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(11)]

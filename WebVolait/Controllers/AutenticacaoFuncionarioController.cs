@@ -39,7 +39,7 @@ namespace WebVolait.Controllers
                 CPFFuncionario = viewmodel.CPFFuncionario,
                 NomeFuncionario = viewmodel.NomeFuncionario,
                 NomeSocialFuncionario = viewmodel.NomeSocialFuncionario,
-                EmailFuncionario = viewmodel.EmailFuncionario,
+                LoginFuncionario = viewmodel.LoginFuncionario,
                 TelefoneFuncionario = viewmodel.TelefoneFuncionario,
                 SenhaFuncionario = viewmodel.SenhaFuncionario,
                 FuncaoFuncionario = viewmodel.FuncaoFuncionario

@@ -22,7 +22,7 @@ namespace WebVolait.ViewModels
         public string NomeSocialFuncionario { get; set; }
 
         [Display(Name = "E-mail")]
-        public string EmailFuncionario { get; set; }
+        public string LoginFuncionario { get; set; }
 
         [Display(Name = "Número de Telefone")]
         public string TelefoneFuncionario { get; set; }
