@@ -155,9 +155,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\Acoes.cs" />
     <Compile Include="Repositorio\Conexao.cs" />
+    <Compile Include="Utils\Hash.cs" />
     <Compile Include="ViewModels\CadastroClienteViewModel.cs" />
     <Compile Include="ViewModels\CadastroFuncionarioViewModel.cs" />
-    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\LoginClienteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -202,6 +203,8 @@
     <Content Include="Views\AutenticacaoCliente\ListarCliente.cshtml" />
     <Content Include="Views\Home\Notes.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\ListarFuncionario.cshtml" />
+    <Content Include="Views\Gerenciador\Index.cshtml" />
+    <Content Include="Views\AutenticacaoCliente\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

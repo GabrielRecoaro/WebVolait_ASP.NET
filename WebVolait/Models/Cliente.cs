@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Xml.Linq;
 
 namespace WebVolait.Models
@@ -25,6 +26,7 @@ namespace WebVolait.Models
         public string NomeSocialCliente { get; set; }
 
         [Display(Name = "E-mail")]
+        [Remote ("SelectLogin","AutenticacaoCliente", ErrorMessage ="O login já existe!")]
         public string EmailCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
@@ -56,19 +58,20 @@ namespace WebVolait.Models
             conexao.Close();
         }
 
-        public string SelectLogin(string vLogin)
+        public string SelectLogin(string vEmailCliente)
         {
             conexao.Open();
-            command.CommandText = "call spSelectLogin (@LoginCliente);";
-            command.Parameters.Add("@LoginCliente", MySqlDbType.String).Value = vLogin;
+            command.CommandText = "CALL spSelectLogin(@EmailCliente);";
+            command.Parameters.Add("@EmailCliente", MySqlDbType.VarChar).Value = vEmailCliente;
             command.Connection = conexao;
-
-            string Login = (string)command.ExecuteScalar();
+            string EmailCliente = (string)command.ExecuteScalar(); // ExecuteScalar: RETORNAR APENAS 1 VALOR
             conexao.Close();
-            if (Login == null)
-                Login = "";
 
-            return Login;
+            if (EmailCliente == null)
+                EmailCliente = "";
+            return EmailCliente;
         }
+
+
     }
 }
