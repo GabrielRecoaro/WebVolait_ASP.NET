@@ -24,7 +24,7 @@ namespace WebVolait.Models
         public string NomeSocialFuncionario { get; set; }
 
         [Display(Name = "E-mail")]
-        public string EmailFuncionario { get; set; }
+        public string LoginFuncionario { get; set; }
 
         [Display(Name = "Número de Telefone")]
         public string TelefoneFuncionario { get; set; }
@@ -46,11 +46,11 @@ namespace WebVolait.Models
         public void InsertFuncionario(Funcionario funcionario)
         {
             conexao.Open();
-            command.CommandText = "call spInsertFunc (@CPFFuncionario, @NomeFuncionario, @NomeSocialFuncionario, @EmailFuncionario, @TelefoneFuncionario, @SenhaFuncionario, @IdFuncao);";
+            command.CommandText = "call spInsertFunc (@CPFFuncionario, @NomeFuncionario, @NomeSocialFuncionario, @LoginFuncionario, @TelefoneFuncionario, @SenhaFuncionario, @IdFuncao);";
             command.Parameters.Add("@CPFFuncionario", MySqlDbType.VarChar).Value = funcionario.CPFFuncionario;
             command.Parameters.Add("@NomeFuncionario", MySqlDbType.VarChar).Value = funcionario.NomeFuncionario;
             command.Parameters.Add("@NomeSocialFuncionario", MySqlDbType.VarChar).Value = funcionario.NomeSocialFuncionario;
-            command.Parameters.Add("@EmailFuncionario", MySqlDbType.VarChar).Value = funcionario.EmailFuncionario;
+            command.Parameters.Add("@LoginFuncionario", MySqlDbType.VarChar).Value = funcionario.LoginFuncionario;
             command.Parameters.Add("@TelefoneFuncionario", MySqlDbType.VarChar).Value = funcionario.TelefoneFuncionario;
             command.Parameters.Add("@SenhaFuncionario", MySqlDbType.VarChar).Value = funcionario.SenhaFuncionario;
             command.Parameters.Add("@IdFuncao", MySqlDbType.VarChar).Value = funcionario.FuncaoFuncionario;

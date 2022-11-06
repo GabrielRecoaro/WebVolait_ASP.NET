@@ -9,6 +9,7 @@ using WebVolait.Models;
 using WebVolait.Repositorio;
 using WebVolait.ViewModels;
 using WebVolait.Utils;
+using Hash = WebVolait.Utils.Hash;
 
 namespace WebVolait.Controllers
 {
@@ -86,13 +87,13 @@ namespace WebVolait.Controllers
             Cliente cliente = new Cliente();
             cliente = cliente.SelectCliente(viewmodel.Login);
 
-            if (cliente == null | cliente.Login != viewmodel.Login)
+            if (cliente == null | cliente.LoginCliente != viewmodel.Login)
             {
                 ModelState.AddModelError("Login", "Login incorreto");
                 return View(viewmodel);
             }
 
-            if (cliente.Senha != Hash.GerarHash(viewmodel.Senha))
+            if (cliente.SenhaCliente != Hash.GerarHash(viewmodel.Senha))
             {
                 ModelState.AddModelError("Senha", "Senha incorreta");
                 return View(viewmodel);
@@ -100,8 +101,8 @@ namespace WebVolait.Controllers
 
             var identity = new ClaimsIdentity(new[]
             {
-                new Claim(ClaimTypes.Name, cliente.Login),
-                new Claim("Login", cliente.Login)
+                new Claim(ClaimTypes.Name, cliente.LoginCliente),
+                new Claim("LoginCliente", cliente.LoginCliente)
             }, "AppAplicationCookie");
 
             Request.GetOwinContext().Authentication.SignIn(identity);

@@ -27,7 +27,7 @@ namespace WebVolait.Models
 
         [Display(Name = "E-mail")]
         [Remote ("SelectLogin","AutenticacaoCliente", ErrorMessage ="O login já existe!")]
-        public string EmailCliente { get; set; }
+        public string LoginCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(11)]
@@ -46,11 +46,11 @@ namespace WebVolait.Models
         public void InsertCliente(Cliente cliente)
         {
             conexao.Open();
-            command.CommandText = "call spInsertCli (@CPFCliente, @NomeCliente, @NomeSocialCliente, @EmailCliente, @TelefoneCliente, @SenhaCliente);";
+            command.CommandText = "call spInsertCli (@CPFCliente, @NomeCliente, @NomeSocialCliente, @LoginCliente, @TelefoneCliente, @SenhaCliente);";
             command.Parameters.Add("@CPFCliente", MySqlDbType.VarChar).Value = cliente.CPFCliente;
             command.Parameters.Add("@NomeCliente", MySqlDbType.VarChar).Value = cliente.NomeCliente;
             command.Parameters.Add("@NomeSocialCliente", MySqlDbType.VarChar).Value = cliente.NomeSocialCliente;
-            command.Parameters.Add("@EmailCliente", MySqlDbType.VarChar).Value = cliente.EmailCliente;
+            command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = cliente.LoginCliente;
             command.Parameters.Add("@TelefoneCliente", MySqlDbType.VarChar).Value = cliente.TelefoneCliente;
             command.Parameters.Add("@SenhaCliente", MySqlDbType.VarChar).Value = cliente.SenhaCliente;
             command.Connection = conexao;
@@ -58,18 +58,43 @@ namespace WebVolait.Models
             conexao.Close();
         }
 
-        public string SelectLogin(string vEmailCliente)
+        public string SelectLogin(string vLoginCliente)
         {
             conexao.Open();
-            command.CommandText = "CALL spSelectLogin(@EmailCliente);";
-            command.Parameters.Add("@EmailCliente", MySqlDbType.VarChar).Value = vEmailCliente;
+            command.CommandText = "CALL spSelectLogin(@LoginCliente);";
+            command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = vLoginCliente;
             command.Connection = conexao;
-            string EmailCliente = (string)command.ExecuteScalar(); // ExecuteScalar: RETORNAR APENAS 1 VALOR
+            string LoginCliente = (string)command.ExecuteScalar(); // ExecuteScalar: RETORNAR APENAS 1 VALOR
             conexao.Close();
 
-            if (EmailCliente == null)
-                EmailCliente = "";
-            return EmailCliente;
+            if (LoginCliente == null)
+                LoginCliente = "";
+            return LoginCliente;
+        }
+
+        public Cliente SelectCliente(string vLogin)
+        {
+            conexao.Open();
+            command.CommandText = "CALL spSelectCliente(@LoginCliente);";
+            command.Parameters.Add("@Login", MySqlDbType.VarChar).Value = vLogin;
+            command.Connection = conexao;
+            var readCliente = command.ExecuteReader();
+            var tempCliente = new Cliente();
+
+            if (readCliente.Read())
+            {
+                tempCliente.CPFCliente = (readCliente["CPFCliente"].ToString());
+                tempCliente.NomeCliente = readCliente["NomeCliente"].ToString();
+                tempCliente.NomeSocialCliente = readCliente["NomeSocialCliente"].ToString();
+                tempCliente.LoginCliente = readCliente["LoginCliente"].ToString();
+                tempCliente.TelefoneCliente = readCliente["TelefoneCliente"].ToString();
+                tempCliente.SenhaCliente = readCliente["Senha"].ToString();
+            };
+
+            readCliente.Close();
+            conexao.Close();
+
+            return tempCliente;
         }
 
 
