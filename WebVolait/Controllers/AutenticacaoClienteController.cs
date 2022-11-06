@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebVolait.Models;
+using WebVolait.Repositorio;
 using WebVolait.ViewModels;
 
 namespace WebVolait.Controllers
@@ -16,6 +17,15 @@ namespace WebVolait.Controllers
         {
             return View();
         }
+
+        public ActionResult Cliente()
+        {
+            var cliente = new Cliente();
+            return View(cliente);
+        }
+
+        Acoes ac = new Acoes();
+
 
         [HttpPost]
 
@@ -38,7 +48,15 @@ namespace WebVolait.Controllers
 
             novocliente.InsertCliente(novocliente);
             
-            return RedirectToAction("Index", "Home"); 
+            return RedirectToAction("ListarCliente", "AutenticacaoCliente"); 
+
+        }
+
+        public ActionResult ListarCliente()
+        {
+            var ExibirFunc = new Acoes();
+            var TodosFunc = ExibirFunc.ListarCliente();
+            return View(TodosFunc);
 
         }
     }

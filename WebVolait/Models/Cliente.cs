@@ -11,7 +11,9 @@ namespace WebVolait.Models
 {
     public class Cliente
     {
-        public int CPFCliente { get; set; }
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(9)]
+        public string CPFCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
@@ -25,11 +27,10 @@ namespace WebVolait.Models
         [Display(Name = "E-mail")]
         public string EmailCliente { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(11)]
         [Display(Name = "Número de Telefone")]
         public string TelefoneCliente { get; set; }
-
-        [Display(Name = "Endereço")]
-        public string EnderecoCliente { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
