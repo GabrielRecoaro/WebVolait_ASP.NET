@@ -11,8 +11,8 @@ namespace WebVolait.Models
 {
     public class Funcionario
     {
-
-        public int CPFFuncionario { get; set; }
+        [Display(Name = "CPF")]
+        public string CPFFuncionario { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
@@ -34,11 +34,11 @@ namespace WebVolait.Models
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         public string SenhaFuncionario { get; set; }
-  
-        [Display(Name = "")]
+
+        [Display(Name = "Função")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        public string FuncaoFuncionario { get; set; }
+        public int FuncaoFuncionario { get; set; }
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();

@@ -200,6 +200,8 @@
     <Content Include="Views\Home\Cadastro.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\InsertFuncionario.cshtml" />
     <Content Include="Views\AutenticacaoCliente\ListarCliente.cshtml" />
+    <Content Include="Views\Home\Notes.cshtml" />
+    <Content Include="Views\AutenticacaoFuncionario\ListarFuncionario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,7 +10,7 @@ namespace WebVolait.ViewModels
     public class CadastroFuncionarioViewModel
     {
         [Display(Name = "CPF")]
-        public int CPFFuncionario { get; set; }
+        public string CPFFuncionario { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
@@ -43,6 +43,6 @@ namespace WebVolait.ViewModels
         [Display(Name = "Função")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        public string FuncaoFuncionario { get; set; }
+        public int FuncaoFuncionario { get; set; }
     }
 }
