@@ -31,9 +31,9 @@ namespace WebVolait.Controllers
         public ActionResult SelectLogin(string vLoginCliente)
         {
             bool LoginExists;
-            string login = new Cliente().SelectLogin(vLoginCliente);
+            string logincliente = new Cliente().SelectLogin(vLoginCliente);
 
-            if (login.Length == 0)
+            if (logincliente.Length == 0)
                 LoginExists = false;
             else
                 LoginExists = true;
@@ -41,7 +41,7 @@ namespace WebVolait.Controllers
             return Json(!LoginExists, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Login(string ReturnUrl)
+        public ActionResult LoginCliente(string ReturnUrl)
         {
             var viewmodel = new LoginClienteViewModel
             {
@@ -68,7 +68,7 @@ namespace WebVolait.Controllers
                 NomeSocialCliente = viewmodel.NomeSocialCliente,
                 LoginCliente = viewmodel.LoginCliente,
                 TelefoneCliente = viewmodel.TelefoneCliente,
-                SenhaCliente = viewmodel.SenhaCliente
+                SenhaCliente = Hash.GerarHash(viewmodel.SenhaCliente)
 
             };
 
@@ -85,11 +85,11 @@ namespace WebVolait.Controllers
                 return View(viewmodel);
             }
             Cliente cliente = new Cliente();
-            cliente = cliente.SelectCliente(viewmodel.Login);
+            cliente = cliente.SelectCliente(viewmodel.LoginCliente);
 
-            if (cliente == null | cliente.LoginCliente != viewmodel.Login)
+            if (cliente == null | cliente.LoginCliente != viewmodel.LoginCliente)
             {
-                ModelState.AddModelError("Login", "Login incorreto");
+                ModelState.AddModelError("LoginCliente", "Login incorreto");
                 return View(viewmodel);
             }
 
@@ -110,9 +110,16 @@ namespace WebVolait.Controllers
             if (!String.IsNullOrWhiteSpace(viewmodel.urlRetorno) || Url.IsLocalUrl(viewmodel.urlRetorno))
                 return Redirect(viewmodel.urlRetorno);
             else
-                return RedirectToAction("Index", "Administrativo");
+                return RedirectToAction("Index", "Gerenciador");
             return View();
 
+        }
+
+
+        public ActionResult Logout()
+        {
+            Request.GetOwinContext().Authentication.SignOut("AppAplicationCookie");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult ListarCliente()

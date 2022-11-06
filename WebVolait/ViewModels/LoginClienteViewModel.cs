@@ -12,7 +12,7 @@ namespace WebVolait.ViewModels
 
         [Required(ErrorMessage = "Informe o Login")]
         [MaxLength(50, ErrorMessage = "O Login deve ter até 50 caracteres")]
-        public string Login { get; set; }
+        public string LoginCliente { get; set; }
 
         [Required(ErrorMessage = "Informe a Senha")]
         [MinLength(6, ErrorMessage = "A Senha deve ter pelo menos 6 caracteres")]

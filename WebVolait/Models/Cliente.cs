@@ -72,11 +72,11 @@ namespace WebVolait.Models
             return LoginCliente;
         }
 
-        public Cliente SelectCliente(string vLogin)
+        public Cliente SelectCliente(string vLoginCliente)
         {
             conexao.Open();
-            command.CommandText = "CALL spSelectCliente(@LoginCliente);";
-            command.Parameters.Add("@Login", MySqlDbType.VarChar).Value = vLogin;
+            command.CommandText = "CALL spSelectUsuarioCliente(@LoginCliente);";
+            command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = vLoginCliente;
             command.Connection = conexao;
             var readCliente = command.ExecuteReader();
             var tempCliente = new Cliente();
@@ -96,7 +96,5 @@ namespace WebVolait.Models
 
             return tempCliente;
         }
-
-
     }
 }
