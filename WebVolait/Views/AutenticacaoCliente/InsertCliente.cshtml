@@ -4,85 +4,143 @@
     ViewBag.Title = "InsertCliente";
 }
 
-<h2>Cadastre-se como Cliente</h2>
+@*<h2>Cadastre-se como Cliente</h2>
 
-<p> Preencha os seguintes campos:</p>
+    <p> Preencha os seguintes campos:</p>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4></h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CPFCliente, "", new { @class = "text-danger" })
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4></h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CPFCliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomeCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NomeCliente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NomeCliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomeSocialCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NomeSocialCliente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NomeSocialCliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LoginCliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TelefoneCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TelefoneCliente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TelefoneCliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SenhaCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SenhaCliente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SenhaCliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ConfirmaSenhaCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ConfirmaSenhaCliente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ConfirmaSenhaCliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
         </div>
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NomeCliente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NomeCliente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NomeCliente, "", new { @class = "text-danger" })
+    <div>
+        @Html.ActionLink("Cancelar", "Index")
+    </div>*@
+
+
+    <main class="content-main sign-up">
+        <div class="container">
+            <div class="side-content">
+                <h1 class="side-content__logo"><a href="#">VOLAIT</a></h1>
+                <div class="side-content__bottom">
+                    <h2 class="side-content__text">Bem vindo de volta <br class="line-break">a Volait</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi expedita est sapiente qui neque in omnis consectetur pariatur voluptate consequuntur atque, odit quia eveniet iusto rem?
+                    </p>
+                    <picture class="side-content__image">
+                        <img src="./images/sign-up.png" alt="">
+                    </picture>
+                </div>
+            </div>
+            <div class="form-container">
+                <form class="form form-login" action="#">
+                    <div class="form__area-flex-title">
+                        <h2 class="form__title">Cadastro</h2>
+                    </div>
+                    <!-- <div class="form__area-flex">
+                    </div> -->
+                    <div class="form__area">
+                        <input class="form__area__input" type="text" name="name" id="input-name" required>
+                        <label class="form__area__label" for="input-name">Nome</label>
+                    </div>
+                    <div class="form__area">
+                        <input class="form__area__input" type="text" name="social-name" id="input-social-name" required>
+                        <label class="form__area__label" for="input-social-name">Nome social</label>
+                    </div>
+                    <div class="form__area">
+                        <input class="form__area__input" type="text" name="email" id="input-email" required>
+                        <label class="form__area__label" for="input-email">Email</label>
+                    </div>
+                    <div class="form__area">
+                        <input class="form__area__input" type="text" name="telephone" id="input-telephone" required>
+                        <label class="form__area__label" for="input-telephone">Telefone</label>
+                    </div>
+                    <div class="form__area">
+                        <input class="form__area__input" type="text" name="cpf" id="input-cpf" required>
+                        <label class="form__area__label" for="input-cpf">CPF</label>
+                    </div>
+                    <div class="form__area">
+                        <input class="form__area__input" type="text" name="password" id="password" required>
+                        <label class="form__area__label" for="password">Senha</label>
+                    </div>
+                    <div class="form__area">
+                        <input class="form__area__input" type="text" name="confirm-password" id="confirm-password" required>
+                        <label class="form__area__label" for="confirm-password">Confirmar senha</label>
+                    </div>
+                    <input class="button button--submit" type="submit" value="Cadastrar-se">
+                </form>
+                <p>Já possui cadastro? <a class="form__accent-text" href="#">Faça seu login</a></span></p>
             </div>
         </div>
+    </main>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NomeSocialCliente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NomeSocialCliente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NomeSocialCliente, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoginCliente, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TelefoneCliente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TelefoneCliente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TelefoneCliente, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SenhaCliente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SenhaCliente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SenhaCliente, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ConfirmaSenhaCliente, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ConfirmaSenhaCliente, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ConfirmaSenhaCliente, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Cancelar", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
