@@ -10,6 +10,9 @@ namespace WebVolait
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/script").Include(
+                        "~/Scripts/script.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -24,6 +27,7 @@ namespace WebVolait
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/style.css",
                       "~/Content/site.css"));
         }
     }

@@ -1,44 +1,157 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    @*<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>*@
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="./style/css/style.css">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+        <script defer src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+
+        <script defer src="js/jquery-3.5.1.min.js"></script>
+        <script defer src="js/script.js"></script>
+
+        <title>Volait | Descubra o mundo conosco</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="mais opções">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="mais opções">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Página Inicial", "Index", "Home")</li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Cadastre-se", "Cadastro", "Home")</li>
+                        <li>@Html.ActionLink("Login", "LoginCliente", "AutenticacaoCliente")</li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Página Inicial", "Index", "Home")</li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Cadastre-se", "Cadastro", "Home")</li>
-                    <li>@Html.ActionLink("Login", "LoginCliente", "AutenticacaoCliente")</li>
-                </ul>
+        </div>*@
+
+    <header class="header">
+        <div class="container">
+            <a class="header__logo" href="index.html">
+                <img src="~/images/logo.png" alt="Logotipo">
+            </a>
+            <div class="header__navbar">
+                <div class="header__navbar__mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="header__navbar__navigation-menu">
+                    <ul class="header__navbar__navigation-menu__list">
+                        <li class="header__navbar__navigation-menu__list__item"><a class="active" href="">Home</a></li>
+                        <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
+                        <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
+                        <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
+                        <li class="header__navbar__navigation-menu__list__item"><a href="">Login</a></li>
+                        <button class="button">
+                            <a href="#">Cadastrar-se</a>
+                        </button>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </div>
+    </header>
+
+    @RenderBody()
+
     <div class="container body-content">
-        @RenderBody()
+
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+            </footer>*@
+
+        <footer class="footer">
+            <div class="footer__upper">
+                <div class="footer__upper__content">
+                    <img class="logo" src="~/images/logo.png" alt="Logotipo">
+                    <p>
+                        Nulla ultrices interdum sit ultricies venenatis fames molestie. Donec pharetra in sed odio
+                        sapien.
+                        Quisque elementum dignissim nec pretium nibh sit in nulla sed.
+                    </p>
+                    <div class="footer__upper__content__socialmedia">
+                        <div class="socialmedia__icon">
+                            <iconify-icon icon="akar-icons:instagram-fill"></iconify-icon>
+                        </div>
+                        <div class="socialmedia__icon">
+                            <iconify-icon icon="brandico:facebook"></iconify-icon>
+                        </div>
+                        <div class="socialmedia__icon">
+                            <iconify-icon icon="akar-icons:linkedin-fill"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__upper__nav">
+                    <ul class="footer__upper__nav__list">
+                        <li class="footer__upper__nav__list__item title"><a href="#">Sobre nós</a></li>
+                        <li class="footer__upper__nav__list__item"><a href="#">Contato</a></li>
+                        <li class="footer__upper__nav__list__item"><a href="#">História</a></li>
+                        <li class="footer__upper__nav__list__item">
+                            <a href="#">Missão, visão e valores</a>
+                        </li>
+                    </ul>
+                    <ul class="footer__upper__nav__list">
+                        <li class="footer__upper__nav__list__item title"><a href="#">Sobre nós</a></li>
+                        <li class="footer__upper__nav__list__item"><a href="#">Contato</a></li>
+                        <li class="footer__upper__nav__list__item"><a href="#">História</a></li>
+                        <li class="footer__upper__nav__list__item">
+                            <a href="#">Missão, visão e valores</a>
+                        </li>
+                    </ul>
+                    <ul class="footer__upper__nav__list">
+                        <li class="footer__upper__nav__list__item title"><a href="#">Legal</a></li>
+                        <li class="footer__upper__nav__list__item"><a href="#">Privacidade</a></li>
+                        <li class="footer__upper__nav__list__item"><a href="#">Termos de uso</a></li>
+                        <li class="footer__upper__nav__list__item"><a href="#">Cookies</a></li>
+                        <li class="footer__upper__nav__list__item"><a href="#">Mapa do site</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="footer__lower">
+                <p class="footer__lower__copyright">
+                    <span>&#169;</span> 2022 Volait - Todos os Direitos Reservados
+                </p>
+                <p class="footer__lower__developers">
+                    <iconify-icon icon="entypo:code"></iconify-icon>Desenvolvido por <a href="#" target="_blank" rel="noopener noreferrer"> Ahrus</a>
+                </p>
+            </div>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/script")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

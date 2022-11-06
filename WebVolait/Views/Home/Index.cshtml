@@ -2,8 +2,44 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Boas Vindas à Volait</h1>
-    <p class="lead">Cadastre-se, encontre e viage!</p>
-
-</div>
+<main class="content-main home">
+    <section class="hero">
+        <div class="hero__content">
+            <h1 class="hero__content__title">
+                Descubra o mundo com a
+                Volait
+            </h1>
+            <p class="hero__content__text">Aqui você acha as melhores passagens, tudo isso à um click de distancia</p>
+            <button class="hero__content__button">Explorar</button>
+        </div>
+        <form method="get" class="hero__filter-bar">
+            <div class="hero__filter-bar__parameters">
+                <label for="input_local">Escolha o seu destino</label>
+                <div class="hero__filter-bar__parameters__input-box">
+                    <iconify-icon icon="ph:map-pin-fill"></iconify-icon>
+                    <input type="text" name="local" id="input_local">
+                </div>
+            </div>
+            <div class="hero__filter-bar__parameters">
+                <label for="input_date">Para quando?</label>
+                <div class="hero__filter-bar__parameters__input-box">
+                    <iconify-icon icon="ant-design:calendar-filled"></iconify-icon>
+                    <input type="date" name="date" id="input_date">
+                </div>
+            </div>
+            <div class="hero__filter-bar__parameters">
+                <label for="input_price">Preço desejado</label>
+                <div class="hero__filter-bar__parameters__input-box">
+                    <iconify-icon icon="ion:pricetag"></iconify-icon>
+                    <select name="price" id="input_price">
+                        <option value="1">800-1000</option>
+                        <option value="2">1000-1500</option>
+                        <option value="3">1500-4000</option>
+                        <option value="4">4000 ou mais</option>
+                    </select>
+                </div>
+            </div>
+            <button class="hero__filter-bar__button">Pesquisar</button>
+        </form>
+    </section>
+</main>
