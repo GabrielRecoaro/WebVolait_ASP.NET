@@ -32,7 +32,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body class="login">
     @*<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -68,11 +68,11 @@
                 </div>
                 <nav class="header__navbar__navigation-menu">
                     <ul class="header__navbar__navigation-menu__list">
-                        <li class="header__navbar__navigation-menu__list__item"><a class="active" href="">Home</a></li>
+                        <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Página Inicial", "Index", "Home")</li>
                         <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
                         <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
                         <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
-                        <li class="header__navbar__navigation-menu__list__item"><a href="">Login</a></li>
+                        <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Login", "LoginCliente", "AutenticacaoCliente")</li>
                         <button class="button">
                             <a href="#">Cadastrar-se</a>
                         </button>

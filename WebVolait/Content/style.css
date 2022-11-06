@@ -563,7 +563,7 @@ body {
 }
 
     .home-page .hero {
-        background: linear-gradient(89.87deg, #fff 35.82%, rgba(255,255,255,0) 62.94%),url(~/images/hero-background.jpg);
+        background: linear-gradient(89.87deg, #fff 35.82%, rgba(255,255,255,0) 62.94%),url("~/~/images/hero-background.jpg");
         background-position: right bottom;
         background-size: 100% auto;
         border-radius: 10px;
