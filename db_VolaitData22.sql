@@ -8,27 +8,38 @@ create table tb_funcaoFunc
     FuncaoFunc varchar(50)
 );
 
-create table tb_funcionario
-(
-	CPFFuncionario bigint primary key not null,
-    NomeFuncionario varchar(100) not null,
-    NomeSocialFuncionario varchar(100) null,
-    LoginFuncionario varchar(100) not null,
-    TelefoneFuncionario varchar(11) not null,
-    SenhaFuncionario char(6) not null,
+create table tb_usuario(
+    CPFUsuario varchar(15) primary key not null,
+    NomeUsuario varchar(100) not null,
+    NomeSocialUsuario varchar(100) null,
+    LoginUsuario varchar(100) not null,
+    TelefoneUsuario varchar(11) not null,
+    SenhaUsuario char(6) not null,
     IdFuncao int,
     constraint fk_funcao foreign key(IdFuncao) references tb_funcaoFunc(IdFuncao)
 );
 
-create table tb_cliente
-(
-	CPFCliente bigint primary key not null,
-    NomeCliente varchar(100) not null,
-    NomeSocialCliente varchar(100) null,
-    LoginCliente varchar(70) not null,
-    TelefoneCliente varchar(11) not null,
-    SenhaCliente char(6)
-);
+-- create table tb_funcionario
+-- (
+-- 	CPFFuncionario bigint primary key not null,
+--     NomeFuncionario varchar(100) not null,
+--     NomeSocialFuncionario varchar(100) null,
+--     LoginFuncionario varchar(100) not null,
+--     TelefoneFuncionario varchar(11) not null,
+--     SenhaFuncionario char(6) not null,
+--     IdFuncao int,
+--     constraint fk_funcao foreign key(IdFuncao) references tb_funcaoFunc(IdFuncao)
+-- );
+
+-- create table tb_cliente
+-- (
+-- 	CPFCliente bigint primary key not null,
+--     NomeCliente varchar(100) not null,
+--     NomeSocialCliente varchar(100) null,
+--     LoginCliente varchar(70) not null,
+--     TelefoneCliente varchar(11) not null,
+--     SenhaCliente char(6)
+-- );
 
 create table tb_tipoPagto
 (
