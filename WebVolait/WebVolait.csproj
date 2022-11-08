@@ -138,7 +138,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Controllers\AutenticacaoController.cs" />
+    <Compile Include="Controllers\AutenticacaoClienteController.cs" />
+    <Compile Include="Controllers\AutenticacaoFuncionarioController.cs" />
+    <Compile Include="Controllers\GerenciadorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,22 +154,30 @@
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\Voo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\Acoes.cs" />
+    <Compile Include="Repositorio\Conexao.cs" />
+    <Compile Include="Utils\Hash.cs" />
     <Compile Include="ViewModels\CadastroClienteViewModel.cs" />
     <Compile Include="ViewModels\CadastroFuncionarioViewModel.cs" />
-    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\LoginClienteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Image\ico.ico" />
-    <Content Include="Image\logo_horizontal.png" />
-    <Content Include="Image\Logo_Volait.png" />
+    <Content Include="images\hero-background.jpg" />
+    <Content Include="images\ico.ico" />
+    <Content Include="images\login.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo_horizontal.png" />
+    <Content Include="images\Logo_Volait.png" />
+    <Content Include="images\sign-up.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -176,11 +186,13 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -193,7 +205,14 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Autenticacao\InsertCliente.cshtml" />
+    <Content Include="Views\AutenticacaoCliente\InsertCliente.cshtml" />
+    <Content Include="Views\Home\Cadastro.cshtml" />
+    <Content Include="Views\AutenticacaoFuncionario\InsertFuncionario.cshtml" />
+    <Content Include="Views\AutenticacaoCliente\ListarCliente.cshtml" />
+    <Content Include="Views\Home\Notes.cshtml" />
+    <Content Include="Views\AutenticacaoFuncionario\ListarFuncionario.cshtml" />
+    <Content Include="Views\Gerenciador\Index.cshtml" />
+    <Content Include="Views\AutenticacaoCliente\LoginCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

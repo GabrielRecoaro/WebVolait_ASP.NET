@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebVolait.Models.Funcionario>
+
+@{
+    ViewBag.Title = "ListarFuncionario";
+}
+
+<h2>ListarFuncionario</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CPFFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeSocialFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefoneFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SenhaFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuncaoFuncionario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPFFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeSocialFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoginFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefoneFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SenhaFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuncaoFuncionario)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

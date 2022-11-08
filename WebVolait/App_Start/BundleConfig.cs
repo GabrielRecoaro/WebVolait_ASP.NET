@@ -10,9 +10,13 @@ namespace WebVolait
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/script").Include(
+                        "~/Scripts/script.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/jquery-3.5.1.min.js"));
 
             // Use a versão em desenvolvimento do Modernizr para desenvolver e aprender com ela. Após isso, quando você estiver
             // pronto para a produção, utilize a ferramenta de build em https://modernizr.com para escolher somente os testes que precisa.
@@ -24,6 +28,7 @@ namespace WebVolait
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/style.css",
                       "~/Content/site.css"));
         }
     }

@@ -6,14 +6,11 @@ using System.Web.Mvc;
 
 namespace WebVolait.Controllers
 {
-    public class HomeController : Controller
+    public class GerenciadorController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
+        [Authorize]
 
-        public ActionResult Cadastro()
+        public ActionResult Index()
         {
             return View();
         }

@@ -14,7 +14,7 @@ namespace WebVolait.ViewModels
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [Display(Name = "CPF", AutoGenerateFilter = false)]
-        public int CPFCliente { get; set; }
+        public string CPFCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
@@ -26,18 +26,18 @@ namespace WebVolait.ViewModels
         public string NomeSocialCliente { get; set; }
 
         [Display(Name = "E-mail")]
-        public string EmailCliente { get; set; }
+        public string LoginCliente { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(11)]
         [Display(Name = "Número de Telefone")]
         public string TelefoneCliente { get; set; }
-
 
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
         public string SenhaCliente { get; set; }
-
        
         [Display(Name = "Confirme sua senha")]
         [Required(ErrorMessage = "O campo é obrigatório")]

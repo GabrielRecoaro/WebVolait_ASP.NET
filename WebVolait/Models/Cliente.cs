@@ -5,13 +5,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Xml.Linq;
 
 namespace WebVolait.Models
 {
     public class Cliente
     {
-        public int CPFCliente { get; set; }
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(9)]
+        public string CPFCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
@@ -23,13 +26,13 @@ namespace WebVolait.Models
         public string NomeSocialCliente { get; set; }
 
         [Display(Name = "E-mail")]
-        public string EmailCliente { get; set; }
+        [Remote ("SelectLogin","AutenticacaoCliente", ErrorMessage ="O login já existe!")]
+        public string LoginCliente { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(11)]
         [Display(Name = "Número de Telefone")]
         public string TelefoneCliente { get; set; }
-
-        [Display(Name = "Endereço")]
-        public string EnderecoCliente { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
@@ -43,11 +46,11 @@ namespace WebVolait.Models
         public void InsertCliente(Cliente cliente)
         {
             conexao.Open();
-            command.CommandText = "call spInsertCli (@CPFCliente, @NomeCliente, @NomeSocialCliente, @EmailCliente, @TelefoneCliente, @SenhaCliente);";
+            command.CommandText = "call spInsertCli (@CPFCliente, @NomeCliente, @NomeSocialCliente, @LoginCliente, @TelefoneCliente, @SenhaCliente);";
             command.Parameters.Add("@CPFCliente", MySqlDbType.VarChar).Value = cliente.CPFCliente;
             command.Parameters.Add("@NomeCliente", MySqlDbType.VarChar).Value = cliente.NomeCliente;
             command.Parameters.Add("@NomeSocialCliente", MySqlDbType.VarChar).Value = cliente.NomeSocialCliente;
-            command.Parameters.Add("@EmailCliente", MySqlDbType.VarChar).Value = cliente.EmailCliente;
+            command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = cliente.LoginCliente;
             command.Parameters.Add("@TelefoneCliente", MySqlDbType.VarChar).Value = cliente.TelefoneCliente;
             command.Parameters.Add("@SenhaCliente", MySqlDbType.VarChar).Value = cliente.SenhaCliente;
             command.Connection = conexao;
@@ -55,19 +58,43 @@ namespace WebVolait.Models
             conexao.Close();
         }
 
-        public string SelectLogin(string vLogin)
+        public string SelectLogin(string vLoginCliente)
         {
             conexao.Open();
-            command.CommandText = "call spSelectLogin (@LoginCliente);";
-            command.Parameters.Add("@LoginCliente", MySqlDbType.String).Value = vLogin;
+            command.CommandText = "CALL spSelectLogin(@LoginCliente);";
+            command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = vLoginCliente;
             command.Connection = conexao;
-
-            string Login = (string)command.ExecuteScalar();
+            string LoginCliente = (string)command.ExecuteScalar(); // ExecuteScalar: RETORNAR APENAS 1 VALOR
             conexao.Close();
-            if (Login == null)
-                Login = "";
 
-            return Login;
+            if (LoginCliente == null)
+                LoginCliente = "";
+            return LoginCliente;
+        }
+
+        public Cliente SelectCliente(string vLoginCliente)
+        {
+            conexao.Open();
+            command.CommandText = "CALL spSelectUsuarioCliente(@LoginCliente);";
+            command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = vLoginCliente;
+            command.Connection = conexao;
+            var readCliente = command.ExecuteReader();
+            var tempCliente = new Cliente();
+
+            if (readCliente.Read())
+            {
+                tempCliente.CPFCliente = (readCliente["CPFCliente"].ToString());
+                tempCliente.NomeCliente = readCliente["NomeCliente"].ToString();
+                tempCliente.NomeSocialCliente = readCliente["NomeSocialCliente"].ToString();
+                tempCliente.LoginCliente = readCliente["LoginCliente"].ToString();
+                tempCliente.TelefoneCliente = readCliente["TelefoneCliente"].ToString();
+                tempCliente.SenhaCliente = readCliente["Senha"].ToString();
+            };
+
+            readCliente.Close();
+            conexao.Close();
+
+            return tempCliente;
         }
     }
 }
