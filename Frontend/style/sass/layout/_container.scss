@@ -3,3 +3,11 @@
     max-width: 1250px;
     margin: 0 auto;
 }
+.content-main.margin {
+    margin-top: 12vh;
+}
+@media (max-width: 110px) {
+    .content-main.margin {
+        margin-top: 10vh;
+    }
+}

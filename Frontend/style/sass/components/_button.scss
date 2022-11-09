@@ -8,9 +8,31 @@
     border: none;
     cursor: pointer;
     color: $white-color;
-}
-.button--submit {
-    background-color: $primary-color;
-    width: 100%;
-    max-width: 450px;
+    &.button--submit {
+        // background-color: $primary-color;
+        // width: 100%;
+        // max-width: 450px;
+        background-color: $primary-color;
+        color: $white-color;
+        width: 100%;
+        max-width: 450px;
+        margin-top: 50px;
+    }
+    &.button--grey {
+        border: 2px solid $grey-color;
+        color: $grey-color;
+        background-color: $white-color;
+        border-radius: 15px;
+        width: 100%;
+    }
+    &.button--blue {
+        background-color: $blue-color;
+        border-radius: 15px;
+        width: 100%;
+    }
+    &.button--black {
+        background-color: $black-color;
+        border-radius: 15px;
+        width: 100%;
+    }
 }
