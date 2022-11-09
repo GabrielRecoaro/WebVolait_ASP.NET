@@ -18,7 +18,12 @@
             flex: 1 1 400px;
             order: 1;
             .form {
-                text-align: left;
+                &__title {
+                    text-align: left;
+                }
+                &__text {
+                    text-align: left;
+                }
             }
         }
     }
