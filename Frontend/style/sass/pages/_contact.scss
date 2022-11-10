@@ -1,0 +1,52 @@
+.content-main.contact {
+    .container {
+        .side-content {
+            order: 2;
+            justify-content: flex-start;
+            flex: 2 1 400px;
+            padding: 0;
+            &__bottom {
+                margin-top: 40px;
+            }
+            iframe {
+                width: 100%;
+                min-height: 400px;
+                height: 100%;
+            }
+        }
+        .form-container {
+            flex: 1 1 400px;
+            order: 1;
+            .form {
+                &__title {
+                    text-align: left;
+                }
+                &__text {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 816px) {
+    .content-main.contact {
+        .container {
+            .form-container {
+                padding: 0px 20px 60px 20px;
+            }
+        }
+    }
+}
+@media (max-width: 650px) {
+    .content-main.sign-up {
+        .container {
+            .side-content {
+                order: 1;
+            }
+            .form-container {
+                order: 2;
+            }
+        }
+
+    }
+}

@@ -50,46 +50,36 @@
                 </div>
             </div>
         </header>
-        <!-- <main class="content-main home">
-            <section class="hero">
-                <div class="hero__content">
-                    <h1 class="hero__content__title">Descubra o mundo com a
-                        Volait</h1>
-                    <p class="hero__content__text">Aqui você acha as melhores passagens, tudo isso à um click de distancia</p>
-                    <button class="hero__content__button">Explorar</button>
+        <main class="content-main contact margin">
+            <div class="container">
+                <div class="side-content">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.324637212434!2d-46.73058208542314!3d-23.520823465980758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef8c1d7fd100d%3A0x9eac09850046cfa4!2sR.%20Guaip%C3%A1%2C%20678%20-%20Vila%20Leopoldina%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2002675-031!5e0!3m2!1spt-BR!2sbr!4v1667508533253!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <form method="get" class="hero__filter-bar">
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_local">Escolha o seu destino</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ph:map-pin-fill"></iconify-icon>
-                            <input type="text" name="local" id="input_local">
+                <div class="form-container">
+                    <form id="form-login" class= "form form-sign-up" action="#">
+                        <div class="form__area-flex-title">
+                            <h2 class="form__title">Contato</h2>
                         </div>
-                    </div>
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_date">Para quando?</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ant-design:calendar-filled"></iconify-icon>
-                            <input type="date" name="date" id="input_date">
+                        <p class="form__text">Lorem ipsum dolor sit,  Molestias porro dolor commodi. Id dicta suscipit, cupiditate officiis qui in  deserunt possimus. Cumque.</p>
+                        <!-- <div class="form__area-flex">
+                        </div> -->
+                        <div class="form__area">
+                            <input class="form__area__input" type="text" name="telephone" id="input-telephone" required> 
+                            <label class="form__area__label" for="input-telephone">Telefone</label>
                         </div>
-                    </div>
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_price">Preço desejado</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ion:pricetag"></iconify-icon>
-                            <select name="price" id="input_price">
-                                <option value="1">800-1000</option>
-                                <option value="2">1000-1500</option>
-                                <option value="3">1500-4000</option>
-                                <option value="4">4000 ou mais</option>
-                            </select>
+                        <div class="form__area">
+                            <input class="form__area__input" type="text" name="email" id="email" required>
+                            <label class="form__area__label" for="email">E-mail</label>   
                         </div>
-                    </div>
-                    <button class="hero__filter-bar__button">Pesquisar</button>
-                </form>
-            </section>
-        </main> -->
-
+                        <div class="form__area form__area__textarea">
+                            <textarea class="form__area__input" name="message" id="input_message" required></textarea> 
+                            <label class="form__area__label" for="input_message">Mensagem</label>
+                        </div>
+                    </form>
+                    <input form="form-login" class="button button--submit" type="submit" value="Enviar">
+                </div>
+            </div>
+        </main>
         <footer class="footer">
             <div class="container">
                 <section class="footer__upper">
@@ -158,9 +148,6 @@
                                 <li class="footer__upper__links__section__list__item">
                                     <a href="#">Cookies</a>
                                 </li>
-                                <!-- <li class="footer__upper__links__section__list__item">
-                                    <a href="#">Mapa do site</a>
-                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -176,61 +163,6 @@
                 </section>
             </div>
         </footer>
-        <!-- <footer class="footer">
-            <div class="footer__upper">
-                <div class="footer__upper__content">
-                    <img class="logo" src="./images/logo.png" alt="Logotipo">
-                    <p>
-                        Nulla ultrices interdum sit ultricies venenatis fames molestie. Donec pharetra in sed odio
-                        sapien.
-                        Quisque elementum dignissim nec pretium nibh sit in nulla sed.
-                    </p>
-                    <div class="footer__upper__content__socialmedia">
-                        <div class="socialmedia__icon">
-                            <iconify-icon icon="akar-icons:instagram-fill"></iconify-icon>
-                        </div>
-                        <div class="socialmedia__icon">
-                            <iconify-icon icon="brandico:facebook"></iconify-icon>
-                        </div>
-                        <div class="socialmedia__icon">
-                            <iconify-icon icon="akar-icons:linkedin-fill"></iconify-icon>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer__upper__nav">
-                    <ul class="footer__upper__nav__list">
-                        <li class="footer__upper__nav__list__item title"><a href="#">Sobre nós</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">Contato</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">História</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">Missão, visão e valores</a>
-                        </li>
-                    </ul>
-                    <ul class="footer__upper__nav__list">
-                        <li class="footer__upper__nav__list__item title"><a href="#">Sobre nós</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">Contato</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">História</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">Missão, visão e valores</a>
-                        </li>
-                    </ul>
-                    <ul class="footer__upper__nav__list">
-                        <li class="footer__upper__nav__list__item title"><a href="#">Legal</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">Privacidade</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">Termos de uso</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">Cookies</a></li>
-                        <li class="footer__upper__nav__list__item"><a href="#">Mapa do site</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="footer__lower">
-                <p class="footer__lower__copyright">
-                    <span>&#169;</span> 2022 Volait - Todos os Direitos Reservados
-                </p>
-                <p class="footer__lower__developers">
-                <iconify-icon icon="entypo:code"></iconify-icon>Desenvolvido por<a href="#" target="_blank" rel="noopener noreferrer">Ahrus</a>
-                </p>
-            </div>
-        </footer> -->
     </body>
 </html>
 </html>
