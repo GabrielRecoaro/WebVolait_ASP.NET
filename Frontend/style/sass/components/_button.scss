@@ -18,6 +18,12 @@
         max-width: 450px;
         margin-top: 50px;
     }
+    &.button--primary-color {
+        color: $white-color;
+        background-color: $primary-color;
+        border-radius: 15px;
+        width: 100%;
+    }
     &.button--grey {
         border: 2px solid $grey-color;
         color: $grey-color;
