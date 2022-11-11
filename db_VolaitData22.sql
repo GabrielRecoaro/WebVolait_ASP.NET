@@ -8,38 +8,27 @@ create table tb_funcaoFunc
     FuncaoFunc varchar(50)
 );
 
-create table tb_usuario(
-    CPFUsuario varchar(15) primary key not null,
-    NomeUsuario varchar(100) not null,
-    NomeSocialUsuario varchar(100) null,
-    LoginUsuario varchar(100) not null,
-    TelefoneUsuario varchar(11) not null,
-    SenhaUsuario char(6) not null,
+create table tb_funcionario
+(
+	CPFFuncionario bigint primary key not null,
+    NomeFuncionario varchar(100) not null,
+    NomeSocialFuncionario varchar(100) null,
+    LoginFuncionario varchar(100) not null,
+    TelefoneFuncionario varchar(11) not null,
+    SenhaFuncionario char(6) not null,
     IdFuncao int,
     constraint fk_funcao foreign key(IdFuncao) references tb_funcaoFunc(IdFuncao)
 );
 
--- create table tb_funcionario
--- (
--- 	CPFFuncionario bigint primary key not null,
---     NomeFuncionario varchar(100) not null,
---     NomeSocialFuncionario varchar(100) null,
---     LoginFuncionario varchar(100) not null,
---     TelefoneFuncionario varchar(11) not null,
---     SenhaFuncionario char(6) not null,
---     IdFuncao int,
---     constraint fk_funcao foreign key(IdFuncao) references tb_funcaoFunc(IdFuncao)
--- );
-
--- create table tb_cliente
--- (
--- 	CPFCliente bigint primary key not null,
---     NomeCliente varchar(100) not null,
---     NomeSocialCliente varchar(100) null,
---     LoginCliente varchar(70) not null,
---     TelefoneCliente varchar(11) not null,
---     SenhaCliente char(6)
--- );
+create table tb_cliente
+(
+	CPFCliente bigint primary key not null,
+    NomeCliente varchar(100) not null,
+    NomeSocialCliente varchar(100) null,
+    LoginCliente varchar(100) not null,
+    TelefoneCliente varchar(11) not null,
+    SenhaCliente char(6)
+);
 
 create table tb_tipoPagto
 (
@@ -138,9 +127,6 @@ insert into tb_funcaoFunc values(default, "Administrador"), (default, "Funcionar
 insert into tb_tipopagto values(Default, 'Cartão de Crédito'), (Default, 'Cartão de Débito'), (Default, 'Cheque'), (Default, 'Boleto Bancário'), (Default, 'PIX');
 insert into tb_classeVoo values(default, "Classe econômica"), (default, "Classe executiva"), (default, "1ª classe");
 
-select * from tb_cliente;
-select * from tb_funcionario;
-
 
 -- Cadastrar funcionário
 drop procedure if exists spInsertFunc;
@@ -148,10 +134,12 @@ DELIMITER $$
 CREATE PROCEDURE spInsertFunc(vCpfFunc bigint, vNomeFunc varchar(100), vNomeSocialFunc varchar(100), vLoginFunc varchar(100), vTelefoneFunc char(11), vSenhaFunc char(6), vIdFuncao int) 
 
 BEGIN
-		INSERT INTO tb_funcionario (CPFFuncionario, NomeFuncionario, NomeSocialFuncionario, LoginFuncionario, TelefoneFuncionario, SenhaFuncionario, IdFuncao) VALUES (vCpfFunc, vNomeFunc, vNomeSocialFunc, vLoginFunc, vTelefoneFunc, vSenhaFunc, vIdFuncao);
+	INSERT INTO tb_funcionario (CPFFuncionario, NomeFuncionario, NomeSocialFuncionario, LoginFuncionario, TelefoneFuncionario, SenhaFuncionario, IdFuncao) VALUES (vCpfFunc, vNomeFunc, vNomeSocialFunc, vLoginFunc, vTelefoneFunc, vSenhaFunc, vIdFuncao);
 END $$
 
 CALL spInsertFunc(52673833846, "Brenda Berzin", null, "brendaberzin@gmail.com", "11942786165", "987654", 1); 
+
+DELIMITER $$
 
 -- Cadastrar cliente
 drop procedure if exists spInsertCli;
@@ -162,12 +150,61 @@ BEGIN
 	INSERT INTO tb_cliente (CPFCliente, NomeCliente, NomeSocialCliente, LoginCliente, TelefoneCliente, SenhaCliente) VALUES (vCpfCli, vNomeCli, vNomeSocialCli, vLoginCli, vTelefoneCli, vSenhaCli);
 END $$
 
-CALL spInsertCli(52673833846, "Brenda Berzin", null, "brendaberzin@gmail.com", "11942786165", "987654");
+CALL spInsertCli(52673833846, "Brenda Berzin", null, "brendaberzin@gmail.com", "11942786165", "987654"); 
 
--- Select Login Cliente
+DELIMITER $$
 
-delimiter $$
-CREATE PROCEDURE spSelectLogin(vLoginCliente varchar(70))
-begin
-select LoginCliente from tb_cliente where LoginCliente = vLoginCliente;
-End $$
+select * from tb_funcionario;
+select * from tb_cliente;
+
+-- Select funcionário
+drop procedure if exists spSelectFunc;
+DELIMITER $$
+CREATE PROCEDURE spSelectFunc(vCpfFunc bigint)
+
+BEGIN
+	select CPFFuncionario, NomeFuncionario, NomeSocialFuncionario, LoginFuncionario, TelefoneFuncionario, SenhaFuncionario, IdFuncao from tb_funcionario where CPFFuncionario = vCpfFunc;
+END $$
+
+CALL spSelectFunc(52673833846);
+
+DELIMITER $$
+
+-- Select cliente
+drop procedure if exists spSelectCli;
+DELIMITER $$
+CREATE PROCEDURE spSelectCli(vCpfCli bigint)
+
+BEGIN
+	select CPFCliente, NomeCliente, NomeSocialCliente, LoginCliente, TelefoneCliente, SenhaCliente from tb_cliente where CPFCliente = vCpfCli;
+END $$
+
+CALL spSelectCli(52673833846);
+
+DELIMITER $$
+
+-- Select login usuário
+drop procedure if exists spSelectLoginFunc;
+DELIMITER $$
+CREATE PROCEDURE spSelectLoginFunc(vLoginFunc varchar(100))
+
+BEGIN
+	select LoginFuncionario from tb_funcionario where LoginFuncionario = vLoginFunc;
+END $$
+
+CALL spSelectLoginFunc("brendaberzin@gmail.com");
+
+DELIMITER $$
+
+-- Select login cliente
+drop procedure if exists spSelectLoginCli;
+DELIMITER $$
+CREATE PROCEDURE spSelectLoginCli(vLoginCli varchar(100))
+
+BEGIN
+	select LoginCliente from tb_cliente where LoginCliente = vLoginCli;
+END $$
+
+CALL spSelectLoginCli("brendaberzin@gmail.com");
+
+DELIMITER $$
