@@ -72,6 +72,11 @@
             &:valid {
                 border: 2px solid $primary-color;
             }
+            &.readonly {
+                pointer-events: none;
+                border: 2px solid #acacac;
+                background-color: #c2c2c2;
+            }
         }
         &__label {
             padding: 0px 5px;
