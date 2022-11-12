@@ -10,11 +10,26 @@
     }
     &__text {
         color: $grey-color;
-        margin: 20px 0;
         line-height: 24px;
+        margin: 10px 0;
     }
     &__text {
-        margin: 10px 0;
+        &.bold {
+            color: $black-color;
+            font-weight: 600;
+        }
+        &.warning {
+            font-weight: 600;
+            color: $red-color;
+            text-transform: uppercase;
+            margin: 40px 0 !important;
+            font-size: 24px;
+        }
+        &.delete-confirm {
+            font-size: 18px;
+            font-weight: 500;
+            color: $black-color;
+        }
     }
     &__accent-text {
         color: $primary-color;

@@ -41,4 +41,10 @@
         border-radius: 15px;
         width: 100%;
     }
+    &.button--red {
+        background-color: $red-color;
+        font-weight: 500;
+        border-radius: 15px;
+        width: 100%;
+    }
 }

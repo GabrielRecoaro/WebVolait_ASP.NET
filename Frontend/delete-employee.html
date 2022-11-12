@@ -37,7 +37,7 @@
                     </div>
                     <nav class="header__navbar__navigation-menu">
                         <ul class="header__navbar__navigation-menu__list">
-                            <li class="header__navbar__navigation-menu__list__item"><a href="">Home</a></li>
+                            <li class="header__navbar__navigation-menu__list__item"><a class="active" href="">Home</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
@@ -50,29 +50,20 @@
                 </div>
             </div>
         </header>
-        <main class="content-main coupon-registration margin">
+        <main class="content-main delete-insert employee margin">
             <div class="container">
                 <div class="form-container">
-                    <form id="coupon-registration" class="form" action="#">
+                    <form id="delete-employee" class="form" action="#">
                         <div class="form__area-flex-title">
-                            <h2 class="form__title">Cadastro de cupom</h2>
+                            <h2 class="form__title">Excluir funcionário</h2>
                         </div>
-                        <div class="form__area form__area__textarea">
-                            <textarea class="form__area__input" name="description" id="description" required></textarea> 
-                            <label class="form__area__label" for="description">Descrição</label>
-                        </div>
-                        <div class="form__area">
-                            <input class="form__area__input" type="text" name="expiration-date" id="expiration-date" required> 
-                            <label class="form__area__label" for="expiration-date">Prazo de validade</label>
-                        </div>
-                        <div class="form__area">
-                            <input class="form__area__input" type="text" name="discount" id="discount" required>
-                            <label class="form__area__label" for="discount">Valor do desconto</label>   
-                        </div>
+                        <p class="form__text bold">Tem certeza que deseja continuar?</p>
+                        <p class="form__text warning">Atenção!</p>
+                        <p class="form__text delete-confirm">Confirmando esta ação o (a) Matheus Metros, 281.243.123-21 será desligado e seu acesso ao sistema negado!</p>
                     </form>
                     <div class="form__area-flex flex-button">
                         <input class="button button--grey" type="button" value="Cancelar">
-                        <input form="coupon-registration" class="button button--blue" type="submit" value="Salvar">
+                        <input form="delete-employee" class="button button--red" type="submit" value="Deletar">
                     </div>
                 </div>
             </div>
@@ -161,4 +152,5 @@
             </div>
         </footer>
     </body>
-</html> 
+</html>
+</html>
