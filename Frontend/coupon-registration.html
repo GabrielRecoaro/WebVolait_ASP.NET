@@ -37,7 +37,7 @@
                     </div>
                     <nav class="header__navbar__navigation-menu">
                         <ul class="header__navbar__navigation-menu__list">
-                            <li class="header__navbar__navigation-menu__list__item"><a class="active" href="">Home</a></li>
+                            <li class="header__navbar__navigation-menu__list__item"><a href="">Home</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
@@ -50,29 +50,29 @@
                 </div>
             </div>
         </header>
-        <main class="content-main update-passoword margin">
+        <main class="content-main coupon-registration margin">
             <div class="container">
                 <div class="form-container">
-                    <form id="update-passoword" class="form" action="#">
+                    <form id="coupon-registration" class="form" action="#">
                         <div class="form__area-flex-title">
-                            <h2 class="form__title">Alterar senha</h2>
+                            <h2 class="form__title">Cadastro de cupons</h2>
+                        </div>
+                        <div class="form__area form__area__textarea">
+                            <textarea class="form__area__input" name="description" id="description" required></textarea> 
+                            <label class="form__area__label" for="description">Descrição</label>
                         </div>
                         <div class="form__area">
-                            <input class="form__area__input" type="password" name="password" id="password" required>
-                            <label class="form__area__label" for="password">Senha atual</label>   
+                            <input class="form__area__input" type="text" name="expiration-date" id="expiration-date" required> 
+                            <label class="form__area__label" for="expiration-date">Prazo de validade</label>
                         </div>
                         <div class="form__area">
-                            <input class="form__area__input" type="password" name="password" id="new-password" required>
-                            <label class="form__area__label" for="password">Nova senha</label>   
-                        </div>
-                        <div class="form__area">
-                            <input class="form__area__input" type="password" name="confirm-password" id="confirm-password" required>
-                            <label class="form__area__label" for="confirm-password">Confirmar senha</label>   
+                            <input class="form__area__input" type="text" name="discount" id="discount" required>
+                            <label class="form__area__label" for="discount">Valor do desconto</label>   
                         </div>
                     </form>
                     <div class="form__area-flex flex-button">
                         <input class="button button--grey" type="button" value="Cancelar">
-                        <input form="update-passoword" class="button button--blue" type="submit" value="Salvar">
+                        <input form="coupon-registration" class="button button--blue" type="submit" value="Salvar">
                     </div>
                 </div>
             </div>
@@ -161,4 +161,4 @@
             </div>
         </footer>
     </body>
-</html>
+</html> 
