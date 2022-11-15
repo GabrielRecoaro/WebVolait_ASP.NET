@@ -8,14 +8,17 @@
         color: $primary_color;
     }
     &__text {
-        text-align: right;
+        color: $grey-color;
+        margin: 20px 0;
+        line-height: 24px;
     }
     &__text {
-        margin: 10px;
+        margin: 10px 0;
     }
     &__accent-text {
+        color: $primary-color;
         a {
-            color: $primary-color;
+            color: inherit;
         }
     }
     #input_name-error.error,
@@ -28,7 +31,7 @@
     }
     &__area {
         width: 100%;
-        margin-top: 25px;
+        margin-top: 35px;
         position: relative;
         &__input {
             font-size: 14px;
@@ -66,7 +69,7 @@
                 color: $primary_color;
             }
             &:valid {
-                // border: 2px solid $primary-color;
+                border: 2px solid $primary-color;
             }
         }
         &__label {
@@ -85,25 +88,48 @@
             }
         }
     }
+    &__area__select-box {
+        position: relative;
+        select {
+            border: 2px solid rgb(209, 208, 208);
+            width: 100%;
+            padding: 0 0 0 15px;
+            -webkit-appearance: none;
+            appearance: none;
+            color: $grey-color;
+            height: 50px;
+            border-radius: 5px;
+            &::-ms-expand {
+                display: none;
+            }
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 0;
+            }
+        }
+        iconify-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            color: $grey-color;
+            font-size: 16px;
+            pointer-events: none;
+        }
+    }
     &__area-flex {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        gap: 5px;
-        flex-wrap: wrap;
-        div {
-            flex: 1 1 250px;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 40px;
+        width: 100%;
+        max-width: 450px;
+        &.flex-button {
+            margin-top: 30px;
         }
     }
     &__area-flex-title {
         margin: 0 0 30px 0;
-    }
-    .button{
-        &.button--submit {
-            margin-top: 50px;
-            background-color: $primary-color;
-            color: $white-color;
-            width: 100%;
-        }
     }
 }

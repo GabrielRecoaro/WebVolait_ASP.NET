@@ -12,13 +12,18 @@
 // Layout
 @import 'layout/_header';
 @import 'layout/_footer';
-@import 'layout/_container';
 @import 'layout/flex-container';
+@import 'layout/_container';
 
 // Pages
 @import 'pages/_home';
 @import 'pages/_login';
 @import 'pages/_sign-up';
+@import 'pages/_contact';
+
+@import 'pages/_update-password';
+@import 'pages/_insert-passage';
+@import 'pages/_sign-up-employee';
 
 // Themes
 

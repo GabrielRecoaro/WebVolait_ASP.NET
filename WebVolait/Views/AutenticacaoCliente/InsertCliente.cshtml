@@ -107,32 +107,32 @@
                     <!-- <div class="form__area-flex">
                     </div> -->
                     <div class="form__area">
-                        <input class="form__area__input" type="text" name="name" id="input-name" required>
-                        <label class="form__area__label" for="input-name">Nome</label>
+                        @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        <input class="form__area__input" type="text" name="social-name" id="input-social-name" required>
-                        <label class="form__area__label" for="input-social-name">Nome social</label>
+                         @Html.EditorFor(model => model.NomeCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                         @Html.LabelFor(model => model.NomeCliente, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        <input class="form__area__input" type="text" name="email" id="input-email" required>
-                        <label class="form__area__label" for="input-email">Email</label>
+                        @Html.EditorFor(model => model.NomeSocialCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.NomeSocialCliente, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        <input class="form__area__input" type="text" name="telephone" id="input-telephone" required>
-                        <label class="form__area__label" for="input-telephone">Telefone</label>
+                        @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        <input class="form__area__input" type="text" name="cpf" id="input-cpf" required>
-                        <label class="form__area__label" for="input-cpf">CPF</label>
+                        @Html.EditorFor(model => model.TelefoneCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.TelefoneCliente, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        <input class="form__area__input" type="text" name="password" id="password" required>
-                        <label class="form__area__label" for="password">Senha</label>
+                        @Html.EditorFor(model => model.SenhaCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.SenhaCliente, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        <input class="form__area__input" type="text" name="confirm-password" id="confirm-password" required>
-                        <label class="form__area__label" for="confirm-password">Confirmar senha</label>
+                        @Html.EditorFor(model => model.ConfirmaSenhaCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.ConfirmaSenhaCliente, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <input class="button button--submit" type="submit" value="Cadastrar-se">
                 </form>
