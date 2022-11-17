@@ -97,7 +97,7 @@ namespace WebVolait.Repositorio
                         LoginFuncionario = (dt["LoginFuncionario"].ToString()),
                         TelefoneFuncionario = (dt["TelefoneFuncionario"].ToString()),
                         SenhaFuncionario = (dt["SenhaFuncionario"].ToString()),
-                        FuncaoFuncionario = ushort.Parse(dt["IdFuncao"].ToString()),
+
 
                     };
                     AltAl.Add(AlTemp);
@@ -130,7 +130,6 @@ namespace WebVolait.Repositorio
                         LoginFuncionario = (dt["LoginFuncionario"].ToString()),
                         TelefoneFuncionario = (dt["TelefoneFuncionario"].ToString()),
                         SenhaFuncionario = (dt["SenhaFuncionario"].ToString()),
-                        FuncaoFuncionario = ushort.Parse(dt["IdFuncao"].ToString()),
 
                     };
                     TodosFuncionarios.Add(FuncionarioTemp);

@@ -42,7 +42,7 @@ namespace WebVolait.Controllers
                 LoginFuncionario = viewmodel.LoginFuncionario,
                 TelefoneFuncionario = viewmodel.TelefoneFuncionario,
                 SenhaFuncionario = viewmodel.SenhaFuncionario,
-                FuncaoFuncionario = viewmodel.FuncaoFuncionario
+
             };
 
             novofuncionario.InsertFuncionario(novofuncionario);

@@ -40,9 +40,5 @@ namespace WebVolait.ViewModels
         [Compare(nameof(SenhaFuncionario), ErrorMessage = "As senhas não coincidem")]
         public string ConfirmaSenhaFuncionario { get; set; }
 
-        [Display(Name = "Função")]
-        [Required(ErrorMessage = "O campo é obrigatório")]
-        [MaxLength(100)]
-        public int FuncaoFuncionario { get; set; }
     }
 }
