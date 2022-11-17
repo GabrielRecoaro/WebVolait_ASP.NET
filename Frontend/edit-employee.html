@@ -50,46 +50,58 @@
                 </div>
             </div>
         </header>
-        <!-- <main class="content-main home">
-            <section class="hero">
-                <div class="hero__content">
-                    <h1 class="hero__content__title">Descubra o mundo com a
-                        Volait</h1>
-                    <p class="hero__content__text">Aqui você acha as melhores passagens, tudo isso à um click de distancia</p>
-                    <button class="hero__content__button">Explorar</button>
-                </div>
-                <form method="get" class="hero__filter-bar">
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_local">Escolha o seu destino</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ph:map-pin-fill"></iconify-icon>
-                            <input type="text" name="local" id="input_local">
+        <main class="content-main edit-employee margin">
+            <div class="container">
+                <div class="form-container">
+                    <form class= "form form-sign-up-employee" action="#">
+                        <div class="form__area-flex-title">
+                            <h2 class="form__title">Editar funcionário</h2>
                         </div>
-                    </div>
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_date">Para quando?</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ant-design:calendar-filled"></iconify-icon>
-                            <input type="date" name="date" id="input_date">
+                        <div class="form__area-flex">
+                            <div class="form__area">
+                                <input class="form__area__input" type="text" name="name" id="input-name" required> 
+                                <label class="form__area__label" for="input-name">Nome</label>
+                            </div>
+                            <div class="form__area">
+                                <input class="form__area__input" type="text" name="social-name" id="input-social-name" required> 
+                                <label class="form__area__label" for="input-social-name">Nome social</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_price">Preço desejado</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ion:pricetag"></iconify-icon>
-                            <select name="price" id="input_price">
-                                <option value="1">800-1000</option>
-                                <option value="2">1000-1500</option>
-                                <option value="3">1500-4000</option>
-                                <option value="4">4000 ou mais</option>
-                            </select>
+                        <div class="form__area-flex">
+                            <div class="form__area">
+                                <input class="form__area__input" type="text" name="telephone" id="input-telephone" required> 
+                                <label class="form__area__label" for="input-telephone">Telefone</label>
+                            </div>  
+                            <div class="form__area">
+                                <input class="form__area__input" type="text" name="email" id="input-email" required> 
+                                <label class="form__area__label" for="input-email">E-mail</label>
+                            </div>
                         </div>
-                    </div>
-                    <button class="hero__filter-bar__button">Pesquisar</button>
-                </form>
-            </section>
-        </main> -->
+                        <div class="form__area-flex">
+                            <div class="form__area">
+                                <div class="form__area__select-box">
+                                    <select name="select-position" id="">
+                                        <option value="" disabled selected>Administrador</option>
+                                        <option value="">Opção 1</option>
+                                        <option value="">Opção 1</option>
+                                        <option value="">Opção 1</option>
+                                        <option value="">Opção 1</option>
+                                    </select>
+                                    <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                                </div>
+                            </div>
+                            <div class="form__area">
 
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form__area-flex flex-button">
+                        <input class="button button--grey" type="button" value="Cancelar">
+                        <input form="sign-up-employee" class="button button--blue" type="submit" value="Salvar">
+                    </div>
+                </div>
+            </div>
+        </main>
         <footer class="footer">
             <div class="container">
                 <section class="footer__upper">
@@ -158,9 +170,6 @@
                                 <li class="footer__upper__links__section__list__item">
                                     <a href="#">Cookies</a>
                                 </li>
-                                <!-- <li class="footer__upper__links__section__list__item">
-                                    <a href="#">Mapa do site</a>
-                                </li> -->
                             </ul>
                         </div>
                     </div>
