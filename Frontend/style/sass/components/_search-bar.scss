@@ -1,0 +1,29 @@
+.search-bar {
+    background-color: #ffffff;
+    height: 38px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border: 2px solid #dfdfdf;
+    gap: 5px;
+    &__txt {
+        width: 100%;
+        border: none;
+        background: none;
+        outline: none;
+        padding: 0;
+        font-size: 14px;
+    }
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .iconify-icon {
+            font-size: 26px;
+            color: #dfdfdf;
+        }
+    }
+}

@@ -41,4 +41,33 @@
         border-radius: 15px;
         width: 100%;
     }
+    &.button--red {
+        background-color: $red-color;
+        font-weight: 500;
+        border-radius: 15px;
+        width: 100%;
+    }
+    &.list-edit, &.list-delete {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: right;
+        text-decoration: none;
+        width: 100px;
+        height: 38px;
+        border-radius: 5px;
+        padding: 10px 30px;
+    }
+    &.list-edit {
+        gap: 5px;
+        border: 2px solid $blue-color;
+        color: $blue-color;
+        background: $white-color;
+    }
+    &.list-delete {
+        gap: 5px;
+        border: 2px solid $red-color;
+        color: $red-color;
+        background: $white-color;
+    }
 }

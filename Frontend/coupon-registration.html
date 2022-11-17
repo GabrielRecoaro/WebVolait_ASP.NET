@@ -37,7 +37,7 @@
                     </div>
                     <nav class="header__navbar__navigation-menu">
                         <ul class="header__navbar__navigation-menu__list">
-                            <li class="header__navbar__navigation-menu__list__item"><a class="active" href="">Home</a></li>
+                            <li class="header__navbar__navigation-menu__list__item"><a href="">Home</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
@@ -50,46 +50,33 @@
                 </div>
             </div>
         </header>
-        <!-- <main class="content-main home">
-            <section class="hero">
-                <div class="hero__content">
-                    <h1 class="hero__content__title">Descubra o mundo com a
-                        Volait</h1>
-                    <p class="hero__content__text">Aqui você acha as melhores passagens, tudo isso à um click de distancia</p>
-                    <button class="hero__content__button">Explorar</button>
+        <main class="content-main coupon-registration margin">
+            <div class="container">
+                <div class="form-container">
+                    <form id="coupon-registration" class="form" action="#">
+                        <div class="form__area-flex-title">
+                            <h2 class="form__title">Cadastro de cupom</h2>
+                        </div>
+                        <div class="form__area form__area__textarea">
+                            <textarea class="form__area__input" name="description" id="description" required></textarea> 
+                            <label class="form__area__label" for="description">Descrição</label>
+                        </div>
+                        <div class="form__area">
+                            <input class="form__area__input" type="text" name="expiration-date" id="expiration-date" required> 
+                            <label class="form__area__label" for="expiration-date">Prazo de validade</label>
+                        </div>
+                        <div class="form__area">
+                            <input class="form__area__input" type="text" name="discount" id="discount" required>
+                            <label class="form__area__label" for="discount">Valor do desconto</label>   
+                        </div>
+                    </form>
+                    <div class="form__area-flex flex-button">
+                        <input class="button button--grey" type="button" value="Cancelar">
+                        <input form="coupon-registration" class="button button--blue" type="submit" value="Salvar">
+                    </div>
                 </div>
-                <form method="get" class="hero__filter-bar">
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_local">Escolha o seu destino</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ph:map-pin-fill"></iconify-icon>
-                            <input type="text" name="local" id="input_local">
-                        </div>
-                    </div>
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_date">Para quando?</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ant-design:calendar-filled"></iconify-icon>
-                            <input type="date" name="date" id="input_date">
-                        </div>
-                    </div>
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_price">Preço desejado</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ion:pricetag"></iconify-icon>
-                            <select name="price" id="input_price">
-                                <option value="1">800-1000</option>
-                                <option value="2">1000-1500</option>
-                                <option value="3">1500-4000</option>
-                                <option value="4">4000 ou mais</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="hero__filter-bar__button">Pesquisar</button>
-                </form>
-            </section>
-        </main> -->
-
+            </div>
+        </main>
         <footer class="footer">
             <div class="container">
                 <section class="footer__upper">
@@ -158,9 +145,6 @@
                                 <li class="footer__upper__links__section__list__item">
                                     <a href="#">Cookies</a>
                                 </li>
-                                <!-- <li class="footer__upper__links__section__list__item">
-                                    <a href="#">Mapa do site</a>
-                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -177,4 +161,4 @@
             </div>
         </footer>
     </body>
-</html>
+</html> 
