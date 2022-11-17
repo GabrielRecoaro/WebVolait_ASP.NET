@@ -81,13 +81,24 @@
             }
             & div:nth-child(5) {
                 display: flex;
-                justify-content: space-between;
+                justify-content: flex-start;
                 align-items: center;
                 flex: 1 1 200px;
+                position: relative;
+                padding: 0 40px 0 0;
                 iconify-icon {
+                    position: absolute;
+                    top: 0;
+                    right: 15px;
                     font-size: 18px;
                     cursor: pointer;
                     color: #a0a0a0;
+                    transition: 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+                }
+            }
+            &.active {
+                iconify-icon {
+                    transform: rotate(180deg);
                 }
             }
         }
