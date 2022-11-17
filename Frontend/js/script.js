@@ -73,7 +73,6 @@ if(header) {
     });
 
     let accordion = document.getElementsByClassName("list__flex-body__upper");
-
     let i;
 
     for (i = 0; i < accordion.length; i++) {
