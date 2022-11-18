@@ -213,6 +213,7 @@
     <Content Include="Views\AutenticacaoFuncionario\ListarFuncionario.cshtml" />
     <Content Include="Views\Gerenciador\Index.cshtml" />
     <Content Include="Views\AutenticacaoCliente\LoginCliente.cshtml" />
+    <Content Include="Views\Home\ListarPassagem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

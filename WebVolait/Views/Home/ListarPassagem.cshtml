@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebVolait.Models.Passagem>
+
+@{
+    ViewBag.Title = "ListarPassagem";
+}
+
+<h2>ListarPassagem</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomePassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescPassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartidaPassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinoPassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorPassagem)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdPassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomePassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescPassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartidaPassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DestinoPassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorPassagem)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
