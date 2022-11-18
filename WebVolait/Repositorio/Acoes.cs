@@ -159,10 +159,10 @@ namespace WebVolait.Repositorio
                 var AlTemp = new Passagem()
                 {
 
-                    NomePassagem = (dt["NomePassagem"].ToString()),
-                    DescPassagem = (dt["DescPassagem"].ToString()),
-                    ImgPassagem = (dt["ImgPassagem"].ToString()),
-                    ValorPassagem = (dt["ValorPassagem"].ToString()),
+                    //NomePassagem = (dt["NomePassagem"].ToString()),
+                    //DescPassagem = (dt["DescPassagem"].ToString()),
+                    //ImgPassagem = (dt["ImgPassagem"].ToString()),
+                    //ValorPassagem = (dt["ValorPassagem"].ToString()),
 
                 };
                 AltAl.Add(AlTemp);
@@ -190,10 +190,10 @@ namespace WebVolait.Repositorio
                 var PassagemTemp = new Passagem()
                 {
 
-                    NomePassagem = (dt["NomePassagem"].ToString()),
-                    DescPassagem = (dt["DescPassagem"].ToString()),
-                    ImgPassagem = (dt["ImgPassagem"].ToString()),
-                    ValorPassagem = (dt["ValorPassagem"].ToString()),
+                    //NomePassagem = (dt["NomePassagem"].ToString()),
+                    //DescPassagem = (dt["DescPassagem"].ToString()),
+                    //ImgPassagem = (dt["ImgPassagem"].ToString()),
+                    //ValorPassagem = (dt["ValorPassagem"].ToString()),
 
                 };
                 TodosPassagems.Add(PassagemTemp);

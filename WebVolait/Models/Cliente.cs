@@ -61,7 +61,7 @@ namespace WebVolait.Models
         public string SelectLogin(string vLoginCliente)
         {
             conexao.Open();
-            command.CommandText = "CALL spSelectLogin(@LoginCliente);";
+            command.CommandText = "CALL spSelectLoginCli(@LoginCliente);";
             command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = vLoginCliente;
             command.Connection = conexao;
             string LoginCliente = (string)command.ExecuteScalar(); // ExecuteScalar: RETORNAR APENAS 1 VALOR
@@ -75,9 +75,9 @@ namespace WebVolait.Models
         public Cliente SelectCliente(string vLoginCliente)
         {
             conexao.Open();
-            command.CommandText = "CALL spSelectUsuarioCliente(@LoginCliente);";
-            command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = vLoginCliente;
-            command.Connection = conexao;
+                command.CommandText = "CALL spSelectCli(@LoginCliente);";
+                command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = vLoginCliente;
+                command.Connection = conexao;
             var readCliente = command.ExecuteReader();
             var tempCliente = new Cliente();
 
@@ -88,7 +88,7 @@ namespace WebVolait.Models
                 tempCliente.NomeSocialCliente = readCliente["NomeSocialCliente"].ToString();
                 tempCliente.LoginCliente = readCliente["LoginCliente"].ToString();
                 tempCliente.TelefoneCliente = readCliente["TelefoneCliente"].ToString();
-                tempCliente.SenhaCliente = readCliente["Senha"].ToString();
+                tempCliente.SenhaCliente = readCliente["SenhaCliente"].ToString();
             };
 
             readCliente.Close();

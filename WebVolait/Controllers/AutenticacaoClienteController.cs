@@ -28,6 +28,37 @@ namespace WebVolait.Controllers
             return View(cliente);
         }
 
+     
+        Acoes ac = new Acoes();
+
+
+        [HttpPost]
+
+        public ActionResult InsertCliente(CadastroClienteViewModel viewmodel)
+        {
+            if (!ModelState.IsValid)
+
+                return View(viewmodel);
+
+            Cliente novocliente = new Cliente
+            {
+                CPFCliente = viewmodel.CPFCliente,
+                NomeCliente = viewmodel.NomeCliente,
+                NomeSocialCliente = viewmodel.NomeSocialCliente,
+                LoginCliente = viewmodel.LoginCliente,
+                TelefoneCliente = viewmodel.TelefoneCliente,
+                SenhaCliente = Hash.GerarHash(viewmodel.SenhaCliente)
+
+            };
+
+            novocliente.InsertCliente(novocliente);
+           
+            TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
+
+            return RedirectToAction("ListarCliente", "AutenticacaoCliente");
+
+        }
+
         public ActionResult SelectLogin(string vLoginCliente)
         {
             bool LoginExists;
@@ -50,40 +81,16 @@ namespace WebVolait.Controllers
             return View(viewmodel);
         }
 
-        Acoes ac = new Acoes();
-
-
         [HttpPost]
 
-        public ActionResult InsertCliente(CadastroClienteViewModel viewmodel) 
-        {
-            if (!ModelState.IsValid)
-            
-                return View(viewmodel);
 
-            Cliente novocliente = new Cliente
-            {
-                CPFCliente = viewmodel.CPFCliente,
-                NomeCliente = viewmodel.NomeCliente,
-                NomeSocialCliente = viewmodel.NomeSocialCliente,
-                LoginCliente = viewmodel.LoginCliente,
-                TelefoneCliente = viewmodel.TelefoneCliente,
-                SenhaCliente = Hash.GerarHash(viewmodel.SenhaCliente)
-
-            };
-
-            novocliente.InsertCliente(novocliente);
-            
-            return RedirectToAction("ListarCliente", "AutenticacaoCliente"); 
-
-        }
-
-        public ActionResult Login(LoginClienteViewModel viewmodel)
+        public ActionResult LoginCliente(LoginClienteViewModel viewmodel)
         {
             if (!ModelState.IsValid)
             {
                 return View(viewmodel);
             }
+
             Cliente cliente = new Cliente();
             cliente = cliente.SelectCliente(viewmodel.LoginCliente);
 
@@ -95,7 +102,7 @@ namespace WebVolait.Controllers
 
             if (cliente.SenhaCliente != Hash.GerarHash(viewmodel.Senha))
             {
-                ModelState.AddModelError("Senha", "Senha incorreta");
+                ModelState.AddModelError("SenhaCliente", "Senha incorreta");
                 return View(viewmodel);
             }
 

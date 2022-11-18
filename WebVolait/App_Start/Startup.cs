@@ -19,7 +19,7 @@ namespace WebVolait.App_Start
                 LoginPath = new PathString("/AutenticacaoCliente/LoginCliente")
             });
 
-            AntiForgeryConfig.UniqueClaimTypeIdentifier = "Login";
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = "LoginCliente";
         }
     }
 }
