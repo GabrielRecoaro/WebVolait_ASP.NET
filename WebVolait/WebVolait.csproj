@@ -157,6 +157,7 @@
     <Compile Include="Repositorio\Acoes.cs" />
     <Compile Include="Repositorio\Conexao.cs" />
     <Compile Include="Utils\Hash.cs" />
+    <Compile Include="ViewModels\AlterarSenhaClienteViewModel.cs" />
     <Compile Include="ViewModels\CadastroClienteViewModel.cs" />
     <Compile Include="ViewModels\CadastroFuncionarioViewModel.cs" />
     <Compile Include="ViewModels\LoginClienteViewModel.cs" />
@@ -216,6 +217,7 @@
     <Content Include="Views\AutenticacaoCliente\LoginCliente.cshtml" />
     <Content Include="Views\Home\ListarPassagem.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\LoginFuncionario.cshtml" />
+    <Content Include="Views\AutenticacaoCliente\AlterarSenha.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

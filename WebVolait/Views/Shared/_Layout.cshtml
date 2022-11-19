@@ -68,11 +68,24 @@
                 </div>
                 <nav class="header__navbar__navigation-menu">
                     <ul class="header__navbar__navigation-menu__list">
-                        <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Página Inicial", "Index", "Home")</li>
-                        <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
-                        <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
-                        <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
-                        <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Login", "LoginCliente", "AutenticacaoCliente")</li>
+                        @*
+        <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Login", "LoginCliente", "AutenticacaoCliente")</li>*@
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Olá " + @User.Identity.Name, "", "")</li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Sair", "Logout", "AutenticacaoCliente")</li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Alterar Senha", "AlterarSenha", "AutenticacaoCliente")</li>
+                        }
+                        else
+                        {
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Página Inicial", "Index", "Home")</li>
+                            <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
+                            <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
+                            <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Cadastrar", "InsertCliente", "AutenticacaoCliente")</li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Logar", "LoginCliente", "AutenticacaoCliente")</li>
+                        }
                         <button class="button">
                             <a href="#">Cadastrar-se</a>
                         </button>

@@ -4,6 +4,16 @@
     ViewBag.Title = "Login";
 }
 
+@if (TempData["MensagemLogin"] != null)
+{
+
+    <div class="alert alert-success">
+
+        @TempData["MensagemLogin"]
+
+    </div>
+}
+
 @*<h2>Login</h2>
 
 
@@ -46,33 +56,33 @@
     </div>*@
 
 
-    <main class="content-main login">
-        <div class="container">
-            <div class="side-content">
-                <h1 class="side-content__logo"><a href="#">VOLAIT</a></h1>
-                <div class="side-content__bottom">
-                    <h2 class="side-content__text">Bem vindo de volta <br class="line-break">a Volait</h2>
-                    <p>
-                        Bem vindoLorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi expedita est sapiente qui neque in omnis consectetur pariatur voluptate consequuntur atque, odit quia eveniet iusto rem?
-                    </p>
-                    <picture class="side-content__image">
-                        <img src="~/images/login.png" alt="">
-                    </picture>
-                </div>
+<main class="content-main login">
+    <div class="container">
+        <div class="side-content">
+            <h1 class="side-content__logo"><a href="#">VOLAIT</a></h1>
+            <div class="side-content__bottom">
+                <h2 class="side-content__text">Bem vindo de volta <br class="line-break">a Volait</h2>
+                <p>
+                    Bem vindoLorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi expedita est sapiente qui neque in omnis consectetur pariatur voluptate consequuntur atque, odit quia eveniet iusto rem?
+                </p>
+                <picture class="side-content__image">
+                    <img src="~/images/login.png" alt="">
+                </picture>
             </div>
+        </div>
 
 
-            <div class="form-container">
-                @using (Html.BeginForm(new { @class="form form-login" }))
-                {       
-                    @Html.AntiForgeryToken()
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.urlRetorno)
+        <div class="form-container">
+            @using (Html.BeginForm(new { @class = "form form-login" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.urlRetorno)
                 @*<form class="form form-login" action="#">*@
                 <div class="form__area-flex-title">
                     <h2 class="form__title">Login</h2>
                 </div>
- <!-- <div class="form__area-flex"></div> -->
+                <!-- <div class="form__area-flex"></div> -->
                 <div class="form__area">
                     @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "form__area__label" })
@@ -84,11 +94,11 @@
                 <p class="form__text form__accent-text"><a href="#">Esqueceu sua senha?</a></p>
                 <input class="button button--submit" type="submit" value="Enviar">
                 @*</form>*@
-                }
-                <p>Ainda não possui cadastro? <a class="form__accent-text" href="#">Cadastre-se</a></span></p>
-            </div>
+            }
+            <p>Ainda não possui cadastro? <a class="form__accent-text" href="#">Cadastre-se</a></span></p>
         </div>
-    </main>
+    </div>
+</main>
 
 
 @section Scripts {
