@@ -160,6 +160,7 @@
     <Compile Include="ViewModels\CadastroClienteViewModel.cs" />
     <Compile Include="ViewModels\CadastroFuncionarioViewModel.cs" />
     <Compile Include="ViewModels\LoginClienteViewModel.cs" />
+    <Compile Include="ViewModels\LoginFuncionarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -214,6 +215,7 @@
     <Content Include="Views\Gerenciador\Index.cshtml" />
     <Content Include="Views\AutenticacaoCliente\LoginCliente.cshtml" />
     <Content Include="Views\Home\ListarPassagem.cshtml" />
+    <Content Include="Views\AutenticacaoFuncionario\LoginFuncionario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

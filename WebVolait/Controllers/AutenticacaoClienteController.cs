@@ -117,7 +117,7 @@ namespace WebVolait.Controllers
             if (!String.IsNullOrWhiteSpace(viewmodel.urlRetorno) || Url.IsLocalUrl(viewmodel.urlRetorno))
                 return Redirect(viewmodel.urlRetorno);
             else
-                return RedirectToAction("Index", "Gerenciador");
+                return RedirectToAction("Index", "Home");
             return View();
 
         }

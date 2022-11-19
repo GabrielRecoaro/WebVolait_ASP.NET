@@ -55,5 +55,44 @@ namespace WebVolait.Models
             conexao.Close();
         }
 
+        public string SelectLogin(string vLoginFuncionario)
+        {
+            conexao.Open();
+            command.CommandText = "CALL spSelectLoginFunc(@LoginFuncionario);";
+            command.Parameters.Add("@LoginFuncionario", MySqlDbType.VarChar).Value = vLoginFuncionario;
+            command.Connection = conexao;
+            string LoginFuncionario = (string)command.ExecuteScalar(); // ExecuteScalar: RETORNAR APENAS 1 VALOR
+            conexao.Close();
+
+            if (LoginFuncionario == null)
+                LoginFuncionario = "";
+            return LoginFuncionario;
+        }
+
+        public Funcionario SelectFuncionario(string vLoginFuncionario)
+        {
+            conexao.Open();
+            command.CommandText = "CALL spSelectFunc(@LoginFuncionario);";
+            command.Parameters.Add("@LoginFuncionario", MySqlDbType.VarChar).Value = vLoginFuncionario;
+            command.Connection = conexao;
+            var readFuncionario = command.ExecuteReader();
+            var tempFuncionario = new Funcionario();
+
+            if (readFuncionario.Read())
+            {
+                tempFuncionario.CPFFuncionario = (readFuncionario["CPFFuncionario"].ToString());
+                tempFuncionario.NomeFuncionario = readFuncionario["NomeFuncionario"].ToString();
+                tempFuncionario.NomeSocialFuncionario = readFuncionario["NomeSocialFuncionario"].ToString();
+                tempFuncionario.LoginFuncionario = readFuncionario["LoginFuncionario"].ToString();
+                tempFuncionario.TelefoneFuncionario = readFuncionario["TelefoneFuncionario"].ToString();
+                tempFuncionario.SenhaFuncionario = readFuncionario["SenhaFuncionario"].ToString();
+            };
+
+            readFuncionario.Close();
+            conexao.Close();
+
+            return tempFuncionario;
+        }
+
     }
 }
