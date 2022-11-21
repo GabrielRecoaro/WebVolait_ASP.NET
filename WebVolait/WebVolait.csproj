@@ -141,6 +141,7 @@
     <Compile Include="Controllers\AutenticacaoClienteController.cs" />
     <Compile Include="Controllers\AutenticacaoFuncionarioController.cs" />
     <Compile Include="Controllers\ContatoController.cs" />
+    <Compile Include="Controllers\CupomController.cs" />
     <Compile Include="Controllers\GerenciadorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PassagemController.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Companhia.cs" />
     <Compile Include="Models\Contato.cs" />
+    <Compile Include="Models\Cupom.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Item_Venda.cs" />
     <Compile Include="Models\Pagamento.cs" />
@@ -162,6 +164,7 @@
     <Compile Include="Utils\Hash.cs" />
     <Compile Include="ViewModels\AlterarSenhaClienteViewModel.cs" />
     <Compile Include="ViewModels\CadastroClienteViewModel.cs" />
+    <Compile Include="ViewModels\CadastroCupomViewModel.cs" />
     <Compile Include="ViewModels\CadastroFuncionarioViewModel.cs" />
     <Compile Include="ViewModels\CadastroPassagemViewModel.cs" />
     <Compile Include="ViewModels\LoginClienteViewModel.cs" />
@@ -228,6 +231,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Cupom\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

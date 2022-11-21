@@ -4,3 +4,65 @@
 }
 
 
+public Cupom ListarCodCupom(int cod)
+        {
+            var comando = String.Format("select * from tb_cupom where CPFCupom = {0}", cod);
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodFunc = cmd.ExecuteReader();
+            return ListarCodCli(DadosCodFunc).FirstOrDefault();
+        }
+
+        public List<Cupom>
+    ListarCodCli(MySqlDataReader dt)
+    {
+    var AltAl = new List<Cupom>
+        ();
+        while (dt.Read())
+        {
+        var AlTemp = new Cupom()
+        {
+        CPFCupom = (dt["CPFCupom"].ToString()),
+        NomeCupom = (dt["NomeCupom"].ToString()),
+        NomeSocialCupom = (dt["NomeSocialCupom"].ToString()),
+        LoginCupom = (dt["LoginCupom"].ToString()),
+        TelefoneCupom = (dt["TelefoneCupom"].ToString()),
+        SenhaCupom = (dt["SenhaCupom"].ToString()),
+
+        };
+        AltAl.Add(AlTemp);
+
+        }
+        dt.Close();
+        return AltAl;
+        }
+
+        public List<Cupom>
+            ListarCupom()
+            {
+            MySqlCommand cmd = new MySqlCommand("Select * from tb_cupom", con.ConectarBD());
+            var DadosCupom = cmd.ExecuteReader();
+            return ListarTodosCupom(DadosCupom);
+            }
+
+            public List<Cupom>
+                ListarTodosCupom(MySqlDataReader dt)
+                {
+                var TodosCupoms = new List<Cupom>
+                    ();
+                    while (dt.Read())
+                    {
+                    var CupomTemp = new Cupom()
+                    {
+                    CPFCupom = (dt["CPFCupom"].ToString()),
+                    NomeCupom = (dt["NomeCupom"].ToString()),
+                    NomeSocialCupom = (dt["NomeSocialCupom"].ToString()),
+                    LoginCupom = (dt["LoginCupom"].ToString()),
+                    TelefoneCupom = (dt["TelefoneCupom"].ToString()),
+                    SenhaCupom = (dt["SenhaCupom"].ToString()),
+
+                    };
+                    TodosCupoms.Add(CupomTemp);
+                    }
+                    dt.Close();
+                    return TodosCupoms;
+                    }
