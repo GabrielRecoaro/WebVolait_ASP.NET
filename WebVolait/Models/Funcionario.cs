@@ -27,6 +27,7 @@ namespace WebVolait.Models
         public string LoginFuncionario { get; set; }
 
         [Display(Name = "Número de Telefone")]
+        [MaxLength(15, ErrorMessage = "Tem demais")]
         public string TelefoneFuncionario { get; set; }
 
         [DataType(DataType.Password)]
@@ -35,10 +36,6 @@ namespace WebVolait.Models
         [MaxLength(100)]
         public string SenhaFuncionario { get; set; }
 
-        [Display(Name = "Função")]
-        [Required(ErrorMessage = "O campo é obrigatório")]
-        [MaxLength(100)]
-        public int FuncaoFuncionario { get; set; }
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
@@ -46,17 +43,55 @@ namespace WebVolait.Models
         public void InsertFuncionario(Funcionario funcionario)
         {
             conexao.Open();
-            command.CommandText = "call spInsertFunc (@CPFFuncionario, @NomeFuncionario, @NomeSocialFuncionario, @LoginFuncionario, @TelefoneFuncionario, @SenhaFuncionario, @IdFuncao);";
+            command.CommandText = "call spInsertFunc (@CPFFuncionario, @NomeFuncionario, @NomeSocialFuncionario, @LoginFuncionario, @TelefoneFuncionario, @SenhaFuncionario);";
             command.Parameters.Add("@CPFFuncionario", MySqlDbType.VarChar).Value = funcionario.CPFFuncionario;
             command.Parameters.Add("@NomeFuncionario", MySqlDbType.VarChar).Value = funcionario.NomeFuncionario;
             command.Parameters.Add("@NomeSocialFuncionario", MySqlDbType.VarChar).Value = funcionario.NomeSocialFuncionario;
             command.Parameters.Add("@LoginFuncionario", MySqlDbType.VarChar).Value = funcionario.LoginFuncionario;
             command.Parameters.Add("@TelefoneFuncionario", MySqlDbType.VarChar).Value = funcionario.TelefoneFuncionario;
             command.Parameters.Add("@SenhaFuncionario", MySqlDbType.VarChar).Value = funcionario.SenhaFuncionario;
-            command.Parameters.Add("@IdFuncao", MySqlDbType.VarChar).Value = funcionario.FuncaoFuncionario;
             command.Connection = conexao;
             command.ExecuteNonQuery();
             conexao.Close();
+        }
+
+        public string SelectLogin(string vLoginFuncionario)
+        {
+            conexao.Open();
+            command.CommandText = "CALL spSelectLoginFunc(@LoginFuncionario);";
+            command.Parameters.Add("@LoginFuncionario", MySqlDbType.VarChar).Value = vLoginFuncionario;
+            command.Connection = conexao;
+            string LoginFuncionario = (string)command.ExecuteScalar(); // ExecuteScalar: RETORNAR APENAS 1 VALOR
+            conexao.Close();
+
+            if (LoginFuncionario == null)
+                LoginFuncionario = "";
+            return LoginFuncionario;
+        }
+
+        public Funcionario SelectFuncionario(string vLoginFuncionario)
+        {
+            conexao.Open();
+            command.CommandText = "CALL spSelectFunc(@LoginFuncionario);";
+            command.Parameters.Add("@LoginFuncionario", MySqlDbType.VarChar).Value = vLoginFuncionario;
+            command.Connection = conexao;
+            var readFuncionario = command.ExecuteReader();
+            var tempFuncionario = new Funcionario();
+
+            if (readFuncionario.Read())
+            {
+                tempFuncionario.CPFFuncionario = (readFuncionario["CPFFuncionario"].ToString());
+                tempFuncionario.NomeFuncionario = readFuncionario["NomeFuncionario"].ToString();
+                tempFuncionario.NomeSocialFuncionario = readFuncionario["NomeSocialFuncionario"].ToString();
+                tempFuncionario.LoginFuncionario = readFuncionario["LoginFuncionario"].ToString();
+                tempFuncionario.TelefoneFuncionario = readFuncionario["TelefoneFuncionario"].ToString();
+                tempFuncionario.SenhaFuncionario = readFuncionario["SenhaFuncionario"].ToString();
+            };
+
+            readFuncionario.Close();
+            conexao.Close();
+
+            return tempFuncionario;
         }
 
     }

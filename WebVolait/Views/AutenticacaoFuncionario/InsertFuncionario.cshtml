@@ -4,90 +4,68 @@
     ViewBag.Title = "InsertFuncionario";
 }
 
-<h2>Cadastre-se como Funcionario</h2>
+<main class="content-main sign-up-employee margin">
+    <div class="container">
+        <div class="form-container">
+             <form action="/AutenticacaoFuncionario/InsertFuncionario" method="post" class="form form-sign-up-employee">
+            @*@using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                <div class="form__area-flex-title">
+                    <h2 class="form__title">Cadastro de funcionário</h2>
+                </div>
+                <div class="form__area-flex">
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.NomeFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.NomeFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.NomeFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.NomeSocialFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.NomeSocialFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.NomeSocialFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                </div>
+                <div class="form__area-flex">
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.CPFFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.CPFFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.CPFFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                </div>
+                <div class="form__area-flex">
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.LoginFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.LoginFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.LoginFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.TelefoneFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.TelefoneFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        @*@Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", new { @class = "form__area__label" })*@
+                    </div>
+                </div>
+                <div class="form__area-flex">
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.SenhaFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.SenhaFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.SenhaFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.ConfirmaSenhaFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.ConfirmaSenhaFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.ConfirmaSenhaFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                </div>
 
-<p> Preencha os seguintes campos:</p>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4></h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.CPFFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CPFFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CPFFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NomeFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NomeFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NomeFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NomeSocialFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NomeSocialFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NomeSocialFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LoginFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LoginFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LoginFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TelefoneFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TelefoneFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SenhaFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SenhaFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SenhaFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ConfirmaSenhaFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ConfirmaSenhaFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ConfirmaSenhaFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FuncaoFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FuncaoFuncionario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FuncaoFuncionario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+                <div class="form__area-flex flex-button">
+                    <input class="button button--grey" type="reset" value="Cancelar">
+                    <input class="button button--blue" type="submit" value="Cadastrar-se">
+                </div>
+                </form>
+            @*  *@}
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Cancelar", "Index")
-</div>
+</main>

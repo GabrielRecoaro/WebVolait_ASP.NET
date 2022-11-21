@@ -7,7 +7,7 @@
 <h2>ListarFuncionario</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar Novo Funcionario", "InsertFuncionario")
 </p>
 <table class="table">
     <tr>
@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.NomeSocialFuncionario)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EmailFuncionario)
+            @Html.DisplayNameFor(model => model.LoginFuncionario)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TelefoneFuncionario)
@@ -29,9 +29,7 @@
         <th>
             @Html.DisplayNameFor(model => model.SenhaFuncionario)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FuncaoFuncionario)
-        </th>
+
         <th></th>
     </tr>
 
@@ -54,14 +52,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SenhaFuncionario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FuncaoFuncionario)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

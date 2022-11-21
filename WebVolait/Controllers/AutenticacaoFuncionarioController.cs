@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using WebVolait.Models;
 using WebVolait.Repositorio;
 using WebVolait.ViewModels;
+using Hash = WebVolait.Utils.Hash;
 
 namespace WebVolait.Controllers
 {
@@ -42,12 +44,74 @@ namespace WebVolait.Controllers
                 LoginFuncionario = viewmodel.LoginFuncionario,
                 TelefoneFuncionario = viewmodel.TelefoneFuncionario,
                 SenhaFuncionario = viewmodel.SenhaFuncionario,
-                FuncaoFuncionario = viewmodel.FuncaoFuncionario
+
             };
 
             novofuncionario.InsertFuncionario(novofuncionario);
 
             return RedirectToAction("ListarFuncionario", "AutenticacaoFuncionario");
+
+        }
+
+        public ActionResult SelectLogin(string vLoginFuncionario)
+        {
+            bool LoginExists;
+            string loginfuncionario = new Funcionario().SelectLogin(vLoginFuncionario);
+
+            if (loginfuncionario.Length == 0)
+                LoginExists = false;
+            else
+                LoginExists = true;
+
+            return Json(!LoginExists, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult LoginFuncionario(string ReturnUrl)
+        {
+            var viewmodel = new LoginFuncionarioViewModel
+            {
+                urlRetorno = ReturnUrl
+            };
+            return View(viewmodel);
+        }
+
+        [HttpPost]
+
+        public ActionResult LoginFuncionario(LoginFuncionarioViewModel viewmodel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewmodel);
+            }
+
+            Funcionario funcionario = new Funcionario();
+            funcionario = funcionario.SelectFuncionario(viewmodel.LoginFuncionario);
+
+            if (funcionario == null | funcionario.LoginFuncionario != viewmodel.LoginFuncionario)
+            {
+                ModelState.AddModelError("LoginFuncionario", "Login incorreto");
+                return View(viewmodel);
+            }
+
+            if (funcionario.SenhaFuncionario != Hash.GerarHash(viewmodel.Senha))
+            {
+                ModelState.AddModelError("SenhaFuncionario", "Senha incorreta");
+                return View(viewmodel);
+            }
+
+            var identity = new ClaimsIdentity(new[]
+            {
+                new Claim(ClaimTypes.Name, funcionario.LoginFuncionario),
+                new Claim("LoginFuncionario", funcionario.LoginFuncionario)
+            }, "AppAplicationCookie");
+
+            Request.GetOwinContext().Authentication.SignIn(identity);
+
+            if (!String.IsNullOrWhiteSpace(viewmodel.urlRetorno) || Url.IsLocalUrl(viewmodel.urlRetorno))
+                return Redirect(viewmodel.urlRetorno);
+            else
+                return RedirectToAction("Index", "Gerenciador");
+            return View();
 
         }
 

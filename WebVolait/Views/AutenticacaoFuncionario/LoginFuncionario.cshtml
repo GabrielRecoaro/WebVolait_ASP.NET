@@ -1,37 +1,27 @@
-﻿@model WebVolait.ViewModels.LoginClienteViewModel
+﻿@model WebVolait.ViewModels.LoginFuncionarioViewModel
 
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "LoginFuncionario";
 }
 
-@if (TempData["MensagemLogin"] != null)
-{
-
-    <div class="alert alert-success">
-
-        @TempData["MensagemLogin"]
-
-    </div>
-}
-
-@*<h2>Login</h2>
-
+@*<h2>LoginFuncionario</h2>
 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-
+            <h4>LoginFuncionarioViewModel</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.urlRetorno)
+            </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.LoginFuncionario, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.LoginCliente, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.LoginFuncionario, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LoginFuncionario, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -45,16 +35,15 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Fazer login" class="btn btn-default" />
+                    <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
-        </div>
+
     }
 
     <div>
-        @Html.ActionLink("Cancelar", "Index")
+        @Html.ActionLink("Back to List", "Index")
     </div>*@
-
 
 <main class="content-main login">
     <div class="container">
@@ -84,8 +73,8 @@
                 </div>
                 <!-- <div class="form__area-flex"></div> -->
                 <div class="form__area">
-                    @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "form__area__label" })
+                    @Html.EditorFor(model => model.LoginFuncionario, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.LabelFor(model => model.LoginFuncionario, htmlAttributes: new { @class = "form__area__label" })
                 </div>
                 <div class="form__area">
                     @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form__area__input" } })
@@ -104,3 +93,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
