@@ -43,8 +43,8 @@ namespace WebVolait.Controllers
                 Destino = viewmodel.Destino,
                 CidadeAeroDestino = viewmodel.CidadeAeroDestino,
                 CidadeAeroOrigem = viewmodel.CidadeAeroOrigem,
-                DtHrPartida = DateTime.Parse(viewmodel.DataHrPartida),
-                DtHrChegada = DateTime.Parse(viewmodel.DataHrChegada),
+                //DtHrPartida = DateTime.Parse(viewmodel.DataHrPartida),
+                //DtHrChegada = DateTime.Parse(viewmodel.DataHrChegada),
                 ImgPassagem = viewmodel.ImgPassagem,
                 ValorPassagem = viewmodel.ValorPassagem,
                 Classe = viewmodel.Classe
@@ -58,9 +58,8 @@ namespace WebVolait.Controllers
             return RedirectToAction("ListarPassagem", "AutenticacaoPassagem");
 
         }
-
-
-        [HttpPost]
-
-    
+    }
 }
+
+
+   

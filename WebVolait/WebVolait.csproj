@@ -140,6 +140,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AutenticacaoClienteController.cs" />
     <Compile Include="Controllers\AutenticacaoFuncionarioController.cs" />
+    <Compile Include="Controllers\ContatoController.cs" />
     <Compile Include="Controllers\GerenciadorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PassagemController.cs" />
@@ -148,6 +149,7 @@
     </Compile>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Companhia.cs" />
+    <Compile Include="Models\Contato.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Item_Venda.cs" />
     <Compile Include="Models\Pagamento.cs" />
@@ -221,6 +223,8 @@
     <Content Include="Views\AutenticacaoFuncionario\LoginFuncionario.cshtml" />
     <Content Include="Views\AutenticacaoCliente\AlterarSenha.cshtml" />
     <Content Include="Views\Passagem\InsertPassagem.cshtml" />
+    <Content Include="Views\Contato\Index.cshtml" />
+    <Content Include="Views\Home\Sobre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

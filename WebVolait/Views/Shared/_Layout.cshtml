@@ -78,9 +78,9 @@
                         else
                         {
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Página Inicial", "Index", "Home")</li>
-                            <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
-                            <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
-                            <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Passagem", "InsertPassagem", "Passagem")</li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Contato", "Index", "Contato")</li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Sobre", "Sobre", "Home")</li>
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Logar", "LoginCliente", "AutenticacaoCliente")</li>
                         }
                         <button class="button">
