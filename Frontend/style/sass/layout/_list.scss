@@ -131,11 +131,11 @@
                 grid-template-rows: auto auto;
                 grid-template-areas: "one one two three four"
                 "five five six . seven";
-                
                 div {
                     color: $grey-color;
                     display: flex;
                     flex-direction: column;
+                    align-items: flex-start;
                     span {
                         border: 2px solid $light-grey-color;
                         height: 38px;
@@ -146,6 +146,7 @@
                         border-radius: 5px;
                         margin-top: 5px;
                         color: $black-color;
+                        width: 100%;
                     }
                 }
                 & div:nth-child(1) {
