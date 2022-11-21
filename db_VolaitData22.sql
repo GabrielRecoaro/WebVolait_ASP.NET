@@ -14,11 +14,12 @@ create table tb_funcionario
     NomeFuncionario varchar(100) not null,
     NomeSocialFuncionario varchar(100) null,
     LoginFuncionario varchar(100) not null,
-    TelefoneFuncionario varchar(11) not null,
-    SenhaFuncionario char(6) not null
+    TelefoneFuncionario varchar(16) not null,
+    SenhaFuncionario varchar(100) not null
     /* IdFuncao int,
     constraint fk_funcao foreign key(IdFuncao) references tb_funcaoFunc(IdFuncao) */
 );
+
 
 create table tb_cliente
 (
@@ -27,7 +28,7 @@ create table tb_cliente
     NomeSocialCliente varchar(100) null,
     LoginCliente varchar(100) not null,
     TelefoneCliente varchar(11) not null,
-    SenhaCliente char(6)
+    SenhaCliente varchar(100) not null
 );
 
 create table tb_tipoPagto
@@ -156,7 +157,7 @@ insert into tb_ciaAerea values (33937681000178, "Latam Airlines"),
 -- Cadastrar funcionário
 drop procedure if exists spInsertFunc;
 DELIMITER $$
-CREATE PROCEDURE spInsertFunc(vCpfFunc bigint, vNomeFunc varchar(100), vNomeSocialFunc varchar(100), vLoginFunc varchar(100), vTelefoneFunc char(11), vSenhaFunc char(6)) 
+CREATE PROCEDURE spInsertFunc(vCpfFunc bigint, vNomeFunc varchar(100), vNomeSocialFunc varchar(100), vLoginFunc varchar(100), vTelefoneFunc char(11), vSenhaFunc varchar(100)) 
 
 BEGIN
 	INSERT INTO tb_funcionario (CPFFuncionario, NomeFuncionario, NomeSocialFuncionario, LoginFuncionario, TelefoneFuncionario, SenhaFuncionario) VALUES (vCpfFunc, vNomeFunc, vNomeSocialFunc, vLoginFunc, vTelefoneFunc, vSenhaFunc);
@@ -169,10 +170,10 @@ DELIMITER $$
 -- Cadastrar cliente
 drop procedure if exists spInsertCli;
 DELIMITER $$
-CREATE PROCEDURE spInsertCli(vCpfCli bigint, vNomeCli varchar(100), vNomeSocialCli varchar(100), vLoginCli varchar(100), vTelefoneCli char(11), vSenhaCli char(6)) 
+CREATE PROCEDURE spInsertCli(vCpfCli bigint, vNomeCli varchar(100), vNomeSocialCli varchar(100), vLoginCliente varchar(100), vTelefoneCli char(16), vSenhaCli varchar(100)) 
 
 BEGIN
-	INSERT INTO tb_cliente (CPFCliente, NomeCliente, NomeSocialCliente, LoginCliente, TelefoneCliente, SenhaCliente) VALUES (vCpfCli, vNomeCli, vNomeSocialCli, vLoginCli, vTelefoneCli, vSenhaCli);
+	INSERT INTO tb_cliente (CPFCliente, NomeCliente, NomeSocialCliente, LoginCliente, TelefoneCliente, SenhaCliente) VALUES (vCpfCli, vNomeCli, vNomeSocialCli, vLoginCliente, vTelefoneCli, vSenhaCli);
 END $$
 
 CALL spInsertCli(52673833846, "Brenda Berzin", null, "brendaberzin@gmail.com", "11942786165", "987654"); 
@@ -185,36 +186,35 @@ select * from tb_cliente;
 -- Select funcionário
 drop procedure if exists spSelectFunc;
 DELIMITER $$
-CREATE PROCEDURE spSelectFunc(vCpfFunc bigint)
+CREATE PROCEDURE spSelectFunc(vLoginFuncionario varchar(100))
 
 BEGIN
-	select CPFFuncionario, NomeFuncionario, NomeSocialFuncionario, LoginFuncionario, TelefoneFuncionario, SenhaFuncionario from tb_funcionario where CPFFuncionario = vCpfFunc;
+	select CPFFuncionario, NomeFuncionario, NomeSocialFuncionario, LoginFuncionario, TelefoneFuncionario, SenhaFuncionario from tb_funcionario where LoginFuncionario = vLoginFuncionario;
 END $$
 
-CALL spSelectFunc(52673833846);
 
 DELIMITER $$
 
 -- Select cliente
 drop procedure if exists spSelectCli;
 DELIMITER $$
-CREATE PROCEDURE spSelectCli(vCpfCli bigint)
+CREATE PROCEDURE spSelectCli(vLoginCliente varchar(100))
 
 BEGIN
-	select CPFCliente, NomeCliente, NomeSocialCliente, LoginCliente, TelefoneCliente, SenhaCliente from tb_cliente where CPFCliente = vCpfCli;
+	select * from tb_cliente where LoginCliente = vLoginCliente;
 END $$
 
-CALL spSelectCli(52673833846);
+
 
 DELIMITER $$
 
 -- Select login usuário
 drop procedure if exists spSelectLoginFunc;
 DELIMITER $$
-CREATE PROCEDURE spSelectLoginFunc(vLoginFunc varchar(100))
+CREATE PROCEDURE spSelectLoginFunc(vLoginFuncionario varchar(100))
 
 BEGIN
-	select LoginFuncionario from tb_funcionario where LoginFuncionario = vLoginFunc;
+	select LoginFuncionario from tb_funcionario where LoginFuncionario = vLoginFuncionario;
 END $$
 
 CALL spSelectLoginFunc("brendaberzin@gmail.com");
@@ -224,10 +224,10 @@ DELIMITER $$
 -- Select login cliente
 drop procedure if exists spSelectLoginCli;
 DELIMITER $$
-CREATE PROCEDURE spSelectLoginCli(vLoginCli varchar(100))
+CREATE PROCEDURE spSelectLoginCli(vLoginCliente varchar(100))
 
 BEGIN
-	select LoginCliente from tb_cliente where LoginCliente = vLoginCli;
+	select LoginCliente from tb_cliente where LoginCliente = vLoginCliente;
 END $$
 
 CALL spSelectLoginCli("brendaberzin@gmail.com");
@@ -237,7 +237,7 @@ DELIMITER $$
 -- Alterar funcionário 
 drop procedure if exists spAlterFunc;
 DELIMITER $$
-CREATE PROCEDURE spAlterFunc(vCpfFunc bigint, vNomeFunc varchar(100), vNomeSocialFunc varchar(100), vLoginFunc varchar(100), vTelefoneFunc char(11), vSenhaFunc char(6)) 
+CREATE PROCEDURE spAlterFunc(vCpfFunc bigint, vNomeFunc varchar(100), vNomeSocialFunc varchar(100), vLoginFunc varchar(100), vTelefoneFunc char(11), vSenhaFunc varchar(100)) 
 
 BEGIN
 		UPDATE tb_funcionario SET NomeFuncionario = vNomeFunc, NomeSocialFuncionario = vNomeSocialFunc, LoginFuncionario = vLoginFunc, TelefoneFuncionario = vTelefoneFunc, SenhaFuncionario = vSenhaFunc where CPFFuncionario = vCpfFunc;
@@ -250,10 +250,10 @@ DELIMITER $$
 -- Alterar cliente
 drop procedure if exists spAlterCli;
 DELIMITER $$
-CREATE PROCEDURE spAlterCli(vCpfCli bigint, vNomeCli varchar(100), vNomeSocialCli varchar(100), vLoginCli varchar(100), vTelefoneCli char(11), vSenhaCli char(6)) 
+CREATE PROCEDURE spAlterCli(vCpfCli bigint, vNomeCli varchar(100), vNomeSocialCli varchar(100), vLoginCliente varchar(100), vTelefoneCli char(11), vSenhaCli varchar(100)) 
 
 BEGIN
-		UPDATE tb_cliente SET NomeCliente = vNomeCli, NomeSocialCliente = vNomeSocialCLi, LoginCliente = vLoginCli, TelefoneCliente = vTelefoneCli, SenhaCliente = vSenhaCli where CPFCliente = vCpfCli;
+		UPDATE tb_cliente SET NomeCliente = vNomeCli, NomeSocialCliente = vNomeSocialCLi, LoginCliente = vLoginCliente, TelefoneCliente = vTelefoneCli, SenhaCliente = vSenhaCli where CPFCliente = vCpfCli;
 END $$
 
 CALL spAlterCli(57689455721, 'Elio Gaspari', null, 'elio.gaspari@gmail.com', '12976119231', 'eli999');
@@ -265,7 +265,7 @@ select * from tb_funcionario;
 -- Alterar senha funcionário
 drop procedure if exists spAlterSenhaFunc;
 DELIMITER $$
-CREATE PROCEDURE spAlterSenhaFunc(vCpfFunc bigint, vSenhaFunc char(6))
+CREATE PROCEDURE spAlterSenhaFunc(vCpfFunc bigint, vSenhaFunc varchar(100))
 
 BEGIN
 	UPDATE tb_funcionario set SenhaFuncionario = vSenhaFunc where CPFFuncionario = vCpfFunc;
@@ -280,13 +280,13 @@ select * from tb_cliente;
 -- Alterar senha cliente
 drop procedure if exists spAlterSenhaCli;
 DELIMITER $$
-CREATE PROCEDURE spAlterSenhaCli(vCpfCli bigint, vSenhaCli char(6))
+CREATE PROCEDURE spAlterSenhaCli(vLoginCliente varchar(100), vSenhaCli varchar(100))
 
 BEGIN
-	UPDATE tb_cliente set SenhaCliente = vSenhaCli where CPFCliente = vCpfCli;
+	UPDATE tb_cliente set SenhaCliente = vSenhaCli where LoginCliente = vLoginCliente;
 END $$
 
-CALL spAlterSenhaCli (52673833846, "bsb975");
+
 
 DELIMITER $$
 
