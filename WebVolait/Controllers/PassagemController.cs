@@ -51,9 +51,9 @@ namespace WebVolait.Controllers
 
             };
 
-            novopassagem.InsertPassagem(novopassagem);
+            novopassagem.InsertPasssagem(novopassagem);
 
-            TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
+            TempData["MensagemLogin"] = "Passagem inserida com sucesso!";
 
             return RedirectToAction("ListarPassagem", "AutenticacaoPassagem");
 
