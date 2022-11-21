@@ -19,12 +19,5 @@ namespace WebVolait.Controllers
             return View();
         }
 
-        public ActionResult ListarPassagem()
-        {
-            var ExibirPass = new Acoes();
-            var TodosPass = ExibirPass.ListarPassagem();
-            return View(TodosPass);
-
-        }
     }
 }

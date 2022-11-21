@@ -6,25 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>*@
 
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-        <meta name="keywords" content="">
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-        <script defer src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <script defer src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
 
-        <script defer src="js/jquery-3.5.1.min.js"></script>
-        <script defer src="js/script.js"></script>
+    <script defer src="js/jquery-3.5.1.min.js"></script>
+    <script defer src="js/script.js"></script>
 
-        <title>Volait | Descubra o mundo conosco</title>
+    <title>Volait | Descubra o mundo conosco</title>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -67,7 +67,7 @@
                 <nav class="header__navbar__navigation-menu">
                     <ul class="header__navbar__navigation-menu__list">
                         @*
-        <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Login", "LoginCliente", "AutenticacaoCliente")</li>*@
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Login", "LoginCliente", "AutenticacaoCliente")</li>*@
 
                         @if (User.Identity.IsAuthenticated)
                         {

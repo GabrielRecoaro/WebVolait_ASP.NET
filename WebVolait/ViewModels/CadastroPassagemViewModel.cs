@@ -5,13 +5,10 @@ using System.Linq;
 using System.Web;
 using System.Xml.Linq;
 
-namespace WebVolait.Models
+namespace WebVolait.ViewModels
 {
-    public class Passagem
+    public class CadastroPassagemViewModel
     {
-
-        public int IdPassagem { get; set; }
-
         public string NomePassagem { get; set; }
 
         public string DescPassagem { get; set; }
