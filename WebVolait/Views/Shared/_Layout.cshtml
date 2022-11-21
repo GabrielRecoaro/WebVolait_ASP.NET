@@ -17,8 +17,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-
-        <link rel="stylesheet" type="text/css" href="./style/css/style.css">
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
         <script defer src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
@@ -83,11 +81,10 @@
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
-                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Cadastrar", "InsertCliente", "AutenticacaoCliente")</li>
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Logar", "LoginCliente", "AutenticacaoCliente")</li>
                         }
                         <button class="button">
-                            <a href="#">Cadastrar-se</a>
+                            @Html.ActionLink("Cadastrar", "InsertCliente", "AutenticacaoCliente")
                         </button>
                     </ul>
                 </nav>
@@ -98,60 +95,86 @@
     @RenderBody()
 
     <footer class="footer">
-        <div class="footer__upper">
-            <div class="footer__upper__content">
-                <img class="logo" src="~/images/logo.png" alt="Logotipo">
-                <p>
-                    Nulla ultrices interdum sit ultricies venenatis fames molestie. Donec pharetra in sed odio
-                    sapien.
-                    Quisque elementum dignissim nec pretium nibh sit in nulla sed.
-                </p>
-                <div class="footer__upper__content__socialmedia">
-                    <div class="socialmedia__icon">
-                        <iconify-icon icon="akar-icons:instagram-fill"></iconify-icon>
-                    </div>
-                    <div class="socialmedia__icon">
-                        <iconify-icon icon="brandico:facebook"></iconify-icon>
-                    </div>
-                    <div class="socialmedia__icon">
-                        <iconify-icon icon="akar-icons:linkedin-fill"></iconify-icon>
+        <div class="container">
+            <section class="footer__upper">
+                <div class="footer__upper__content-main">
+                    <picture class="footer__upper__content-main__img">
+                        <a href="#">
+                            <img src="./images/logo.png" alt="">
+                        </a>
+                    </picture>
+                    <p class="footer__upper__content-main__paragraph">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Veritatis ut reprehenderit deleniti provident magnam non libero
+                        ratione voluptates! Ullam necessitatibus atque natus consequuntur
+                        dolorem incidunt repudiandae delectus placeat? Repudiandae, quos.
+                    </p>
+                    <div class="footer__upper__content-main__icons">
+                        <a href="#" target="_blank">
+                            <iconify-icon icon="akar-icons:instagram-fill"></iconify-icon>
+                        </a>
+                        <a href="#" target="_blank">
+                            <iconify-icon icon="brandico:facebook"></iconify-icon>
+                        </a>
+                        <a href="#" target="_blank">
+                            <iconify-icon icon="akar-icons:linkedin-fill"></iconify-icon>
+                        </a>
                     </div>
                 </div>
-            </div>
-            <div class="footer__upper__nav">
-                <ul class="footer__upper__nav__list">
-                    <li class="footer__upper__nav__list__item title"><a href="#">Sobre nós</a></li>
-                    <li class="footer__upper__nav__list__item"><a href="#">Contato</a></li>
-                    <li class="footer__upper__nav__list__item"><a href="#">História</a></li>
-                    <li class="footer__upper__nav__list__item">
-                        <a href="#">Missão, visão e valores</a>
-                    </li>
-                </ul>
-                <ul class="footer__upper__nav__list">
-                    <li class="footer__upper__nav__list__item title"><a href="#">Sobre nós</a></li>
-                    <li class="footer__upper__nav__list__item"><a href="#">Contato</a></li>
-                    <li class="footer__upper__nav__list__item"><a href="#">História</a></li>
-                    <li class="footer__upper__nav__list__item">
-                        <a href="#">Missão, visão e valores</a>
-                    </li>
-                </ul>
-                <ul class="footer__upper__nav__list">
-                    <li class="footer__upper__nav__list__item title"><a href="#">Legal</a></li>
-                    <li class="footer__upper__nav__list__item"><a href="#">Privacidade</a></li>
-                    <li class="footer__upper__nav__list__item"><a href="#">Termos de uso</a></li>
-                    <li class="footer__upper__nav__list__item"><a href="#">Cookies</a></li>
-                    <li class="footer__upper__nav__list__item"><a href="#">Mapa do site</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="line"></div>
-        <div class="footer__lower">
-            <p class="footer__lower__copyright">
-                <span>&#169;</span> 2022 Volait - Todos os Direitos Reservados
-            </p>
-            <p class="footer__lower__developers">
-                <iconify-icon icon="entypo:code"></iconify-icon>Desenvolvido por <a href="#" target="_blank" rel="noopener noreferrer"> Ahrus</a>
-            </p>
+                <div class="footer__upper__links">
+                    <div class="footer__upper__links__section menu">
+                        <h2 class="footer__upper__links__section__title">
+                            Menu
+                        </h2>
+                        <ul class="footer__upper__links__section__list">
+                            <li class="footer__upper__links__section__list__item">
+                                <a href="#">Home</a>
+                            </li>
+                            <li class="footer__upper__links__section__list__item">
+                                <a href="#">Passagens</a>
+                            </li>
+                            <li class="footer__upper__links__section__list__item">
+                                <a href="#">Contato</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__upper__links__section about">
+                        <h2 class="footer__upper__links__section__title">
+                            Sobre nós
+                        </h2>
+                        <ul class="footer__upper__links__section__list">
+                            <li class="footer__upper__links__section__list__item">
+                                <a href="#">Nossa história</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__upper__links__section more">
+                        <h2 class="footer__upper__links__section__title">
+                            Saiba mais
+                        </h2>
+                        <ul class="footer__upper__links__section__list">
+                            <li class="footer__upper__links__section__list__item">
+                                <a href="#">Privacidade</a>
+                            </li>
+                            <li class="footer__upper__links__section__list__item">
+                                <a href="#">Termos de uso</a>
+                            </li>
+                            <li class="footer__upper__links__section__list__item">
+                                <a href="#">Cookies</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="footer__lower">
+                <span class="footer__lower__all-rights">
+                    © 2022 Volait - Todos os Direitos Reservados
+                </span>
+                <span class="footer__lower__developers">
+                    <iconify-icon icon="entypo:code"></iconify-icon>
+                    Desenvolvido por <a href="#" target="_blank" rel="noopener noreferrer">Ahrus</a>
+                </span>
+            </section>
         </div>
     </footer>
 

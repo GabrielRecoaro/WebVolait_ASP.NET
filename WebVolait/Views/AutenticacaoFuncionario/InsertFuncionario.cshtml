@@ -7,66 +7,65 @@
 <main class="content-main sign-up-employee margin">
     <div class="container">
         <div class="form-container">
-            <form action="/InsertFuncionario/AutenticacaoFuncionarioController" method="post" class="form form-sign-up-employee">
-            @*@using (Html.BeginForm(new { @class = "form form-sign-up-employee" }))
+             <form action="/AutenticacaoFuncionario/InsertFuncionario" method="post" class="form form-sign-up-employee">
+            @*@using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                <div class="form__area-flex-title">
+                    <h2 class="form__title">Cadastro de funcionário</h2>
+                </div>
+                <div class="form__area-flex">
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.NomeFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.NomeFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.NomeFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.NomeSocialFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.NomeSocialFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.NomeSocialFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                </div>
+                <div class="form__area-flex">
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.CPFFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.CPFFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.CPFFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                </div>
+                <div class="form__area-flex">
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.LoginFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.LoginFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.LoginFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.TelefoneFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.TelefoneFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        @*@Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", new { @class = "form__area__label" })*@
+                    </div>
+                </div>
+                <div class="form__area-flex">
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.SenhaFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.SenhaFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.SenhaFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.ConfirmaSenhaFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.ConfirmaSenhaFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.ConfirmaSenhaFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                </div>
 
-
-                    <div class="form__area-flex-title">
-                        <h2 class="form__title">Cadastro de funcionário</h2>
-                    </div>
-                    <div class="form__area-flex">
-                        <div class="form__area">
-                            @Html.LabelFor(model => model.NomeFuncionario, htmlAttributes: new { @class = "form__area__input" })
-                            @Html.EditorFor(model => model.NomeFuncionario, new { htmlAttributes = new { @class = "form__area__label" } })
-                            @*@Html.ValidationMessageFor(model => model.NomeFuncionario, "",htmlAttributes: new { @class = "form__area__error-message" })*@
-                        </div>
-                        <div class="form__area">
-                            @Html.LabelFor(model => model.NomeSocialFuncionario, htmlAttributes: new { @class = "form__area__input" })
-                            @Html.ValidationMessageFor(model => model.NomeSocialFuncionario, "", new { @class = "form__area__label" })
-                            @*@Html.ValidationMessageFor(model => model.NomeSocialFuncionario, "",htmlAttributes: new { @class = "form__area__error-message" })*@
-                        </div>
-                    </div>
-                    <div class="form__area-flex">
-                        <div class="form__area">
-                            @Html.LabelFor(model => model.CPFFuncionario, htmlAttributes: new { @class = "form__area__input" })
-                            @Html.EditorFor(model => model.CPFFuncionario, new { htmlAttributes = new { @class = "form__area__label" } })
-                            @*@Html.ValidationMessageFor(model => model.CPFFuncionario, "",htmlAttributes: new { @class = "form__area__error-message" })*@
-                        </div>
-                    </div>
-                    <div class="form__area-flex">
-                        <div class="form__area">
-                            @Html.LabelFor(model => model.LoginFuncionario, htmlAttributes: new { @class = "form__area__input" })
-                            @Html.EditorFor(model => model.LoginFuncionario, new { htmlAttributes = new { @class = "form__area__label" } })
-                            @*@Html.ValidationMessageFor(model => model.LoginFuncionario, "",htmlAttributes: new { @class = "form__area__error-message" })*@
-                        </div>
-                        <div class="form__area">
-                            @Html.LabelFor(model => model.TelefoneFuncionario, htmlAttributes: new { @class = "form__area__input" })
-                            @Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", new { @class = "form__area__label" })
-                            @*@Html.ValidationMessageFor(model => model.TelefoneFuncionario, "",htmlAttributes: new { @class = "form__area__error-message" })*@
-                        </div>
-                    </div>
-                    <div class="form__area-flex">
-                        <div class="form__area">
-                            @Html.LabelFor(model => model.SenhaFuncionario, htmlAttributes: new { @class = "form__area__input" })
-                            @Html.EditorFor(model => model.SenhaFuncionario, new { htmlAttributes = new { @class = "form__area__label" } })
-                            @*@Html.ValidationMessageFor(model => model.SenhaFuncionario, "",htmlAttributes: new { @class = "form__area__error-message" })*@
-                        </div>
-                        <div class="form__area">
-                            @Html.LabelFor(model => model.ConfirmaSenhaFuncionario, htmlAttributes: new { @class = "form__area__input" })
-                            @Html.EditorFor(model => model.ConfirmaSenhaFuncionario, new { htmlAttributes = new { @class = "form__area__label" } })
-                            @*@Html.ValidationMessageFor(model => model.ConfirmaSenhaFuncionario, "",htmlAttributes: new { @class = "form__area__error-message" })*@
-                        </div>
-                    </div>
-
-                    <div class="form__area-flex flex-button">
-                        <input class="button button--grey" type="button" value="Cancelar">
-                        <input form="sign-up-employee" class="button button--primary-color" type="submit" value="Cadastrar">
-                    </div>
-                @*}*@
+                <div class="form__area-flex flex-button">
+                    <input class="button button--grey" type="reset" value="Cancelar">
+                    <input class="button button--blue" type="submit" value="Cadastrar-se">
+                </div>
                 </form>
-            </div>
+            @*  *@}
+        </div>
     </div>
 </main>
