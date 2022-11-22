@@ -11,7 +11,7 @@ namespace WebVolait.App_Start
 {
     public class Startup
     {
-        public void Configuration(IAppBuilder app)
+        public void ConfigurationCliente(IAppBuilder app)
         {
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
@@ -20,6 +20,17 @@ namespace WebVolait.App_Start
             });
 
             AntiForgeryConfig.UniqueClaimTypeIdentifier = "LoginCliente";
+        }
+
+        public void ConfigurationFuncionario(IAppBuilder app)
+        {
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = "AppAplicationCookie",
+                LoginPath = new PathString("/AutenticacaoFuncionario/LoginFuncionario")
+            });
+
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = "LoginFuncionario";
         }
     }
 }

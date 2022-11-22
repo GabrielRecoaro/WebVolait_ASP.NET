@@ -94,5 +94,35 @@ namespace WebVolait.Models
             return tempFuncionario;
         }
 
+
+        public void UpdateFuncionario(Funcionario funcinario)
+        {
+            var updateQuery = "";
+            updateQuery += "call spAlterFunc ";
+            updateQuery += string.Format("{0}, '{1}', '{2}', '{3}', '{4}', '{5}')",
+                funcinario.CPFFuncionario,                    //0 
+                funcinario.NomeFuncionario,                   //1 ''
+                funcinario.NomeSocialFuncionario,             //2 ''
+                funcinario.LoginFuncionario,                  //3 ''
+                funcinario.TelefoneFuncionario,               //4 ''
+                funcinario.SenhaFuncionario);                 //5 ''
+
+            command.CommandText = updateQuery;
+            command.ExecuteNonQuery();
+            conexao.Close();
+        }
+
+
+        public void DeleteFuncionario(Funcionario funcionario)
+        {
+            var deleteQuery = "";
+            deleteQuery += string.Format("call spDeleteFunc({0})", funcionario.CPFFuncionario);
+
+            command.CommandText = deleteQuery;
+            command.ExecuteNonQuery();
+            conexao.Close();
+
+        }
+
     }
 }

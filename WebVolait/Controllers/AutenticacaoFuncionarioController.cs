@@ -122,5 +122,38 @@ namespace WebVolait.Controllers
             return View(TodosFunc);
 
         }
+
+        public ActionResult AlterarFuncionario()
+        {
+
+            return View();
+        }
+
+        public ActionResult DeletarFuncionario(int id)
+        {
+            Funcionario funcionario = new Funcionario();
+            var funcionarioselecionado = ac.ListarCodFuncionario(id);
+            return View(funcionarioselecionado);
+        }
+
+        [HttpPost]
+
+        public ActionResult DeletarFuncionario(Funcionario funcionario)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    funcionario.DeleteFuncionario(funcionario);
+                    var funcionarios = ac.ListarFuncionario();
+                    return RedirectToAction("ListarFuncionario", funcionarios);
+                }
+                return View(funcionario);
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

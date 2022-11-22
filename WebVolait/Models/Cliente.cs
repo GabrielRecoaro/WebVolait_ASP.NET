@@ -107,5 +107,34 @@ namespace WebVolait.Models
             command.ExecuteNonQuery();
             conexao.Close();
         }
+
+        public void UpdateCliente(Cliente funcinario)
+        {
+            var updateQuery = "";
+            updateQuery += "call spAlterFunc ";
+            updateQuery += string.Format("{0}, '{1}', '{2}', '{3}', '{4}', '{5}')",
+                funcinario.CPFCliente,                    //0 
+                funcinario.NomeCliente,                   //1 ''
+                funcinario.NomeSocialCliente,             //2 ''
+                funcinario.LoginCliente,                  //3 ''
+                funcinario.TelefoneCliente,               //4 ''
+                funcinario.SenhaCliente);                 //5 ''
+
+            command.CommandText = updateQuery;
+            command.ExecuteNonQuery();
+            conexao.Close();
+        }
+
+
+        public void DeleteCliente(Cliente cliente)
+        {
+            var deleteQuery = "";
+            deleteQuery += string.Format("call spDeleteFunc({0})", cliente.f);
+
+            command.CommandText = deleteQuery;
+            command.ExecuteNonQuery();
+            conexao.Close();
+
+        }
     }
 }

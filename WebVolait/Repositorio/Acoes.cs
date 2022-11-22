@@ -203,6 +203,8 @@ namespace WebVolait.Repositorio
 
             }
 
+        // ********************************** LISTAR PASSAGEM
+
         public Passagem ListarCodPassagem(int cod)
         {
             var comando = String.Format("select * from tb_passagem where IdPassagem = {0}", cod);
