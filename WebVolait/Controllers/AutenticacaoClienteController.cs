@@ -176,5 +176,37 @@ namespace WebVolait.Controllers
             return View(TodosFunc);
 
         }
-    }
+
+        public ActionResult AlterarCliente()
+        {
+
+            return View();
+        }
+
+        public ActionResult DeletarCliente(int id)
+        {
+            Cliente cliente = new Cliente();
+            var clienteselecionado = ac.ListarCodCliente(id);
+            return View(clienteselecionado);
+        }
+
+        [HttpPost]
+
+        public ActionResult DeletarCliente(Cliente cliente)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    cliente.DeleteCliente(cliente);
+                    var clientes = ac.ListarCliente();
+                    return RedirectToAction("ListarCliente", clientes);
+                }
+                return View(cliente);
+            }
+            catch
+            {
+                return View();
+            }
+        }
 }

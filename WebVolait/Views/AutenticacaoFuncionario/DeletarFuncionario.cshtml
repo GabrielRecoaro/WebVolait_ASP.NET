@@ -1,0 +1,92 @@
+﻿@model WebVolait.Models.Funcionario
+
+@{
+    ViewBag.Title = "DeletarFuncionario";
+}
+
+<h2>DeletarFuncionario</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>CadastroFuncionarioViewModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CPFFuncionario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CPFFuncionario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeFuncionario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NomeFuncionario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeSocialFuncionario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NomeSocialFuncionario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoginFuncionario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoginFuncionario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TelefoneFuncionario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TelefoneFuncionario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SenhaFuncionario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SenhaFuncionario)
+            </dd>
+
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+
+@*<main class="content-main delete-insert employee margin">
+    <div class="container">
+        <div class="form-container">
+            <form id="delete-employee" class="form" action="#">
+                <div class="form__area-flex-title">
+                    <h2 class="form__title">Excluir funcionário</h2>
+                </div>
+                <p class="form__text bold">Tem certeza que deseja continuar?</p>
+                <p class="form__text warning">Atenção!</p>
+                <p class="form__text delete-confirm">Confirmando esta ação o (a) Matheus Metros, 281.243.123-21 será desligado e seu acesso ao sistema negado.</p>
+            </form>
+            <div class="form__area-flex flex-button">
+                <input class="button button--grey" type="button" value="Cancelar">
+                <input form="delete-employee" class="button button--red" type="submit" value="Deletar">
+            </div>
+        </div>
+    </div>
+</main>*@
