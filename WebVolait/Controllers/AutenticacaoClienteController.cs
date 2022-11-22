@@ -16,7 +16,7 @@ namespace WebVolait.Controllers
     public class AutenticacaoClienteController : Controller
     {
         [HttpGet]
-        
+
         public ActionResult InsertCliente()
         {
             return View();
@@ -28,7 +28,7 @@ namespace WebVolait.Controllers
             return View(cliente);
         }
 
-     
+
         Acoes ac = new Acoes();
 
 
@@ -52,7 +52,7 @@ namespace WebVolait.Controllers
             };
 
             novocliente.InsertCliente(novocliente);
-           
+
             TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
 
             return RedirectToAction("ListarCliente", "AutenticacaoCliente");
@@ -209,4 +209,5 @@ namespace WebVolait.Controllers
                 return View();
             }
         }
+    }
 }
