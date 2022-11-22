@@ -1,4 +1,4 @@
-.coupon-list {
+.customers-list {
     .list {
         &__title {
             .button {
@@ -10,10 +10,8 @@
             & div:nth-child(1) {
             }
             & div:nth-child(2) {
-
             }
             & div:nth-child(3) {
-
             }
             & div:nth-child(4) {
             }
@@ -31,9 +29,12 @@
                 & div:nth-child(3) {
                 }
                 & div:nth-child(4) {
-                    text-align: center;
                 }
                 & div:nth-child(5) {
+                    iconify-icon {
+                    }
+                }
+                &.active {
                     iconify-icon {
                     }
                 }
@@ -44,10 +45,11 @@
                 &.active::after {
                 }
                 div {
-                    grid-template-columns: 1fr 1fr 1fr 1fr 125px;
-                    grid-template-areas: "one one two three four"
-                    "five five . three six";
+                    grid-template-columns: 2fr 1fr 2fr 1fr 125px;
+                    grid-template-areas: "one . two . three"
+                    "four . five . six";
                     div {
+                        align-items: flex-start;
                         span {
                         }
                     }
@@ -59,18 +61,12 @@
                     }
                     & div:nth-child(3) {
                         grid-area: three;
-                        span {
-                            display: flex;
-                            padding: 10px;
-                            align-items: flex-start;
-                            height: 100%;
-                        }
-                    }
-                    & div:nth-child(4) {
-                        grid-area: four;     
                         display: flex;
                         align-items: flex-end; 
                         justify-content: flex-end;
+                    }
+                    & div:nth-child(4) {
+                        grid-area: four;     
                     }
                     & div:nth-child(5) {
                         grid-area: five;
