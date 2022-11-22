@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -8,7 +9,7 @@ namespace WebVolait.Repositorio
 {
     public class Conexao
     {
-        MySqlConnection cn = new MySqlConnection("Server=localhost;DataBase=db_VolaitData;user id=root;pwd=12345678");
+        MySqlConnection cn = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         public static string msg;
 
         public MySqlConnection ConectarBD()

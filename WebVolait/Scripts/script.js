@@ -71,4 +71,22 @@ if (header) {
         }
         scrollPage = lastScrollPage;
     });
+
+    // LIST ANIMATION
+    let accordion = document.getElementsByClassName("list__flex-body__upper");
+    let i;
+
+    for (i = 0; i < accordion.length; i++) {
+        accordion[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.classList.remove("active")
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.classList.add("active");
+            }
+        });
+    }
 }

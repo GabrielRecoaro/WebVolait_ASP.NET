@@ -3,57 +3,107 @@
 @{
     ViewBag.Title = "ListarFuncionario";
 }
+<main class="content-main list employee-list margin">
+    <div class="container">
+        <h1 class="list__title">
+            Funcionários
+            <a href="~/AutenticacaoFuncionario/InsertFuncionario/" class="button">
+                <iconify-icon icon="carbon:add"></iconify-icon>
+                Adicionar
+            </a>
+        </h1>
+        <div class="list__flex-header">
+            <div>#</div>
+            <div>
+                <span>Nome/CPF</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>Cargo</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>E-mail</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>Telefone</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="list__flex-body">
+            @foreach (var item in Model)
+            {
+                <div class="list__flex-body__upper">
+                    <div>0001</div>
+                    <div>
+                        <span>@item.NomeFuncionario</span>
+                        <span>@item.CPFFuncionario</span>
+                    </div>
+                    <div>Coordenador financeiro</div>
+                    <div>@item.LoginFuncionario</div>
+                    <div>
+                        @item.TelefoneFuncionario
+                        <div>
+                            <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="list__flex-body__bottom">
+                    <div>
+                        <div>
+                            Nome Completo
+                            <span>@item.NomeFuncionario</span>
+                        </div>
+                        <div>
+                            Cargo
+                            <span>Coordenador financeiro</span>
+                        </div>
+                        <div>
+                            Telefone
+                            <span>@item.TelefoneFuncionario</span>
+                        </div>
+                        <div>
+                            <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                        </div>
 
-<h2>ListarFuncionario</h2>
+                        <div>
+                            Nome social
+                            <span>@item.NomeSocialFuncionario</span>
+                        </div>
+                        <div>
+                            E-mail
+                            <span>@item.LoginFuncionario</span>
+                        </div>
+                        <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
+                    </div>
+                </div>
+            }
 
-<p>
-    @Html.ActionLink("Cadastrar Novo Funcionario", "InsertFuncionario")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CPFFuncionario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NomeFuncionario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NomeSocialFuncionario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LoginFuncionario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefoneFuncionario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SenhaFuncionario)
-        </th>
-
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CPFFuncionario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeFuncionario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeSocialFuncionario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoginFuncionario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefoneFuncionario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SenhaFuncionario)
-        </td>
-    </tr>
-}
-
-</table>
+        </div>
+    </div>
+</main>
