@@ -37,12 +37,15 @@ create table tb_tipoPagto
     TipoPagto varchar(30)
 );
 
-create table tb_cupom
-(
-	Cupom char(6) not null primary key,
-    DescCupom varchar(100),
-    ValorDesconto decimal(15,2)
+create table tb_cupom(
+
+	CupomId int auto_increment primary key,
+	Cupomcode char(9) not null,
+	Valordesconto decimal not null,
+	Cupomvalidade date
 );
+
+insert into tb_cupom values (default, "QWERTYUIO", 100.00, "2022-12-01"),(default, "ZXCVBNMLP", 200.00, "2022-12-01"),(default, "ASDFGHJKL", 50.00, "2022-11-05");
 
 create table tb_compra
 (
@@ -50,11 +53,11 @@ create table tb_compra
     DataCompra date,
     ValorTotal decimal(15,2),
     CPFCliente bigint not null,
-    Cupom char(6),
+    Cupom int,
     CodTipoPagto int,
     constraint fk_cpfCli foreign key(CPFCliente) references tb_cliente(CPFCliente),
     constraint fk_tipoPagto foreign key(CodTipoPagto) references tb_tipoPagto(CodTipoPagto),
-    constraint fk_cupom foreign key(Cupom) references tb_cupom(Cupom)
+    constraint fk_cupom foreign key(Cupom) references tb_cupom(CupomId)
 );
 
 create table tb_classeVoo
@@ -429,3 +432,4 @@ select * from tb_funcionario;
 select * from tb_cliente;
 select * from vw_compra;
 select * from vw_passagem;
+
