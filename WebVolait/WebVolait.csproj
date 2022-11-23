@@ -264,11 +264,11 @@
     <Content Include="Views\Passagem\InsertPassagem.cshtml" />
     <Content Include="Views\Contato\Index.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
-    <Content Include="Views\Cupom\InsertCupom.cshtml" />
-    <Content Include="Views\AutenticacaoFuncionario\DeletarFuncionario.cshtml" />
     <Content Include="Views\AutenticacaoCliente\DeletarCliente.cshtml" />
     <Content Include="Views\AutenticacaoCliente\AlterarCliente.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\AlterarFuncionario.cshtml" />
+    <Content Include="Views\AutenticacaoFuncionario\DeletarFuncionario.cshtml" />
+    <Content Include="Views\Cupom\InsertCupom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

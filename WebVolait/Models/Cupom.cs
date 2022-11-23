@@ -10,11 +10,13 @@ namespace WebVolait.Models
 {
     public class Cupom
     {
-        public string IdCupom { get; set; }
+        public int CupomId { get; set; }
 
-        public string DescCupom { get; set; }
+        public string Cupomcode { get; set; }
 
-        public decimal ValorCupom { get; set; }
+        public decimal Valordesconto { get; set; }
+
+        public DateTime Cupomvalidade { get; set; }
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
@@ -22,21 +24,15 @@ namespace WebVolait.Models
         public void InsertCupom(Cupom cupom)
         {
             conexao.Open();
-            command.CommandText = "call spInsertCupom (@Cupom, @DescCupom, @ValorCupom);";
-            command.Parameters.Add("@Cupom", MySqlDbType.VarChar).Value = cupom.IdCupom;
-            command.Parameters.Add("@DesCupom", MySqlDbType.VarChar).Value = cupom.DescCupom;
-            command.Parameters.Add("@ValorCupom", MySqlDbType.Decimal).Value = cupom.ValorCupom;
+            command.CommandText = "call spInsertCupom (@CupomId, @Cupomcode, @Valordesconto, @Cupomvalidade);";
+            command.Parameters.Add("@CupomId", MySqlDbType.Int16).Value = cupom.CupomId;
+            command.Parameters.Add("@Cupomcode", MySqlDbType.VarChar).Value = cupom.Cupomcode;
+            command.Parameters.Add("@Valordesconto", MySqlDbType.Decimal).Value = cupom.Valordesconto;
+            command.Parameters.Add("@Cupomvalidade", MySqlDbType.DateTime).Value = cupom.Cupomvalidade;
             command.Connection = conexao;
             command.ExecuteNonQuery();
             conexao.Close();
         }
     }
 
-    
-    //    DELIMITER $$
-    //CREATE PROCEDURE spInsertCupom(vCupom char(6), vDescCupom varchar(100), vValor decimal (15,2))
-
-    //BEGIN
-    //    insert into tb_cupom(Cupom, DescCupom, ValorDesconto) values(vCupom, vDescCupom, vValor);
-    //    END $$
 }

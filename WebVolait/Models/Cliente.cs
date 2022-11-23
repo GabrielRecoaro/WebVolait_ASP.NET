@@ -108,33 +108,37 @@ namespace WebVolait.Models
             conexao.Close();
         }
 
-        public void UpdateCliente(Cliente funcinario)
+        public void UpdateCliente(Cliente cliente)
         {
+            conexao.Open();
             var updateQuery = "";
-            updateQuery += "call spAlterFunc ";
-            updateQuery += string.Format("{0}, '{1}', '{2}', '{3}', '{4}', '{5}')",
-                funcinario.CPFCliente,                    //0 
-                funcinario.NomeCliente,                   //1 ''
-                funcinario.NomeSocialCliente,             //2 ''
-                funcinario.LoginCliente,                  //3 ''
-                funcinario.TelefoneCliente,               //4 ''
-                funcinario.SenhaCliente);                 //5 ''
+            updateQuery += "call spAlterCli ";
+            updateQuery += string.Format("({0}, '{1}', '{2}', '{3}', '{4}', '{5}')",
+                cliente.CPFCliente,                    //0 
+                cliente.NomeCliente,                   //1 ''
+                cliente.NomeSocialCliente,             //2 ''
+                cliente.LoginCliente,                  //3 ''
+                cliente.TelefoneCliente,               //4 ''
+                cliente.SenhaCliente);                 //5 ''
 
+            command.Connection = conexao;
             command.CommandText = updateQuery;
             command.ExecuteNonQuery();
             conexao.Close();
         }
 
 
-        //public void DeleteCliente(Cliente cliente)
-        //{
-        //    var deleteQuery = "";
-        //    deleteQuery += string.Format("call spDeleteFunc({0})", cliente.f);
+        public void DeleteCliente(Cliente cliente)
+        {
+            conexao.Open();
+            var deleteQuery = "";
+            deleteQuery += string.Format("call spDeleteCli({0})", cliente.CPFCliente);
 
-        //    command.CommandText = deleteQuery;
-        //    command.ExecuteNonQuery();
-        //    conexao.Close();
+            command.Connection = conexao;
+            command.CommandText = deleteQuery;
+            command.ExecuteNonQuery();
+            conexao.Close();
 
-        //}
+        }
     }
 }

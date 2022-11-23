@@ -61,8 +61,21 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model => model.CPFCliente)
+
+        @Html.HiddenFor(model => model.NomeCliente)
+
+        @Html.HiddenFor(model => model.NomeSocialCliente)
+
+        @Html.HiddenFor(model => model.LoginCliente)
+
+        @Html.HiddenFor(model => model.TelefoneCliente)
+
+        @Html.HiddenFor(model => model.SenhaCliente)
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |

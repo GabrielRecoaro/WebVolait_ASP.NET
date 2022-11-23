@@ -38,9 +38,10 @@ namespace WebVolait.Controllers
 
             Cupom novocupom = new Cupom
             {
-                IdCupom = viewmodel.IdCupom,
-                DescCupom = viewmodel.DescCupom,
-                ValorCupom = viewmodel.ValorCupom,
+                CupomId = viewmodel.CupomId,
+                Cupomcode = viewmodel.Cupomcode,
+                Valordesconto = viewmodel.Valordesconto,
+                Cupomvalidade = viewmodel.Cupomvalidade,
             };
 
             novocupom.InsertCupom(novocupom);

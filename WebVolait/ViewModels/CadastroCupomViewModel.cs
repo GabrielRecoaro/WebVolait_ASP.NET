@@ -8,11 +8,13 @@ namespace WebVolait.ViewModels
     public class CadastroCupomViewModel
     {
 
-        public string IdCupom { get; set; }
+        public int CupomId { get; set; }
 
-        public string DescCupom { get; set; }
+        public string Cupomcode { get; set; }
 
-        public decimal ValorCupom { get; set; }
+        public decimal Valordesconto { get; set; }
+
+        public DateTime Cupomvalidade { get; set; }
 
     }
 }

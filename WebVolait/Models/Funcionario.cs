@@ -98,9 +98,10 @@ namespace WebVolait.Models
 
         public void UpdateFuncionario(Funcionario funcinario)
         {
+            conexao.Open();
             var updateQuery = "";
             updateQuery += "call spAlterFunc ";
-            updateQuery += string.Format("{0}, '{1}', '{2}', '{3}', '{4}', '{5}')",
+            updateQuery += string.Format("({0}, '{1}', '{2}', '{3}', '{4}', '{5}')",
                 funcinario.CPFFuncionario,                    //0 
                 funcinario.NomeFuncionario,                   //1 ''
                 funcinario.NomeSocialFuncionario,             //2 ''
@@ -108,6 +109,7 @@ namespace WebVolait.Models
                 funcinario.TelefoneFuncionario,               //4 ''
                 funcinario.SenhaFuncionario);                 //5 ''
 
+            command.Connection = conexao;
             command.CommandText = updateQuery;
             command.ExecuteNonQuery();
             conexao.Close();
@@ -116,9 +118,11 @@ namespace WebVolait.Models
 
         public void DeleteFuncionario(Funcionario funcionario)
         {
+            conexao.Open();
             var deleteQuery = "";
             deleteQuery += string.Format("call spDeleteFunc({0})", funcionario.CPFFuncionario);
 
+            command.Connection = conexao;
             command.CommandText = deleteQuery;
             command.ExecuteNonQuery();
             conexao.Close();

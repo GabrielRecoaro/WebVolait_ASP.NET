@@ -6,87 +6,89 @@
 
 <h2>DeletarFuncionario</h2>
 
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>CadastroFuncionarioViewModel</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.CPFFuncionario)
-            </dt>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Funcionario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CPFFuncionario)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.CPFFuncionario)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.CPFFuncionario)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.NomeFuncionario)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeFuncionario)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.NomeFuncionario)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.NomeFuncionario)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.NomeSocialFuncionario)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeSocialFuncionario)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.NomeSocialFuncionario)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.NomeSocialFuncionario)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.LoginFuncionario)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoginFuncionario)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.LoginFuncionario)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.LoginFuncionario)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.TelefoneFuncionario)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefoneFuncionario)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.TelefoneFuncionario)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.TelefoneFuncionario)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SenhaFuncionario)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SenhaFuncionario)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SenhaFuncionario)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SenhaFuncionario)
+        </dd>
 
+    </dl>
 
-        </dl>
+    @*@using (Html.BeginForm()) {*@
 
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-        }
-    </div>
-
-@*<main class="content-main delete-insert employee margin">
-    <div class="container">
-        <div class="form-container">
-            <form id="delete-employee" class="form" action="#">
-                <div class="form__area-flex-title">
-                    <h2 class="form__title">Excluir funcionário</h2>
+        <div class="form-horizontal">
+            <h4>Funcionario</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            
+                @Html.HiddenFor(model => model.CPFFuncionario)
+            
+                @Html.HiddenFor(model => model.NomeFuncionario)
+                
+                @Html.HiddenFor(model => model.NomeSocialFuncionario)
+            
+                @Html.HiddenFor(model => model.LoginFuncionario)
+            
+                @Html.HiddenFor(model => model.TelefoneFuncionario)
+            
+                @Html.HiddenFor(model => model.SenhaFuncionario)
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Deletar" class="btn btn-default" />
                 </div>
-                <p class="form__text bold">Tem certeza que deseja continuar?</p>
-                <p class="form__text warning">Atenção!</p>
-                <p class="form__text delete-confirm">Confirmando esta ação o (a) Matheus Metros, 281.243.123-21 será desligado e seu acesso ao sistema negado.</p>
-            </form>
-            <div class="form__area-flex flex-button">
-                <input class="button button--grey" type="button" value="Cancelar">
-                <input form="delete-employee" class="button button--red" type="submit" value="Deletar">
             </div>
         </div>
-    </div>
-</main>*@
+    }
+    @*  *@}
+</div>

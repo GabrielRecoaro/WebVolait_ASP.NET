@@ -15,66 +15,66 @@ namespace WebVolait.Repositorio
 
         //********************************** LISTAR CUPOM
 
-        public Cupom ListarCodCupom(int cod)
-        {
-            var comando = String.Format("select * from tb_cupom where CPFCupom = {0}", cod);
-            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
-            var DadosCodCupom = cmd.ExecuteReader();
-            return ListarCodCupom(DadosCodCupom).FirstOrDefault();
-        }
+    //    public Cupom ListarCodCupom(int cod)
+    //    {
+    //        var comando = String.Format("select * from tb_cupom where CPFCupom = {0}", cod);
+    //        MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+    //        var DadosCodCupom = cmd.ExecuteReader();
+    //        return ListarCodCupom(DadosCodCupom).FirstOrDefault();
+    //    }
 
-        public List<Cupom>
-    ListarCodCupom(MySqlDataReader dt)
-        {
-            var AltAl = new List<Cupom>
-                ();
-            while (dt.Read())
-            {
-                var AlTemp = new Cupom()
-                {
-                    IdCupom = (dt["Cupom"].ToString()),
-                    DescCupom = (dt["DescCupom"].ToString()),
-                    ValorCupom = ushort.Parse(dt["ValorCupom"].ToString()),
+    //    public List<Cupom>
+    //ListarCodCupom(MySqlDataReader dt)
+    //    {
+    //        var AltAl = new List<Cupom>
+    //            ();
+    //        while (dt.Read())
+    //        {
+    //            var AlTemp = new Cupom()
+    //            {
+    //                IdCupom = (dt["Cupom"].ToString()),
+    //                DescCupom = (dt["DescCupom"].ToString()),
+    //                ValorCupom = ushort.Parse(dt["ValorCupom"].ToString()),
 
-                };
-                AltAl.Add(AlTemp);
+    //            };
+    //            AltAl.Add(AlTemp);
 
-            }
-            dt.Close();
-            return AltAl;
-        }
+    //        }
+    //        dt.Close();
+    //        return AltAl;
+    //    }
 
-        public List<Cupom>
-            ListarCupom()
-        {
-            MySqlCommand cmd = new MySqlCommand("Select * from tb_cupom", con.ConectarBD());
-            var DadosCupom = cmd.ExecuteReader();
-            return ListarTodosCupom(DadosCupom);
-        }
+    //    public List<Cupom>
+    //        ListarCupom()
+    //    {
+    //        MySqlCommand cmd = new MySqlCommand("Select * from tb_cupom", con.ConectarBD());
+    //        var DadosCupom = cmd.ExecuteReader();
+    //        return ListarTodosCupom(DadosCupom);
+    //    }
 
-        public List<Cupom>
-            ListarTodosCupom(MySqlDataReader dt)
-        {
-            var TodosCupoms = new List<Cupom>
-                ();
-            while (dt.Read())
-            {
-                var CupomTemp = new Cupom()
-                {
-                    IdCupom = (dt["Cupom"].ToString()),
-                    DescCupom = (dt["DescCupom"].ToString()),
-                    ValorCupom = ushort.Parse(dt["ValorCupom"].ToString()),
+    //    public List<Cupom>
+    //        ListarTodosCupom(MySqlDataReader dt)
+    //    {
+    //        var TodosCupoms = new List<Cupom>
+    //            ();
+    //        while (dt.Read())
+    //        {
+    //            var CupomTemp = new Cupom()
+    //            {
+    //                IdCupom = (dt["Cupom"].ToString()),
+    //                DescCupom = (dt["DescCupom"].ToString()),
+    //                ValorCupom = ushort.Parse(dt["ValorCupom"].ToString()),
 
-                };
-                TodosCupoms.Add(CupomTemp);
-            }
-            dt.Close();
-            return TodosCupoms;
-        }
+    //            };
+    //            TodosCupoms.Add(CupomTemp);
+    //        }
+    //        dt.Close();
+    //        return TodosCupoms;
+        //}
 
         //********************************** LISTAR CLIENTE
 
-        public Cliente ListarCodCliente(int cod)
+        public Cliente ListarCodCliente(string cod)
         {
             var comando = String.Format("select * from tb_cliente where CPFCliente = {0}", cod);
             MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
@@ -134,7 +134,7 @@ namespace WebVolait.Repositorio
 
         //********************************** LISTAR FUNCIONARIO
 
-        public Funcionario ListarCodFuncionario(long cod)
+        public Funcionario ListarCodFuncionario(string cod)
         {
                 var comando = String.Format("select * from tb_funcionario where CPFFuncionario = {0}", cod);
                 MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());

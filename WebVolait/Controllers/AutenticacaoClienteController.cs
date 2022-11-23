@@ -177,37 +177,45 @@ namespace WebVolait.Controllers
 
         }
 
-        public ActionResult AlterarCliente()
+        public ActionResult AlterarCliente(string id)
         {
-
-            return View();
-        }
-
-        public ActionResult DeletarCliente(int id)
-        {
-            Cliente cliente = new Cliente();
             var clienteselecionado = ac.ListarCodCliente(id);
             return View(clienteselecionado);
         }
 
-        //[HttpPost]
+        [HttpPost]
+        public ActionResult AlterarCliente(Cliente cliente)
+        {
+            try
+            {
+                cliente.UpdateCliente(cliente);
+                return RedirectToAction("ListarCliente", "AutenticacaoCliente");
+            }
+            catch
+            {
+                return View(cliente);
+            }
+        }
 
-        //public ActionResult DeletarCliente(Cliente cliente)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            cliente.DeleteCliente(cliente);
-        //            var clientes = ac.ListarCliente();
-        //            return RedirectToAction("ListarCliente", clientes);
-        //        }
-        //        return View(cliente);
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        [HttpGet]
+        public ActionResult DeletarCliente(string id)
+        {
+            var clienteselecionado = ac.ListarCodCliente(id);
+            return View(clienteselecionado);
+        }
+
+        [HttpPost]
+        public ActionResult DeletarCliente(Cliente cliente)
+        {
+            try
+            {
+                cliente.DeleteCliente(cliente);
+                return RedirectToAction("ListarCliente", "AutenticacaoCliente");
+            }
+            catch
+            {
+                return RedirectToAction("ListarCliente", "AutenticacaoCliente");
+            }
+        }
     }
 }

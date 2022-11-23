@@ -123,36 +123,44 @@ namespace WebVolait.Controllers
 
         }
 
-        public ActionResult AlterarFuncionario()
+        public ActionResult AlterarFuncionario(string id)
         {
-
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult DeletarFuncionario(long id)
-        {
-            Funcionario funcionario = new Funcionario();
             var funcionarioselecionado = ac.ListarCodFuncionario(id);
             return View(funcionarioselecionado);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeletarFuncionario(Funcionario funcionario)
+        public ActionResult AlterarFuncionario(Funcionario funcionario)
         {
- 
             try
-            {             
-                    funcionario.DeleteFuncionario(funcionario);
-                    var funcionarios = ac.ListarFuncionario();
-                   return RedirectToAction("ListarFuncionario", funcionarios);
-                              
+            {
+                funcionario.UpdateFuncionario(funcionario);
+                return RedirectToAction("ListarFuncionario", "AutenticacaoFuncionario");
             }
             catch
             {
-                var funcionarios = ac.ListarFuncionario();
-                return View("ListarFuncionario");
+                return View(funcionario);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult DeletarFuncionario(string id)
+        {           
+            var funcionarioselecionado = ac.ListarCodFuncionario(id);
+            return View(funcionarioselecionado);
+        }
+
+        [HttpPost]
+        public ActionResult DeletarFuncionario(Funcionario funcionario)
+        {
+            try
+            {             
+                funcionario.DeleteFuncionario(funcionario);
+                return RedirectToAction("ListarFuncionario", "AutenticacaoFuncionario");
+            }
+            catch
+            {
+                return RedirectToAction("ListarFuncionario", "AutenticacaoFuncionario");
             }
         }
     }
