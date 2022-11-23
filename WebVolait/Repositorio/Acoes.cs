@@ -134,7 +134,7 @@ namespace WebVolait.Repositorio
 
         //********************************** LISTAR FUNCIONARIO
 
-        public Funcionario ListarCodFuncionario(int cod)
+        public Funcionario ListarCodFuncionario(long cod)
         {
                 var comando = String.Format("select * from tb_funcionario where CPFFuncionario = {0}", cod);
                 MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());

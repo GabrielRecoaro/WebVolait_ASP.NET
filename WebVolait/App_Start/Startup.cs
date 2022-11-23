@@ -22,7 +22,7 @@ namespace WebVolait.App_Start
             AntiForgeryConfig.UniqueClaimTypeIdentifier = "LoginCliente";
         }
 
-        public void ConfigurationFuncionario(IAppBuilder app)
+        public void Configuration(IAppBuilder app)
         {
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {

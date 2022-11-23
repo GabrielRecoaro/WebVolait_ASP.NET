@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using WebVolait.Repositorio;
 
 namespace WebVolait.Models
 {
@@ -121,6 +122,14 @@ namespace WebVolait.Models
             command.CommandText = deleteQuery;
             command.ExecuteNonQuery();
             conexao.Close();
+
+            //Conexao db = new Conexao();
+
+            //string deleteQuery = String.Format("CALL spDeleteFunc('{0}')", funcionario);
+            //MySqlCommand command = new MySqlCommand(deleteQuery, db.ConectarBD());
+            //command.ExecuteNonQuery();
+
+            //db.DesconectarBD();
 
         }
 

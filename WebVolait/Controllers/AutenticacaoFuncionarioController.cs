@@ -129,7 +129,8 @@ namespace WebVolait.Controllers
             return View();
         }
 
-        public ActionResult DeletarFuncionario(int id)
+        [HttpGet]
+        public ActionResult DeletarFuncionario(long id)
         {
             Funcionario funcionario = new Funcionario();
             var funcionarioselecionado = ac.ListarCodFuncionario(id);
@@ -137,22 +138,21 @@ namespace WebVolait.Controllers
         }
 
         [HttpPost]
-
+        [ValidateAntiForgeryToken]
         public ActionResult DeletarFuncionario(Funcionario funcionario)
         {
+ 
             try
-            {
-                if (ModelState.IsValid)
-                {
+            {             
                     funcionario.DeleteFuncionario(funcionario);
                     var funcionarios = ac.ListarFuncionario();
-                    return RedirectToAction("ListarFuncionario", funcionarios);
-                }
-                return View(funcionario);
+                   return RedirectToAction("ListarFuncionario", funcionarios);
+                              
             }
             catch
             {
-                return View();
+                var funcionarios = ac.ListarFuncionario();
+                return View("ListarFuncionario");
             }
         }
     }

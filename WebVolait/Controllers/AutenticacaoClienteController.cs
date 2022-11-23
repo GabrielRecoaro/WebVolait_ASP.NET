@@ -190,24 +190,24 @@ namespace WebVolait.Controllers
             return View(clienteselecionado);
         }
 
-        [HttpPost]
+        //[HttpPost]
 
-        public ActionResult DeletarCliente(Cliente cliente)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    cliente.DeleteCliente(cliente);
-                    var clientes = ac.ListarCliente();
-                    return RedirectToAction("ListarCliente", clientes);
-                }
-                return View(cliente);
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //public ActionResult DeletarCliente(Cliente cliente)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            cliente.DeleteCliente(cliente);
+        //            var clientes = ac.ListarCliente();
+        //            return RedirectToAction("ListarCliente", clientes);
+        //        }
+        //        return View(cliente);
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }

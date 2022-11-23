@@ -126,15 +126,15 @@ namespace WebVolait.Models
         }
 
 
-        public void DeleteCliente(Cliente cliente)
-        {
-            var deleteQuery = "";
-            deleteQuery += string.Format("call spDeleteFunc({0})", cliente.f);
+        //public void DeleteCliente(Cliente cliente)
+        //{
+        //    var deleteQuery = "";
+        //    deleteQuery += string.Format("call spDeleteFunc({0})", cliente.f);
 
-            command.CommandText = deleteQuery;
-            command.ExecuteNonQuery();
-            conexao.Close();
+        //    command.CommandText = deleteQuery;
+        //    command.ExecuteNonQuery();
+        //    conexao.Close();
 
-        }
+        //}
     }
 }
