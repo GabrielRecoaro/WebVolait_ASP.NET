@@ -176,6 +176,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AutenticacaoClienteController.cs" />
     <Compile Include="Controllers\AutenticacaoFuncionarioController.cs" />
+    <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\ContatoController.cs" />
     <Compile Include="Controllers\CupomController.cs" />
     <Compile Include="Controllers\GerenciadorController.cs" />
@@ -186,6 +187,7 @@
     </Compile>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Companhia.cs" />
+    <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\Contato.cs" />
     <Compile Include="Models\Cupom.cs" />
     <Compile Include="Models\Funcionario.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="Utils\Hash.cs" />
     <Compile Include="ViewModels\AlterarSenhaClienteViewModel.cs" />
     <Compile Include="ViewModels\CadastroClienteViewModel.cs" />
+    <Compile Include="ViewModels\CadastroCompraViewModel.cs" />
     <Compile Include="ViewModels\CadastroCupomViewModel.cs" />
     <Compile Include="ViewModels\CadastroFuncionarioViewModel.cs" />
     <Compile Include="ViewModels\CadastroPassagemViewModel.cs" />
@@ -269,6 +272,7 @@
     <Content Include="Views\AutenticacaoFuncionario\AlterarFuncionario.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\DeletarFuncionario.cshtml" />
     <Content Include="Views\Cupom\InsertCupom.cshtml" />
+    <Content Include="Views\Compra\InsertCompra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
