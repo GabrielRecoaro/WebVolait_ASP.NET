@@ -89,6 +89,8 @@ create table tb_passagem
     IdClasse int,
     IdAeroPartida char(3),
     IdAeroDestino char(3),
+    CNPJCiaAerea bigint not null,
+    constraint fk_ciaAerea foreign key(CNPJCiaAerea) references tb_ciaAerea(CNPJCiaAerea),
     constraint fk_classe foreign key(IdClasse) references tb_classeVoo(IdClasse),
 	constraint fk_aeroPartida foreign key(IdAeroPartida) references tb_aero(IdAero),
     constraint fk_aeroDestino foreign key(IdAeroDestino) references tb_aero(IdAero)
@@ -104,7 +106,6 @@ create table tb_voo
     DuracaoVoo int not null,
     CNPJCiaAerea bigint,
     IdPassagem int,
-    constraint fk_ciaAerea foreign key(CNPJCiaAerea) references tb_ciaAerea(CNPJCiaAerea),
     constraint fk_aeroPartidaVoo foreign key(IdAeroPartida) references tb_aero(IdAero),
     constraint fk_aeroDestinoVoo foreign key(IdAeroDestino) references tb_aero(IdAero)
 );
@@ -390,10 +391,8 @@ DELIMITER $$
 CREATE PROCEDURE spInsertCompra( vData date, vTotal decimal(15,2), vCpfCliente bigint, vCupom char(6), vTipoPagto int)
 
 BEGIN
-	insert into tb_compra (NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto) values (default, vData, vTotal, vCpfCliente, vCupom, vTipoPagto);
+	insert into tb_compra (NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto) values (default, vData, vTotal, vCpfCliente, vCupom, (select IdTipoPagto from tb_tipoPagto where TipoPagto = vTipoPagto));
 END $$
-
-CALL spInsertCompra("2022-11-17", null, 52673833846, null, 1);
 
 DELIMITER $$
 
@@ -419,7 +418,20 @@ END $$
 
 CALL spAlterValorCompra(1, "1256.00");
 
+
 DELIMITER $$
+CREATE PROCEDURE spInsertPassagem(vNomePassagem varchar(200), vDescPassagem varchar(500), vImgPassagem varchar(100), vValor decimal(15,2), 
+				 vClasse int, vCiaAerea bigint, vAeroPartida char(3), vAeroDestino char(3))
+
+BEGIN
+    insert into tb_passagem (NomePassagem, DescPassagem, ImgPassagem, ValorPassagem, IdClasse, CNPJCiaAerea, IdAeroPartida, IdAeroDestino) 
+    values (default, vNomePassagem, vDescPassagem,  vImgPassagem, vValor, (SELECT IdClasse from tb_classe where Classe = vClasse limit 1), (SELECT IdCiaAerea from tb_ciaAerea where CiaAerea = vCiaAerea limit 1), vAeroPartida, vAeroDestino);
+END $$
+						
+
+DELIMITER $$
+
+
 
 select * from tb_compra;
 -- Alterar compra
@@ -432,4 +444,3 @@ select * from tb_funcionario;
 select * from tb_cliente;
 select * from vw_compra;
 select * from vw_passagem;
-
