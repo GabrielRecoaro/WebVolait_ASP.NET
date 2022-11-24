@@ -54,27 +54,25 @@
                 @Html.LabelFor(model => model.CodTipoPagto, htmlAttributes: new { @class = "control-label col-md-2" }) <select id="CodTipoPagto" name="CodTipoPagto">
 
 
-    @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.CodTipoPagto, "", new { @class = "text-danger" })
-    <option value=""></option>
+                    <option value=""></option>
 
-    <option value="0">Crédito</option>
+                    <option value="0">Crédito</option>
 
-    <option value="1">Débito</option>
+                    <option value="1">Débito</option>
 
-    <option selected="selected" value="2">Boleto</option>
+                    <option selected="selected" value="2">Boleto</option>
 
-    <option value="3">Cheque</option>
+                    <option value="3">Cheque</option>
 
-    <option value="4">Pix</option>
+                    <option value="4">Pix</option>
 
-</select>
+                </select>
 
 
-                @*<div class="col-md-10">
+                <div class="col-md-10">
                     @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.CodTipoPagto, "", new { @class = "text-danger" })
-                </div>*@
+                </div>
 
 
 </div>
