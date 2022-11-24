@@ -14,13 +14,7 @@
         <h4>Compra</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.NotaFiscal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NotaFiscal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NotaFiscal, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.DataCompra, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -55,12 +49,35 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CodTipoPagto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CodTipoPagto, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
+            <fieldset>
+                @Html.LabelFor(model => model.CodTipoPagto, htmlAttributes: new { @class = "control-label col-md-2" }) <select id="CodTipoPagto" name="CodTipoPagto">
+
+
+    @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.CodTipoPagto, "", new { @class = "text-danger" })
+    <option value=""></option>
+
+    <option value="0">Crédito</option>
+
+    <option value="1">Débito</option>
+
+    <option selected="selected" value="2">Boleto</option>
+
+    <option value="3">Cheque</option>
+
+    <option value="4">Pix</option>
+
+</select>
+
+
+                @*<div class="col-md-10">
+                    @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CodTipoPagto, "", new { @class = "text-danger" })
+                </div>*@
+
+
+</div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

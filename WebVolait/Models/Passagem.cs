@@ -23,9 +23,9 @@ namespace WebVolait.Models
 
         public string Destino { get; set; }
 
-        public string CidadeAeroOrigem { get; set; }
+        public string IdAeroOrigem { get; set; }
 
-        public string CidadeAeroDestino { get; set; }
+        public string IdAeroDestino { get; set; }
 
         public DateTime DtHrPartida { get; set; }
 
@@ -43,14 +43,14 @@ namespace WebVolait.Models
         public void InsertPasssagem(Passagem passagem)
         {
             conexao.Open();
-            command.CommandText = "call spInsertPassagem (@IdPassagem, @NomePassagem, @DescPassagem, @Origem, @Destino, @CidadeAeroOrigem, @CidadeAeroDestino, @DtHrPartida, @DtHrChegada, @ImgPassagem, @ValorPassagem, @Classe );";
+            command.CommandText = "call spInsertPassagem (@IdPassagem, @NomePassagem, @DescPassagem, @Origem, @Destino, @IdAeroOrigem, @IdAeroDestino, @DtHrPartida, @DtHrChegada, @ImgPassagem, @ValorPassagem, @Classe );";
             command.Parameters.Add("@IdPassagem", MySqlDbType.VarChar).Value = passagem.IdPassagem;
             command.Parameters.Add("@NomePassagem", MySqlDbType.VarChar).Value = passagem.NomePassagem;
             command.Parameters.Add("@DescPassagem", MySqlDbType.VarChar).Value = passagem.DescPassagem;
             command.Parameters.Add("@Origem", MySqlDbType.VarChar).Value = passagem.Origem;
             command.Parameters.Add("@Destino", MySqlDbType.VarChar).Value = passagem.Destino;
-            command.Parameters.Add("@CidadeAeroOrigem", MySqlDbType.VarChar).Value = passagem.CidadeAeroOrigem;
-            command.Parameters.Add("@CidadeAeroDestino", MySqlDbType.VarChar).Value = passagem.CidadeAeroDestino;
+            command.Parameters.Add("@IdAeroOrigem", MySqlDbType.VarChar).Value = passagem.IdAeroOrigem;
+            command.Parameters.Add("@IdAeroDestino", MySqlDbType.VarChar).Value = passagem.IdAeroDestino;
             command.Parameters.Add("@DtHrPartida", MySqlDbType.VarChar).Value = passagem.DtHrPartida;
             command.Parameters.Add("@DtHrChegada", MySqlDbType.VarChar).Value = passagem.DtHrChegada;
             command.Parameters.Add("@ImgPassagem", MySqlDbType.VarChar).Value = passagem.ImgPassagem;

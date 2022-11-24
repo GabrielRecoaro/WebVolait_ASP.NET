@@ -13,7 +13,7 @@ namespace WebVolait.Controllers
     public class CompraController : Controller
     {
         // GET: Compra
-        public ActionResult Index()
+        public ActionResult InsertCompra()
         {
             return View();
         }
@@ -49,25 +49,5 @@ namespace WebVolait.Controllers
             return RedirectToAction("ListarCompra", "AutenticacaoCompra");
         }
 
-        //public ActionResult AlterarCompra(string id)
-        //{
-        //    //Compra compra = new Compra();
-        //    //var funcionarioselecionado = compra.SelectCompra(id, null, null);
-        //    //return View(funcionarioselecionado);
-        //}
-
-        //[HttpPost]
-        //public ActionResult AlterarCompra(Compra funcionario)
-        //{
-        //    try
-        //    {
-        //        funcionario.UpdateCompra(funcionario);
-        //        return RedirectToAction("ListarCompra", "AutenticacaoCompra");
-        //    }
-        //    catch
-        //    {
-        //        return View(funcionario);
-        //    }
-        //}
     }
 }

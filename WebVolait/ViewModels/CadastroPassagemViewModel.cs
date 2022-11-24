@@ -17,9 +17,9 @@ namespace WebVolait.ViewModels
 
         public string Destino { get; set; }
 
-        public string CidadeAeroOrigem { get; set; }
+        public string IdAeroOrigem { get; set; }
 
-        public string CidadeAeroDestino { get; set; }
+        public string IdAeroDestino { get; set; }
 
         public DateTime DtHrPartida { get; set; }
 
