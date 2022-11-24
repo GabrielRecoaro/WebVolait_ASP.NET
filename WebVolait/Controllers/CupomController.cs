@@ -38,7 +38,6 @@ namespace WebVolait.Controllers
 
             Cupom novocupom = new Cupom
             {
-                CupomId = viewmodel.CupomId,
                 Cupomcode = viewmodel.Cupomcode,
                 Valordesconto = viewmodel.Valordesconto,
                 Cupomvalidade = viewmodel.Cupomvalidade,
@@ -50,6 +49,55 @@ namespace WebVolait.Controllers
 
             return RedirectToAction("ListarCupom", "AutenticacaoCupom");
 
+        }
+
+        public ActionResult ListarCupom()
+        {
+            var ExibirCupom = new Acoes();
+            var TodosCumpom = ExibirCupom.ListarCupom();
+            return View(TodosCumpom);
+
+        }
+
+        public ActionResult AlterarCupom(int id)
+        {
+            var cupomselecionado = ac.ListarCodCupom(id);
+            return View(cupomselecionado);
+        }
+
+        [HttpPost]
+        public ActionResult AlterarCupom(Cupom cupom)
+        {
+            //try
+            {
+                cupom.UpdateCupom(cupom);
+                return RedirectToAction("ListarCupom", "Cupom");
+            }
+            //catch
+            //{
+            //    return View(cupom);
+            //}
+        }
+
+        [HttpGet]
+        public ActionResult DeletarCupom(int id)
+        {
+            var cupomselecionado = ac.ListarCodCupom(id);
+            return View(cupomselecionado);
+        }
+
+        [HttpPost]
+        public ActionResult DeletarCupom(Cupom cupom)
+        {
+            try
+            {
+                cupom.DeleteCupom(cupom);
+                return RedirectToAction("ListarCupom", "Cupom");
+            }
+            catch
+            {
+                return RedirectToAction("ListarCupom", "Cupom");
+            }
         }
     }
 }

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebVolait.Models.Cupom>
+
+@{
+    ViewBag.Title = "ListarCupom";
+}
+
+<h2>ListarCupom</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cupomcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valordesconto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cupomvalidade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cupomcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valordesconto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cupomvalidade)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "AlterarCupom", new { id=item.CupomId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CupomId }) |
+            @Html.ActionLink("Delete", "DeletarCupom", new { id=item.CupomId })
+        </td>
+    </tr>
+}
+
+</table>

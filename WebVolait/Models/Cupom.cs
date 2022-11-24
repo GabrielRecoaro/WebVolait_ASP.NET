@@ -24,14 +24,42 @@ namespace WebVolait.Models
         public void InsertCupom(Cupom cupom)
         {
             conexao.Open();
-            command.CommandText = "call spInsertCupom (@CupomId, @Cupomcode, @Valordesconto, @Cupomvalidade);";
-            command.Parameters.Add("@CupomId", MySqlDbType.Int16).Value = cupom.CupomId;
+            command.CommandText = "call spInsertCupom (@Cupomcode, @Valordesconto, @Cupomvalidade);";
             command.Parameters.Add("@Cupomcode", MySqlDbType.VarChar).Value = cupom.Cupomcode;
             command.Parameters.Add("@Valordesconto", MySqlDbType.Decimal).Value = cupom.Valordesconto;
-            command.Parameters.Add("@Cupomvalidade", MySqlDbType.DateTime).Value = cupom.Cupomvalidade;
+            command.Parameters.Add("@Cupomvalidade", MySqlDbType.Date).Value = cupom.Cupomvalidade;
             command.Connection = conexao;
             command.ExecuteNonQuery();
             conexao.Close();
+        }
+
+
+        public void UpdateCupom(Cupom cupom)
+        {
+            conexao.Open();
+            command.CommandText = "call spAlterCupom (@CupomId, @Cupomcode, @Valordesconto, @Cupomvalidade);";
+            command.Parameters.Add("@CupomId", MySqlDbType.VarChar).Value = cupom.CupomId;
+            command.Parameters.Add("@Cupomcode", MySqlDbType.VarChar).Value = cupom.Cupomcode;
+            command.Parameters.Add("@Valordesconto", MySqlDbType.Decimal).Value = cupom.Valordesconto;
+            command.Parameters.Add("@Cupomvalidade", MySqlDbType.Date).Value = cupom.Cupomvalidade;
+
+            command.Connection = conexao;
+            command.ExecuteNonQuery();
+            conexao.Close();
+        }
+
+
+        public void DeleteCupom(Cupom cupom)
+        {
+            conexao.Open();
+            var deleteQuery = "";
+            deleteQuery += string.Format("call spDeleteCli({0})", cupom.CupomId);
+
+            command.Connection = conexao;
+            command.CommandText = deleteQuery;
+            command.ExecuteNonQuery();
+            conexao.Close();
+
         }
     }
 

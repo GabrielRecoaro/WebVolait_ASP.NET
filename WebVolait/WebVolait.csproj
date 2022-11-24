@@ -271,8 +271,11 @@
     <Content Include="Views\AutenticacaoCliente\AlterarCliente.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\AlterarFuncionario.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\DeletarFuncionario.cshtml" />
-    <Content Include="Views\Cupom\InsertCupom.cshtml" />
     <Content Include="Views\Compra\InsertCompra.cshtml" />
+    <Content Include="Views\Cupom\InsertCupom.cshtml" />
+    <Content Include="Views\Cupom\ListarCupom.cshtml" />
+    <Content Include="Views\Cupom\AlterarCupom.cshtml" />
+    <Content Include="Views\Cupom\DeletarCupom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
