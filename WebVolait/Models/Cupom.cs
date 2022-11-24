@@ -53,7 +53,7 @@ namespace WebVolait.Models
         {
             conexao.Open();
             var deleteQuery = "";
-            deleteQuery += string.Format("call spDeleteCli({0})", cupom.CupomId);
+            deleteQuery += string.Format("call spDeleteCupom({0})", cupom.CupomId);
 
             command.Connection = conexao;
             command.CommandText = deleteQuery;

@@ -36,14 +36,14 @@
         </dd>
 
     </dl>
-
-    @using (Html.BeginForm())
-    {
+ 
         @Html.AntiForgeryToken()
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.CupomId)
 
             @Html.HiddenFor(model => model.Cupomcode)
 
