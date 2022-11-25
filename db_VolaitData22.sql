@@ -50,7 +50,7 @@ insert into tb_cupom values (default, "QWERTYUIO", 100.00, "2022-12-01"),(defaul
 create table tb_compra
 (
 	NotaFiscal int auto_increment primary key not null,
-    DataCompra date,
+    DataCompra datetime,
     ValorTotal decimal(15,2),
     CPFCliente bigint not null,
     Cupom int,
@@ -60,7 +60,7 @@ create table tb_compra
     constraint fk_cupom foreign key(Cupom) references tb_cupom(CupomId)
 );
 
-create table tb_classeVoo
+create table tb_classe
 (
 	IdClasse int primary key not null auto_increment,
     Classe varchar(50) not null
@@ -75,8 +75,9 @@ create table tb_ciaAerea
 create table tb_aero
 (
 	IdAero char(3) primary key not null,
+    NomeAero varchar(100) not null,
     CidadeAero varchar(50) not null,
-    UfAero char(2) not null
+    UfAero char(2) 
 );
 
 create table tb_passagem
@@ -89,33 +90,14 @@ create table tb_passagem
     IdClasse int,
     IdAeroPartida char(3),
     IdAeroDestino char(3),
-    CNPJCiaAerea bigint not null,
-    constraint fk_ciaAerea foreign key(CNPJCiaAerea) references tb_ciaAerea(CNPJCiaAerea),
-    constraint fk_classe foreign key(IdClasse) references tb_classeVoo(IdClasse),
-	constraint fk_aeroPartida foreign key(IdAeroPartida) references tb_aero(IdAero),
-    constraint fk_aeroDestino foreign key(IdAeroDestino) references tb_aero(IdAero)
-);
-
-create table tb_voo
-(
-	IdVoo int primary key not null,
     DtHrPartida datetime not null,
     DtHrChegada datetime not null,
-    IdAeroPartida char(3),
-    IdAeroDestino char(3),
     DuracaoVoo int not null,
-    CNPJCiaAerea bigint,
-    IdPassagem int,
-    constraint fk_aeroPartidaVoo foreign key(IdAeroPartida) references tb_aero(IdAero),
-    constraint fk_aeroDestinoVoo foreign key(IdAeroDestino) references tb_aero(IdAero)
-);
-
-create table tb_passagemVoo
-(
-	IdPassagem int not null,
-    IdVoo int not null,
-	constraint fk_passagem foreign key(IdPassagem) references tb_passagem(IdPassagem),
-    constraint fk_voo foreign key(IdVoo) references tb_voo(IdVoo)
+    CNPJCiaAerea bigint not null,
+    constraint fk_ciaAerea foreign key(CNPJCiaAerea) references tb_ciaAerea(CNPJCiaAerea),
+    constraint fk_classe foreign key(IdClasse) references tb_classe(IdClasse),
+	constraint fk_aeroPartida foreign key(IdAeroPartida) references tb_aero(IdAero),
+    constraint fk_aeroDestino foreign key(IdAeroDestino) references tb_aero(IdAero)
 );
 
 create table tb_itemCompra
@@ -131,7 +113,7 @@ create table tb_itemCompra
 
 insert into tb_tipopagto values(Default, 'Cartão de Crédito'), (Default, 'Cartão de Débito'), (Default, 'Cheque'), (Default, 'Boleto Bancário'), (Default, 'PIX');
 
-insert into tb_classeVoo values(default, "Classe econômica"), (default, "Classe executiva"), (default, "1ª classe");
+insert into tb_classe values(default, "Classe econômica"), (default, "Classe executiva"), (default, "1ª classe");
 
 insert into tb_funcionario values('98623688689', 'Bruno Silva Bastos', 'Bruno', 'bruno.bastos3@etec.sp.gov.br', '11956383957', 'bsb398'),
 ('57345699832', 'Gabriel Jard Recoaro Silva', 'Gabriel', 'gabriel.silva2615@etec.sp.gov.br', '11944485007', 'gjs261'),
@@ -156,6 +138,19 @@ insert into tb_ciaAerea values (33937681000178, "Latam Airlines"),
 (50710730000316, "British Airways"),
 (33461740000184, "Lufthansa"),
 (33136896001161, "Tap Air Portugal");
+
+insert into tb_aero (idAero, nomeAero, cidadeAero, ufAero) values ('GRU', 'Aeroporto Internacional de Guarulhos', 'Guarulhos', 'SP'),
+('MAO', 'Aeroporto Internacional de Manaus', 'Manaus', 'AM'),
+('SSA', 'Aeroporto Internacional de Salvador', 'Salvador', 'BA'),
+('DIA', 'Aeroporto Internacional de Doha', 'Doha', null),
+('CMN', 'Aeroporto Internacional Mohammed V', 'Casablanca', ''),
+('NAT', 'Aeroporto Internacional de Natal', 'Natal', 'RN'),
+('GIG', 'Aeroporto Internacional do Galeão', 'Rio de Janeiro', 'RJ'),
+('JOI', 'Aeroporto de Joinville', 'Joinville', 'SC'),
+('CWB', 'Aeroporto Internacional de Curitiba', 'Curitiba', 'PR'),
+('IGU', 'Aeroporto Internacional de Foz do Iguaçu', 'Foz do Iguaçu', 'PR'),
+('FLN', 'Aeroporto Internacional de Florianópolis', 'Florianópolis', 'SC'),
+('ORD', "Aeroporto Internacional O'Hare", 'Chicago', null);
 
 
 -- Cadastrar funcionário
@@ -334,39 +329,39 @@ DELIMITER $$
 -- Insert cupom
 drop procedure if exists spInsertCupom;
 DELIMITER $$
-CREATE PROCEDURE spInsertCupom(vCupom char(6), vDescCupom varchar(100), vValor decimal(15,2))
+CREATE PROCEDURE spInsertCupom(vCupomcode char(9), vValordesconto decimal, vCupomvalidade date)
 
 BEGIN
-	insert into tb_cupom (Cupom, DescCupom, ValorDesconto) values (vCupom, vDescCupom, vValor);
+	insert into tb_cupom (Cupomcode, Valordesconto, Cupomvalidade) values (vCupomcode, vValordesconto, vCupomvalidade);
 END $$
 
-CALL spInsertCupom ("KWZ317", "Desconto de R$ 300,00 no valor total da compra", "300.00")
+call spInsertCupom('KSJCI9JAO', 100, '2022-10-10');
 
+select * from tb_cupom;
+use db_volaitdata;
 DELIMITER $$
 
 -- Alterar cupom
 drop procedure if exists spAlterCupom;
 DELIMITER $$
-CREATE PROCEDURE spAlterCupom(vCupom char(6), vDescCupom varchar(100), vValor decimal(15,2))
+CREATE PROCEDURE spAlterCupom(vCupomId int, vCupomcode char(9), vValordesconto decimal, vCupomvalidade date)
 
 BEGIN
-	update tb_cupom set DescCupom = vDescCupom, ValorDesconto = vValor where vCupom = Cupom;
+	update tb_cupom set CupomCode = vCupomcode, Cupomvalidade = vCupomvalidade, Valordesconto = vValordesconto where CupomId = vCupomId;
 END $$
 
-CALL spAlterCupom("KWZ317", "Desconto de R$ 100,00 no valor total da compra", "100.00");
 
-DELIMITER $$
+call spAlterCupom(1, 'AABAAAAAA', 100.00, '2022/10/10');
 
 -- Deletar cupom
 drop procedure if exists spDeleteCupom;
 DELIMITER $$
-CREATE PROCEDURE spDeleteCupom(vCupom char(6))
+CREATE PROCEDURE spDeleteCupom(vCupomId int)
 
 BEGIN
-	delete from tb_cupom where Cupom = vCupom;
+	delete from tb_cupom where CupomId = vCupomId;
 END $$
 
-CALL spDeleteCupom("KWZ317");
 
 DELIMITER $$
 
@@ -388,13 +383,14 @@ NotaFiscal int auto_increment primary key not null,
 -- Insert compra
 drop procedure if exists spInsertCompra;
 DELIMITER $$
-CREATE PROCEDURE spInsertCompra( vData date, vTotal decimal(15,2), vCpfCliente bigint, vCupom char(6), vTipoPagto int)
+CREATE PROCEDURE spInsertCompra(vData date, vTotal decimal(15,2), vCpfCliente bigint, vCupom char(9), vTipoPagto varchar(30))
 
 BEGIN
-	insert into tb_compra (NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto) values (default, vData, vTotal, vCpfCliente, vCupom, (select IdTipoPagto from tb_tipoPagto where TipoPagto = vTipoPagto));
+    insert into tb_compra (NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto)
+    values (default, vData, vTotal, vCpfCliente, vCupom, (select CodTipoPagto from tb_tipoPagto where TipoPagto = vTipoPagto limit 1));
 END $$
 
-DELIMITER $$
+CALL spInsertCompra("2022-11-17", null, 52673833846, null, "Cartão de crédito");
 
 -- Select compra
 DELIMITER $$
@@ -418,16 +414,37 @@ END $$
 
 CALL spAlterValorCompra(1, "1256.00");
 
+/*IdPassagem int primary key not null auto_increment,
+    NomePassagem varchar(200) not null,
+    DescPassagem varchar(500) not null,
+    ImgPassagem blob,
+    ValorPassagem decimal(15,2),
+    IdClasse int,
+    IdAeroPartida char(3),
+    IdAeroDestino char(3),
+    DtHrPartida datetime not null,
+    DtHrChegada datetime not null,
+    DuracaoVoo int not null,
+    CNPJCiaAerea bigint not null,
+    constraint fk_ciaAerea foreign key(CNPJCiaAerea) references tb_ciaAerea(CNPJCiaAerea),
+    constraint fk_classe foreign key(IdClasse) references tb_classe(IdClasse),
+	constraint fk_aeroPartida foreign key(IdAeroPartida) references tb_aero(IdAero),
+    constraint fk_aeroDestino foreign key(IdAeroDestino) references tb_aero(IdAero)
+    */
 
+drop procedure if exists spInsertPassagem;
 DELIMITER $$
 CREATE PROCEDURE spInsertPassagem(vNomePassagem varchar(200), vDescPassagem varchar(500), vImgPassagem varchar(100), vValor decimal(15,2), 
-				 vClasse int, vCiaAerea bigint, vAeroPartida char(3), vAeroDestino char(3))
+                 vClasse varchar(50), vCiaAerea varchar(50), vAeroPartida char(3), vAeroDestino char(3), vPartida datetime, vDestino datetime, vDuracao int)
 
 BEGIN
-    insert into tb_passagem (NomePassagem, DescPassagem, ImgPassagem, ValorPassagem, IdClasse, CNPJCiaAerea, IdAeroPartida, IdAeroDestino) 
-    values (default, vNomePassagem, vDescPassagem,  vImgPassagem, vValor, (SELECT IdClasse from tb_classe where Classe = vClasse limit 1), (SELECT IdCiaAerea from tb_ciaAerea where CiaAerea = vCiaAerea limit 1), vAeroPartida, vAeroDestino);
+    insert into tb_passagem (idpassagem, nomepassagem, descpassagem, imgpassagem, valorpassagem, idclasse, cnpjciaaerea, idaeropartida, idaerodestino, DtHrChegada, DtHrPartida, DuracaoVoo)
+    values (default, vNomePassagem, vDescPassagem,  vImgPassagem, vValor, (SELECT IdClasse from tb_classe where Classe = vClasse limit 1), (SELECT CNPJCiaAerea from tb_ciaAerea where CiaAerea = vCiaAerea limit 1), vAeroPartida, vAeroDestino, vPartida, vDestino, vDuracao);
 END $$
 						
+CALL spInsertPassagem("Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1250.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 1);	
+	
+select * from tb_aero;
 
 DELIMITER $$
 
