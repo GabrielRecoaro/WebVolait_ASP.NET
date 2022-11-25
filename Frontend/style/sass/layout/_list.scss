@@ -56,6 +56,9 @@
             align-items: center;
             gap: 20px;
             padding: 10px 0;
+            div {
+                word-break: break-all;
+            }
             & div:nth-child(1) {
                 flex: 0.5 1 50px;
                 display: flex;
