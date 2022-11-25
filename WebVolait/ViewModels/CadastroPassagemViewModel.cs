@@ -21,8 +21,6 @@ namespace WebVolait.ViewModels
 
         public string Classe { get; set; }
 
-        public string CiaAerea { get; set; }
-
         public string IdAeroPartida { get; set; }
 
         public string IdAeroDestino { get; set; }
@@ -30,6 +28,10 @@ namespace WebVolait.ViewModels
         public DateTime DtHrPartida { get; set; }
 
         public DateTime DtHrChegada { get; set; }
+
+        public string DuracaoVoo { get; set; }
+
+        public string CiaAerea { get; set; }
 
     }
 }
