@@ -19,23 +19,22 @@ namespace WebVolait.Models
 
         public string DescPassagem { get; set; }
 
-        public string Origem { get; set; }
+        public string ImgPassagem { get; set; }
 
-        public string Destino { get; set; }
+        public decimal ValorPassagem { get; set; }
 
-        public string IdAeroOrigem { get; set; }
+        public string Classe { get; set; }
+
+        public string CiaAerea { get; set; }
+
+        public string IdAeroPartida { get; set; }
 
         public string IdAeroDestino { get; set; }
 
         public DateTime DtHrPartida { get; set; }
 
         public DateTime DtHrChegada { get; set; }
-
-        public string ImgPassagem { get; set; }
-
-        public decimal ValorPassagem { get; set; }
-        
-        public string Classe { get; set; }
+   
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
@@ -43,7 +42,7 @@ namespace WebVolait.Models
         public void InsertPasssagem(Passagem passagem)
         {
             conexao.Open();
-            command.CommandText = "call spInsertPassagem (@IdPassagem, @NomePassagem, @DescPassagem, @Origem, @Destino, @IdAeroOrigem, @IdAeroDestino, @DtHrPartida, @DtHrChegada, @ImgPassagem, @ValorPassagem, @Classe );";
+            command.CommandText = "call spInsertPassagem (@NomePassagem, @DescPassagem, @IdAeroOrigem, @IdAeroDestino, @DtHrPartida, @DtHrChegada, @ImgPassagem, @ValorPassagem, @Classe );";
             command.Parameters.Add("@IdPassagem", MySqlDbType.VarChar).Value = passagem.IdPassagem;
             command.Parameters.Add("@NomePassagem", MySqlDbType.VarChar).Value = passagem.NomePassagem;
             command.Parameters.Add("@DescPassagem", MySqlDbType.VarChar).Value = passagem.DescPassagem;

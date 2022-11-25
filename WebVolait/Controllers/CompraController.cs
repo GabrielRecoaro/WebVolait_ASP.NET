@@ -49,5 +49,13 @@ namespace WebVolait.Controllers
             return RedirectToAction("ListarCompra", "AutenticacaoCompra");
         }
 
+        public ActionResult ListarCompra()
+        {
+            var ExibirCompra = new Acoes();
+            var TodosCompra = ExibirCompra.ListarCompra();
+            return View(TodosCompra);
+
+        }
+
     }
 }

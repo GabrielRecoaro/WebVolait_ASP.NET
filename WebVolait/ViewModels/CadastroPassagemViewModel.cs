@@ -9,27 +9,27 @@ namespace WebVolait.ViewModels
 {
     public class CadastroPassagemViewModel
     {
+        public int IdPassagem { get; set; }
+
         public string NomePassagem { get; set; }
 
         public string DescPassagem { get; set; }
-
-        public string Origem { get; set; }
-
-        public string Destino { get; set; }
-
-        public string IdAeroOrigem { get; set; }
-
-        public string IdAeroDestino { get; set; }
-
-        public DateTime DtHrPartida { get; set; }
-
-        public DateTime DtHrChegada { get; set; }
 
         public string ImgPassagem { get; set; }
 
         public decimal ValorPassagem { get; set; }
 
         public string Classe { get; set; }
+
+        public string CiaAerea { get; set; }
+
+        public string IdAeroPartida { get; set; }
+
+        public string IdAeroDestino { get; set; }
+
+        public DateTime DtHrPartida { get; set; }
+
+        public DateTime DtHrChegada { get; set; }
 
     }
 }

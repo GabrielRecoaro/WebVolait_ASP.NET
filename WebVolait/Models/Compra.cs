@@ -24,42 +24,6 @@ namespace WebVolait.Models
 
         public int CodTipoPagto { get; set; }
 
-        //        drop procedure if exists spInsertCompra;
-        //        DELIMITER $$
-        //CREATE PROCEDURE spInsertCompra(vData date, vTotal decimal(15,2), vCpfCompra bigint, vCupom char (6), vTipoPagto int)
-
-        //BEGIN
-        //    insert into tb_compra(NotaFiscal, DataCompra, ValorTotal, CPFCompra, Cupom, CodTipoPagto) values(default, vData, vTotal, vCpfCompra, vCupom, vTipoPagto);
-        //        END $$
-
-        //CALL spInsertCompra("2022-11-17", null, 52673833846, null, 1);
-
-        //        DELIMITER $$
-
-        //-- Select compra
-        //DELIMITER $$
-        //CREATE PROCEDURE spSelectCompra(vNotaFiscal int, vData date, vCpfCompra bigint)
-
-        //BEGIN
-        //    select NotaFiscal, DataCompra, ValorTotal, CPFCompra, Cupom, CodTipoPagto from tb_compra where NotaFiscal = vNotaFiscal or DataCompra = vData or CPFCompra = vCpfCompra;
-        //END $$
-
-        //CALL spSelectCompra(52673833846);
-
-        //        DELIMITER $$
-
-        //-- Alterar valor total compra
-        //DELIMITER $$
-        //CREATE PROCEDURE spAlterValorCompra(vNotaFiscal int, vTotal decimal(15,2))
-
-        //BEGIN
-        //    update tb_compra set ValorTotal = vTotal where NotaFiscal = vNotaFiscal;
-        //END $$
-
-        //CALL spAlterValorCompra(1, "1256.00");
-
-        //        DELIMITER $$
-
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
 
@@ -84,8 +48,8 @@ namespace WebVolait.Models
             var updateQuery = "";
             updateQuery += "call spAlterValorCompra ";
             updateQuery += string.Format("({0}, {1})",
-                compra.NotaFiscal,                   //0 ''
-                compra.ValorTotal);                  //1 ''
+                compra.NotaFiscal,                   
+                compra.ValorTotal);                  
 
             command.Connection = conexao;
             command.CommandText = updateQuery;

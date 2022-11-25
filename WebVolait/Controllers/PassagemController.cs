@@ -39,15 +39,18 @@ namespace WebVolait.Controllers
             {
                 NomePassagem = viewmodel.NomePassagem,
                 DescPassagem = viewmodel.DescPassagem,
+                ImgPassagem = viewmodel.ImgPassagem,
+                ValorPassagem = viewmodel.ValorPassagem,
+                Classe = viewmodel.Classe,
                 Origem = viewmodel.Origem,
                 Destino = viewmodel.Destino,
                 IdAeroDestino = viewmodel.IdAeroDestino,
                 IdAeroOrigem = viewmodel.IdAeroOrigem,
                 //DtHrPartida = DateTime.Parse(viewmodel.DataHrPartida),
                 //DtHrChegada = DateTime.Parse(viewmodel.DataHrChegada),
-                ImgPassagem = viewmodel.ImgPassagem,
-                ValorPassagem = viewmodel.ValorPassagem,
-                Classe = viewmodel.Classe
+                
+                
+                
 
             };
 
