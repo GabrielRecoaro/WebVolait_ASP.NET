@@ -18,7 +18,7 @@ namespace WebVolait.Models
 
         public decimal ValorTotal { get; set; }
 
-        public string CPFCliente { get; set; }
+        public long CPFCliente { get; set; }
 
         public string Cupom { get; set; }
 
@@ -26,6 +26,36 @@ namespace WebVolait.Models
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
+
+        public Compra SelectCompra(int vNotaFiscal, DateTime vData, string vCpfCliente)
+        {
+            conexao.Open();
+            command.CommandText = "CALL spSelectCompra(@vNotaFiscal, @vData, @vCpfCliente);";
+            command.Parameters.Add("@NotaFiscal", MySqlDbType.Int32).Value = vNotaFiscal;
+            command.Parameters.Add("@DataCompra", MySqlDbType.Date).Value = vData;
+            command.Parameters.Add("@CPFCliente", MySqlDbType.Int64).Value = vCpfCliente;
+            command.Connection = conexao;
+
+            var reader = command.ExecuteReader();
+
+            var tempCompra = new Compra();
+
+            if (reader.Read())
+            {
+                tempCompra.NotaFiscal = int.Parse(reader["NotaFiscal"].ToString());
+                tempCompra.DataCompra = DateTime.Parse(reader["DataCompra"].ToString());
+                tempCompra.ValorTotal = decimal.Parse(reader["ValorTotal"].ToString());
+                tempCompra.CPFCliente = Int64.Parse(reader["CPFCliente"].ToString());
+                tempCompra.Cupom = (reader["Cupom"].ToString());
+                tempCompra.CodTipoPagto = (reader["CodTipoPagto"].ToString());
+            };
+
+            reader.Close();
+            conexao.Close();
+
+            return tempCompra;
+        }
+
 
         public void InsertCompra(Compra compra)
         {
@@ -56,33 +86,6 @@ namespace WebVolait.Models
             conexao.Close();
         }
 
-        public Compra SelectCompra(int notaFiscal, DateTime date, string cpfcliente)
-        {
-            conexao.Open();
-            command.CommandText = "CALL spSelectCompra(@vNotaFiscal, @vData, @vCpfCompra);"; 
-            command.Parameters.Add("@LoginCliente", MySqlDbType.Int32).Value = notaFiscal;
-            command.Parameters.Add("@LoginCliente", MySqlDbType.Date).Value = date;
-            command.Parameters.Add("@LoginCliente", MySqlDbType.Int64).Value = cpfcliente;
-            command.Connection = conexao;
-
-            var reader = command.ExecuteReader();
-
-            var tempCompra = new Compra();
-
-            if (reader.Read())
-            {
-                tempCompra.NotaFiscal = int.Parse(reader["NotaFiscal"].ToString());
-                tempCompra.DataCompra = DateTime.Parse(reader["DataCompra"].ToString());
-                tempCompra.ValorTotal = decimal.Parse(reader["ValorTotal"].ToString());
-                tempCompra.CPFCliente = reader["CPFCliente"].ToString();
-                tempCompra.Cupom = (reader["Cupom"].ToString());
-                tempCompra.CodTipoPagto = (reader["CodTipoPagto"].ToString());
-            };
-
-            reader.Close();
-            conexao.Close();
-
-            return tempCompra;
-        }
+        
     }
 }

@@ -14,7 +14,7 @@ namespace WebVolait.ViewModels
 
         public decimal ValorTotal { get; set; }
 
-        public string CPFCliente { get; set; }
+        public long CPFCliente { get; set; }
 
         public string Cupom { get; set; }
 

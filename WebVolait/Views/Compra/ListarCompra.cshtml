@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebVolait.Models.Compra>
+
+@{
+    ViewBag.Title = "ListarCompra";
+}
+
+<h2>ListarCompra</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NotaFiscal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPFCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cupom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodTipoPagto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotaFiscal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPFCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cupom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodTipoPagto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
