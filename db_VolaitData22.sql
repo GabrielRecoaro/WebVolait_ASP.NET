@@ -162,8 +162,6 @@ BEGIN
 	INSERT INTO tb_funcionario (CPFFuncionario, NomeFuncionario, NomeSocialFuncionario, LoginFuncionario, TelefoneFuncionario, SenhaFuncionario) VALUES (vCpfFunc, vNomeFunc, vNomeSocialFunc, vLoginFunc, vTelefoneFunc, vSenhaFunc);
 END $$
 
-CALL spInsertFunc(52673833846, "Brenda Berzin", null, "brendaberzin@gmail.com", "11942786165", "987654"); 
-
 DELIMITER $$
 
 -- Cadastrar cliente
@@ -174,8 +172,6 @@ CREATE PROCEDURE spInsertCli(vCpfCli bigint, vNomeCli varchar(100), vNomeSocialC
 BEGIN
 	INSERT INTO tb_cliente (CPFCliente, NomeCliente, NomeSocialCliente, LoginCliente, TelefoneCliente, SenhaCliente) VALUES (vCpfCli, vNomeCli, vNomeSocialCli, vLoginCliente, vTelefoneCli, vSenhaCli);
 END $$
-
-CALL spInsertCli(52673833846, "Brenda Berzin", null, "brendaberzin@gmail.com", "11942786165", "987654"); 
 
 DELIMITER $$
 
@@ -203,8 +199,6 @@ BEGIN
 	select * from tb_cliente where LoginCliente = vLoginCliente;
 END $$
 
-
-
 DELIMITER $$
 
 -- Select login usuário
@@ -215,8 +209,6 @@ CREATE PROCEDURE spSelectLoginFunc(vLoginFuncionario varchar(100))
 BEGIN
 	select LoginFuncionario from tb_funcionario where LoginFuncionario = vLoginFuncionario;
 END $$
-
-CALL spSelectLoginFunc("brendaberzin@gmail.com");
 
 DELIMITER $$
 
@@ -229,8 +221,6 @@ BEGIN
 	select LoginCliente from tb_cliente where LoginCliente = vLoginCliente;
 END $$
 
-CALL spSelectLoginCli("brendaberzin@gmail.com");
-
 DELIMITER $$
 
 -- Alterar funcionário 
@@ -241,8 +231,6 @@ CREATE PROCEDURE spAlterFunc(vCpfFunc bigint, vNomeFunc varchar(100), vNomeSocia
 BEGIN
 		UPDATE tb_funcionario SET NomeFuncionario = vNomeFunc, NomeSocialFuncionario = vNomeSocialFunc, LoginFuncionario = vLoginFunc, TelefoneFuncionario = vTelefoneFunc, SenhaFuncionario = vSenhaFunc where CPFFuncionario = vCpfFunc;
 END $$
-
-CALL spAlterFunc(78456377925, "Otávio de Paula", null, "otavio@gmail.com", "11989652235", "odp667");
 
 DELIMITER $$
 
@@ -255,11 +243,7 @@ BEGIN
 		UPDATE tb_cliente SET NomeCliente = vNomeCli, NomeSocialCliente = vNomeSocialCLi, LoginCliente = vLoginCliente, TelefoneCliente = vTelefoneCli, SenhaCliente = vSenhaCli where CPFCliente = vCpfCli;
 END $$
 
-CALL spAlterCli(57689455721, 'Elio Gaspari', null, 'elio.gaspari@gmail.com', '12976119231', 'eli999');
-
 DELIMITER $$
-
-select * from tb_funcionario;
 
 -- Alterar senha funcionário
 drop procedure if exists spAlterSenhaFunc;
@@ -270,11 +254,7 @@ BEGIN
 	UPDATE tb_funcionario set SenhaFuncionario = vSenhaFunc where CPFFuncionario = vCpfFunc;
 END $$
 
-CALL spAlterSenhaFunc (57345699832, "gjs262");
-
 DELIMITER $$
-
-select * from tb_cliente;
 
 -- Alterar senha cliente
 drop procedure if exists spAlterSenhaCli;
@@ -284,8 +264,6 @@ CREATE PROCEDURE spAlterSenhaCli(vLoginCliente varchar(100), vSenhaCli varchar(1
 BEGIN
 	UPDATE tb_cliente set SenhaCliente = vSenhaCli where LoginCliente = vLoginCliente;
 END $$
-
-
 
 DELIMITER $$
 
@@ -298,8 +276,6 @@ BEGIN
 	DELETE from tb_funcionario where CPFFuncionario = vCpfFunc;
 END $$
 
-CALL spDeleteFunc(98623688689);
-
 DELIMITER $$
 
 -- Deletar cliente
@@ -310,8 +286,6 @@ CREATE PROCEDURE spDeleteCli(vCpfCli bigint)
 BEGIN
 	DELETE from tb_cliente where CPFCliente = vCpfCli;
 END $$
-
-CALL spDeleteCli(78545623745);
 
 DELIMITER $$
 
@@ -335,10 +309,6 @@ BEGIN
 	insert into tb_cupom (Cupomcode, Valordesconto, Cupomvalidade) values (vCupomcode, vValordesconto, vCupomvalidade);
 END $$
 
-call spInsertCupom('KSJCI9JAO', 100, '2022-10-10');
-
-select * from tb_cupom;
-use db_volaitdata;
 DELIMITER $$
 
 -- Alterar cupom
@@ -350,9 +320,6 @@ BEGIN
 	update tb_cupom set CupomCode = vCupomcode, Cupomvalidade = vCupomvalidade, Valordesconto = vValordesconto where CupomId = vCupomId;
 END $$
 
-
-call spAlterCupom(1, 'AABAAAAAA', 100.00, '2022/10/10');
-
 -- Deletar cupom
 drop procedure if exists spDeleteCupom;
 DELIMITER $$
@@ -361,7 +328,6 @@ CREATE PROCEDURE spDeleteCupom(vCupomId int)
 BEGIN
 	delete from tb_cupom where CupomId = vCupomId;
 END $$
-
 
 DELIMITER $$
 
@@ -375,8 +341,6 @@ BEGIN
     values (default, vData, vTotal, vCpfCliente, vCupom, (select CodTipoPagto from tb_tipoPagto where TipoPagto = vTipoPagto limit 1));
 END $$
 
-CALL spInsertCompra("2022-11-17", null, 52673833846, null, "Cartão de crédito");
-
 -- Select compra
 DELIMITER $$
 CREATE PROCEDURE spSelectCompra(vNotaFiscal int, vData date, vCpfCliente bigint)
@@ -384,8 +348,6 @@ CREATE PROCEDURE spSelectCompra(vNotaFiscal int, vData date, vCpfCliente bigint)
 BEGIN
 	select NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto from tb_compra where NotaFiscal = vNotaFiscal or DataCompra = vData or CPFCliente = vCpfCliente;
 END $$
-
-CALL spSelectCompra(52673833846);
 
 DELIMITER $$
 
@@ -397,8 +359,6 @@ BEGIN
 	update tb_compra set ValorTotal = vTotal where NotaFiscal = vNotaFiscal;
 END $$
 
-CALL spAlterValorCompra(1, "1256.00");
-
 -- Inserir passagem
 drop procedure if exists spInsertPassagem;
 DELIMITER $$
@@ -409,9 +369,7 @@ BEGIN
     insert into tb_passagem (idpassagem, nomepassagem, descpassagem, imgpassagem, valorpassagem, idclasse, cnpjciaaerea, idaeropartida, idaerodestino, DtHrChegada, DtHrPartida, DuracaoVoo)
     values (default, vNomePassagem, vDescPassagem,  vImgPassagem, vValor, (SELECT IdClasse from tb_classe where Classe = vClasse limit 1), (SELECT CNPJCiaAerea from tb_ciaAerea where CiaAerea = vCiaAerea limit 1), vAeroPartida, vAeroDestino, vPartida, vDestino, vDuracao);
 END $$
-						
-CALL spInsertPassagem("Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1250.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 1);	
-
+					
 DELIMITER $$
 
 -- Alterar passagem
@@ -425,8 +383,6 @@ BEGIN
     IdClasse = (SELECT IdClasse from tb_classe where Classe = vClasse limit 1), CNPJCiaAerea = (SELECT CNPJCiaAerea from tb_ciaAerea where CiaAerea = vCiaAerea limit 1), IdAeroPartida = vAeroPartida, IdAeroDestino = vAeroDestino, DtHrPartida = vPartida, DtHrChegada = vChegada, DuracaoVoo = vDuracao where IdPassagem = vIdPassagem;
 END $$
 
-CALL spAlterPassagem(1, "Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1257.00", "Classe executiva", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 2);
-
 -- Deletar passagem
 drop procedure if exists spDeletePassagem;
 DELIMITER $$
@@ -435,8 +391,6 @@ CREATE PROCEDURE spDeletePassagem(vIdPassagem int)
 BEGIN
 	delete from tb_passagem where IdPassagem = vIdPassagem;
 END $$
-
-CALL spDeletePassagem(1)
 
 DELIMITER $$
 
@@ -467,6 +421,27 @@ from tb_passagem p	inner join tb_classe as c on p.IdClasse = c.IdClasse
                     join tb_aero as aD on aD.IdAero = p.IdAeroDestino;
 
 select * from vw_passagem;
+
+
+-- Calls procedures
+CALL spInsertFunc(52673833846, "Brenda Berzin", null, "brendaberzin@gmail.com", "11942786165", "987654");
+CALL spInsertCli(52673833846, "Brenda Berzin", null, "brendaberzin@gmail.com", "11942786165", "987654"); 
+CALL spSelectLoginFunc("brendaberzin@gmail.com");
+CALL spSelectLoginCli("brendaberzin@gmail.com");
+CALL spAlterFunc(78456377925, "Otávio de Paula", null, "otavio@gmail.com", "11989652235", "odp667");
+CALL spAlterCli(57689455721, 'Elio Gaspari', null, 'elio.gaspari@gmail.com', '12976119231', 'eli999');
+CALL spAlterSenhaFunc (57345699832, "gjs262");
+CALL spDeleteFunc(98623688689);
+CALL spDeleteCli(78545623745);
+call spInsertCupom('KSJCI9JAO', 100, '2022-10-10');
+call spAlterCupom(1, 'AABAAAAAA', 100.00, '2022/10/10');
+CALL spInsertCompra("2022-11-17", null, 52673833846, null, "Cartão de crédito");
+CALL spSelectCompra(52673833846);
+CALL spAlterValorCompra(1, "1256.00");
+CALL spInsertPassagem("Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1250.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 1);	
+CALL spAlterPassagem(1, "Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1257.00", "Classe executiva", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 2);
+CALL spDeletePassagem(1)
+
 
 -- Selects simples
 select * from tb_funcionario;
