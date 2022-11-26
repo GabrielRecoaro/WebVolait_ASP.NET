@@ -33,7 +33,7 @@ namespace WebVolait.Models
 
         public DateTime DtHrChegada { get; set; }
 
-        public string DuracaoVoo { get; set; }
+        public int DuracaoVoo { get; set; }
 
         public string CiaAerea { get; set; }
 
@@ -82,7 +82,7 @@ namespace WebVolait.Models
                 tempPassagem.IdAeroDestino = readPassagem["IdAeroDestino"].ToString();
                 tempPassagem.DtHrPartida = DateTime.Parse(readPassagem["DtHrPartida"].ToString());
                 tempPassagem.DtHrChegada = DateTime.Parse(readPassagem["DtHrChegada"].ToString());
-                tempPassagem.DuracaoVoo = readPassagem["DuracaoVoo"].ToString();
+                tempPassagem.DuracaoVoo = Int16.Parse(readPassagem["DuracaoVoo"].ToString());
             };
 
             readPassagem.Close();

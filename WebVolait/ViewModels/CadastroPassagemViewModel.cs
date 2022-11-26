@@ -31,7 +31,7 @@ namespace WebVolait.ViewModels
 
         public DateTime DtHrChegada { get; set; }
 
-        public string DuracaoVoo { get; set; }
+        public int DuracaoVoo { get; set; }
 
     }
 }

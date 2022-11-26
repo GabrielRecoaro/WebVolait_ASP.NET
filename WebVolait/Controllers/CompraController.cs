@@ -48,33 +48,33 @@ namespace WebVolait.Controllers
             return RedirectToAction("ListarCompra", "Compra");
         }
 
-        public ActionResult ListarCompra()
-        {
-            var ExibirCompra = new Acoes();
-            var TodosCompra = ExibirCompra.ListarCompra();
-            return View(TodosCompra);
+        //public ActionResult ListarCompra()
+        //{
+        //    var ExibirCompra = new Acoes();
+        //    var TodosCompra = ExibirCompra.ListarCompra();
+        //    return View(TodosCompra);
 
-        }
+        //}
 
-        public ActionResult AlterarValorCompra(int id)
-        {
-            var compraselecionado = ac.ListarCodCompra(id);
-            return View(compraselecionado);
-        }
+        //public ActionResult AlterarValorCompra(int id)
+        //{
+        //    var compraselecionado = ac.ListarCodCompra(id);
+        //    return View(compraselecionado);
+        //}
 
-        [HttpPost]
-        public ActionResult AlterarValorCompra(Compra compra)
-        {
-            try
-            {
-                compra.UpdateCompra(compra);
-                return RedirectToAction("ListarCompra", "Compra");
-            }
-            catch
-            {
-                return View(compra);
-            }
-        }
+        //[HttpPost]
+        //public ActionResult AlterarValorCompra(Compra compra)
+        //{
+        //    try
+        //    {
+        //        compra.UpdateCompra(compra);
+        //        return RedirectToAction("ListarCompra", "Compra");
+        //    }
+        //    catch
+        //    {
+        //        return View(compra);
+        //    }
+        //}
 
     }
 }

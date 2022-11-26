@@ -69,17 +69,17 @@ namespace WebVolait.Models
             conexao.Close();
         }
 
-        public void UpdateCompra(Compra compra)
-        {
-            conexao.Open();
-            command.CommandText = "call spAlterValorCompra (@NotaFiscal, @ValorTotal);";
-            command.Parameters.Add("@NotFiscal", MySqlDbType.VarChar).Value = compra.NotaFiscal;
-            command.Parameters.Add("@ValorTotal", MySqlDbType.VarChar).Value = compra.ValorTotal;
-            command.Connection = conexao;
-            command.ExecuteNonQuery();
-            conexao.Close();
+        //public void UpdateCompra(Compra compra)
+        //{
+        //    conexao.Open();
+        //    command.CommandText = "call spAlterValorCompra (@NotaFiscal, @ValorTotal);";
+        //    command.Parameters.Add("@NotFiscal", MySqlDbType.VarChar).Value = compra.NotaFiscal;
+        //    command.Parameters.Add("@ValorTotal", MySqlDbType.VarChar).Value = compra.ValorTotal;
+        //    command.Connection = conexao;
+        //    command.ExecuteNonQuery();
+        //    conexao.Close();
 
-        }
+        //}
 
     }
 }
