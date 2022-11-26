@@ -61,6 +61,36 @@ namespace WebVolait.Models
             conexao.Close();
         }
 
+        public Passagem SelectPassagem(string vIdPassagem)
+        {
+            conexao.Open();
+            command.CommandText = "select * from vw_passagem";
+            command.Parameters.Add("@IdPassagem", MySqlDbType.Int16).Value = vIdPassagem;
+            command.Connection = conexao;
+            var readPassagem = command.ExecuteReader();
+            var tempPassagem = new Passagem();
+
+            if (readPassagem.Read())
+            {
+                tempPassagem.NomePassagem = readPassagem["NomePassagem"].ToString();
+                tempPassagem.DescPassagem = readPassagem["DescPassagem"].ToString();
+                tempPassagem.ImgPassagem = readPassagem["ImgPassagem"].ToString();
+                tempPassagem.ValorPassagem = Decimal.Parse(readPassagem["ValorPassagem"].ToString());
+                tempPassagem.Classe = readPassagem["Classe"].ToString();
+                tempPassagem.CiaAerea = readPassagem["CiaAerea"].ToString();
+                tempPassagem.IdAeroPartida = readPassagem["IdAeroPartida"].ToString();
+                tempPassagem.IdAeroDestino = readPassagem["IdAeroDestino"].ToString();
+                tempPassagem.DtHrPartida = DateTime.Parse(readPassagem["DtHrPartida"].ToString());
+                tempPassagem.DtHrChegada = DateTime.Parse(readPassagem["DtHrChegada"].ToString());
+                tempPassagem.DuracaoVoo = readPassagem["DuracaoVoo"].ToString();
+            };
+
+            readPassagem.Close();
+            conexao.Close();
+
+            return tempPassagem;
+        }
+
 
 
         public void UpdatePassagem(Passagem passagem)
