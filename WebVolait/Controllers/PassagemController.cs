@@ -25,13 +25,13 @@ namespace WebVolait.Controllers
             return View(passagem);
         }
 
-        //public ActionResult ListarPassagem()
-        //{
-        //    var ExibirPass = new Acoes();
-        //    var TodosPass = ExibirPass.ListarPassagem();
-        //    return View(TodosPass);
+        public ActionResult ListarPassagem()
+        {
+            var ExibirPass = new Acoes();
+            var TodosPass = ExibirPass.ListarPassagem();
+            return View(TodosPass);
 
-        //}
+        }
 
         Acoes ac = new Acoes();
 
@@ -50,12 +50,12 @@ namespace WebVolait.Controllers
                 ImgPassagem = viewmodel.ImgPassagem,
                 ValorPassagem = viewmodel.ValorPassagem,
                 Classe = viewmodel.Classe,
+                CiaAerea= viewmodel.CiaAerea,
                 IdAeroPartida = viewmodel.IdAeroPartida,
                 IdAeroDestino = viewmodel.IdAeroDestino,
                 DtHrPartida = viewmodel.DtHrPartida,
                 DtHrChegada = viewmodel.DtHrChegada,
                 DuracaoVoo= viewmodel.DuracaoVoo,
-                CiaAerea= viewmodel.CiaAerea,
   
             };
 

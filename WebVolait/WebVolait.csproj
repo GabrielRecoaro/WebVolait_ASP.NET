@@ -273,6 +273,7 @@
     <Content Include="Views\Cupom\AlterarCupom.cshtml" />
     <Content Include="Views\Cupom\DeletarCupom.cshtml" />
     <Content Include="Views\Passagem\InsertPassagem.cshtml" />
+    <Content Include="Views\Passagem\ListarPassagem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

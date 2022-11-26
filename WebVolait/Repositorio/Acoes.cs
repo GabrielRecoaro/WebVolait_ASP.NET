@@ -208,66 +208,79 @@ namespace WebVolait.Repositorio
 
         // ********************************** LISTAR PASSAGEM
 
-    //    public Passagem ListarCodPassagem(int cod)
-    //    {
-    //        var comando = String.Format("select * from tb_passagem where IdPassagem = {0}", cod);
-    //        MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
-    //        var DadosCodPass = cmd.ExecuteReader();
-    //        return ListarCodPass(DadosCodPass).FirstOrDefault();
-    //    }
+        public Passagem ListarCodPassagem(int cod)
+        {
+            var comando = String.Format("select * from tb_passagem where IdPassagem = {0}", cod);
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodPass = cmd.ExecuteReader();
+            return ListarCodPass(DadosCodPass).FirstOrDefault();
+        }
 
-    //    public List<Passagem>
-    //ListarCodPass(MySqlDataReader dt)
-    //    {
-    //        var AltAl = new List<Passagem>
-    //            ();
-    //        while (dt.Read())
-    //        {
-    //            var AlTemp = new Passagem()
-    //            {
+        public List<Passagem>
+    ListarCodPass(MySqlDataReader dt)
+        {
+            var AltAl = new List<Passagem>
+                ();
+            while (dt.Read())
+            {
+                var AlTemp = new Passagem()
+                {
+                    IdPassagem = Int16.Parse(dt["IdPassagem"].ToString()),
+                    NomePassagem = (dt["NomePassagem"].ToString()),
+                    DescPassagem = (dt["DescPassagem"].ToString()),
+                    ImgPassagem = (dt["ImgPassagem"].ToString()),
+                    ValorPassagem = Decimal.Parse(dt["ValorPassagem"].ToString()),
+                    Classe = (dt["Classe"].ToString()),
+                    IdAeroPartida = (dt["IdAeroPartida"].ToString()),
+                    IdAeroDestino = (dt["IdAeroDestino"].ToString()),
+                    DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
+                    DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
+                    DuracaoVoo = (dt["DuracaoVoo"].ToString()),
+                    CiaAerea = (dt["CiaAerea"].ToString()),
 
-    //                //NomePassagem = (dt["NomePassagem"].ToString()),
-    //                //DescPassagem = (dt["DescPassagem"].ToString()),
-    //                //ImgPassagem = (dt["ImgPassagem"].ToString()),
-    //                //ValorPassagem = (dt["ValorPassagem"].ToString()),
+    };
+                AltAl.Add(AlTemp);
 
-    //            };
-    //            AltAl.Add(AlTemp);
+            }
+            dt.Close();
+            return AltAl;
+        }
 
-    //        }
-    //        dt.Close();
-    //        return AltAl;
-    //    }
+        public List<Passagem>
+            ListarPassagem()
+        {
+            MySqlCommand cmd = new MySqlCommand("Select * from tb_passagem", con.ConectarBD());
+            var DadosPassagem = cmd.ExecuteReader();
+            return ListarTodosPassagem(DadosPassagem);
+        }
 
-    //    public List<Passagem>
-    //        ListarPassagem()
-    //    {
-    //        MySqlCommand cmd = new MySqlCommand("Select * from tb_passagem", con.ConectarBD());
-    //        var DadosPassagem = cmd.ExecuteReader();
-    //        return ListarTodosPassagem(DadosPassagem);
-    //    }
-
-    //    public List<Passagem>
-    //        ListarTodosPassagem(MySqlDataReader dt)
-    //    {
-    //        var TodosPassagems = new List<Passagem>
-    //            ();
-    //        while (dt.Read())
-    //        {
-    //            var PassagemTemp = new Passagem()
-    //            {
-
-    //                //NomePassagem = (dt["NomePassagem"].ToString()),
-    //                //DescPassagem = (dt["DescPassagem"].ToString()),
-    //                //ImgPassagem = (dt["ImgPassagem"].ToString()),
-    //                //ValorPassagem = (dt["ValorPassagem"].ToString()),
-
-    //            };
-    //            TodosPassagems.Add(PassagemTemp);
-    //        }
-    //        dt.Close();
-    //        return TodosPassagems;
-    //    }
+        public List<Passagem>
+            ListarTodosPassagem(MySqlDataReader dt)
+        {
+            var TodosPassagems = new List<Passagem>
+                ();
+            while (dt.Read())
+            {
+                var PassagemTemp = new Passagem()
+                {
+                    IdPassagem = Int16.Parse(dt["IdPassagem"].ToString()),
+                    NomePassagem = (dt["NomePassagem"].ToString()),
+                    DescPassagem = (dt["DescPassagem"].ToString()),
+                    ImgPassagem = (dt["ImgPassagem"].ToString()),
+                    ValorPassagem = Decimal.Parse(dt["ValorPassagem"].ToString()),
+                    Classe = (dt["Classe"].ToString()),
+                    IdAeroPartida = (dt["IdAeroPartida"].ToString()),
+                    IdAeroDestino = (dt["IdAeroDestino"].ToString()),
+                    DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
+                    DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
+                    DuracaoVoo = (dt["DuracaoVoo"].ToString()),
+                    CiaAerea = (dt["CiaAerea"].ToString()),
+                };
+                TodosPassagems.Add(PassagemTemp);
+            }
+            dt.Close();
+            return TodosPassagems;
+        }
 
         // ********************************** LISTAR COMPRA
 
