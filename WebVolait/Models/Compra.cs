@@ -27,13 +27,11 @@ namespace WebVolait.Models
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
 
-        public Compra SelectCompra(int vNotaFiscal, DateTime vData, string vCpfCliente)
+        public Compra SelectCompra(int vNotaFiscal)
         {
             conexao.Open();
             command.CommandText = "CALL spSelectCompra(@vNotaFiscal, @vData, @vCpfCliente);";
             command.Parameters.Add("@NotaFiscal", MySqlDbType.Int32).Value = vNotaFiscal;
-            command.Parameters.Add("@DataCompra", MySqlDbType.Date).Value = vData;
-            command.Parameters.Add("@CPFCliente", MySqlDbType.Int64).Value = vCpfCliente;
             command.Connection = conexao;
 
             var reader = command.ExecuteReader();
@@ -74,18 +72,14 @@ namespace WebVolait.Models
         public void UpdateCompra(Compra compra)
         {
             conexao.Open();
-            var updateQuery = "";
-            updateQuery += "call spAlterValorCompra ";
-            updateQuery += string.Format("({0}, {1})",
-                compra.NotaFiscal,                   
-                compra.ValorTotal);                  
-
+            command.CommandText = "call spAlterValorCompra (@NotaFiscal, @ValorTotal);";
+            command.Parameters.Add("@NotFiscal", MySqlDbType.VarChar).Value = compra.NotaFiscal;
+            command.Parameters.Add("@ValorTotal", MySqlDbType.VarChar).Value = compra.ValorTotal;
             command.Connection = conexao;
-            command.CommandText = updateQuery;
             command.ExecuteNonQuery();
             conexao.Close();
+
         }
 
-        
     }
 }

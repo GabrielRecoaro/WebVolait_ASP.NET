@@ -281,69 +281,69 @@ namespace WebVolait.Repositorio
 
         // ********************************** LISTAR COMPRA
 
-        public Compra ListarCodCompra(int cod)
-        {
-            var comando = String.Format("select * from tb_compra where NotaFiscal = {0}", cod);
-            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
-            var DadosCodCompra = cmd.ExecuteReader();
-            return ListarCodCompra(DadosCodCompra).FirstOrDefault();
-        }
+        //public Compra ListarCodCompra(int cod)
+        //{
+        //    var comando = String.Format("select * from tb_compra where NotaFiscal = {0}", cod);
+        //    MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+        //    var DadosCodCompra = cmd.ExecuteReader();
+        //    return ListarCodCompra(DadosCodCompra).FirstOrDefault();
+        //}
 
-        public List<Compra>
-        ListarCodCompra(MySqlDataReader dt)
+        //public List<Compra>
+        //ListarCodCompra(MySqlDataReader dt)
 
-        {
-            var AltAl = new List<Compra>
-                ();
-            while (dt.Read())
-            {
-                var AlTemp = new Compra()
-                {
-                    NotaFiscal = int.Parse(dt["NotaFiscal"].ToString()),
-                    DataCompra = DateTime.Parse(dt["DataCompra"].ToString()),
-                    ValorTotal = decimal.Parse(dt["ValorTotal"].ToString()),
-                    Cupom = dt["Cupom"].ToString(),
-                    CPFCliente = Int64.Parse(dt["CPFCliente"].ToString()),
-                    CodTipoPagto = (dt["CodTipoPagto"].ToString()),
+        //{
+        //    var AltAl = new List<Compra>
+        //        ();
+        //    while (dt.Read())
+        //    {
+        //        var AlTemp = new Compra()
+        //        {
+        //            NotaFiscal = int.Parse(dt["NotaFiscal"].ToString()),
+        //            DataCompra = DateTime.Parse(dt["DataCompra"].ToString()),
+        //            ValorTotal = decimal.Parse(dt["ValorTotal"].ToString()),
+        //            Cupom = dt["Cupom"].ToString(),
+        //            CPFCliente = Int64.Parse(dt["CPFCliente"].ToString()),
+        //            CodTipoPagto = (dt["CodTipoPagto"].ToString()),
 
-                };
-                AltAl.Add(AlTemp);
+        //        };
+        //        AltAl.Add(AlTemp);
 
-            }
-            dt.Close();
-            return AltAl;
-        }
+        //    }
+        //    dt.Close();
+        //    return AltAl;
+        //}
 
-        public List<Compra>
-            ListarCompra()
-        {
-            MySqlCommand cmd = new MySqlCommand("Select * from tb_compra", con.ConectarBD());
-            var DadosCompra = cmd.ExecuteReader();
-            return ListarTodosCompra(DadosCompra);
-        }
+        //public List<Compra>
+        //    ListarCompra()
+        //{
+        //    MySqlCommand cmd = new MySqlCommand("Select * from tb_compra", con.ConectarBD());
+        //    var DadosCompra = cmd.ExecuteReader();
+        //    return ListarTodosCompra(DadosCompra);
+        //}
 
-        public List<Compra>
-            ListarTodosCompra(MySqlDataReader dt)
-        {
-            var TodosCompra = new List<Compra>
-                ();
-            while (dt.Read())
-            {
-                var CompraTemp = new Compra()
-                {
-                    NotaFiscal = int.Parse(dt["NotaFiscal"].ToString()),
-                    DataCompra = DateTime.Parse(dt["DataCompra"].ToString()),
-                    ValorTotal = decimal.Parse(dt["ValorTotal"].ToString()),
-                    Cupom = (dt["Cupom"].ToString()),
-                    CPFCliente = Int64.Parse(dt["CPFCliente"].ToString()),
-                    CodTipoPagto = (dt["CodTipoPagto"].ToString()),
+        //public List<Compra>
+        //    ListarTodosCompra(MySqlDataReader dt)
+        //{
+        //    var TodosCompra = new List<Compra>
+        //        ();
+        //    while (dt.Read())
+        //    {
+        //        var CompraTemp = new Compra()
+        //        {
+        //            NotaFiscal = int.Parse(dt["NotaFiscal"].ToString()),
+        //            DataCompra = DateTime.Parse(dt["DataCompra"].ToString()),
+        //            ValorTotal = decimal.Parse(dt["ValorTotal"].ToString()),
+        //            Cupom = (dt["Cupom"].ToString()),
+        //            CPFCliente = Int64.Parse(dt["CPFCliente"].ToString()),
+        //            CodTipoPagto = (dt["CodTipoPagto"].ToString()),
 
-                };
-                TodosCompra.Add(CompraTemp);
-            }
-            dt.Close();
-            return TodosCompra;
-        }
+        //        };
+        //        TodosCompra.Add(CompraTemp);
+        //    }
+        //    dt.Close();
+        //    return TodosCompra;
+        //}
 
     }
 }

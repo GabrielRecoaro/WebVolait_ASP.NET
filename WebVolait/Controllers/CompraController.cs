@@ -56,5 +56,25 @@ namespace WebVolait.Controllers
 
         }
 
+        public ActionResult AlterarValorCompra(int id)
+        {
+            var compraselecionado = ac.ListarCodCompra(id);
+            return View(compraselecionado);
+        }
+
+        [HttpPost]
+        public ActionResult AlterarValorCompra(Compra compra)
+        {
+            try
+            {
+                compra.UpdateCompra(compra);
+                return RedirectToAction("ListarCompra", "Compra");
+            }
+            catch
+            {
+                return View(compra);
+            }
+        }
+
     }
 }

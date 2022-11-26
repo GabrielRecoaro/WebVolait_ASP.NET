@@ -277,6 +277,7 @@
     <Content Include="Views\Passagem\DeletarPassagem.cshtml" />
     <Content Include="Views\Compra\InsertCompra.cshtml" />
     <Content Include="Views\Compra\ListarCompra.cshtml" />
+    <Content Include="Views\Compra\AlterarValorCompra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
