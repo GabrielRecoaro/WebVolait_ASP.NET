@@ -440,6 +440,34 @@ CALL spDeletePassagem(1)
 
 DELIMITER $$
 
+-- View listar passagem
+drop view if exists vw_passagem;
+create view vw_passagem
+as select
+	p.IdPassagem as IdPassagem,
+    p.NomePassagem as NomePassagem,
+	p.DescPassagem as DescPassagem,
+    p.ImgPassagem as ImgPassagem,
+    p.ValorPassagem as ValorPassagem,
+	p.DtHrPartida as DtHrPartida,
+    p.DtHrChegada as DtHrChegada,
+    ca.CiaAerea as CiaAerea,
+    c.Classe as Classe,
+    aP.IdAero as IdAeroPartida,
+    aD.IdAero as IdAeroDestino,
+    aP.NomeAero as NomeAeroPartida,
+    aD.NomeAero as NomeAeroDestino,
+    aP.CidadeAero as CidadeAeroPartida,
+    aD.CidadeAero as CidadeAeroDestino,
+    aP.UfAero as UfAeroPartida,
+    aD.UfAero as UfAeroDestino
+from tb_passagem p	inner join tb_classe as c on p.IdClasse = c.IdClasse
+					inner join tb_ciaAerea as ca on p.CNPJCiaAerea = ca.CNPJCiaAerea
+                    join tb_aero as aP on aP.IdAero = p.IdAeroPartida
+                    join tb_aero as aD on aD.IdAero = p.IdAeroDestino;
+
+select * from vw_passagem;
+
 -- Selects simples
 select * from tb_funcionario;
 select * from tb_cliente;
