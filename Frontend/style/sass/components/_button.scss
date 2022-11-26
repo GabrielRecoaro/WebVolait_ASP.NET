@@ -47,7 +47,7 @@
         border-radius: 15px;
         width: 100%;
     }
-    &.list-edit, &.list-delete {
+    &.list-edit, &.list-delete, &.list-details {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -68,6 +68,12 @@
         gap: 5px;
         border: 2px solid $red-color;
         color: $red-color;
+        background: $white-color;
+    }
+    &.list-details {
+        gap: 5px;
+        border: 2px solid $green-color;
+        color: $green-color;
         background: $white-color;
     }
 }

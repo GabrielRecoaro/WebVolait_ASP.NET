@@ -49,10 +49,10 @@
                 </div>
             </div>
         </header>
-        <main class="content-main list customers-list margin">
+        <main class="content-main list passages-list margin">
             <div class="container">
                 <h1 class="list__title">
-                    Clientes
+                    Passagens
                     <button class="button">
                         <iconify-icon icon="carbon:add"></iconify-icon>
                         Adicionar
@@ -61,7 +61,7 @@
                 <div class="list__flex-header">
                     <div>#</div>
                     <div>
-                        <span>Nome/CPF</span>
+                        <span>Origem</span>
                         <div class="search-bar">
                             <a class="search-bar__icon" href="#">
                                 <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div>
-                        <span>Nome social</span>
+                        <span>Destino</span>
                         <div class="search-bar">
                             <a class="search-bar__icon" href="#">
                                 <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div>
-                        <span>E-mail</span>
+                        <span>Horário partida</span>
                         <div class="search-bar">
                             <a class="search-bar__icon" href="#">
                                 <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
@@ -91,7 +91,17 @@
                         </div>
                     </div>
                     <div>
-                        <span>Telefone</span>
+                        <span>Horário chegada</span>
+                        <div class="search-bar">
+                            <a class="search-bar__icon" href="#">
+                                <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                            </a>
+                            <input class="search-bar__txt" type="text"
+                            placeholder="">
+                        </div>
+                    </div>
+                    <div>
+                        <span>Classe</span>
                         <div class="search-bar">
                             <a class="search-bar__icon" href="#">
                                 <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
@@ -105,11 +115,11 @@
                     <div class="list__flex-body__upper">
                         <div>0001</div>
                         <div>
-                            <span>Francisco Alves</span>
-                            <span>192.168.000.10</span>
+                            <span>Pirituba</span>
                         </div>
-                        <div>Ariel da Silva</div>
-                        <div>franciscoalves@gmail.com</div>
+                        <div>Lapa</div>
+                        <div>12h00</div>
+                        <div>23h59</div>
                         <div>
                             (11) 99876-2910
                             <div>
@@ -120,25 +130,34 @@
                     <div class="list__flex-body__bottom">
                         <div>
                             <div>
-                                Nome Completo
-                                <span>Francisco Alves Lima dos Santos Neves</span>
+                                Origem
+                                <span>Lapa</span>
                             </div>
                             <div>
-                                Telefone
-                                <span>(11) 99876-2910</span>
+                                Destino
+                                <span>Pirituba</span>
+                            </div>
+                            <div>
+                                Valor
+                                <span>4900,00 R$</span>
+                            </div>
+                            <div>
+                                <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
+                            </div>
+                            <div>
+                                Classe
+                                <span>S</span>
+                            </div>
+                            <div>
+                                CIA Aérea
+                                <span>?</span>
                             </div>
                             <div>
                                 <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
                             </div>
                             <div>
-                                Nome social
-                                <span>Ariel da Silva</span>
+                                <a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
                             </div>
-                            <div>
-                                E-mail
-                                <span>franciscoalves@gmail.com</span>
-                            </div>
-                            <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
                         </div>
                     </div>
                 </div>
@@ -146,11 +165,11 @@
                     <div class="list__flex-body__upper">
                         <div>0001</div>
                         <div>
-                            <span>Francisco Alves</span>
-                            <span>192.168.000.10</span>
+                            <span>Pirituba</span>
                         </div>
-                        <div>Ariel da Silva</div>
-                        <div>franciscoalves@gmail.com</div>
+                        <div>Lapa</div>
+                        <div>12h00</div>
+                        <div>23h59</div>
                         <div>
                             (11) 99876-2910
                             <div>
@@ -161,25 +180,34 @@
                     <div class="list__flex-body__bottom">
                         <div>
                             <div>
-                                Nome Completo
-                                <span>Francisco Alves Lima dos Santos Neves</span>
+                                Origem
+                                <span>Lapa</span>
                             </div>
                             <div>
-                                Telefone
-                                <span>(11) 99876-2910</span>
+                                Destino
+                                <span>Pirituba</span>
+                            </div>
+                            <div>
+                                Valor
+                                <span>4900,00 R$</span>
+                            </div>
+                            <div>
+                                <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
+                            </div>
+                            <div>
+                                Classe
+                                <span>S</span>
+                            </div>
+                            <div>
+                                CIA Aérea
+                                <span>?</span>
                             </div>
                             <div>
                                 <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
                             </div>
                             <div>
-                                Nome social
-                                <span>Ariel da Silva</span>
+                                <a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
                             </div>
-                            <div>
-                                E-mail
-                                <span>franciscoalves@gmail.com</span>
-                            </div>
-                            <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
                         </div>
                     </div>
                 </div>
@@ -187,11 +215,11 @@
                     <div class="list__flex-body__upper">
                         <div>0001</div>
                         <div>
-                            <span>Francisco Alves</span>
-                            <span>192.168.000.10</span>
+                            <span>Pirituba</span>
                         </div>
-                        <div>Ariel da Silva</div>
-                        <div>franciscoalves@gmail.com</div>
+                        <div>Lapa</div>
+                        <div>12h00</div>
+                        <div>23h59</div>
                         <div>
                             (11) 99876-2910
                             <div>
@@ -202,25 +230,34 @@
                     <div class="list__flex-body__bottom">
                         <div>
                             <div>
-                                Nome Completo
-                                <span>Francisco Alves Lima dos Santos Neves</span>
+                                Origem
+                                <span>Lapa</span>
                             </div>
                             <div>
-                                Telefone
-                                <span>(11) 99876-2910</span>
+                                Destino
+                                <span>Pirituba</span>
+                            </div>
+                            <div>
+                                Valor
+                                <span>4900,00 R$</span>
+                            </div>
+                            <div>
+                                <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
+                            </div>
+                            <div>
+                                Classe
+                                <span>S</span>
+                            </div>
+                            <div>
+                                CIA Aérea
+                                <span>?</span>
                             </div>
                             <div>
                                 <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
                             </div>
                             <div>
-                                Nome social
-                                <span>Ariel da Silva</span>
+                                <a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
                             </div>
-                            <div>
-                                E-mail
-                                <span>franciscoalves@gmail.com</span>
-                            </div>
-                            <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
                         </div>
                     </div>
                 </div>
@@ -228,11 +265,11 @@
                     <div class="list__flex-body__upper">
                         <div>0001</div>
                         <div>
-                            <span>Francisco Alves</span>
-                            <span>192.168.000.10</span>
+                            <span>Pirituba</span>
                         </div>
-                        <div>Ariel da Silva</div>
-                        <div>franciscoalves@gmail.com</div>
+                        <div>Lapa</div>
+                        <div>12h00</div>
+                        <div>23h59</div>
                         <div>
                             (11) 99876-2910
                             <div>
@@ -243,38 +280,46 @@
                     <div class="list__flex-body__bottom">
                         <div>
                             <div>
-                                Nome Completo
-                                <span>Francisco Alves Lima dos Santos Neves</span>
+                                Origem
+                                <span>Lapa</span>
                             </div>
                             <div>
-                                Telefone
-                                <span>(11) 99876-2910</span>
+                                Destino
+                                <span>Pirituba</span>
+                            </div>
+                            <div>
+                                Valor
+                                <span>4900,00 R$</span>
+                            </div>
+                            <div>
+                                <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
+                            </div>
+                            <div>
+                                Classe
+                                <span>S</span>
+                            </div>
+                            <div>
+                                CIA Aérea
+                                <span>?</span>
                             </div>
                             <div>
                                 <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
                             </div>
                             <div>
-                                Nome social
-                                <span>Ariel da Silva</span>
+                                <a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
                             </div>
-                            <div>
-                                E-mail
-                                <span>franciscoalves@gmail.com</span>
-                            </div>
-                            <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
                         </div>
                     </div>
                 </div>
-
                 <div class="list__flex-body">
                     <div class="list__flex-body__upper">
                         <div>0001</div>
                         <div>
-                            <span>Francisco Alves</span>
-                            <span>192.168.000.10</span>
+                            <span>Pirituba</span>
                         </div>
-                        <div>Ariel da Silva</div>
-                        <div>franciscoalves@gmail.com</div>
+                        <div>Lapa</div>
+                        <div>12h00</div>
+                        <div>23h59</div>
                         <div>
                             (11) 99876-2910
                             <div>
@@ -285,25 +330,34 @@
                     <div class="list__flex-body__bottom">
                         <div>
                             <div>
-                                Nome Completo
-                                <span>Francisco Alves Lima dos Santos Neves</span>
+                                Origem
+                                <span>Lapa</span>
                             </div>
                             <div>
-                                Telefone
-                                <span>(11) 99876-2910</span>
+                                Destino
+                                <span>Pirituba</span>
+                            </div>
+                            <div>
+                                Valor
+                                <span>4900,00 R$</span>
+                            </div>
+                            <div>
+                                <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
+                            </div>
+                            <div>
+                                Classe
+                                <span>S</span>
+                            </div>
+                            <div>
+                                CIA Aérea
+                                <span>?</span>
                             </div>
                             <div>
                                 <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
                             </div>
                             <div>
-                                Nome social
-                                <span>Ariel da Silva</span>
+                                <a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
                             </div>
-                            <div>
-                                E-mail
-                                <span>franciscoalves@gmail.com</span>
-                            </div>
-                            <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
                         </div>
                     </div>
                 </div>
