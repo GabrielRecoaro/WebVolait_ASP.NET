@@ -12,7 +12,7 @@ namespace WebVolait.Controllers
 {
     public class CompraController : Controller
     {
-        // GET: Compra
+        [HttpGet]
         public ActionResult InsertCompra()
         {
             return View();
@@ -28,25 +28,24 @@ namespace WebVolait.Controllers
 
 
         [HttpPost]
-
         public ActionResult InsertCompra(CadastroCompraViewModel viewmodel)
         {
-            if (!ModelState.IsValid)
+            //if (!ModelState.IsValid)
 
-                return View(viewmodel);
+                //return View(viewmodel);
 
             Compra novocompra = new Compra
-            {   
+            {
                 DataCompra = viewmodel.DataCompra,
                 ValorTotal = viewmodel.ValorTotal,
-                CPFCliente= viewmodel.CPFCliente,
+                CPFCliente = viewmodel.CPFCliente,
                 Cupom = viewmodel.Cupom,
-                CodTipoPagto = viewmodel.CodTipoPagto
+                CodTipoPagto = viewmodel.CodTipoPagto,
             };
 
             novocompra.InsertCompra(novocompra);
             TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
-            return RedirectToAction("ListarCompra", "AutenticacaoCompra");
+            return RedirectToAction("ListarCompra", "Compra");
         }
 
         public ActionResult ListarCompra()

@@ -302,9 +302,9 @@ namespace WebVolait.Repositorio
                     NotaFiscal = int.Parse(dt["NotaFiscal"].ToString()),
                     DataCompra = DateTime.Parse(dt["DataCompra"].ToString()),
                     ValorTotal = decimal.Parse(dt["ValorTotal"].ToString()),
-                    Cupom = int.Parse(dt["Cupom"].ToString()),
+                    Cupom = (dt["Cupom"].ToString()),
                     CPFCliente = (dt["CPFCliente"].ToString()),
-                    CodTipoPagto = int.Parse(dt["Compravalidade"].ToString()),
+                    CodTipoPagto = (dt["Compravalidade"].ToString()),
 
                 };
                 AltAl.Add(AlTemp);
@@ -334,9 +334,9 @@ namespace WebVolait.Repositorio
                     NotaFiscal = int.Parse(dt["NotaFiscal"].ToString()),
                     DataCompra = DateTime.Parse(dt["DataCompra"].ToString()),
                     ValorTotal = decimal.Parse(dt["ValorTotal"].ToString()),
-                    Cupom = int.Parse(dt["Cupom"].ToString()),
+                    Cupom = (dt["Cupom"].ToString()),
                     CPFCliente = (dt["CPFCliente"].ToString()),
-                    CodTipoPagto = int.Parse(dt["Compravalidade"].ToString()),
+                    CodTipoPagto = (dt["Compravalidade"].ToString()),
 
                 };
                 TodosCompra.Add(CompraTemp);

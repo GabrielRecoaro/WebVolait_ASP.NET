@@ -16,5 +16,7 @@ namespace WebVolait.ViewModels
 
         public DateTime Cupomvalidade { get; set; }
 
+        
+
     }
 }

@@ -20,9 +20,9 @@ namespace WebVolait.Models
 
         public string CPFCliente { get; set; }
 
-        public int Cupom { get; set; }
+        public string Cupom { get; set; }
 
-        public int CodTipoPagto { get; set; }
+        public string CodTipoPagto { get; set; }
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
@@ -30,13 +30,12 @@ namespace WebVolait.Models
         public void InsertCompra(Compra compra)
         {
             conexao.Open();
-            command.CommandText = "call spInsertCompra (@NotaFiscal, @DataCompra, @ValorTotal, @CPFCliente, @Cupom, @CodTipoPagto);";
-            command.Parameters.Add("@NotaFiscal", MySqlDbType.Int16).Value = compra.NotaFiscal;
+            command.CommandText = "call spInsertCompra (@DataCompra, @ValorTotal, @CPFCliente, @Cupom, @CodTipoPagto);";
             command.Parameters.Add("@DataCompra", MySqlDbType.Date).Value = compra.DataCompra;
             command.Parameters.Add("@ValorTotal", MySqlDbType.Decimal).Value = compra.ValorTotal;
             command.Parameters.Add("@CPFCliente", MySqlDbType.Int64).Value = compra.CPFCliente;
-            command.Parameters.Add("@Cupom", MySqlDbType.Int16).Value = compra.Cupom;
-            command.Parameters.Add("@CodTipoPagto", MySqlDbType.Int16).Value = compra.CodTipoPagto;
+            command.Parameters.Add("@Cupom", MySqlDbType.VarChar).Value = compra.Cupom;
+            command.Parameters.Add("@CodTipoPagto", MySqlDbType.VarChar).Value = compra.CodTipoPagto;
             command.Connection = conexao;
             command.ExecuteNonQuery();
             conexao.Close();
@@ -76,8 +75,8 @@ namespace WebVolait.Models
                 tempCompra.DataCompra = DateTime.Parse(reader["DataCompra"].ToString());
                 tempCompra.ValorTotal = decimal.Parse(reader["ValorTotal"].ToString());
                 tempCompra.CPFCliente = reader["CPFCliente"].ToString();
-                tempCompra.Cupom = int.Parse(reader["Cupom"].ToString());
-                tempCompra.CodTipoPagto = int.Parse(reader["CodTipoPagto"].ToString());
+                tempCompra.Cupom = (reader["Cupom"].ToString());
+                tempCompra.CodTipoPagto = (reader["CodTipoPagto"].ToString());
             };
 
             reader.Close();

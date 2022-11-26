@@ -16,9 +16,9 @@ namespace WebVolait.ViewModels
 
         public string CPFCliente { get; set; }
 
-        public int Cupom { get; set; }
+        public string Cupom { get; set; }
 
-        public int CodTipoPagto { get; set; }
+        public string CodTipoPagto { get; set; }
 
     }
 }
