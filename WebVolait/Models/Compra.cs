@@ -60,7 +60,7 @@ namespace WebVolait.Models
         public Compra SelectCompra(int notaFiscal, DateTime date, string cpfcliente)
         {
             conexao.Open();
-            command.CommandText = "CALL spSelectCompra(@vNotaFiscal, @vData, @vCpfCompra);"; //vNotaFiscal int, vData date, vCpfCompra bigint)
+            command.CommandText = "CALL spSelectCompra(@vNotaFiscal, @vData, @vCpfCompra);"; 
             command.Parameters.Add("@LoginCliente", MySqlDbType.Int32).Value = notaFiscal;
             command.Parameters.Add("@LoginCliente", MySqlDbType.Date).Value = date;
             command.Parameters.Add("@LoginCliente", MySqlDbType.Int64).Value = cpfcliente;

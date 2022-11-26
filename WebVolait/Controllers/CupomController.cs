@@ -34,7 +34,7 @@ namespace WebVolait.Controllers
         {
             if (!ModelState.IsValid)
 
-                return View(viewmodel);
+             return View(viewmodel);
 
             Cupom novocupom = new Cupom
             {
@@ -47,7 +47,7 @@ namespace WebVolait.Controllers
 
             TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
 
-            return RedirectToAction("ListarCupom", "AutenticacaoCupom");
+            return RedirectToAction("ListarCupom", "Cupom");
 
         }
 

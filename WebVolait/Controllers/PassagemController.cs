@@ -18,14 +18,22 @@ namespace WebVolait.Controllers
         {
             return View();
         }
-
-        public ActionResult ListarPassagem()
+     
+        public ActionResult Passagem()
         {
-            var ExibirPass = new Acoes();
-            var TodosPass = ExibirPass.ListarPassagem();
-            return View(TodosPass);
-
+            var passagem = new Passagem();
+            return View(passagem);
         }
+
+        //public ActionResult ListarPassagem()
+        //{
+        //    var ExibirPass = new Acoes();
+        //    var TodosPass = ExibirPass.ListarPassagem();
+        //    return View(TodosPass);
+
+        //}
+
+        Acoes ac = new Acoes();
 
         [HttpPost]
 
@@ -42,23 +50,20 @@ namespace WebVolait.Controllers
                 ImgPassagem = viewmodel.ImgPassagem,
                 ValorPassagem = viewmodel.ValorPassagem,
                 Classe = viewmodel.Classe,
-                Origem = viewmodel.Origem,
-                Destino = viewmodel.Destino,
+                IdAeroPartida = viewmodel.IdAeroPartida,
                 IdAeroDestino = viewmodel.IdAeroDestino,
-                IdAeroOrigem = viewmodel.IdAeroOrigem,
-                //DtHrPartida = DateTime.Parse(viewmodel.DataHrPartida),
-                //DtHrChegada = DateTime.Parse(viewmodel.DataHrChegada),
-                
-                
-                
-
+                DtHrPartida = viewmodel.DtHrPartida,
+                DtHrChegada = viewmodel.DtHrChegada,
+                DuracaoVoo= viewmodel.DuracaoVoo,
+                CiaAerea= viewmodel.CiaAerea,
+  
             };
 
             novopassagem.InsertPasssagem(novopassagem);
 
             TempData["MensagemLogin"] = "Passagem inserida com sucesso!";
 
-            return RedirectToAction("ListarPassagem", "AutenticacaoPassagem");
+            return RedirectToAction("ListarPassagem", "Passagem");
 
         }
     }
