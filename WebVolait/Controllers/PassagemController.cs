@@ -25,14 +25,6 @@ namespace WebVolait.Controllers
             return View(passagem);
         }
 
-        public ActionResult ListarPassagem()
-        {
-            var ExibirPass = new Acoes();
-            var TodosPass = ExibirPass.ListarPassagem();
-            return View(TodosPass);
-
-        }
-
         Acoes ac = new Acoes();
 
         [HttpPost]
@@ -65,6 +57,55 @@ namespace WebVolait.Controllers
 
             return RedirectToAction("ListarPassagem", "Passagem");
 
+        }
+
+        public ActionResult ListarPassagem()
+        {
+            var ExibirPassagem = new Acoes();
+            var TodosPassagem = ExibirPassagem.ListarPassagem();
+            return View(TodosPassagem);
+
+        }
+
+        public ActionResult AlterarPassagem(int id)
+        {
+            var passagemselecionado = ac.ListarCodPassagem(id);
+            return View(passagemselecionado);
+        }
+
+        [HttpPost]
+        public ActionResult AlterarPassagem(Passagem passagem)
+        {
+            try
+            {
+                passagem.UpdatePassagem(passagem);
+                return RedirectToAction("ListarPassagem", "AutenticacaoPassagem");
+            }
+            catch
+            {
+                return View(passagem);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult DeletarPassagem(int id)
+        {
+            var passagemselecionado = ac.ListarCodPassagem(id);
+            return View(passagemselecionado);
+        }
+
+        [HttpPost]
+        public ActionResult DeletarPassagem(Passagem passagem)
+        {
+            try
+            {
+                passagem.DeletePassagem(passagem);
+                return RedirectToAction("ListarPassagem", "AutenticacaoPassagem");
+            }
+            catch
+            {
+                return RedirectToAction("ListarPassagem", "AutenticacaoPassagem");
+            }
         }
     }
 }
