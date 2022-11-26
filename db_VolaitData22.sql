@@ -337,8 +337,8 @@ DELIMITER $$
 CREATE PROCEDURE spInsertCompra(vData date, vTotal decimal(15,2), vCpfCliente bigint, vCupom char(9), vTipoPagto varchar(30))
 
 BEGIN
-    insert into tb_compra (NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto)
-    values (default, vData, vTotal, vCpfCliente, vCupom, (select CodTipoPagto from tb_tipoPagto where TipoPagto = vTipoPagto limit 1));
+	insert into tb_compra (NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto)
+    values (default, vData, vTotal, vCpfCliente, (select CupomId from tb_cupom where CupomCode = vCupom limit 1), (select CodTipoPagto from tb_tipoPagto where TipoPagto = vTipoPagto limit 1));
 END $$
 
 -- Select compra
