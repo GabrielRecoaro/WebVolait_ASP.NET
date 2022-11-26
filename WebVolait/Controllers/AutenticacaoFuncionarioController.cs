@@ -111,7 +111,7 @@ namespace WebVolait.Controllers
                 return Redirect(viewmodel.urlRetorno);
             else
                 return RedirectToAction("Index", "Gerenciador");
-            return View();
+            
 
         }
 

@@ -1,4 +1,4 @@
-﻿@model WebVolait.Models.Passagem
+﻿@model WebVolait.ViewModels.CadastroPassagemViewModel
 
 @{
     ViewBag.Title = "InsertPassagem";
@@ -11,18 +11,9 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Passagem</h4>
+        <h4>CadastroPassagemViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-       
-    <div class="form-group">
-        @Html.HiddenFor(model => model.IdPassagem, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.HiddenFor(model => model.IdPassagem, new { htmlAttributes = new { @class = "form-control" } })
-            @*@Html.ValidationMessageFor(model => model.IdPassagem, "", new { @class = "text-danger" })*@
-        </div>
-    </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.NomePassagem, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

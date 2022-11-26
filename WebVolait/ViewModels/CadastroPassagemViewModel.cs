@@ -9,8 +9,6 @@ namespace WebVolait.ViewModels
 {
     public class CadastroPassagemViewModel
     {
-
-
         public string NomePassagem { get; set; }
 
         public string DescPassagem { get; set; }
@@ -32,6 +30,5 @@ namespace WebVolait.ViewModels
         public string DuracaoVoo { get; set; }
 
         public string CiaAerea { get; set; }
-
     }
 }
