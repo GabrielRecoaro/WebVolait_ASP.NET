@@ -85,7 +85,7 @@ create table tb_passagem
 	IdPassagem int primary key not null auto_increment,
     NomePassagem varchar(200) not null,
     DescPassagem varchar(500) not null,
-    ImgPassagem blob,
+    ImgPassagem varchar(50),
     ValorPassagem decimal(15,2),
     IdClasse int,
     IdAeroPartida char(3),
@@ -427,7 +427,18 @@ END $$
 
 CALL spAlterPassagem(1, "Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1257.00", "Classe executiva", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 2);
 
+-- Deletar passagem
+drop procedure if exists spDeletePassagem;
+DELIMITER $$
+CREATE PROCEDURE spDeletePassagem(vIdPassagem int)
 
+BEGIN
+	delete from tb_passagem where IdPassagem = vIdPassagem;
+END $$
+
+CALL spDeletePassagem(1)
+
+DELIMITER $$
 
 -- Selects simples
 select * from tb_funcionario;
