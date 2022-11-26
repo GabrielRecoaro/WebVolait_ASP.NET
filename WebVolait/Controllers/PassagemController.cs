@@ -79,7 +79,7 @@ namespace WebVolait.Controllers
             try
             {
                 passagem.UpdatePassagem(passagem);
-                return RedirectToAction("ListarPassagem", "AutenticacaoPassagem");
+                return RedirectToAction("ListarPassagem", "Passagem");
             }
             catch
             {
@@ -100,11 +100,11 @@ namespace WebVolait.Controllers
             try
             {
                 passagem.DeletePassagem(passagem);
-                return RedirectToAction("ListarPassagem", "AutenticacaoPassagem");
+                return RedirectToAction("ListarPassagem", "Passagem");
             }
             catch
             {
-                return RedirectToAction("ListarPassagem", "AutenticacaoPassagem");
+                return RedirectToAction("ListarPassagem", "Passagem");
             }
         }
     }

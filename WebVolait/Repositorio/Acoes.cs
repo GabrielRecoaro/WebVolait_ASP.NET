@@ -216,31 +216,28 @@ namespace WebVolait.Repositorio
             return ListarCodPass(DadosCodPass).FirstOrDefault();
         }
 
-        public List<Passagem>
-    ListarCodPass(MySqlDataReader dt)
+        public List<Passagem> ListarCodPass(MySqlDataReader dt)
         {
-            var AltAl = new List<Passagem>
-                ();
+            var AltAl = new List<Passagem>();
             while (dt.Read())
             {
                 var AlTemp = new Passagem()
                 {
-                    IdPassagem = Int16.Parse(dt["IdPassagem"].ToString()),
+                    IdPassagem = int.Parse(dt["IdPassagem"].ToString()),
                     NomePassagem = (dt["NomePassagem"].ToString()),
                     DescPassagem = (dt["DescPassagem"].ToString()),
                     ImgPassagem = (dt["ImgPassagem"].ToString()),
                     ValorPassagem = Decimal.Parse(dt["ValorPassagem"].ToString()),
-                    Classe = (dt["Classe"].ToString()),
+                    Classe = (dt["IdClasse"].ToString()),
                     IdAeroPartida = (dt["IdAeroPartida"].ToString()),
                     IdAeroDestino = (dt["IdAeroDestino"].ToString()),
                     DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
                     DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
                     DuracaoVoo = (dt["DuracaoVoo"].ToString()),
-                    CiaAerea = (dt["CiaAerea"].ToString()),
+                    CiaAerea = (dt["CNPJCiaAerea"].ToString()),
 
-    };
+                };
                 AltAl.Add(AlTemp);
-
             }
             dt.Close();
             return AltAl;
