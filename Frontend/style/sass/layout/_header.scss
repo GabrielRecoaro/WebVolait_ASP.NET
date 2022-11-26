@@ -94,6 +94,16 @@
                         color: $white-color !important; 
                     }
                 }
+                .user-logged {
+                    font-size: $heading-three;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    iconify-icon {
+                        font-size: 30px;
+                    }
+                }
             }
         }
     }
