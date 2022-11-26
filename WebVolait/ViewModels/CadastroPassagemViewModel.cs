@@ -9,7 +9,7 @@ namespace WebVolait.ViewModels
 {
     public class CadastroPassagemViewModel
     {
-        public int IdPassagem { get; set; }
+
 
         public string NomePassagem { get; set; }
 
