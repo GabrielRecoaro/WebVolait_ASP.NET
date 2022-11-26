@@ -365,21 +365,6 @@ END $$
 
 DELIMITER $$
 
-/*
-NotaFiscal int auto_increment primary key not null,
-    DataCompra date,
-    ValorTotal decimal(15,2),
-    CPFCliente bigint not null,
-    Cupom char(6),
-    CodTipoPagto int,
-*/
-
-/*NotaFiscal int not null,
-    IdPassagem int,
-    constraint fk_passagemCompra foreign key(IdPassagem) references tb_passagem(IdPassagem),
-    constraint fk_nota foreign key(NotaFiscal) references tb_compra(NotaFiscal)
-*/
-
 -- Insert compra
 drop procedure if exists spInsertCompra;
 DELIMITER $$
@@ -414,24 +399,7 @@ END $$
 
 CALL spAlterValorCompra(1, "1256.00");
 
-/*IdPassagem int primary key not null auto_increment,
-    NomePassagem varchar(200) not null,
-    DescPassagem varchar(500) not null,
-    ImgPassagem blob,
-    ValorPassagem decimal(15,2),
-    IdClasse int,
-    IdAeroPartida char(3),
-    IdAeroDestino char(3),
-    DtHrPartida datetime not null,
-    DtHrChegada datetime not null,
-    DuracaoVoo int not null,
-    CNPJCiaAerea bigint not null,
-    constraint fk_ciaAerea foreign key(CNPJCiaAerea) references tb_ciaAerea(CNPJCiaAerea),
-    constraint fk_classe foreign key(IdClasse) references tb_classe(IdClasse),
-	constraint fk_aeroPartida foreign key(IdAeroPartida) references tb_aero(IdAero),
-    constraint fk_aeroDestino foreign key(IdAeroDestino) references tb_aero(IdAero)
-    */
-
+-- Inserir passagem
 drop procedure if exists spInsertPassagem;
 DELIMITER $$
 CREATE PROCEDURE spInsertPassagem(vNomePassagem varchar(200), vDescPassagem varchar(500), vImgPassagem varchar(100), vValor decimal(15,2), 
@@ -443,17 +411,22 @@ BEGIN
 END $$
 						
 CALL spInsertPassagem("Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1250.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 1);	
-	
-select * from tb_aero;
 
 DELIMITER $$
 
+-- Alterar passagem
+drop procedure if exists spAlterPassagem;
+DELIMITER $$
+CREATE PROCEDURE spAlterPassagem(vIdPassagem int, vNomePassagem varchar(200), vDescPassagem varchar(500), vImgPassagem varchar(100), vValor decimal(15,2), 
+				 vClasse varchar(50), vCiaAerea varchar(50), vAeroPartida char(3), vAeroDestino char(3), vPartida datetime, vChegada datetime, vDuracao int)
 
+BEGIN
+	update tb_passagem set NomePassagem = vNomePassagem, DescPassagem = vDescPassagem, ImgPassagem = vImgPassagem, ValorPassagem = vValor, 
+    IdClasse = (SELECT IdClasse from tb_classe where Classe = vClasse limit 1), CNPJCiaAerea = (SELECT CNPJCiaAerea from tb_ciaAerea where CiaAerea = vCiaAerea limit 1), IdAeroPartida = vAeroPartida, IdAeroDestino = vAeroDestino, DtHrPartida = vPartida, DtHrChegada = vChegada, DuracaoVoo = vDuracao where IdPassagem = vIdPassagem;
+END $$
 
-select * from tb_compra;
--- Alterar compra
+CALL spAlterPassagem(1, "Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1257.00", "Classe executiva", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 2);
 
--- Alterar compra
 
 
 -- Selects simples
