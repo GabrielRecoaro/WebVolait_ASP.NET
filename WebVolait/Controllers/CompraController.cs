@@ -13,9 +13,11 @@ namespace WebVolait.Controllers
     public class CompraController : Controller
     {
         [HttpGet]
-        public ActionResult InsertCompra()
+        public ActionResult InsertCompra(int id)
         {
-            return View();
+            Compra compra = new Compra();
+            compra.Passagem = id;
+            return View(compra);
         }
 
         public ActionResult Compra()
