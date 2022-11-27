@@ -4,7 +4,7 @@
     ViewBag.Title = "InsertCupom";
 }
 
-<h2>InsertCupom</h2>
+@*<h2>InsertCupom</h2>
 
 @using (Html.BeginForm()) 
 {
@@ -44,7 +44,35 @@
             </div>
         </div>
     </div>
-}
+}*@
+<main class="content-main coupon-registration margin">
+    <div class="container">
+        <div class="form-container">
+            <form id="coupon-registration" class="form" action="#">
+                <div class="form__area-flex-title">
+                    <h2 class="form__title">Cadastro de cupom</h2>
+                </div>
+                <div class="form__area form__area__textarea">
+                    @Html.LabelFor(model => model.Cupomcode, htmlAttributes: new { @class = "form__area__label" })
+                    @Html.EditorFor(model => model.Cupomcode, new { htmlAttributes = new { @class = "form__area__input" } })
+                </div>
+                <div class="form__area">
+                    @Html.LabelFor(model => model.Cupomvalidade, htmlAttributes: new { @class = "form__area__label" })
+                    @Html.EditorFor(model => model.Cupomvalidade, new { htmlAttributes = new { @class = "form__area__input" } })
+                </div>
+                <div class="form__area">
+                    @Html.LabelFor(model => model.Valordesconto, htmlAttributes: new { @class = "form__area__label" })
+                    @Html.EditorFor(model => model.Valordesconto, new { htmlAttributes = new { @class = "form__area__input" } })
+                </div>
+                <div class="form__area-flex flex-button">
+                    <input class="button button--grey" type="button" value="Cancelar">
+                    <input form="coupon-registration" class="button button--blue" type="submit" value="Salvar">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

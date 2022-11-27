@@ -72,7 +72,6 @@ if (header) {
         scrollPage = lastScrollPage;
     });
 
-    // LIST ANIMATION
     let accordion = document.getElementsByClassName("list__flex-body__upper");
     let i;
 
