@@ -23,9 +23,11 @@ namespace WebVolait.ViewModels
         public string NomeSocialFuncionario { get; set; }
 
         [Display(Name = "E-mail")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
         public string LoginFuncionario { get; set; }
 
         [Display(Name = "Número de Telefone")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
         public string TelefoneFuncionario { get; set; }
 
         [DataType(DataType.Password)]
