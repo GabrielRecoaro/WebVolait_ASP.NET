@@ -13,19 +13,20 @@ namespace WebVolait.ViewModels
     {
 
         [Required(ErrorMessage = "O campo é obrigatório")]
-        [Display(Name = "CPF", AutoGenerateFilter = false)]
+        [Display(Name = "CPF do cliente", AutoGenerateFilter = false)]
         public string CPFCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        [Display(Name = "Nome", AutoGenerateFilter = false)]
+        [Display(Name = "Nome Completo", AutoGenerateFilter = false)]
         public string NomeCliente { get; set; }
 
-        [Display(Name = "Nome Social")]
+        [Display(Name = "Nome Social (caso tenha)")]
         [MaxLength(50)]
         public string NomeSocialCliente { get; set; }
 
         [Display(Name = "E-mail")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
         public string LoginCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
