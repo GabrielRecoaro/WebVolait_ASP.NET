@@ -45,21 +45,6 @@ create table tb_cupom(
 	CupomValidade date
 );
 
-insert into tb_cupom values (default, "QWERTYUIO", 100.00, "2022-12-01"),(default, "ZXCVBNMLP", 200.00, "2022-12-01"),(default, "ASDFGHJKL", 50.00, "2022-11-05");
-
-create table tb_compra
-(
-	NotaFiscal int auto_increment primary key not null,
-    DataCompra datetime,
-    ValorTotal decimal(15,2),
-    CPFCliente bigint not null,
-    Cupom int,
-    CodTipoPagto int,
-    constraint fk_cpfCli foreign key(CPFCliente) references tb_cliente(CPFCliente),
-    constraint fk_tipoPagto foreign key(CodTipoPagto) references tb_tipoPagto(CodTipoPagto),
-    constraint fk_cupom foreign key(Cupom) references tb_cupom(CupomId)
-);
-
 create table tb_classe
 (
 	IdClasse int primary key not null auto_increment,
@@ -100,6 +85,22 @@ create table tb_passagem
     constraint fk_aeroDestino foreign key(IdAeroDestino) references tb_aero(IdAero)
 );
 
+create table tb_compra
+(
+	NotaFiscal int auto_increment primary key not null,
+    DataCompra datetime,
+    QtdPassagem int,
+    ValorTotal decimal(15,2),
+    CPFCliente bigint not null,
+    Cupom int,
+    CodTipoPagto int,
+    IdPassagem int,
+    constraint fk_cpfCli foreign key(CPFCliente) references tb_cliente(CPFCliente),
+    constraint fk_tipoPagto foreign key(CodTipoPagto) references tb_tipoPagto(CodTipoPagto),
+    constraint fk_cupom foreign key(Cupom) references tb_cupom(CupomId),
+    constraint fk_passagem foreign key(IdPassagem) references tb_passagem(IdPassagem)
+);
+
 create table tb_itemCompra
 (
     NotaFiscal int not null,
@@ -115,6 +116,8 @@ create table tb_itemCompra
 insert into tb_tipopagto values(Default, 'Cartão de Crédito'), (Default, 'Cartão de Débito'), (Default, 'Cheque'), (Default, 'Boleto Bancário'), (Default, 'PIX');
 
 insert into tb_classe values(default, "Classe econômica"), (default, "Classe executiva"), (default, "1ª classe");
+
+insert into tb_cupom values (default, "QWERTYUIO", 100.00, "2022-12-01"),(default, "ZXCVBNMLP", 200.00, "2022-12-01"),(default, "ASDFGHJKL", 50.00, "2022-11-05");
 
 insert into tb_funcionario values('98623688689', 'Bruno Silva Bastos', 'Bruno', 'bruno.bastos3@etec.sp.gov.br', '11956383957', 'bsb398'),
 ('57345699832', 'Gabriel Jard Recoaro Silva', 'Gabriel', 'gabriel.silva2615@etec.sp.gov.br', '11944485007', 'gjs261'),
@@ -260,10 +263,10 @@ DELIMITER $$
 -- Alterar senha cliente
 drop procedure if exists spAlterSenhaCli;
 DELIMITER $$
-CREATE PROCEDURE spAlterSenhaCli(vLoginCliente varchar(100), vSenhaCli varchar(100))
+CREATE PROCEDURE spAlterSenhaCli(vCpfCliente varchar(100), vSenhaCli varchar(100))
 
 BEGIN
-	UPDATE tb_cliente set SenhaCliente = vSenhaCli where LoginCliente = vLoginCliente;
+	UPDATE tb_cliente set SenhaCliente = vSenhaCli where CPFCliente = vCpfCliente;
 END $$
 
 DELIMITER $$
@@ -337,42 +340,16 @@ END $$
 
 DELIMITER $$
 
-
--- Insert compra
-drop procedure if exists spInsertCompra;
-DELIMITER $$
-CREATE PROCEDURE spInsertCompra(vData date, vTotal decimal(15,2), vCpfCliente bigint, vCupom char(9), vTipoPagto varchar(30))
-
-BEGIN
-	insert into tb_compra (NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto)
-    values (default, vData, vTotal, vCpfCliente, (select CupomId from tb_cupom where CupomCode = vCupom limit 1), (select CodTipoPagto from tb_tipoPagto where TipoPagto = vTipoPagto limit 1));
-END $$
-
-DELIMITER $$
-
-
--- Select compra
-drop procedure if exists spSelectCompra;
-DELIMITER $$
-CREATE PROCEDURE spSelectCompra(vNotaFiscal int)
-
-BEGIN
-	select NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto from tb_compra where NotaFiscal = vNotaFiscal or DataCompra = vData or CPFCliente = vCpfCliente;
-END $$
-
-DELIMITER $$
-
-
--- Alterar valor total compra
-DELIMITER $$
-CREATE PROCEDURE spAlterValorCompra(vNotaFiscal int, vTotal decimal(15,2))
-
-BEGIN
-	update tb_compra set ValorTotal = vTotal where NotaFiscal = vNotaFiscal;
-END $$
-
-DELIMITER $$
-
+/*
+NotaFiscal int auto_increment primary key not null,
+    DataCompra datetime,
+    QtdPassagem int,
+    ValorTotal decimal(15,2),
+    CPFCliente bigint not null,
+    Cupom int,
+    CodTipoPagto int,
+    IdPassagem int,
+*/
 
 drop procedure if exists spInsertPassagem;
 DELIMITER $$
@@ -413,8 +390,44 @@ END $$
 DELIMITER $$
 
 
+-- Insert compra
+drop procedure if exists spInsertCompra;
+DELIMITER $$
+CREATE PROCEDURE spInsertCompra(vData date, vQtd int, vTotal decimal(15,2), vCpfCliente bigint, vCupom char(9), vTipoPagto varchar(30), vIdPassagem int)
+
+BEGIN
+	insert into tb_compra (NotaFiscal, DataCompra, QtdPassagem, ValorTotal, CPFCliente, Cupom, CodTipoPagto, IdPassagem)
+    values (default, vData, vQtd, vTotal, vCpfCliente, (select CupomId from tb_cupom where CupomCode = vCupom limit 1), (select CodTipoPagto from tb_tipoPagto where TipoPagto = vTipoPagto limit 1), vIdPassagem);
+END $$
+
+DELIMITER $$
+
+
+-- Select compra
+drop procedure if exists spSelectCompra;
+DELIMITER $$
+CREATE PROCEDURE spSelectCompra(vNotaFiscal int)
+
+BEGIN
+	select NotaFiscal, DataCompra, ValorTotal, CPFCliente, Cupom, CodTipoPagto from tb_compra where NotaFiscal = vNotaFiscal or DataCompra = vData or CPFCliente = vCpfCliente;
+END $$
+
+DELIMITER $$
+
+
+-- Alterar valor total compra
+DELIMITER $$
+CREATE PROCEDURE spAlterValorCompra(vNotaFiscal int, vTotal decimal(15,2))
+
+BEGIN
+	update tb_compra set ValorTotal = vTotal where NotaFiscal = vNotaFiscal;
+END $$
+
+DELIMITER $$
+
+
 -- Inserir item compra
-drop procedure if exists spItemCompra;
+/*drop procedure if exists spItemCompra;
 DELIMITER $$
 CREATE PROCEDURE spItemCompra(vNotaFiscal int, vIdPassagem int, vQtd int)
 
@@ -423,6 +436,7 @@ BEGIN
 END $$
 
 DELIMITER $$
+*/
 
 
 -- View listar passagem
@@ -490,7 +504,6 @@ from tb_passagem p	inner join tb_classe as c on p.IdClasse = c.IdClasse
 
 select * from vw_compra;
 
-
 -- Selects simples
 select * from tb_funcionario;
 select * from tb_cliente;
@@ -513,10 +526,10 @@ CALL spDeleteFunc(98623688689);
 CALL spDeleteCli(78545623745);
 call spInsertCupom('KSJCI9JAO', 100, '2022-10-10');
 call spAlterCupom(1, 'AABAAAAAA', 100.00, '2022-10-10');
-CALL spInsertCompra("2022-11-17", null, 52673833846, null, "Cartão de crédito");
-CALL spSelectCompra(2);
-CALL spAlterValorCompra(2, "1256.00");
 CALL spInsertPassagem("Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1250.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 1);		
 CALL spAlterPassagem(1, "Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1257.00", "Classe executiva", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 2);
 CALL spDeletePassagem(1);
-CALL spItemCompra(2, 1, 2);
+CALL spInsertCompra("2022-11-17", 2, null, 52673833846, null, "Cartão de crédito", 1);
+CALL spSelectCompra(2, null, null);
+CALL spAlterValorCompra(2, "1256.00");
+-- CALL spItemCompra(2, 1, 2);
