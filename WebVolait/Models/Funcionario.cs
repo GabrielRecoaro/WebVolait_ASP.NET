@@ -62,13 +62,14 @@ namespace WebVolait.Models
             command.CommandText = "CALL spSelectLoginFunc(@LoginFuncionario);";
             command.Parameters.Add("@LoginFuncionario", MySqlDbType.VarChar).Value = vLoginFuncionario;
             command.Connection = conexao;
-            string LoginFuncionario = (string)command.ExecuteScalar(); // ExecuteScalar: RETORNAR APENAS 1 VALOR
+            string LoginFuncionario = (string)command.ExecuteScalar(); 
             conexao.Close();
 
             if (LoginFuncionario == null)
                 LoginFuncionario = "";
             return LoginFuncionario;
         }
+
 
         public Funcionario SelectFuncionario(string vLoginFuncionario)
         {
@@ -102,12 +103,12 @@ namespace WebVolait.Models
             var updateQuery = "";
             updateQuery += "call spAlterFunc ";
             updateQuery += string.Format("({0}, '{1}', '{2}', '{3}', '{4}', '{5}')",
-                funcinario.CPFFuncionario,                    //0 
-                funcinario.NomeFuncionario,                   //1 ''
-                funcinario.NomeSocialFuncionario,             //2 ''
-                funcinario.LoginFuncionario,                  //3 ''
-                funcinario.TelefoneFuncionario,               //4 ''
-                funcinario.SenhaFuncionario);                 //5 ''
+                funcinario.CPFFuncionario,                     
+                funcinario.NomeFuncionario,                   
+                funcinario.NomeSocialFuncionario,             
+                funcinario.LoginFuncionario,                  
+                funcinario.TelefoneFuncionario,               
+                funcinario.SenhaFuncionario);                 
 
             command.Connection = conexao;
             command.CommandText = updateQuery;

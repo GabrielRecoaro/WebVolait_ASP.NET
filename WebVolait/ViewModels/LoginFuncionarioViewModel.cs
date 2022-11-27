@@ -17,7 +17,7 @@ namespace WebVolait.ViewModels
         [Required(ErrorMessage = "Informe a Senha")]
         [MinLength(6, ErrorMessage = "A Senha deve ter pelo menos 6 caracteres")]
         [DataType(DataType.Password)]
-        public string Senha { get; set; }
+        public string SenhaFuncionario { get; set; }
 
 
     }

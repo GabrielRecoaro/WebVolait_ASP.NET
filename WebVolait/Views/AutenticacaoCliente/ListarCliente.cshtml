@@ -4,7 +4,7 @@
     ViewBag.Title = "ListarCliente";
 }
 
-<h2>ListarCliente</h2>
+@*<h2>ListarCliente</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -62,4 +62,266 @@
     </tr>
 }
 
-</table>
+</table>*@
+
+
+<main class="content-main list customers-list margin">
+    <div class="container">
+        <h1 class="list__title">
+            Clientes
+            <button class="button">
+                <iconify-icon icon="carbon:add"></iconify-icon>
+                Adicionar
+            </button>
+        </h1>
+        <div class="list__flex-header">
+            <div>#</div>
+            <div>
+                <span>Nome/CPF</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>Nome social</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>E-mail</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>Telefone</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="list__flex-body">
+            <div class="list__flex-body__upper">
+                <div>0001</div>
+                <div>
+                    <span>Francisco Alves</span>
+                    <span>192.168.000.10</span>
+                </div>
+                <div>Ariel da Silva</div>
+                <div>franciscoalves@gmail.com</div>
+                <div>
+                    (11) 99876-2910
+                    <div>
+                        <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="list__flex-body__bottom">
+                <div>
+                    <div>
+                        Nome Completo
+                        <span>Francisco Alves Lima dos Santos Neves</span>
+                    </div>
+                    <div>
+                        Telefone
+                        <span>(11) 99876-2910</span>
+                    </div>
+                    <div>
+                        <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                    </div>
+                    <div>
+                        Nome social
+                        <span>Ariel da Silva</span>
+                    </div>
+                    <div>
+                        E-mail
+                        <span>franciscoalves@gmail.com</span>
+                    </div>
+                    <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="list__flex-body">
+            <div class="list__flex-body__upper">
+                <div>0001</div>
+                <div>
+                    <span>Francisco Alves</span>
+                    <span>192.168.000.10</span>
+                </div>
+                <div>Ariel da Silva</div>
+                <div>franciscoalves@gmail.com</div>
+                <div>
+                    (11) 99876-2910
+                    <div>
+                        <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="list__flex-body__bottom">
+                <div>
+                    <div>
+                        Nome Completo
+                        <span>Francisco Alves Lima dos Santos Neves</span>
+                    </div>
+                    <div>
+                        Telefone
+                        <span>(11) 99876-2910</span>
+                    </div>
+                    <div>
+                        <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                    </div>
+                    <div>
+                        Nome social
+                        <span>Ariel da Silva</span>
+                    </div>
+                    <div>
+                        E-mail
+                        <span>franciscoalves@gmail.com</span>
+                    </div>
+                    <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="list__flex-body">
+            <div class="list__flex-body__upper">
+                <div>0001</div>
+                <div>
+                    <span>Francisco Alves</span>
+                    <span>192.168.000.10</span>
+                </div>
+                <div>Ariel da Silva</div>
+                <div>franciscoalves@gmail.com</div>
+                <div>
+                    (11) 99876-2910
+                    <div>
+                        <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="list__flex-body__bottom">
+                <div>
+                    <div>
+                        Nome Completo
+                        <span>Francisco Alves Lima dos Santos Neves</span>
+                    </div>
+                    <div>
+                        Telefone
+                        <span>(11) 99876-2910</span>
+                    </div>
+                    <div>
+                        <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                    </div>
+                    <div>
+                        Nome social
+                        <span>Ariel da Silva</span>
+                    </div>
+                    <div>
+                        E-mail
+                        <span>franciscoalves@gmail.com</span>
+                    </div>
+                    <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="list__flex-body">
+            <div class="list__flex-body__upper">
+                <div>0001</div>
+                <div>
+                    <span>Francisco Alves</span>
+                    <span>192.168.000.10</span>
+                </div>
+                <div>Ariel da Silva</div>
+                <div>franciscoalves@gmail.com</div>
+                <div>
+                    (11) 99876-2910
+                    <div>
+                        <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="list__flex-body__bottom">
+                <div>
+                    <div>
+                        Nome Completo
+                        <span>Francisco Alves Lima dos Santos Neves</span>
+                    </div>
+                    <div>
+                        Telefone
+                        <span>(11) 99876-2910</span>
+                    </div>
+                    <div>
+                        <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                    </div>
+                    <div>
+                        Nome social
+                        <span>Ariel da Silva</span>
+                    </div>
+                    <div>
+                        E-mail
+                        <span>franciscoalves@gmail.com</span>
+                    </div>
+                    <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list__flex-body">
+            <div class="list__flex-body__upper">
+                <div>0001</div>
+                <div>
+                    <span>Francisco Alves</span>
+                    <span>192.168.000.10</span>
+                </div>
+                <div>Ariel da Silva</div>
+                <div>franciscoalves@gmail.com</div>
+                <div>
+                    (11) 99876-2910
+                    <div>
+                        <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="list__flex-body__bottom">
+                <div>
+                    <div>
+                        Nome Completo
+                        <span>Francisco Alves Lima dos Santos Neves</span>
+                    </div>
+                    <div>
+                        Telefone
+                        <span>(11) 99876-2910</span>
+                    </div>
+                    <div>
+                        <a class="button list-edit" href=""><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                    </div>
+                    <div>
+                        Nome social
+                        <span>Ariel da Silva</span>
+                    </div>
+                    <div>
+                        E-mail
+                        <span>franciscoalves@gmail.com</span>
+                    </div>
+                    <div><a class="button list-delete" href=""><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

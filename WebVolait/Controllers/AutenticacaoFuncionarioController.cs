@@ -43,13 +43,13 @@ namespace WebVolait.Controllers
                 NomeSocialFuncionario = viewmodel.NomeSocialFuncionario,
                 LoginFuncionario = viewmodel.LoginFuncionario,
                 TelefoneFuncionario = viewmodel.TelefoneFuncionario,
-                SenhaFuncionario = viewmodel.SenhaFuncionario,
+                SenhaFuncionario = Hash.GerarHash(viewmodel.SenhaFuncionario)
 
             };
 
             novofuncionario.InsertFuncionario(novofuncionario);
 
-            return RedirectToAction("ListarFuncionario", "AutenticacaoFuncionario");
+            return RedirectToAction("LoginFuncionario", "AutenticacaoFuncionario");
 
         }
 
@@ -93,7 +93,7 @@ namespace WebVolait.Controllers
                 return View(viewmodel);
             }
 
-            if (funcionario.SenhaFuncionario != Hash.GerarHash(viewmodel.Senha))
+            if (funcionario.SenhaFuncionario != Hash.GerarHash(viewmodel.SenhaFuncionario))
             {
                 ModelState.AddModelError("SenhaFuncionario", "Senha incorreta");
                 return View(viewmodel);
@@ -110,7 +110,7 @@ namespace WebVolait.Controllers
             if (!String.IsNullOrWhiteSpace(viewmodel.urlRetorno) || Url.IsLocalUrl(viewmodel.urlRetorno))
                 return Redirect(viewmodel.urlRetorno);
             else
-                return RedirectToAction("Index", "Gerenciador");
+                return RedirectToAction("ListarFuncionario", "AutenticacaoFuncionario");
             
 
         }

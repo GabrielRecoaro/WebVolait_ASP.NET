@@ -64,7 +64,7 @@ namespace WebVolait.Models
             command.CommandText = "CALL spSelectLoginCli(@LoginCliente);";
             command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = vLoginCliente;
             command.Connection = conexao;
-            string LoginCliente = (string)command.ExecuteScalar(); // ExecuteScalar: RETORNAR APENAS 1 VALOR
+            string LoginCliente = (string)command.ExecuteScalar(); 
             conexao.Close();
 
             if (LoginCliente == null)

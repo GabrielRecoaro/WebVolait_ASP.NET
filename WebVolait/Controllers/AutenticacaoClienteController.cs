@@ -55,7 +55,7 @@ namespace WebVolait.Controllers
 
             TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
 
-            return RedirectToAction("ListarCliente", "AutenticacaoCliente");
+            return RedirectToAction("LoginCliente", "AutenticacaoCliente");
 
         }
 
@@ -82,7 +82,6 @@ namespace WebVolait.Controllers
         }
 
         [HttpPost]
-
 
         public ActionResult LoginCliente(LoginClienteViewModel viewmodel)
         {
