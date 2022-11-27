@@ -28,24 +28,29 @@ namespace WebVolait.Controllers
 
 
         [HttpPost]
-        public ActionResult InsertCompra(CadastroCompraViewModel viewmodel)
+        public ActionResult InsertCompra(Compra compra)
         {
             //if (!ModelState.IsValid)
 
                 //return View(viewmodel);
 
-            Compra novocompra = new Compra
-            {
-                DataCompra = viewmodel.DataCompra,
-                ValorTotal = viewmodel.ValorTotal,
-                CPFCliente = viewmodel.CPFCliente,
-                Cupom = viewmodel.Cupom,
-                CodTipoPagto = viewmodel.CodTipoPagto,
-            };
+            // Compra novocompra = new Compra
+            // {
+            //     DataCompra = viewmodel.DataCompra,
+            //     ValorTotal = viewmodel.ValorTotal,
+            //     CPFCliente = viewmodel.CPFCliente,
+            //     Cupom = viewmodel.Cupom,
+            //     CodTipoPagto = viewmodel.CodTipoPagto,
+            // };
 
-            novocompra.InsertCompra(novocompra);
+            compra.InsertCompra(compra);
             TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
             return RedirectToAction("ListarCompra", "Compra");
+        }
+
+        public ActionResult TotalCompra()
+        {
+            return View();
         }
 
         //public ActionResult ListarCompra()

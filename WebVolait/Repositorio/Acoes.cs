@@ -23,6 +23,14 @@ namespace WebVolait.Repositorio
             return ListarCodCupom(DadosCodCupom).FirstOrDefault();
         }
 
+        public Cupom ListarCodCupomByCode(string code)
+        {
+            var comando = String.Format("select * from tb_cupom where CupomCode = '{0}'", code);
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodCupom = cmd.ExecuteReader();
+            return ListarCodCupom(DadosCodCupom).FirstOrDefault();
+        }
+
         public List<Cupom>
         ListarCodCupom(MySqlDataReader dt)
 

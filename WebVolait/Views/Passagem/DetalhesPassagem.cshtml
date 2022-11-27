@@ -1,0 +1,113 @@
+﻿@model WebVolait.Models.Passagem
+
+@{
+    ViewBag.Title = "DetalhesPassagem";
+}
+
+<h2>DetalhesPassagem</h2>
+
+<div>
+    <h4>Passagem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPassagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPassagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomePassagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomePassagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescPassagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescPassagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgPassagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgPassagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorPassagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorPassagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Classe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Classe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdAeroPartida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdAeroPartida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdAeroDestino)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdAeroDestino)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DtHrPartida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DtHrPartida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DtHrChegada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DtHrChegada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DuracaoVoo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DuracaoVoo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CiaAerea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CiaAerea)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="~/Compra/InsertCompra/@Model.IdPassagem">Comprar</a>
+</p>

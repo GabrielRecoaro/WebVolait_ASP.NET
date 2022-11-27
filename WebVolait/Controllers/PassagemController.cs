@@ -47,8 +47,8 @@ namespace WebVolait.Controllers
                 IdAeroDestino = viewmodel.IdAeroDestino,
                 DtHrPartida = viewmodel.DtHrPartida,
                 DtHrChegada = viewmodel.DtHrChegada,
-                DuracaoVoo= viewmodel.DuracaoVoo,
-  
+                DuracaoVoo = viewmodel.DuracaoVoo,
+
             };
 
             novopassagem.InsertPasssagem(novopassagem);
@@ -65,6 +65,12 @@ namespace WebVolait.Controllers
             var TodosPassagem = ExibirPassagem.ListarPassagem();
             return View(TodosPassagem);
 
+        }
+
+        public ActionResult DetalhesPassagem(int id)
+        {
+            var passagemselecionado = ac.ListarCodPassagem(id);
+            return View(passagemselecionado);
         }
 
         public ActionResult AlterarPassagem(int id)

@@ -20,5 +20,9 @@ namespace WebVolait.ViewModels
 
         public string CodTipoPagto { get; set; }
 
+        public int QuantidadePassagem { get; set; }
+
+        public int Passagem { get; set; }
+
     }
 }

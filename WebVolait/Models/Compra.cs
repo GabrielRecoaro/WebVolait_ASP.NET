@@ -24,6 +24,10 @@ namespace WebVolait.Models
 
         public string CodTipoPagto { get; set; }
 
+        public int QuantidadePassagem { get; set; }
+
+        public int Passagem { get; set; }
+
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
         MySqlCommand command = new MySqlCommand();
 
@@ -57,13 +61,25 @@ namespace WebVolait.Models
 
         public void InsertCompra(Compra compra)
         {
+            Acoes ac = new Acoes();
+
+            Passagem passagem = ac.ListarCodPassagem(compra.Passagem);
+            Cupom cupom = ac.ListarCodCupomByCode(compra.Cupom);
+
+            decimal valor_cupom = cupom.Valordesconto;
+            decimal valor_passagem = passagem.ValorPassagem;
+            decimal quantidade_comprada = compra.QuantidadePassagem;
+            decimal valor_total = (valor_passagem * quantidade_comprada) - valor_cupom;
+
             conexao.Open();
-            command.CommandText = "call spInsertCompra (@DataCompra, @ValorTotal, @CPFCliente, @Cupom, @CodTipoPagto);";
+            command.CommandText = "call spInsertCompra (@DataCompra, @QuantidadePassagem, @ValorTotal, @CPFCliente, @CodCupom, @CodTipoPagto, @CodPassagem);";
             command.Parameters.Add("@DataCompra", MySqlDbType.Date).Value = compra.DataCompra;
-            command.Parameters.Add("@ValorTotal", MySqlDbType.Decimal).Value = compra.ValorTotal;
+            command.Parameters.Add("@QuantidadePassagem", MySqlDbType.Int32).Value = compra.QuantidadePassagem;
+            command.Parameters.Add("@ValorTotal", MySqlDbType.Decimal).Value = valor_total;
             command.Parameters.Add("@CPFCliente", MySqlDbType.Int64).Value = compra.CPFCliente;
-            command.Parameters.Add("@Cupom", MySqlDbType.VarChar).Value = compra.Cupom;
+            command.Parameters.Add("@CodCupom", MySqlDbType.VarChar).Value = compra.Cupom;
             command.Parameters.Add("@CodTipoPagto", MySqlDbType.VarChar).Value = compra.CodTipoPagto;
+            command.Parameters.Add("@CodPassagem", MySqlDbType.Int32).Value = compra.Passagem;
             command.Connection = conexao;
             command.ExecuteNonQuery();
             conexao.Close();

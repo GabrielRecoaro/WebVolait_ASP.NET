@@ -1,0 +1,74 @@
+﻿@model WebVolait.Models.Compra
+
+@{
+    ViewBag.Title = "TotalCompra";
+}
+
+<h2>TotalCompra</h2>
+    <script language="javasctipt">
+
+        var cupom, quantidade, passagem;
+
+        function total_compra() {
+            
+        }
+    </script>
+
+<div>
+    <h4>Compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NotaFiscal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotaFiscal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPFCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPFCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cupom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cupom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodTipoPagto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodTipoPagto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,4 +1,4 @@
-﻿@model WebVolait.ViewModels.CadastroCompraViewModel
+﻿@model WebVolait.Models.Compra
 
 @{
     ViewBag.Title = "InsertCompra";
@@ -11,14 +11,14 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>CadastroCompraViewModel</h4>
+        <h4>Compra</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.HiddenFor(model => model.NotaFiscal, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NotaFiscal, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.HiddenFor(model => model.NotaFiscal, new { htmlAttributes = new { @class = "form-control" } })
-               
+                @Html.EditorFor(model => model.NotaFiscal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NotaFiscal, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -59,6 +59,22 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CodTipoPagto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuantidadePassagem, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QuantidadePassagem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QuantidadePassagem, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Passagem, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Passagem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Passagem, "", new { @class = "text-danger" })
             </div>
         </div>
 
