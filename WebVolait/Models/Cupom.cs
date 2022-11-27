@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using WebVolait.Repositorio;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebVolait.Models
 {

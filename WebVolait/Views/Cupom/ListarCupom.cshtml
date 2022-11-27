@@ -48,9 +48,9 @@
             <div class="container">
                 <h1 class="list__title">
                     Cupons
-                    <button class="button">
+                    <button class="button" href="~/Cupom/InsertCupom">
                         <iconify-icon icon="carbon:add"></iconify-icon>
-                        Adicionar
+                        @*@Html.ActionLink("Adicionar", "InsertCupom")*@ Adicionar
                     </button>
                 </h1>
                 <div class="list__flex-header">
@@ -117,7 +117,7 @@
                             </div>
                             <div>
                                 Valor
-                                <span>@Valordesconto</span>
+                                <span>@item.Valordesconto</span>
                             </div>
                             <div><a class="button list-delete" href="~/Cupom/DeletarCupom/@item.CupomId"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
                         </div>

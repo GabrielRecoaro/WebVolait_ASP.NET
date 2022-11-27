@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Xml.Linq;
 using WebVolait.Repositorio;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebVolait.Models
 {
