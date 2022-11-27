@@ -12,19 +12,22 @@ namespace WebVolait.Models
 {
     public class Cliente
     {
+        [Display(Name = "CPF do Cliente")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(9)]
         public string CPFCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        [Display(Name = "Nome", AutoGenerateFilter = false)]
+        [Display(Name = "Nome Completo", AutoGenerateFilter = false)]
         public string NomeCliente { get; set; }
 
-        [Display(Name = "Nome Social")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "Nome Social (caso tenha)")]
         [MaxLength(50)]
         public string NomeSocialCliente { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
         [Display(Name = "E-mail")]
         [Remote ("SelectLogin","AutenticacaoCliente", ErrorMessage ="O login já existe!")]
         public string LoginCliente { get; set; }

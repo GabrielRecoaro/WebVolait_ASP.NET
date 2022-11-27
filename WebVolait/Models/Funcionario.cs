@@ -12,23 +12,26 @@ namespace WebVolait.Models
 {
     public class Funcionario
     {
-        [Display(Name = "CPF")]
+        [Display(Name = "CPF do Funcionário")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
         public string CPFFuncionario { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        [Display(Name = "Nome", AutoGenerateFilter = false)]
+        [Display(Name = "Nome Completo", AutoGenerateFilter = false)]
         public string NomeFuncionario { get; set; }
 
-        [Display(Name = "Nome Social")]
+        [Display(Name = "Nome Social (caso tenha)")]
         [MaxLength(50)]
         public string NomeSocialFuncionario { get; set; }
 
         [Display(Name = "E-mail")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
         public string LoginFuncionario { get; set; }
 
         [Display(Name = "Número de Telefone")]
-        [MaxLength(15, ErrorMessage = "Tem demais")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [MaxLength(15, ErrorMessage = "Caracteres a mais")]
         public string TelefoneFuncionario { get; set; }
 
         [DataType(DataType.Password)]

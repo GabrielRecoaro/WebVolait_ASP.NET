@@ -14,7 +14,7 @@ namespace WebVolait.Models
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [MaxLength(100)]
-        [Display(Name = "Nome da Companhia", AutoGenerateFilter = false)]
+        [Display(Name = "Companhia Aérea", AutoGenerateFilter = false)]
         public string NomeCompanhia { get; set; }
     }
 }
