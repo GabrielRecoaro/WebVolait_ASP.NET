@@ -12,18 +12,31 @@ namespace WebVolait.Models
 {
     public class Compra
     {
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "Nota fiscal da compra")]
         public int NotaFiscal { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "Data da compra")]
+        [DisplayFormat(DataFormatString = "dd/mm/yyyy")]
         public DateTime DataCompra { get; set; }
 
+        [Display(Name = "Valor total da compra")]
         public decimal ValorTotal { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "CPF do cliente")]
         public long CPFCliente { get; set; }
 
+        [Display(Name = "Cupom de desconto")]
         public string Cupom { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "Tipo de pagamento")]
         public string CodTipoPagto { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "Quantidade de passagens")]
         public int QuantidadePassagem { get; set; }
 
         public int Passagem { get; set; }
