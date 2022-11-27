@@ -28,6 +28,11 @@ namespace WebVolait.Controllers
 
         Acoes ac = new Acoes();
 
+        public ActionResult SelectCompra(int id)
+        {
+            var vmCompra = ac.ListarCodCompra(id);
+            return View(vmCompra);
+        }
 
         [HttpPost]
         public ActionResult InsertCompra(Compra compra)
@@ -53,13 +58,6 @@ namespace WebVolait.Controllers
         public ActionResult TotalCompra()
         {
             return View();
-        }
-
-        public ActionResult SelectCompra(string vNotaFiscal)
-        {
-            var ExibirCompra = new Acoes();
-            var TodosCompra = ExibirCompra.SelectCompra();
-            return View(TodosCompra);
         }
 
 

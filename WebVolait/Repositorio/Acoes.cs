@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebVolait.Models;
+using WebVolait.ViewModels;
 
 namespace WebVolait.Repositorio
 {
@@ -262,8 +263,7 @@ namespace WebVolait.Repositorio
         public List<Passagem>
             ListarTodosPassagem(MySqlDataReader dt)
         {
-            var TodosPassagems = new List<Passagem>
-                ();
+            var TodosPassagems = new List<Passagem>();
             while (dt.Read())
             {
                 var PassagemTemp = new Passagem()
@@ -289,38 +289,60 @@ namespace WebVolait.Repositorio
 
         // ********************************** LISTAR COMPRA
 
-        //public Compra ListarCodCompra(int cod)
-        //{
-        //    var comando = String.Format("select * from tb_compra where NotaFiscal = {0}", cod);
-        //    MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
-        //    var DadosCodCompra = cmd.ExecuteReader();
-        //    return ListarCodCompra(DadosCodCompra).FirstOrDefault();
-        //}
+        public CompraViewModel ListarCodCompra(int cod)
+        {
+           var comando = String.Format("select * from vw_compra where NotaFiscal = {0}", cod);
+           MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+           var DadosCodCompra = cmd.ExecuteReader();
+           return ListarCodCompra(DadosCodCompra).FirstOrDefault();
+        }
 
-        //public List<Compra>
-        //ListarCodCompra(MySqlDataReader dt)
+        public List<CompraViewModel> ListarCodCompra(MySqlDataReader dt)
+        {
+           var ListCompraViewModel = new List<CompraViewModel>();
 
-        //{
-        //    var AltAl = new List<Compra>
-        //        ();
-        //    while (dt.Read())
-        //    {
-        //        var AlTemp = new Compra()
-        //        {
-        //            NotaFiscal = int.Parse(dt["NotaFiscal"].ToString()),
-        //            DataCompra = DateTime.Parse(dt["DataCompra"].ToString()),
-        //            ValorTotal = decimal.Parse(dt["ValorTotal"].ToString()),
-        //            Cupom = dt["Cupom"].ToString(),
-        //            CPFCliente = Int64.Parse(dt["CPFCliente"].ToString()),
-        //            CodTipoPagto = (dt["CodTipoPagto"].ToString()),
+           while (dt.Read())
+           {
+               CompraViewModel tempCompraViewModel = new CompraViewModel()
+                {
+                    
+                        IdPassagem = Int16.Parse(dt["IdPassagem"].ToString()),
+                        NomePassagem = (dt["NomePassagem"].ToString()),
+                        DescPassagem = (dt["DescPassagem"].ToString()),
+                        ImgPassagem = (dt["ImgPassagem"].ToString()),
+                        ValorPassagem = Decimal.Parse(dt["ValorPassagem"].ToString()),
+                        DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
+                        DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
+                        DuracaoVoo = Int16.Parse(dt["DuracaoVoo"].ToString()),
+                        CiaAerea = (dt["CiaAerea"].ToString()),
+                        Classe = (dt["Classe"].ToString()),
 
-        //        };
-        //        AltAl.Add(AlTemp);
+                        NotaFiscal = int.Parse(dt["NotaFiscal"].ToString()),
+                        IdAeroPartida = (dt["IdAeroPartida"].ToString()),
+                        IdAeroDestino = (dt["IdAeroDestino"].ToString()),
+                        CidadeAeroPartida = (dt["CidadeAeroPartida"].ToString()),
+                        CidadeAeroDestino = (dt["CidadeAeroDestino"].ToString()),
+                        UFAeroPartida = (dt["UFAeroPartida"].ToString()),
+                        UFAeroDestino = (dt["UFAeroDestino"].ToString()),
+                        QtdPassagem = int.Parse(dt["QtdPassagem"].ToString()),
+                        ValorTotal = decimal.Parse(dt["ValorTotal"].ToString()),
+                        TipoPgto = (dt["TipoPagto"].ToString())                   
 
-        //    }
-        //    dt.Close();
-        //    return AltAl;
-        //}
+                        //DataCompra = DateTime.Parse(dt["DataCompra"].ToString()),
+                        // Cupom = dt["Cupom"].ToString(),
+                        // CPFCliente = Int64.Parse(dt["CPFCliente"].ToString()),
+                        // CodTipoPagto = (dt["CodTipoPagto"].ToString()),
+                    
+                    
+                        // IdTipoPgto = Int16.Parse(dt["IdTipoPagto"].ToString()),
+                };
+
+               ListCompraViewModel.Add(tempCompraViewModel);
+
+           }
+           dt.Close();
+           return ListCompraViewModel;
+        }
 
         //public List<Compra>
         //    ListarCompra()
