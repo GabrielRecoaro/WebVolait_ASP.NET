@@ -21,8 +21,7 @@ namespace WebVolait.Models
         [MaxLength(100)]
         [Display(Name = "Nome Completo", AutoGenerateFilter = false)]
         public string NomeCliente { get; set; }
-
-        [Required(ErrorMessage = "O campo é obrigatório")]
+    
         [Display(Name = "Nome Social (caso tenha)")]
         [MaxLength(50)]
         public string NomeSocialCliente { get; set; }

@@ -67,6 +67,14 @@ namespace WebVolait.Controllers
 
         }
 
+        public ActionResult ListarPassagemCliente()
+        {
+            var ExibirPassagem = new Acoes();
+            var TodosPassagem = ExibirPassagem.ListarPassagem();
+            return View(TodosPassagem);
+
+        }
+
         public ActionResult DetalhesPassagem(int id)
         {
             var passagemselecionado = ac.ListarCodPassagem(id);

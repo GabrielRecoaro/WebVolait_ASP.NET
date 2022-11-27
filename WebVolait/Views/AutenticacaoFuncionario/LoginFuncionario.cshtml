@@ -74,11 +74,13 @@
                 <!-- <div class="form__area-flex"></div> -->
                 <div class="form__area">
                     @Html.EditorFor(model => model.LoginFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
-                    @Html.LabelFor(model => model.LoginFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                    @Html.LabelFor(model => model.LoginFuncionario, htmlAttributes: new { @class = "form__area__label" })                   
+                    @Html.ValidationMessageFor(model => model.SenhaFuncionario, "", new { @class = "text-danger" })
                 </div>
                 <div class="form__area">
                     @Html.EditorFor(model => model.SenhaFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
-                    @Html.LabelFor(model => model.SenhaFuncionario, htmlAttributes: new { @class = "form__area__label" })
+                    @Html.LabelFor(model => model.SenhaFuncionario, htmlAttributes: new { @class = "form__area__label" })                   
+                    @Html.ValidationMessageFor(model => model.SenhaFuncionario, "", new { @class = "text-danger" })
                 </div>
                 <p class="form__text form__accent-text"><a href="#">Esqueceu sua senha?</a></p>
                 <input class="button button--submit" type="submit" value="Enviar">

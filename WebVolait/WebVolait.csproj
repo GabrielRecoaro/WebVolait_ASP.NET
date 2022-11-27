@@ -280,6 +280,7 @@
     <Content Include="Views\Compra\TotalCompra.cshtml" />
     <Content Include="Views\Compra\InsertCompra.cshtml" />
     <Content Include="Views\Compra\SelectCompra.cshtml" />
+    <Content Include="Views\Passagem\ListarPassagemCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

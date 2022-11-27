@@ -7,11 +7,11 @@
 <main class="content-main sign-up-employee margin">
     <div class="container">
         <div class="form-container">
-             <form action="/AutenticacaoFuncionario/InsertFuncionario" method="post" class="form form-sign-up-employee">
-            @*@using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+            <form action="/AutenticacaoFuncionario/InsertFuncionario" method="post" class="form form-sign-up-employee">
+                @*@using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
                 <div class="form__area-flex-title">
                     <h2 class="form__title">Cadastro de funcionário</h2>
                 </div>
@@ -59,13 +59,15 @@
                         @Html.ValidationMessageFor(model => model.ConfirmaSenhaFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
                     </div>
                 </div>
+                <br /><br />
+                <p>Deseja cadastrar-se como um cliente? Entre em contato com nossa equipe de suporte! <a class="form__accent-text" href="~/Contato/Index">Contato</a></span></p>
 
                 <div class="form__area-flex flex-button">
                     <input class="button button--grey" type="reset" value="Cancelar">
                     <input class="button button--blue" type="submit" value="Cadastrar-se">
                 </div>
-                </form>
-            @*  *@}
+            </form>
+            
         </div>
     </div>
 </main>

@@ -4,7 +4,7 @@
     ViewBag.Title = "DeletarCliente";
 }
 
-<h2>DeletarCliente</h2>
+@*<h2>DeletarCliente</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -82,4 +82,24 @@
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
-</div>
+</div>*@
+
+ <main class="content-main delete-insert user margin">
+    <div class="container">
+        <div class="form-container">
+            <form id="delete-user" class="form" action="~/AutenticacaoCliente/DeletarCliente" method="post">
+                @Html.HiddenFor(model => model.CPFCliente)
+                <div class="form__area-flex-title">
+                    <h2 class="form__title">Excluir cliente</h2>
+                </div>
+                <p class="form__text bold">Tem certeza que deseja continuar?</p>
+                <p class="form__text warning">Atenção!</p>
+                <p class="form__text delete-confirm">Confirmando esta ação o(a) cliente(a) @Model.NomeCliente, @Model.CPFCliente será deligado(a) e seu acesso ao sistema será negado.</p>
+                <div class="form__area-flex flex-button">
+                    <input class="button button--grey" type="button" value="Cancelar">
+                    <input class="button button--red" type="submit" value="Deletar">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

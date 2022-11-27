@@ -4,7 +4,7 @@
     ViewBag.Title = "DeletarFuncionario";
 }
 
-<h2>DeletarFuncionario</h2>
+<!-- <h2>DeletarFuncionario</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -91,4 +91,36 @@
         </div>
     }
     @*  *@}
-</div>
+</div> -->
+<main class="content-main delete-insert employee margin">
+    <div class="container">
+        <div class="form-container">
+            <form id="delete-employee" class="form" method="post" action="~/AutenticacaoFuncionario/DeletarFuncionario">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            
+                @Html.HiddenFor(model => model.CPFFuncionario)
+            
+                @Html.HiddenFor(model => model.NomeFuncionario)
+                
+                @Html.HiddenFor(model => model.NomeSocialFuncionario)
+            
+                @Html.HiddenFor(model => model.LoginFuncionario)
+            
+                @Html.HiddenFor(model => model.TelefoneFuncionario)
+            
+                @Html.HiddenFor(model => model.SenhaFuncionario)
+                <div class="form__area-flex-title">
+                    <h2 class="form__title">Excluir funcionário</h2>
+                </div>
+                <p class="form__text bold">Tem certeza que deseja continuar?</p>
+                <p class="form__text warning">Atenção!</p>
+                <p class="form__text delete-confirm">Confirmando esta ação o (a) @Model.NomeFuncionario, @Model.CPFFuncionario será desligado e seu acesso ao sistema negado.</p>
+                <div class="form__area-flex flex-button">
+                    <input class="button button--grey" href="~/AutenticacaoFuncionario/ListarFuncionario" type="button" value="Cancelar">
+                    <input class="button button--red" type="submit" value="Deletar">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

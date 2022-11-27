@@ -4,7 +4,7 @@
     ViewBag.Title = "AlterarCliente";
 }
 
-<h2>AlterarCliente</h2>
+<!-- <h2>AlterarCliente</h2>
 
 @using (Html.BeginForm())
 {
@@ -72,4 +72,76 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div> -->
+
+ <main class="content-main sign-up">
+        <div class="container">
+            <div class="side-content">
+                <h1 class="side-content__logo"><a href="#">VOLAIT</a></h1>
+                <div class="side-content__bottom">
+                    <h2 class="side-content__text">Edite a conta Volait<br class="line-break">a Volait</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi expedita est sapiente qui neque in omnis consectetur pariatur voluptate consequuntur atque, odit quia eveniet iusto rem?
+                    </p>
+                    <picture class="side-content__image">
+                        <img src="~/images/sign-up.png" alt="">
+                    </picture>
+                </div>
+            </div>
+            <div class="form-container">
+                    @using (Html.BeginForm(new {@class = "form-login"}))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form__area-flex-title">
+                            <h2 class="form__title">Cadastro</h2>
+                        </div>
+
+                        <!-- <div class="form__area-flex"></div> -->
+                       
+                            @Html.HiddenFor(model => model.CPFCliente)
+                        <!-- <div class="form__area">
+                            @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.CPFCliente, "", htmlAttributes: new { @class = "text-danger" })
+                        </div> -->
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.NomeCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.NomeCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.NomeCliente, "", htmlAttributes: new { @class = "text-danger" })
+                        </div>
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.NomeSocialCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.NomeSocialCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.NomeSocialCliente, "", htmlAttributes: new { @class = "text-danger" })
+                        </div>
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.LoginCliente, "", htmlAttributes: new { @class = "text-danger" })
+                        </div>
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.TelefoneCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.TelefoneCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.TelefoneCliente, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.SenhaCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.SenhaCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.SenhaCliente, "", new { @class = "text-danger" })
+                        </div>
+                        @*<div class="form__area">
+                            @Html.EditorFor(model => model.ConfirmaSenhaCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.ConfirmaSenhaCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.ConfirmaSenhaCliente, "", new { @class = "text-danger" })
+                        </div>*@
+                        <input class="button button--submit" type="submit" value="Salvar">
+                    }
+            </div>
+        </div>
+    </main>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

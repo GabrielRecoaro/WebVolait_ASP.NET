@@ -50,8 +50,11 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Olá " + @User.Identity.Name, "", "")</li>
-                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Sair", "Logout", "AutenticacaoCliente")</li>
-                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Alterar Senha", "AlterarSenha", "AutenticacaoCliente")</li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Gerenciador", "Index", "Gerenciador")</li>
+
+                            <button class="button">
+                                @Html.ActionLink("Sair", "Logout", "AutenticacaoCliente")
+                            </button>
                         }
                         else
                         {
@@ -60,11 +63,13 @@
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Passagem", "InsertPassagem", "Passagem")</li>
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Contato", "Index", "Contato")</li>
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Sobre", "Sobre", "Home")</li>
-                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Logar", "LoginCliente", "AutenticacaoCliente")</li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Logar", "LoginFuncionario", "AutenticacaoFuncionario")</li>
+
+                            <button class="button">
+                                @Html.ActionLink("Cadastrar", "InsertFuncionario", "AutenticacaoFuncionario")
+                            </button>
                         }
-                        <button class="button">
-                            @Html.ActionLink("Cadastrar", "InsertCliente", "AutenticacaoCliente")
-                        </button>
+
                     </ul>
                 </nav>
             </div>

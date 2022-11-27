@@ -95,7 +95,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi expedita est sapiente qui neque in omnis consectetur pariatur voluptate consequuntur atque, odit quia eveniet iusto rem?
                     </p>
                     <picture class="side-content__image">
-                        <img src="./images/sign-up.png" alt="">
+                        <img src="~/images/sign-up.png" alt="">
                     </picture>
                 </div>
             </div>
@@ -113,18 +113,22 @@
                         <div class="form__area">
                             @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form__area__input" } })
                             @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.CPFCliente, "", htmlAttributes: new { @class = "text-danger" })
                         </div>
                         <div class="form__area">
                             @Html.EditorFor(model => model.NomeCliente, new { htmlAttributes = new { @class = "form__area__input" } })
                             @Html.LabelFor(model => model.NomeCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.NomeCliente, "", htmlAttributes: new { @class = "text-danger" })
                         </div>
                         <div class="form__area">
                             @Html.EditorFor(model => model.NomeSocialCliente, new { htmlAttributes = new { @class = "form__area__input" } })
                             @Html.LabelFor(model => model.NomeSocialCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.NomeSocialCliente, "", htmlAttributes: new { @class = "text-danger" })
                         </div>
                         <div class="form__area">
                             @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form__area__input" } })
                             @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.LoginCliente, "", htmlAttributes: new { @class = "text-danger" })
                         </div>
                         <div class="form__area">
                             @Html.EditorFor(model => model.TelefoneCliente, new { htmlAttributes = new { @class = "form__area__input" } })

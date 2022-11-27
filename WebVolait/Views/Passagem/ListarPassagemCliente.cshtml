@@ -1,0 +1,99 @@
+﻿@model IEnumerable<WebVolait.Models.Passagem>
+
+@{
+    ViewBag.Title = "ListarPassagemCliente";
+}
+
+<h2>ListarPassagemCliente</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomePassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescPassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImgPassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorPassagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdAeroPartida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdAeroDestino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DtHrPartida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DtHrChegada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DuracaoVoo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiaAerea)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdPassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomePassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescPassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImgPassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorPassagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdAeroPartida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdAeroDestino)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DtHrPartida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DtHrChegada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DuracaoVoo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiaAerea)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalhes", "DetalhesPassagem", new { id=@item.IdPassagem }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

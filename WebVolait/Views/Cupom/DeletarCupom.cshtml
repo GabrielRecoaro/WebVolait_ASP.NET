@@ -61,18 +61,20 @@
 <main class="content-main delete-insert cupom margin">
     <div class="container">
         <div class="form-container">
-            <form id="delete-cupom" class="form" action="#">
+            <form id="delete-cupom" class="form" method="post" action="~/Cupom/DeletarCupom">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.CupomId)
                 <div class="form__area-flex-title">
                     <h2 class="form__title">Excluir cupom</h2>
                 </div>
                 <p class="form__text bold">Tem certeza que deseja continuar?</p>
                 <p class="form__text warning">Atenção!</p>
-                <p class="form__text delete-confirm">Confirmando esta ação o cupom EHI-SAS-VCD com prazo de validade até 23/09/2023 será desativado tornando-se inválido.</p>
+                <p class="form__text delete-confirm">Confirmando esta ação o cupom @Model.Cupomcode com prazo de validade até @Model.Cupomvalidade será desativado tornando-se inválido.</p>
+                <div class="form__area-flex flex-button">
+                    <input class="button button--grey" type="button" value="Cancelar">
+                    <input class="button button--red" type="submit" value="Deletar">
+                </div>
             </form>
-            <div class="form__area-flex flex-button">
-                <input class="button button--grey" type="button" value="Cancelar">
-                <input form="delete-cupom" class="button button--red" type="submit" value="Deletar">
-            </div>
         </div>
     </div>
 </main>
