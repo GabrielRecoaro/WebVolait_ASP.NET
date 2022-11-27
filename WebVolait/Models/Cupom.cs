@@ -10,7 +10,7 @@ namespace WebVolait.Models
 {
     public class Cupom
     {
-        [Display(Name = "Id do cupom")]
+        [Display(Name = "ID do cupom")]
         public int CupomId { get; set; }
 
         [Display(Name = "Código do cupom")]
