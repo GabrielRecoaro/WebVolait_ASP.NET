@@ -10,12 +10,17 @@ namespace WebVolait.Models
 {
     public class Cupom
     {
+        [Display(Name = "Id do cupom")]
         public int CupomId { get; set; }
 
+        [Display(Name = "Código do cupom")]
         public string Cupomcode { get; set; }
 
+        [Display(Name = "Código do cupom")]
         public decimal Valordesconto { get; set; }
 
+        [Display(Name = "Data de validade do cupom")]
+        [DisplayFormat(DataFormatString = "dd/mm/yyyy")]
         public DateTime Cupomvalidade { get; set; }
 
         MySqlConnection conexao = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexaolocaldatabase"].ConnectionString);
