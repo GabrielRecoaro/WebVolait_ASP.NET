@@ -55,6 +55,14 @@ namespace WebVolait.Controllers
             return View();
         }
 
+        public ActionResult SelectCompra(string vNotaFiscal)
+        {
+            var ExibirCompra = new Acoes();
+            var TodosCompra = ExibirCompra.SelectCompra();
+            return View(TodosCompra);
+        }
+
+
         //public ActionResult ListarCompra()
         //{
         //    var ExibirCompra = new Acoes();
