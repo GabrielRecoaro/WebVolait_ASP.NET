@@ -47,6 +47,8 @@ namespace WebVolait.ViewModels
         [Required(ErrorMessage = "O campo é obrigatório")]
         public string Classe { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "Nota fiscal da compra")]
         public int NotaFiscal { get; set; }
 
         [Display(Name ="Sigla do aeroporto de partida")]
@@ -65,10 +67,15 @@ namespace WebVolait.ViewModels
         
         public string UFAeroDestino { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "Quantidade de passagens")]
         public int QtdPassagem { get; set; }
 
+        [Display(Name = "Valor total da compra")]
         public decimal ValorTotal { get; set; }
 
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [Display(Name = "Tipo de pagamento")]
         public string TipoPgto { get; set; }
 
 
