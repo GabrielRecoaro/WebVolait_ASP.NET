@@ -38,7 +38,6 @@
                     <nav class="header__navbar__navigation-menu">
                         <ul class="header__navbar__navigation-menu__list">
                             <li class="header__navbar__navigation-menu__list__item"><a class="active" href="">Home</a></li>
-                            <li class="header__navbar__navigation-menu__list__item"><a href="">Passagens</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Contato</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Sobre</a></li>
                             <li class="header__navbar__navigation-menu__list__item"><a href="">Login</a></li>
@@ -50,46 +49,68 @@
                 </div>
             </div>
         </header>
-        <!-- <main class="content-main home">
-            <section class="hero">
-                <div class="hero__content">
-                    <h1 class="hero__content__title">Descubra o mundo com a
-                        Volait</h1>
-                    <p class="hero__content__text">Aqui você acha as melhores passagens, tudo isso à um click de distancia</p>
-                    <button class="hero__content__button">Explorar</button>
+        
+        <section class="step-by-step-purchase content-main margin">
+            <div class="container">
+                <ul class="step-by-step-purchase__list">
+                    <li class="step-by-step-purchase__list__item active">Selecionar passagem</li>
+                    <li class="step-by-step-purchase__list__item">Detalhes passagem</li>
+                    <li class="step-by-step-purchase__list__item sucess">Pagamento</li>
+                    <li class="step-by-step-purchase__list__item sucess">Confirmação compra</li>
+                </ul>
+            </div>
+            <picture class="step-by-step-purchase__background-image">
+                <img src="images/background-image-passages.jpg" alt="">
+                <div class="step-by-step-purchase__background-image__title-step-by-step">
+                    Lista de passsagens
                 </div>
-                <form method="get" class="hero__filter-bar">
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_local">Escolha o seu destino</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ph:map-pin-fill"></iconify-icon>
-                            <input type="text" name="local" id="input_local">
+            </picture>
+            <div class="container">
+                <div class="step-by-step-purchase__content-main">
+                    <div class="step-by-step-purchase__content-main__text">
+                        <h1 class="step-by-step-purchase__content-main__text__title">
+                            Explorar
+                        </h1>
+                        <p class="step-by-step-purchase__content-main__text__paragraph">
+                            Aqui você encontra as melhores passagens para<br class="break-line">diversos destinos. Pesquise por destinos e <br class="break-line">datas e venha explorar o mundo com a Volait
+                        </p>
+                    </div>
+                    <div class="step-by-step-purchase__content-main__card-passages">
+                        <div class="step-by-step-purchase__content-main__card-passages__item">
+                            <div>
+                                <span class="text-secondary-color">Companhia áerea</span>
+                                <span class="text-primary-color">Gol airlanes</span>
+                            </div>
+                            <div>
+                                <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                                    <span class="text-primary-color">(GRU)</span>
+                                    <span class="text-secondary-color">
+                                        Duração: <span class="text-primary-color">10h15min</span>
+                                    </span>
+                                    <span class="text-primary-color">(VIM)</span>
+                                </div>
+                                <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                                    <span>13:15</span>
+                                    <span class="text-secondary-color">
+                                        <img src="images/card-passages.png" alt="">
+                                    </span>
+                                    <span>23:30</span>
+                                </div>
+                                <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                                    <span>São Paulo</span>
+                                    <span>Rio de Janeiro</span>
+                                </div>
+                            </div>
+                            <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+                                <span class="text-primary-color">R$ 120</span>
+                                <button class="button">Ver Detalhes</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_date">Para quando?</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ant-design:calendar-filled"></iconify-icon>
-                            <input type="date" name="date" id="input_date">
-                        </div>
-                    </div>
-                    <div class="hero__filter-bar__parameters">
-                        <label for="input_price">Preço desejado</label>
-                        <div class="hero__filter-bar__parameters__input-box">
-                            <iconify-icon icon="ion:pricetag"></iconify-icon>
-                            <select name="price" id="input_price">
-                                <option value="1">800-1000</option>
-                                <option value="2">1000-1500</option>
-                                <option value="3">1500-4000</option>
-                                <option value="4">4000 ou mais</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="hero__filter-bar__button">Pesquisar</button>
-                </form>
-            </section>
-        </main> -->
-
+                </div>
+            </div>
+        </section>
+        
         <footer class="footer">
             <div class="container">
                 <section class="footer__upper">

@@ -296,7 +296,15 @@ namespace WebVolait.Repositorio
            var DadosCodCompra = cmd.ExecuteReader();
            return ListarCodCompra(DadosCodCompra).FirstOrDefault();
         }
-
+    
+        public CompraViewModel ListarUltimaCodCompra()
+        {
+            var comando = String.Format("select * from vw_compra order by notafiscal desc limit 1");
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodCompra = cmd.ExecuteReader();
+            return ListarCodCompra(DadosCodCompra).FirstOrDefault();
+        }
+        
         public List<CompraViewModel> ListarCodCompra(MySqlDataReader dt)
         {
            var ListCompraViewModel = new List<CompraViewModel>();

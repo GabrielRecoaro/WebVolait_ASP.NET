@@ -51,6 +51,7 @@ create table tb_classe
     Classe varchar(50) not null
 );
 
+select * from tb_classe;
 create table tb_ciaAerea
 (
 	CNPJCiaAerea bigint primary key not null,
@@ -64,6 +65,7 @@ create table tb_aero
     CidadeAero varchar(50) not null,
     UfAero char(2) 
 );
+
 
 create table tb_passagem
 (
@@ -444,50 +446,53 @@ drop view if exists vw_passagem;
 create view vw_passagem
 as select
 	p.IdPassagem as IdPassagem,
-    	p.NomePassagem as NomePassagem,
+    p.NomePassagem as NomePassagem,
 	p.DescPassagem as DescPassagem,
-    	p.ImgPassagem as ImgPassagem,
-    	p.ValorPassagem as ValorPassagem,
+    p.ImgPassagem as ImgPassagem,
+    p.ValorPassagem as ValorPassagem,
 	p.DtHrPartida as DtHrPartida,
-	p.DtHrChegada as DtHrChegada,
-	p.DuracaoVoo as DuracaoVoo,
-	ca.CiaAerea as CiaAerea,
-	c.Classe as Classe,
-	aP.IdAero as IdAeroPartida,
-	aD.IdAero as IdAeroDestino,
-	aP.NomeAero as NomeAeroPartida,
-	aD.NomeAero as NomeAeroDestino,
-	aP.CidadeAero as CidadeAeroPartida,
-	aD.CidadeAero as CidadeAeroDestino,
-	aP.UfAero as UfAeroPartida,
-	aD.UfAero as UfAeroDestino
+    p.DtHrChegada as DtHrChegada,
+    p.DuracaoVoo as DuracaoVoo,
+    ca.CiaAerea as CiaAerea,
+    c.Classe as Classe,
+    aP.IdAero as IdAeroPartida,
+    aD.IdAero as IdAeroDestino,
+    aP.NomeAero as NomeAeroPartida,
+    aD.NomeAero as NomeAeroDestino,
+    aP.CidadeAero as CidadeAeroPartida,
+    aD.CidadeAero as CidadeAeroDestino,
+    aP.UfAero as UfAeroPartida,
+    aD.UfAero as UfAeroDestino
 from tb_passagem p	inner join tb_classe as c on p.IdClasse = c.IdClasse
-			inner join tb_ciaAerea as ca on p.CNPJCiaAerea = ca.CNPJCiaAerea
-                    	join tb_aero as aP on aP.IdAero = p.IdAeroPartida
-                    	join tb_aero as aD on aD.IdAero = p.IdAeroDestino;
+					inner join tb_ciaAerea as ca on p.CNPJCiaAerea = ca.CNPJCiaAerea
+                    join tb_aero as aP on aP.IdAero = p.IdAeroPartida
+                    join tb_aero as aD on aD.IdAero = p.IdAeroDestino;
 
 select * from vw_passagem;
 
 
 -- View listar compra
+
+
 drop view if exists vw_compra;
 create view vw_compra
 as select
-	p.IdPassagem as IdPassagem,
+		p.IdPassagem as IdPassagem,
     	p.NomePassagem as NomePassagem,
-	p.DescPassagem as DescPassagem,
-	p.ImgPassagem as ImgPassagem,
-	p.ValorPassagem as ValorPassagem,
-	p.DtHrPartida as DtHrPartida,
+		p.DescPassagem as DescPassagem,
+		p.ImgPassagem as ImgPassagem,
+		p.ValorPassagem as ValorPassagem,
+		p.DtHrPartida as DtHrPartida,
     	p.DtHrChegada as DtHrChegada,
     	p.DuracaoVoo as DuracaoVoo,
     	ca.CiaAerea as CiaAerea,
     	c.Classe as Classe,
+        co.NotaFiscal as NotaFiscal,
     	aP.IdAero as IdAeroPartida,
     	aD.IdAero as IdAeroDestino,
     	aP.NomeAero as NomeAeroPartida,
     	aD.NomeAero as NomeAeroDestino,
-   	aP.CidadeAero as CidadeAeroPartida,
+		aP.CidadeAero as CidadeAeroPartida,
     	aD.CidadeAero as CidadeAeroDestino,
     	aP.UfAero as UfAeroPartida,
     	aD.UfAero as UfAeroDestino,
@@ -501,16 +506,21 @@ from tb_passagem p	inner join tb_classe as c on p.IdClasse = c.IdClasse
                     	inner join tb_compra as co on co.IdPassagem = p.IdPassagem
                     	inner join tb_tipoPagto as tp on tp.CodTipoPagto = co.CodTipoPagto;
 
-select * from vw_compra;
+select * from vw_compra; where NotaFiscal = 3;
+
+select * from vw_passagem; where IdPassagem = 2;
 
 -- Selects simples
 select * from tb_funcionario;
 select * from tb_cliente;
+select * from tb_cupom;
 select * from tb_compra;
 select * from tb_classe;
 select * from tb_ciaAerea;
+select * from tb_aero;
 select * from tb_passagem;
 
+call spDeletePassagem(2);
 
 -- Calls procedures
 CALL spInsertFunc(52673833846, "Brenda Berzin", null, "brendaberzin@gmail.com", "11942786165", "987654"); 
@@ -528,7 +538,7 @@ call spAlterCupom(1, 'AABAAAAAA', 100.00, '2022-10-10');
 CALL spInsertPassagem("Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1250.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 1);		
 CALL spAlterPassagem(1, "Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1257.00", "Classe executiva", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 2);
 CALL spDeletePassagem(1);
-CALL spInsertCompra("2022-11-17", 2, null, 52673833846, null, "Cartão de crédito", 1);
+CALL spInsertCompra("2022-11-17", 2, null, 52673833846, null, "Cartão de crédito", 2);
 CALL spSelectCompra(2, null, null);
 CALL spAlterValorCompra(2, "1256.00");
 -- CALL spItemCompra(2, 1, 2);
