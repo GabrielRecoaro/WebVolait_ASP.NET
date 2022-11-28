@@ -4,175 +4,314 @@
     ViewBag.Title = "SelectCompra";
 }
 
-<h2>SelectCompra</h2>
+@*<h2>SelectCompra</h2>
+
+    <div>
+        <h4>Compra realizada com sucesso!</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IdPassagem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdPassagem)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NomePassagem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NomePassagem)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DescPassagem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DescPassagem)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImgPassagem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImgPassagem)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ValorPassagem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ValorPassagem)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DtHrPartida)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DtHrPartida)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DtHrChegada)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DtHrChegada)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DuracaoVoo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DuracaoVoo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CiaAerea)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CiaAerea)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Classe)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Classe)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NotaFiscal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NotaFiscal)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IdAeroPartida)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdAeroPartida)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IdAeroDestino)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdAeroDestino)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CidadeAeroPartida)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CidadeAeroPartida)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CidadeAeroDestino)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CidadeAeroDestino)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UFAeroPartida)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UFAeroPartida)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UFAeroDestino)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UFAeroDestino)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.QtdPassagem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.QtdPassagem)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ValorTotal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ValorTotal)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoPgto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TipoPgto)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+
+
+
+
+<!-- <h2>SelectCompra</h2>
 
 <div>
     <h4>CompraViewModel</h4>
     <hr />
+    <p>@Model.NotaFiscal</p>
+    <p>@Model.ValorTotal</p>
+    <p>@Model.TipoPgto</p>
+    <p>@Model.NomePassagem</p>
+    <p>@Model.ValorTotal</p>
+
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IdPassagem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IdPassagem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NomePassagem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NomePassagem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DescPassagem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DescPassagem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImgPassagem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImgPassagem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ValorPassagem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ValorPassagem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DtHrPartida)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DtHrPartida)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DtHrChegada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DtHrChegada)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DuracaoVoo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DuracaoVoo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CiaAerea)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CiaAerea)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Classe)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Classe)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NotaFiscal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NotaFiscal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IdAeroPartida)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IdAeroPartida)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IdAeroDestino)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IdAeroDestino)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CidadeAeroPartida)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CidadeAeroPartida)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CidadeAeroDestino)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CidadeAeroDestino)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UFAeroPartida)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UFAeroPartida)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UFAeroDestino)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UFAeroDestino)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.QtdPassagem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.QtdPassagem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ValorTotal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ValorTotal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TipoPgto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TipoPgto)
-        </dd>
-
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p> -->
+<div class="container-fluid">
+
+    <div class="container">
+        <!-- Title -->
+        <div class="d-flex justify-content-between align-items-center py-3">
+            <h2 class="h5 mb-0"><a href="#" class="text-muted"></a> Compra #@Model.NotaFiscal</h2>
+        </div>
+
+        <!-- Main content -->
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Details -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="mb-3 d-flex justify-content-between">
+                            <div>
+                                
+                                <span class="me-3">#@Model.NotaFiscal</span>
+                                <span class="me-3">@Model.TipoPgto</span>
+                                <span class="badge rounded-pill bg-info">PASSAGENS</span>
+                            </div>
+                            <div class="d-flex">
+                                <button class="btn btn-link p-0 me-3 d-none d-lg-block btn-icon-text"><i class="bi bi-download"></i> <span class="text">Invoice</span></button>
+                                <div class="dropdown">
+                                    <button class="btn btn-link p-0 text-muted" type="button" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil"></i> Edit</a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="bi bi-printer"></i> Print</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex mb-2">
+                                            <div class="flex-shrink-0">
+                                                <img src="https://via.placeholder.com/280x280/87CEFA/000000" alt="" width="35" class="img-fluid">
+                                            </div>
+                                            <div class="flex-lg-grow-1 ms-3">
+                                                <h6 class="small mb-0"><a href="#" class="text-reset">Passagem: @Model.NomePassagem</a></h6>
+                                                <span class="small">Origem: @Model.CidadeAeroPartida Destino: @Model.CidadeAeroDestino</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>@Model.QtdPassagem</td>
+                                    <td class="text-end">@Model.ValorPassagem</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    
+                                    
+                                </tr>
+                                <tr class="fw-bold">
+                                    <td colspan="2">TOTAL</td>
+                                    <td class="text-end">R$@Model.ValorTotal</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <!-- Payment -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3 class="h6">Payment Method</h3>
+                                <p>
+                                    Visa -1234 <br>
+                                    Total: $169,98 <span class="badge bg-success rounded-pill">PAID</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3 class="h6">Billing address</h3>
+                                <address>
+                                    <strong>John Doe</strong><br>
+                                    1355 Market St, Suite 900<br>
+                                    San Francisco, CA 94103<br>
+                                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- Customer Notes -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h6">Customer Notes</h3>
+                        <p>Sed enim, faucibus litora velit vestibulum habitasse. Cras lobortis cum sem aliquet mauris rutrum. Sollicitudin. Morbi, sem tellus vestibulum porttitor.</p>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <!-- Shipping information -->
+                    <div class="card-body">
+                        <h3 class="h6">Shipping Information</h3>
+                        <strong>FedEx</strong>
+                        <span><a href="#" class="text-decoration-underline" target="_blank">FF1234567890</a> <i class="bi bi-box-arrow-up-right"></i> </span>
+                        <hr>
+                        <h3 class="h6">Address</h3>
+                        <address>
+                            <strong>John Doe</strong><br>
+                            1355 Market St, Suite 900<br>
+                            San Francisco, CA 94103<br>
+                            <abbr title="Phone">P:</abbr> (123) 456-7890
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
