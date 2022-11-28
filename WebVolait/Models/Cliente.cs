@@ -14,7 +14,7 @@ namespace WebVolait.Models
     {
         [Display(Name = "CPF do Cliente")]
         [Required(ErrorMessage = "O campo é obrigatório")]
-        [MaxLength(9)]
+        [MaxLength(11, ErrorMessage = "O CPF digitado é inválido, certifique-se de estar digitando apenas os números!")]
         public string CPFCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]

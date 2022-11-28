@@ -11,6 +11,7 @@ namespace WebVolait.ViewModels
     {
         [Display(Name = "CPF do Funcionário")]
         [Required(ErrorMessage = "O campo é obrigatório")]
+        [StringLength(15, MinimumLength = 11, ErrorMessage = "O CPF digitado é inválido")]
         public string CPFFuncionario { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
@@ -18,7 +19,7 @@ namespace WebVolait.ViewModels
         [Display(Name = "Nome Completo", AutoGenerateFilter = false)]
         public string NomeFuncionario { get; set; }
 
-        [Display(Name = "Nome Social (caso tenha)")]
+        [Display(Name = "Nome Social")]
         [MaxLength(50)]
         public string NomeSocialFuncionario { get; set; }
 
@@ -28,6 +29,7 @@ namespace WebVolait.ViewModels
 
         [Display(Name = "Número de Telefone")]
         [Required(ErrorMessage = "O campo é obrigatório")]
+        [StringLength(15, MinimumLength = 11, ErrorMessage = "O número de telefone digitado é inválido")]
         public string TelefoneFuncionario { get; set; }
 
         [DataType(DataType.Password)]
