@@ -4,7 +4,7 @@
     ViewBag.Title = "ListarPassagem";
 }
 
-<h2>ListarPassagem</h2>
+@*<h2>ListarPassagem</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -96,4 +96,121 @@
     </tr>
 }
 
-</table>
+</table>*@
+
+<main class="content-main list passages-list margin">
+    <div class="container">
+        <h1 class="list__title">
+            Passagens
+            <button class="button">
+                <iconify-icon icon="carbon:add"></iconify-icon>
+                Adicionar
+            </button>
+        </h1>
+        <div class="list__flex-header">
+            <div>#</div>
+            <div>
+                <span>Origem</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>Destino</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>Horário partida</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>Horário chegada</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+            <div>
+                <span>Classe</span>
+                <div class="search-bar">
+                    <a class="search-bar__icon" href="#">
+                        <iconify-icon class="iconify-icon" icon="eva:search-fill"></iconify-icon>
+                    </a>
+                    <input class="search-bar__txt" type="text"
+                           placeholder="">
+                </div>
+            </div>
+        </div>
+        @foreach (var item in Model) {
+            <div class="list__flex-body">
+                <div class="list__flex-body__upper">
+                    <div>@item.IdPassagem</div>
+                    <div>
+                        <span>@item.NomePassagem</span>
+                    </div>
+                    <div>@item.DtHrChegada</div>
+                    <div>@item.DtHrPartida</div>
+                    <div>@item.DuracaoVoo</div>
+                    <div>
+                        @item.CiaAerea
+                        <div>
+                            <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="list__flex-body__bottom">
+                    <div>
+                        <div>
+                            Origem
+                            <span>@item.IdAeroPartida</span>
+                        </div>
+                        <div>
+                            Destino
+                            <span>@item.IdAeroDestino</span>
+                        </div>
+                        <div>
+                            Valor
+                            <span>R$ @item.ValorPassagem</span>
+                        </div>
+                        @*<div>
+                            <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
+                        </div>*@
+                        <div>
+                            Classe
+                            <span>@item.Classe</span>
+                        </div>
+                        <div>
+                            Descrição
+                            <span>@item.DescPassagem</span>
+                        </div>
+                        <div>
+                            <a class="button list-edit" href="~/Passagem/AlterarPassagem/@item.IdPassagem"><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                        </div>
+                        <div>
+                            <a class="button list-delete" href="~/Passagem/DeletarPassagem/@item.IdPassagem"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</main>

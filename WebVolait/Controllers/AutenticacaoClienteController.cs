@@ -10,6 +10,7 @@ using WebVolait.Repositorio;
 using WebVolait.ViewModels;
 using WebVolait.Utils;
 using Hash = WebVolait.Utils.Hash;
+using System.Web.UI.WebControls;
 
 namespace WebVolait.Controllers
 {
@@ -95,13 +96,13 @@ namespace WebVolait.Controllers
 
             if (cliente == null | cliente.LoginCliente != viewmodel.LoginCliente)
             {
-                ModelState.AddModelError("LoginCliente", "Login incorreto");
+                ModelState.AddModelError("LoginCliente", "Login ou senha incorreta");
                 return View(viewmodel);
             }
 
             if (cliente.SenhaCliente != Hash.GerarHash(viewmodel.Senha))
             {
-                ModelState.AddModelError("SenhaCliente", "Senha incorreta");
+                ModelState.AddModelError("SenhaCliente", "Login ou senha incorreta");
                 return View(viewmodel);
             }
 
@@ -167,7 +168,7 @@ namespace WebVolait.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
+        [Authorize]
         public ActionResult ListarCliente()
         {
             var ExibirFunc = new Acoes();
@@ -175,7 +176,7 @@ namespace WebVolait.Controllers
             return View(TodosFunc);
 
         }
-
+        [Authorize]
         public ActionResult AlterarCliente(string id)
         {
             var clienteselecionado = ac.ListarCodCliente(id);
@@ -183,6 +184,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult AlterarCliente(Cliente cliente)
         {
             try
@@ -197,6 +199,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult DeletarCliente(string id)
         {
             var clienteselecionado = ac.ListarCodCliente(id);
@@ -204,6 +207,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult DeletarCliente(Cliente cliente)
         {
             try

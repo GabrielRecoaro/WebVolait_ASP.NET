@@ -4,7 +4,7 @@
     ViewBag.Title = "DeletarPassagem";
 }
 
-<h2>DeletarPassagem</h2>
+<!-- <h2>DeletarPassagem</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -142,4 +142,49 @@
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
-</div>
+</div> -->
+
+<main class="content-main delete-insert passagem margin">
+    <div class="container">
+        <div class="form-container">
+            <form id="delete-passagem" class="form" method="post" action="~/Passagem/DeletarPassagem">
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(model => model.IdPassagem)
+
+                @Html.HiddenFor(model => model.NomePassagem)
+
+                @Html.HiddenFor(model => model.DescPassagem)
+
+                @Html.HiddenFor(model => model.ImgPassagem)
+
+                @Html.HiddenFor(model => model.ValorPassagem)
+
+                @Html.HiddenFor(model => model.Classe)
+
+                @Html.HiddenFor(model => model.IdAeroPartida)
+
+                @Html.HiddenFor(model => model.IdAeroDestino)
+
+                @Html.HiddenFor(model => model.DtHrPartida)
+
+                @Html.HiddenFor(model => model.DtHrChegada)
+
+                @Html.HiddenFor(model => model.DuracaoVoo)
+
+                @Html.HiddenFor(model => model.CiaAerea)
+
+                <div class="form__area-flex-title">
+                    <h2 class="form__title">Excluir passagem</h2>
+                </div>
+                <p class="form__text bold">Tem certeza que deseja continuar?</p>
+                <p class="form__text warning">Atenção!</p>
+                <p class="form__text delete-confirm">Confirmando esta ação a passagem @Model.NomePassagem com valor de @Model.ValorPassagem será desativada tornando-se inválida.</p>
+                <div class="form__area-flex flex-button">
+                    <input class="button button--grey" type="button" value="Cancelar">
+                    <input class="button button--red" type="submit" value="Deletar">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

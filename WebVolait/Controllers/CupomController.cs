@@ -12,7 +12,7 @@ namespace WebVolait.Controllers
     public class CupomController : Controller
     {
         [HttpGet]
-
+        [Authorize]
         public ActionResult InsertCupom()
         {
             return View();
@@ -29,7 +29,7 @@ namespace WebVolait.Controllers
 
 
         [HttpPost]
-
+        [Authorize]
         public ActionResult InsertCupom(CadastroCupomViewModel viewmodel)
         {
             if (!ModelState.IsValid)
@@ -50,7 +50,7 @@ namespace WebVolait.Controllers
             return RedirectToAction("ListarCupom", "Cupom");
 
         }
-
+        [Authorize]
         public ActionResult ListarCupom()
         {
             var ExibirCupom = new Acoes();
@@ -58,7 +58,7 @@ namespace WebVolait.Controllers
             return View(TodosCumpom);
 
         }
-
+        [Authorize]
         public ActionResult AlterarCupom(int id)
         {
             var cupomselecionado = ac.ListarCodCupom(id);
@@ -66,6 +66,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult AlterarCupom(Cupom cupom)
         {
             //try
@@ -80,6 +81,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult DeletarCupom(int id)
         {
             var cupomselecionado = ac.ListarCodCupom(id);
@@ -87,6 +89,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult DeletarCupom(Cupom cupom)
         {
             try

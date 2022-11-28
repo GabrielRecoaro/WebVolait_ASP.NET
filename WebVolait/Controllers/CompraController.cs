@@ -52,7 +52,9 @@ namespace WebVolait.Controllers
 
             compra.InsertCompra(compra);
             TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
-            return RedirectToAction("ListarCompra", "Compra");
+            //return RedirectToAction("SelectCompra", "Compra");
+            // return View("SelectCompra", compra.NotaFiscal);
+            return View("ListarCompra", "Compra");
         }
 
         public ActionResult TotalCompra()

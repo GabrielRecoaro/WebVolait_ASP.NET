@@ -59,14 +59,14 @@
                         else
                         {
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Página Inicial", "Index", "Home")</li>
-                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Compra", "InsertCompra", "Compra")</li>
-                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Passagem", "InsertPassagem", "Passagem")</li>
+                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Compra", "ListarPassagemCliente", "Passagem")</li>
+                            
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Contato", "Index", "Contato")</li>
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Sobre", "Sobre", "Home")</li>
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Logar", "LoginFuncionario", "AutenticacaoFuncionario")</li>
 
                             <button class="button">
-                                @Html.ActionLink("Cadastrar", "InsertFuncionario", "AutenticacaoFuncionario")
+                                @Html.ActionLink("Cadastrar", "InsertCliente", "AutenticacaoCliente")
                             </button>
                         }
 

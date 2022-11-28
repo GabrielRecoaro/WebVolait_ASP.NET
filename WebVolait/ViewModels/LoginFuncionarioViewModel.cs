@@ -10,6 +10,7 @@ namespace WebVolait.ViewModels
     {
         public string urlRetorno { get; set; }
 
+        [Display(Name = "Login do Funcionário")]
         [Required(ErrorMessage = "Informe o Login")]
         [MaxLength(50, ErrorMessage = "O Login deve ter até 50 caracteres")]
         public string LoginFuncionario { get; set; }

@@ -29,7 +29,7 @@ namespace WebVolait.Controllers
         Acoes ac = new Acoes();
 
         [HttpPost]
-
+       
         public ActionResult InsertFuncionario(CadastroFuncionarioViewModel viewmodel)
         {
             if (!ModelState.IsValid)
@@ -89,13 +89,13 @@ namespace WebVolait.Controllers
 
             if (funcionario == null | funcionario.LoginFuncionario != viewmodel.LoginFuncionario)
             {
-                ModelState.AddModelError("LoginFuncionario", "Login incorreto");
+                ModelState.AddModelError("LoginFuncionario", "Login ou senha incorreta");
                 return View(viewmodel);
             }
 
             if (funcionario.SenhaFuncionario != Hash.GerarHash(viewmodel.SenhaFuncionario))
             {
-                ModelState.AddModelError("SenhaFuncionario", "Senha incorreta");
+                ModelState.AddModelError("SenhaFuncionario", "Login ou senha incorreta");
                 return View(viewmodel);
             }
 
@@ -114,7 +114,7 @@ namespace WebVolait.Controllers
             
 
         }
-
+        [Authorize]
         public ActionResult ListarFuncionario()
         {
             var ExibirFunc = new Acoes();
@@ -122,14 +122,16 @@ namespace WebVolait.Controllers
             return View(TodosFunc);
 
         }
-
+        [Authorize]
         public ActionResult AlterarFuncionario(string id)
         {
             var funcionarioselecionado = ac.ListarCodFuncionario(id);
             return View(funcionarioselecionado);
         }
 
+
         [HttpPost]
+        [Authorize]
         public ActionResult AlterarFuncionario(Funcionario funcionario)
         {
             try
@@ -144,6 +146,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult DeletarFuncionario(string id)
         {           
             var funcionarioselecionado = ac.ListarCodFuncionario(id);
@@ -151,6 +154,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult DeletarFuncionario(Funcionario funcionario)
         {
             try

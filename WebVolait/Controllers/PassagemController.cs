@@ -28,7 +28,7 @@ namespace WebVolait.Controllers
         Acoes ac = new Acoes();
 
         [HttpPost]
-
+        [Authorize]
         public ActionResult InsertPassagem(CadastroPassagemViewModel viewmodel)
         {
             if (!ModelState.IsValid)
@@ -58,7 +58,7 @@ namespace WebVolait.Controllers
             return RedirectToAction("ListarPassagem", "Passagem");
 
         }
-
+        [Authorize]
         public ActionResult ListarPassagem()
         {
             var ExibirPassagem = new Acoes();
@@ -80,7 +80,7 @@ namespace WebVolait.Controllers
             var passagemselecionado = ac.ListarCodPassagem(id);
             return View(passagemselecionado);
         }
-
+        [Authorize]
         public ActionResult AlterarPassagem(int id)
         {
             var passagemselecionado = ac.ListarCodPassagem(id);
@@ -88,6 +88,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult AlterarPassagem(Passagem passagem)
         {
             try
@@ -102,6 +103,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult DeletarPassagem(int id)
         {
             var passagemselecionado = ac.ListarCodPassagem(id);
@@ -109,6 +111,7 @@ namespace WebVolait.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult DeletarPassagem(Passagem passagem)
         {
             try

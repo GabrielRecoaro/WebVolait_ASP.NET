@@ -117,9 +117,14 @@ namespace WebVolait.Models
             Acoes ac = new Acoes();
 
             Passagem passagem = ac.ListarCodPassagem(compra.Passagem);
-            Cupom cupom = ac.ListarCodCupomByCode(compra.Cupom);
 
-            decimal valor_cupom = cupom.Valordesconto;
+            decimal valor_cupom = 0;
+            if (compra.Cupom != null)
+            {
+                Cupom cupom = ac.ListarCodCupomByCode(compra.Cupom);
+                valor_cupom = cupom.Valordesconto;
+            }
+
             decimal valor_passagem = passagem.ValorPassagem;
             decimal quantidade_comprada = compra.QuantidadePassagem;
             decimal valor_total = (valor_passagem * quantidade_comprada) - valor_cupom;
