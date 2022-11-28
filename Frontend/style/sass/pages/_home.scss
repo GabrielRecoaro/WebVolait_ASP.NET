@@ -1,107 +1,77 @@
-// .home-page{
-//     margin: 70px 56px;
-//     height: auto;
-//     .hero{ 
-//         background: linear-gradient(89.87deg, #FFFFFF 35.82%, rgba(255, 255, 255, 0) 62.94%), url(../../images/hero-background.jpg);
-//         background-position: right bottom;
-//         background-size: 100% auto;
-//         border-radius: 10px;
-//         padding: 0 56px;
+.step-by-step-purchase {
+    &__content-main {
+        &__text {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            padding: 50px 0;
+            &__title, &__paragraph {
+                flex: 1 1 350px;
+            }
+            &__title {
+                margin: 0;
+                padding: 0;
+                font-size: 40px;
+                color: $primary-color;
+            }
+            &__paragraph {
+                text-align: center;
+                font-size: $heading-three;
+                color: $black-color;
+            }
+        }
+        &__card-passages {
+            width: 80%;
+            margin: 0 auto;
+            &__item {
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: $black-color;
+                border: 1px solid grey;
+                &:nth-child(n + 2) {
+                    margin-top: 15px;
+                }
+                & div {
+                    .text-primary-color {
+                        color: $primary-color;
+                    }
+                    .text-secondary-color {
+                        color: $grey-color;
+                    }
+                    &:nth-child(1) {
+                        flex: 1 1 100px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    &:nth-child(2) {
+                        flex: 2 1 100px;
+                        & div:nth-child(1) {
+                            display: flex;
+                            flex-direction: row;
+                            border: 2px solid orange;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                        & div:nth-child(2) {
+                            display: flex;
+                            flex-direction: row;
+                            border: 2px solid orange;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }
+                    &:nth-child(3) {
+                        flex: 1 1 100px;
 
-
-//         &__content{
-//             width: 40%;
-//             height: 100%;
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: space-between;
-            
-//             &__title{
-//                 font-family: 'Inter', sans-serif;
-//                 font-style: normal;
-//                 font-weight: 800;
-//                 font-size: 5.6rem;
-//                 line-height: 87px;
-
-//                 color: $black-color;
-//             }
-//             &__text{
-//                 font-family: 'Inter';
-//                 font-style: normal;
-//                 font-weight: 600;
-//                 font-size: $body-text;
-//                 line-height: 28px;
-
-//                 color: $black-color;
-//             }
-//             &__button{
-//                 background-color: $primary-color;
-//                 outline: none;
-//                 border: none;
-//                 border-radius: 5px;
-
-//                 padding:8px 32px;
-//                 width: 50%;
-//                 font-family: 'Inter';
-//                 font-style: normal;
-//                 font-weight: 700;
-//                 font-size: $body-text;
-//                 line-height: 27px;
-//                 color: $white-color;
-
-//                 transition: 0.2s ease-in;
-//                 cursor: pointer;
-//                 &:hover{
-//                     //PENSAR AQUI NO QUE FAZER
-//                 }
-//             }
-//         }
-//     }
-//     .hero__filter-bar{
-//         display: flex;
-//         font-family: 'Inter', 'sans-serif';
-//         height: 150px;
-//         align-items: center;
-//         justify-content: space-around;
-
-//         background-color: #FDFDFD;
-//         width: 100%;
-
-//         transform: translateY(65px);
-//         box-shadow: 10px 8px 80px rgba(18, 18, 18, 0.25);
-// border-radius: 5px;
-//     }
-
-//     .hero__filter-bar__parameters{
-//         display: flex;
-//         flex-direction: column;
-//         height: fit-content;
-//         font-family: 'Inter', sans-serif;
-//     }
-
-//     #input_local, #input_date, #input_price{
-//         border: none;
-//         border: 2px solid #DCD5DC;
-//         border-radius: 5px;
-//         height:  35px;
-//     }
-
-//     .hero__filter-bar__button{
-//         border: none;
-//         border: 1px solid #FF9575;
-//         width: 125px;
-//         height: 45px;
-//         border-radius: 3px;
-//         background-color: #FF9575;
-//         color: white;
-//         margin-left: 20px;
-//         font-family: 'Inter', 'sans-serif';
-//         cursor: pointer;
-//     }
-
-//     label{
-//         font-family: 'Inter', 'sans-serif';
-//         font-size: $body-text;
-//         margin-bottom: 12px;
-//     }
-// }
+                    }
+                }
+            }
+        }
+    }
+}
