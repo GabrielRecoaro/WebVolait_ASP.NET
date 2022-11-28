@@ -59,12 +59,20 @@ namespace WebVolait.ViewModels
         [Required(ErrorMessage = "O campo é obrigatório")]
         public string IdAeroDestino { get; set; }
 
+        [Display(Name ="Cidade do aeroporto de partida")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
         public string CidadeAeroPartida { get; set; }
         
+        [Display(Name ="Cidade do aeroporto de destino")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
         public string CidadeAeroDestino { get; set; }
 
+        [Display(Name ="Estado do aeroporto de partida")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
         public string UFAeroPartida { get; set; }
         
+        [Display(Name ="Estado do aeroporto de destino")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
         public string UFAeroDestino { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
