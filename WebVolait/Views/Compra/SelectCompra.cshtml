@@ -198,7 +198,7 @@
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p> -->
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 150px;">
 
     <div class="container">
         <!-- Title -->
@@ -214,7 +214,6 @@
                     <div class="card-body">
                         <div class="mb-3 d-flex justify-content-between">
                             <div>
-                                
                                 <span class="me-3">#@Model.NotaFiscal</span>
                                 <span class="me-3">@Model.TipoPgto</span>
                                 <span class="badge rounded-pill bg-info">PASSAGENS</span>
@@ -242,7 +241,9 @@
                                             </div>
                                             <div class="flex-lg-grow-1 ms-3">
                                                 <h6 class="small mb-0"><a href="#" class="text-reset">Passagem: @Model.NomePassagem</a></h6>
-                                                <span class="small">Origem: @Model.CidadeAeroPartida Destino: @Model.CidadeAeroDestino</span>
+                                                <br /><span class="small">Descrição: @Model.DescPassagem </span>
+                                                <br /><span class="small">Origem: @Model.CidadeAeroPartida </span>
+                                                <br /><span class="small">Destino: @Model.CidadeAeroDestino</span>
                                             </div>
                                         </div>
                                     </td>
@@ -251,10 +252,6 @@
                                 </tr>
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    
-                                    
-                                </tr>
                                 <tr class="fw-bold">
                                     <td colspan="2">TOTAL</td>
                                     <td class="text-end">R$@Model.ValorTotal</td>
@@ -263,55 +260,6 @@
                         </table>
                     </div>
                 </div>
-                <!-- Payment -->
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h3 class="h6">Payment Method</h3>
-                                <p>
-                                    Visa -1234 <br>
-                                    Total: $169,98 <span class="badge bg-success rounded-pill">PAID</span>
-                                </p>
-                            </div>
-                            <div class="col-lg-6">
-                                <h3 class="h6">Billing address</h3>
-                                <address>
-                                    <strong>John Doe</strong><br>
-                                    1355 Market St, Suite 900<br>
-                                    San Francisco, CA 94103<br>
-                                    <abbr title="Phone">P:</abbr> (123) 456-7890
-                                </address>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <!-- Customer Notes -->
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h3 class="h6">Customer Notes</h3>
-                        <p>Sed enim, faucibus litora velit vestibulum habitasse. Cras lobortis cum sem aliquet mauris rutrum. Sollicitudin. Morbi, sem tellus vestibulum porttitor.</p>
-                    </div>
-                </div>
-                <div class="card mb-4">
-                    <!-- Shipping information -->
-                    <div class="card-body">
-                        <h3 class="h6">Shipping Information</h3>
-                        <strong>FedEx</strong>
-                        <span><a href="#" class="text-decoration-underline" target="_blank">FF1234567890</a> <i class="bi bi-box-arrow-up-right"></i> </span>
-                        <hr>
-                        <h3 class="h6">Address</h3>
-                        <address>
-                            <strong>John Doe</strong><br>
-                            1355 Market St, Suite 900<br>
-                            San Francisco, CA 94103<br>
-                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                        </address>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-</div>

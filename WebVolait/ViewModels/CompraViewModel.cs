@@ -29,8 +29,7 @@ namespace WebVolait.ViewModels
         [Display(Name ="Data e horário da partida")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         public DateTime DtHrPartida { get; set; }
-        public DateTime DtHrPartida { get; set; }
-
+       
         [Display(Name ="Data e horário da chegada")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         public DateTime DtHrChegada { get; set; }
