@@ -94,16 +94,16 @@ namespace WebVolait.Controllers
         [Authorize]
         public ActionResult AlterarPassagem(Passagem passagem)
         {
-            //try
-            //{
+            try
+            {
                 passagem.UpdatePassagem(passagem);
                 return RedirectToAction("ListarPassagem", "Passagem");
-            //}
-            //catch
-            //{
+            }
+            catch
+            {
                 return View(passagem);
-            //}
-        }
+            }
+    }
 
         [HttpGet]
         [Authorize]
@@ -117,15 +117,15 @@ namespace WebVolait.Controllers
         [Authorize]
         public ActionResult DeletarPassagem(Passagem passagem)
         {
-            //try
-            //{
+            try
+            {
                 passagem.DeletePassagem(passagem);
                 return RedirectToAction("ListarPassagem", "Passagem");
-            //}
-            //catch
-            ////{
-            //    return RedirectToAction("ListarPassagem", "Passagem");
-            //}
+            }
+            catch
+            {
+                return RedirectToAction("ListarPassagem", "Passagem");
+            }
         }
     }
 }

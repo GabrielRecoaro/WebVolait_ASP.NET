@@ -9,7 +9,7 @@
         <div class="form-container">
             <!-- enctype="multipart/form-data" -->
             <form id="insert-passage" class="form" action="~/Passagem/AlterarPassagem" method="post">
-                @*@Html.AntiForgeryToken()*@
+                @Html.AntiForgeryToken()
                 @Html.HiddenFor(model => model.IdPassagem, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="form__area-flex-title">
                     <h2 class="form__title">Editar passagem</h2>
