@@ -217,6 +217,14 @@ namespace WebVolait.Repositorio
 
         // ********************************** LISTAR PASSAGEM
 
+        public List<PassagemViewModel> ListarTodasPassagensViewModel()
+        {
+            var comando = String.Format("select * from vw_passagem");
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodPass = cmd.ExecuteReader();
+            return ListarCodPassagem(DadosCodPass);
+        }
+
         public Passagem ListarCodPassagem(int cod)
         {
             var comando = String.Format("select * from vw_passagem where IdPassagem = {0}", cod);
@@ -271,7 +279,10 @@ namespace WebVolait.Repositorio
                     DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
                     DuracaoVoo = TimeSpan.Parse(dt["DuracaoVoo"].ToString()),
                     CiaAerea = (dt["CiaAerea"].ToString()),
-
+                    CidadeAeroPartida = (dt["CidadeAeroPartida"].ToString()),
+                    CidadeAeroDestino = (dt["CidadeAeroDestino"].ToString()),
+                    NomeAeroPartida = (dt["CidadeAeroPartida"].ToString()),
+                    NomeAeroDestino = (dt["CidadeAeroDestino"].ToString())
                 };
                 AltAl.Add(AlTemp);
             }
@@ -279,16 +290,14 @@ namespace WebVolait.Repositorio
             return AltAl;
         }
 
-        public List<Passagem>
-            ListarPassagem()
+        public List<Passagem> ListarPassagem()
         {
             MySqlCommand cmd = new MySqlCommand("Select * from vw_passagem", con.ConectarBD());
             var DadosPassagem = cmd.ExecuteReader();
             return ListarTodosPassagem(DadosPassagem);
         }
 
-        public List<Passagem>
-            ListarTodosPassagem(MySqlDataReader dt)
+        public List<Passagem> ListarTodosPassagem(MySqlDataReader dt)
         {
             var TodosPassagems = new List<Passagem>();
             while (dt.Read())

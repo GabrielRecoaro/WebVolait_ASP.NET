@@ -218,6 +218,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\background-image-passages.jpg" />
+    <Content Include="images\card-passages.png" />
     <Content Include="images\hero-background.jpg" />
     <Content Include="images\ico.ico" />
     <Content Include="images\login.png" />
