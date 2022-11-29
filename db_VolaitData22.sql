@@ -79,7 +79,7 @@ create table tb_passagem
     IdAeroDestino char(3),
     DtHrPartida datetime not null,
     DtHrChegada datetime not null,
-    DuracaoVoo int not null,
+    DuracaoVoo time not null,
     CNPJCiaAerea bigint not null,
     constraint fk_ciaAerea foreign key(CNPJCiaAerea) references tb_ciaAerea(CNPJCiaAerea),
     constraint fk_classe foreign key(IdClasse) references tb_classe(IdClasse),
@@ -542,3 +542,20 @@ CALL spInsertCompra("2022-11-17", 2, null, 52673833846, null, "Cartão de crédi
 CALL spSelectCompra(2, null, null);
 CALL spAlterValorCompra(2, "1256.00");
 -- CALL spItemCompra(2, 1, 2);
+
+CALL spInsertFunc(7437224560, "Administrador", null, "adm@gmail.com", "11972689933", "adm123"); 
+
+CALL spInsertPassagem("São Paulo - Manaus", "Voo direto de Guarulhos para Manaus", "https://www.ulbratech.com.br/br/assets/images/header_manaus1.png", 
+"225.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "MAO", "2022-12-07 07:15:00", "2022-12-07 08:15:00", "01:00:00");
+
+CALL spInsertPassagem("São Paulo - Salvador", "Voo direto de Guarulhos para Salvador", "https://f.i.uol.com.br/fotografia/2021/02/25/161428606260380cee005c0_1614286062_3x2_md.jpg", 
+"430.00", "Classe econômica", "Latam Airlines", "GRU", "SSA", "2022-12-14 09:45:00", "2022-12-07 12:05:00", "02:20:00");
+
+CALL spInsertPassagem("São Paulo - Doha", "Voo de São Paulo para o Qatar", "https://media.gazetadopovo.com.br/2019/04/30120011/qatar-900x540.jpg", 
+"15330.00", "Classe executiva", "Air France", "GRU", "DIA", "2023-01-23 20:45:00", "2023-01-25 02:50:00", "24:05:00");
+
+CALL spInsertPassagem("São Paulo - Rio de Janeiro", "Voo direto de Guarulhos para o Rio de Janeiro", "https://2.bp.blogspot.com/-RThEwEqQrtc/Uk2l9uuty4I/AAAAAAAAnE0/ZsPTiyseI_A/s1600/Rio-de-Janeiro.jpg", 
+"330.00", "Classe econômica", "Azul Linhas Aéreas", "GRU", "GIG", "2022-12-13 10:15:00", "2022-12-13 11:15:00", "01:00:00");
+
+CALL spInsertPassagem("São Paulo - Chicago", "Voo de São Paulo para Chicago", "https://catracalivre.com.br/wp-content/uploads/2019/01/chicago-illinois-gastronomia-910x608.jpg", 
+"1963.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "ORD", "2022-12-21 23:20:00", "2022-12-21 11:20:00", "15:00:00");
