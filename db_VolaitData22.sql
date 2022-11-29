@@ -79,7 +79,7 @@ create table tb_passagem
     IdAeroDestino char(3),
     DtHrPartida datetime not null,
     DtHrChegada datetime not null,
-    DuracaoVoo int not null,
+    DuracaoVoo time not null,
     CNPJCiaAerea bigint not null,
     constraint fk_ciaAerea foreign key(CNPJCiaAerea) references tb_ciaAerea(CNPJCiaAerea),
     constraint fk_classe foreign key(IdClasse) references tb_classe(IdClasse),
