@@ -242,7 +242,34 @@ namespace WebVolait.Repositorio
                     IdAeroDestino = (dt["IdAeroDestino"].ToString()),
                     DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
                     DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
-                    DuracaoVoo = Int16.Parse(dt["DuracaoVoo"].ToString()),
+                    DuracaoVoo = TimeSpan.Parse(dt["DuracaoVoo"].ToString()),
+                    CiaAerea = (dt["CiaAerea"].ToString()),
+
+                };
+                AltAl.Add(AlTemp);
+            }
+            dt.Close();
+            return AltAl;
+        }
+
+        public List<PassagemViewModel> ListarCodPassagem(MySqlDataReader dt)
+        {
+            var AltAl = new List<PassagemViewModel>();
+            while (dt.Read())
+            {
+                var AlTemp = new PassagemViewModel()
+                {
+                    IdPassagem = int.Parse(dt["IdPassagem"].ToString()),
+                    NomePassagem = (dt["NomePassagem"].ToString()),
+                    DescPassagem = (dt["DescPassagem"].ToString()),
+                    ImgPassagem = (dt["ImgPassagem"].ToString()),
+                    ValorPassagem = Decimal.Parse(dt["ValorPassagem"].ToString()),
+                    Classe = (dt["Classe"].ToString()),
+                    IdAeroPartida = (dt["IdAeroPartida"].ToString()),
+                    IdAeroDestino = (dt["IdAeroDestino"].ToString()),
+                    DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
+                    DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
+                    DuracaoVoo = TimeSpan.Parse(dt["DuracaoVoo"].ToString()),
                     CiaAerea = (dt["CiaAerea"].ToString()),
 
                 };
@@ -278,7 +305,7 @@ namespace WebVolait.Repositorio
                     IdAeroDestino = (dt["IdAeroDestino"].ToString()),
                     DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
                     DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
-                    DuracaoVoo = Int16.Parse(dt["DuracaoVoo"].ToString()),
+                    DuracaoVoo = TimeSpan.Parse(dt["DuracaoVoo"].ToString()),
                     CiaAerea = (dt["CiaAerea"].ToString()),
                 };
                 TodosPassagems.Add(PassagemTemp);

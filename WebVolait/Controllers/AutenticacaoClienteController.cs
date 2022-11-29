@@ -56,7 +56,7 @@ namespace WebVolait.Controllers
 
             TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
 
-            return RedirectToAction("LoginCliente", "AutenticacaoCliente");
+            return RedirectToAction("Index", "Home");
 
         }
 

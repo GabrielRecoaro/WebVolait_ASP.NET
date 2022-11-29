@@ -58,6 +58,7 @@ namespace WebVolait.Controllers
             return RedirectToAction("ListarPassagem", "Passagem");
 
         }
+
         [Authorize]
         public ActionResult ListarPassagem()
         {
@@ -80,6 +81,8 @@ namespace WebVolait.Controllers
             var passagemselecionado = ac.ListarCodPassagem(id);
             return View(passagemselecionado);
         }
+
+
         [Authorize]
         public ActionResult AlterarPassagem(int id)
         {
@@ -91,15 +94,15 @@ namespace WebVolait.Controllers
         [Authorize]
         public ActionResult AlterarPassagem(Passagem passagem)
         {
-            try
-            {
+            //try
+            //{
                 passagem.UpdatePassagem(passagem);
                 return RedirectToAction("ListarPassagem", "Passagem");
-            }
-            catch
-            {
+            //}
+            //catch
+            //{
                 return View(passagem);
-            }
+            //}
         }
 
         [HttpGet]
@@ -114,15 +117,15 @@ namespace WebVolait.Controllers
         [Authorize]
         public ActionResult DeletarPassagem(Passagem passagem)
         {
-            try
-            {
+            //try
+            //{
                 passagem.DeletePassagem(passagem);
                 return RedirectToAction("ListarPassagem", "Passagem");
-            }
-            catch
-            {
-                return RedirectToAction("ListarPassagem", "Passagem");
-            }
+            //}
+            //catch
+            ////{
+            //    return RedirectToAction("ListarPassagem", "Passagem");
+            //}
         }
     }
 }

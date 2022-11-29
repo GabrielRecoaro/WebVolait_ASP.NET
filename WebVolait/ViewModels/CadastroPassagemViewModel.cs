@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.Cms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -50,8 +51,9 @@ namespace WebVolait.ViewModels
         public DateTime DtHrChegada { get; set; }
 
         [Display(Name ="Tempo de duração do voo")]
+        [DataType(DataType.Time)]
         [Required(ErrorMessage = "O campo é obrigatório")]
-        public int DuracaoVoo { get; set; }
+        public TimeSpan DuracaoVoo { get; set; }
 
     }
 }
