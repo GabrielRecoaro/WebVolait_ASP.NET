@@ -543,6 +543,8 @@ CALL spSelectCompra(2, null, null);
 CALL spAlterValorCompra(2, "1256.00");
 -- CALL spItemCompra(2, 1, 2);
 
+CALL spInsertFunc(7437224560, "Administrador", null, "adm@gmail.com", "11972689933", "adm123"); 
+
 CALL spInsertPassagem("São Paulo - Manaus", "Voo direto de Guarulhos para Manaus", "https://www.ulbratech.com.br/br/assets/images/header_manaus1.png", 
 "225.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "MAO", "2022-12-07 07:15:00", "2022-12-07 08:15:00", "01:00:00");
 
