@@ -510,16 +510,6 @@ select * from vw_compra; where NotaFiscal = 3;
 
 select * from vw_passagem; where IdPassagem = 2;
 
--- Selects simples
-select * from tb_funcionario;
-select * from tb_cliente;
-select * from tb_cupom;
-select * from tb_compra;
-select * from tb_classe;
-select * from tb_ciaAerea;
-select * from tb_aero;
-select * from tb_passagem;
-
 call spDeletePassagem(2);
 
 -- Calls procedures
@@ -559,3 +549,25 @@ CALL spInsertPassagem("São Paulo - Rio de Janeiro", "Voo direto de Guarulhos pa
 
 CALL spInsertPassagem("São Paulo - Chicago", "Voo de São Paulo para Chicago", "https://catracalivre.com.br/wp-content/uploads/2019/01/chicago-illinois-gastronomia-910x608.jpg", 
 "1963.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "ORD", "2022-12-21 23:20:00", "2022-12-21 11:20:00", "15:00:00");
+
+CALL spInsertPassagem("Curitiba - Foz do Iguaçu", "Voo de São Paulo para Foz do Iguaçu", "https://foto", 
+"378.90", "Classe econômica", "Azul linhas aéreas", "CWB", "IGU", "2022-12-15 8:50:00", "2022-12-15 10:05:00", "01:15:00");
+
+CALL spInsertPassagem("Salvador - Manaus", "Voo de Salvador para Manaus", "https://foto", 
+"930.00", "Classe econômica", "Gol Linhas Aéreas", "SSA", "MAO", "2023-02-11 07:20:00", "2023-02-11 17:20:00", "10:00:00");
+
+CALL spInsertPassagem("Salvador - Manaus", "Voo de Salvador para Manaus", "https://foto", 
+"930.00", "Classe econômica", "Gol Linhas Aéreas", "SSA", "MAO", "2023-02-11 07:20:00", "2023-02-11 17:20:00", "10:00:00");
+
+CALL spInsertPassagem("Rio de Janeiro - Natal", "Voo do Rio de Janeiro para Natal", "https://foto", 
+"1345.80", "Classe executiva", "Azul Linhas Aéreas", "GIG", "NAT", "2023-02-24 15:35:00", "2023-02-24 16:50:00", "01:15:00");
+
+-- Selects simples
+select * from tb_funcionario;
+select * from tb_cliente;
+select * from tb_cupom;
+select * from tb_compra;
+select * from tb_classe;
+select * from tb_ciaAerea;
+select * from tb_aero;
+select * from tb_passagem;
