@@ -563,6 +563,12 @@ CALL spInsertPassagem("Salvador - Manaus", "Voo de Salvador para Manaus", "https
 CALL spInsertPassagem("Rio de Janeiro - Natal", "Voo do Rio de Janeiro para Natal", "https://foto", 
 "1345.80", "Classe executiva", "Azul Linhas Aéreas", "GIG", "NAT", "2023-02-24 15:35:00", "2023-02-24 16:50:00", "011500");
 
+CALL spInsertCli(78956743763, "Manoel de Barros", null, "manolobarros@hotmail.com", "11978665432", "mdb325"); 
+CALL spInsertCli(87456780432, "Melinda Andreis", null, "melandreis@gmail.com", "11967224059", "mel1213"); 
+CALL spInsertCli(23467894567, "José de Almeida", null, "zealmeida@icloud.com", "11944239771", "ze1234"); 
+CALL spInsertCli(21467589754, "Vitória Castro", null, "vitcastro@gmail.com", "11942335677", "vit2266"); 
+CALL spInsertCli(89657436578, "Carlo Calixto", null, "calixto@gmail.com", "11966724523", "905674"); 
+CALL spInsertCli(24567894590, "Mariana Marcondes", null, "marimarcondes@gmail.com", "11943221567", "ma67ri90"); 
 
 -- Selects simples
 select * from vw_compra; where NotaFiscal = 3;
