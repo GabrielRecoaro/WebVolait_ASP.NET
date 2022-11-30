@@ -228,7 +228,14 @@
                 <div class="form__area">
                     @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form__area__input" } })
                     @Html.LabelFor(model => model.CodTipoPagto, htmlAttributes: new { @class = "form__area__label" })
+                    @Html.DropDownListFor(model => model.CodTipoPagto, new SelectList(ViewBag.ToolList), "Cartão de crédito", new { @class = "form__area__input" })
                     @Html.ValidationMessageFor(model => model.CodTipoPagto, "", htmlAttributes: new { @class = "form__area__error-message" })
+
+                    <select class="form__area__input" id="CodTipoPagto" name="CodTipoPagto">
+                        <option value="1" >seleciona faz favor</option>
+                        <option value="2" >Tool Name 1</option>
+                        <option value="3" >Tool Name 2</option>
+                    </select>
                 </div>
                     @Html.HiddenFor(model => model.NotaFiscal)
                     @Html.HiddenFor(model => model.Passagem)

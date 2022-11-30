@@ -152,18 +152,26 @@
                         </div>*@
                     </div>
                     <div class="form__area">
-                        @Html.EditorFor(model => model.IdAeroDestino, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @*@Html.EditorFor(model => model.IdAeroDestino, new { htmlAttributes = new { @class = "form__area__input" } })*@
+                        @Html.DropDownListFor(model => model.IdAeroDestino, new SelectList(ViewBag.ToolList), new { @class = "form__area__input" })
                         @Html.LabelFor(model => model.IdAeroDestino, htmlAttributes: new { @class = "form__area__label" })
-                        @*<div class="form__area__select-box">
-                            <select name="destiny-airport" id="">
-                                <option value="" disabled selected>Aeroporto (Destino)</option>
-                                <option value="">CMN</option>
-                                <option value="">CWB</option>
-                                <option value="">DIA</option>
-                                <option value="">FLN</option>
+                        <div class="form__area__select-box">
+                            <select name="destiny-airport" id="IdAeroDestino" name ="IdAeroDestino">
+                                @*<option value disabled selected>Aeroporto (Destino)</option>*@
+                                <option>CMN</option>
+                                <option>CWB</option>
+                                <option>DIA</option>
+                                <option>FLN</option>
                             </select>
+
+                            @*<select class="form-control" data-val="true" data-val-required="The Name field is required." id="ToolName" name="ToolName">
+                                <option value>-please select-</option>
+                                <option>Tool Name 1</option>
+                                <option>Tool Name 2</option>
+                                ....
+                            </select>*@
                             <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
-                        </div>*@
+                        </div>
                     </div>
                 </div>
                 <div class="form__area-flex">
