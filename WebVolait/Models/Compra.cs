@@ -20,6 +20,7 @@ namespace WebVolait.Models
         [Required(ErrorMessage = "O campo é obrigatório")]
         [Display(Name = "Data da compra")]
         [DisplayFormat(DataFormatString = "dd/mm/yyyy")]
+        //[DataType(DataType = DateTime)]
         public DateTime DataCompra { get; set; }
 
         [Display(Name = "Valor total da compra")]

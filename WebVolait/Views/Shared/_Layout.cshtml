@@ -44,8 +44,7 @@
                 </div>
                 <nav class="header__navbar__navigation-menu">
                     <ul class="header__navbar__navigation-menu__list">
-                        @*
-        <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Login", "LoginCliente", "AutenticacaoCliente")</li>*@
+
 
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -59,8 +58,7 @@
                         else
                         {
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Página Inicial", "Index", "Home")</li>
-                            <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Compra", "ListarPassagemCliente", "Passagem")</li>
-                            
+                                     
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Contato", "Index", "Contato")</li>
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Sobre", "Sobre", "Home")</li>
                             <li class="header__navbar__navigation-menu__list__item">@Html.ActionLink("Login", "LoginFuncionario", "AutenticacaoFuncionario")</li>
