@@ -66,15 +66,7 @@
                 height: 2px;
                 border: 1px solid #DCD5DC;
             }
-
-            & svg{
-                width: 100%;
-            
-                line {
-                stroke:#DCD5DC; 
-                stroke-width: 2;   
-                }            
-            }
+           
         }
         
         & .step-by-step-purchase_content-main__details{
@@ -92,21 +84,52 @@
             align-items: stretch;
 
             & .airline-route{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: stretch;
+                gap: 12px;
                 & span{
                     font-weight: 700;
                     color: $primary-color;
                 }
                 &__item{
-
-                }
-
-                & .details-passage{
-
-                    &__item{
-
-                    }
+                    font-weight: 500;
+                    color: $black-color;
                 }
             }
+
+            svg{
+                width: 100%;
+            
+                line {
+                    stroke:#DCD5DC; 
+                    stroke-width: 1;   
+                }            
+            }
+
+            & .details-passage__item{
+                & span{
+                    font-weight: 700;
+                    font-size: 14px;
+                    color: #DCD5DC;
+                }
+
+                & p{
+                    font-weight: 500;
+                    color: $black-color;
+                }
+
+                
+            }
         }
+    }
+    & svg{
+        width: 100%;
+    
+        line {
+        stroke:#DCD5DC; 
+        stroke-width: 2;   
+        }            
     }
 }
