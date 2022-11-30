@@ -1,0 +1,135 @@
+.step-by-step-purchase.passage-details {
+    // display: none;
+
+    & .grid-passage-details-page{
+        width: 100%;
+
+        transform: translateY(-80px);
+
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+
+        & .step-by-step-purchase__content-main__card-passages__item{
+            grid-area: 1 / 1 / 2 / 6; 
+
+            background-color: #fff;
+
+            &:hover{
+                transform: scale(0);
+            }
+        }
+        
+        & .details-values{
+            grid-area: 1 / 6 / 3 / 8; 
+
+            border-radius: 10px;
+
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            padding: 16px;
+            &__title{
+                font-weight: 500;
+                color: $black-color;
+            }
+
+            &__item{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+
+                & :nth-child(1){
+                    font-weight: 600;
+                    color: $black-color;
+                }
+
+                & :nth-child(2){
+                    color: $grey-color;
+                }
+                
+            }
+
+            & button.button{
+                width: 100%;
+            }
+
+            & .line{
+                width: 100%;
+                height: 2px;
+                border: 1px solid #DCD5DC;
+            }
+           
+        }
+        
+        & .step-by-step-purchase_content-main__details{
+            grid-area: 2 / 1 / 6 / 6;
+
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+            padding: 16px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: stretch;
+
+            & .airline-route{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: stretch;
+                gap: 12px;
+                & span{
+                    font-weight: 700;
+                    color: $primary-color;
+                }
+                &__item{
+                    font-weight: 500;
+                    color: $black-color;
+                }
+            }
+
+            svg{
+                width: 100%;
+            
+                line {
+                    stroke:#DCD5DC; 
+                    stroke-width: 1;   
+                }            
+            }
+
+            & .details-passage__item{
+                & span{
+                    font-weight: 700;
+                    font-size: 14px;
+                    color: #DCD5DC;
+                }
+
+                & p{
+                    font-weight: 500;
+                    color: $black-color;
+                }
+
+                
+            }
+        }
+    }
+    & svg{
+        width: 100%;
+    
+        line {
+        stroke:#DCD5DC; 
+        stroke-width: 2;   
+        }            
+    }
+}
