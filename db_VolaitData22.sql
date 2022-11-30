@@ -37,6 +37,8 @@ create table tb_tipoPagto
     TipoPagto varchar(30)
 );
 
+select * from tb_tipoPagto;
+
 create table tb_cupom(
 
 	CupomId int auto_increment primary key,
@@ -356,7 +358,7 @@ NotaFiscal int auto_increment primary key not null,
 drop procedure if exists spInsertPassagem;
 DELIMITER $$
 CREATE PROCEDURE spInsertPassagem(vNomePassagem varchar(200), vDescPassagem varchar(500), vImgPassagem varchar(100), vValor decimal(15,2),
-                 vClasse varchar(50), vCiaAerea varchar(50), vAeroPartida char(3), vAeroDestino char(3), vPartida datetime, vDestino datetime, vDuracao int)
+                 vClasse varchar(50), vCiaAerea varchar(50), vAeroPartida char(3), vAeroDestino char(3), vPartida datetime, vDestino datetime, vDuracao time)
 
 BEGIN
     insert into tb_passagem (idpassagem, nomepassagem, descpassagem, imgpassagem, valorpassagem, idclasse, cnpjciaaerea, idaeropartida, idaerodestino, DtHrChegada, DtHrPartida, DuracaoVoo)
@@ -370,7 +372,7 @@ DELIMITER $$
 drop procedure if exists spAlterPassagem;
 DELIMITER $$
 CREATE PROCEDURE spAlterPassagem(vIdPassagem int, vNomePassagem varchar(200), vDescPassagem varchar(500), vImgPassagem varchar(100), vValor decimal(15,2), 
-				 vClasse varchar(50), vCiaAerea varchar(50), vAeroPartida char(3), vAeroDestino char(3), vPartida datetime, vChegada datetime, vDuracao int)
+				 vClasse varchar(50), vCiaAerea varchar(50), vAeroPartida char(3), vAeroDestino char(3), vPartida datetime, vChegada datetime, vDuracao time)
 
 BEGIN
 	update tb_passagem set NomePassagem = vNomePassagem, DescPassagem = vDescPassagem, ImgPassagem = vImgPassagem, ValorPassagem = vValor, 
@@ -506,9 +508,7 @@ from tb_passagem p	inner join tb_classe as c on p.IdClasse = c.IdClasse
                     	inner join tb_compra as co on co.IdPassagem = p.IdPassagem
                     	inner join tb_tipoPagto as tp on tp.CodTipoPagto = co.CodTipoPagto;
 
-select * from vw_compra; where NotaFiscal = 3;
 
-select * from vw_passagem; where IdPassagem = 2;
 
 call spDeletePassagem(2);
 
@@ -528,39 +528,46 @@ call spAlterCupom(1, 'AABAAAAAA', 100.00, '2022-10-10');
 CALL spInsertPassagem("Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1250.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 1);		
 CALL spAlterPassagem(1, "Passagem 1", "Voo direto de Guarulhos para Curitiba", "html//foto", "1257.00", "Classe executiva", "Gol Linhas Aéreas", "GRU", "CWB", "2022-11-25 00:00:00", "2022-11-25 00:00:00", 2);
 CALL spDeletePassagem(1);
-CALL spInsertCompra("2022-11-17", 2, null, 52673833846, null, "Cartão de crédito", 2);
+CALL spInsertCompra("2022-11-17", 2, null, 52673833846, null, "Cartão de crédito", 1);
 CALL spSelectCompra(2, null, null);
 CALL spAlterValorCompra(2, "1256.00");
 -- CALL spItemCompra(2, 1, 2);
 
-CALL spInsertFunc(7437224560, "Administrador", null, "adm@gmail.com", "11972689933", "adm123"); 
+CALL spInsertFunc(7437214560, "Administrador", null, "adm", "11972689933", "8d969eef6ecad3c29a3a629280e686cfc3f5d5a86aff3ca122c923adc6c92"); 
 
 CALL spInsertPassagem("São Paulo - Manaus", "Voo direto de Guarulhos para Manaus", "https://www.ulbratech.com.br/br/assets/images/header_manaus1.png", 
-"225.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "MAO", "2022-12-07 07:15:00", "2022-12-07 08:15:00", "01:00:00");
+"225.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "MAO", "2022-12-07 07:15:00", "2022-12-07 08:15:00", "010000");
 
 CALL spInsertPassagem("São Paulo - Salvador", "Voo direto de Guarulhos para Salvador", "https://f.i.uol.com.br/fotografia/2021/02/25/161428606260380cee005c0_1614286062_3x2_md.jpg", 
-"430.00", "Classe econômica", "Latam Airlines", "GRU", "SSA", "2022-12-14 09:45:00", "2022-12-07 12:05:00", "02:20:00");
+"430.00", "Classe econômica", "Latam Airlines", "GRU", "SSA", "2022-12-14 09:45:00", "2022-12-07 12:05:00", "022000");
 
 CALL spInsertPassagem("São Paulo - Doha", "Voo de São Paulo para o Qatar", "https://media.gazetadopovo.com.br/2019/04/30120011/qatar-900x540.jpg", 
-"15330.00", "Classe executiva", "Air France", "GRU", "DIA", "2023-01-23 20:45:00", "2023-01-25 02:50:00", "24:05:00");
+"15330.00", "Classe executiva", "Air France", "GRU", "DIA", "2023-01-23 20:45:00", "2023-01-25 02:50:00", "240500");
 
 CALL spInsertPassagem("São Paulo - Rio de Janeiro", "Voo direto de Guarulhos para o Rio de Janeiro", "https://2.bp.blogspot.com/-RThEwEqQrtc/Uk2l9uuty4I/AAAAAAAAnE0/ZsPTiyseI_A/s1600/Rio-de-Janeiro.jpg", 
-"330.00", "Classe econômica", "Azul Linhas Aéreas", "GRU", "GIG", "2022-12-13 10:15:00", "2022-12-13 11:15:00", "01:00:00");
+"330.00", "Classe econômica", "Azul Linhas Aéreas", "GRU", "GIG", "2022-12-13 10:15:00", "2022-12-13 11:15:00", "010000");
 
 CALL spInsertPassagem("São Paulo - Chicago", "Voo de São Paulo para Chicago", "https://catracalivre.com.br/wp-content/uploads/2019/01/chicago-illinois-gastronomia-910x608.jpg", 
-"1963.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "ORD", "2022-12-21 23:20:00", "2022-12-21 11:20:00", "15:00:00");
+"1963.00", "Classe econômica", "Gol Linhas Aéreas", "GRU", "ORD", "2022-12-21 23:20:00", "2022-12-21 11:20:00", "150000");
+
 
 CALL spInsertPassagem("Curitiba - Foz do Iguaçu", "Voo de São Paulo para Foz do Iguaçu", "https://foto", 
-"378.90", "Classe econômica", "Azul linhas aéreas", "CWB", "IGU", "2022-12-15 8:50:00", "2022-12-15 10:05:00", "01:15:00");
+"378.90", "Classe econômica", "Azul linhas aéreas", "CWB", "IGU", "2022-12-15 8:50:00", "2022-12-15 10:05:00", "011500");
 
 CALL spInsertPassagem("Salvador - Manaus", "Voo de Salvador para Manaus", "https://foto", 
-"930.00", "Classe econômica", "Gol Linhas Aéreas", "SSA", "MAO", "2023-02-11 07:20:00", "2023-02-11 17:20:00", "10:00:00");
+"930.00", "Classe econômica", "Gol Linhas Aéreas", "SSA", "MAO", "2023-02-11 07:20:00", "2023-02-11 17:20:00", "100000");
 
 CALL spInsertPassagem("Salvador - Manaus", "Voo de Salvador para Manaus", "https://foto", 
-"930.00", "Classe econômica", "Gol Linhas Aéreas", "SSA", "MAO", "2023-02-11 07:20:00", "2023-02-11 17:20:00", "10:00:00");
+"930.00", "Classe econômica", "Gol Linhas Aéreas", "SSA", "MAO", "2023-02-11 07:20:00", "2023-02-11 17:20:00", "100000");
 
 CALL spInsertPassagem("Rio de Janeiro - Natal", "Voo do Rio de Janeiro para Natal", "https://foto", 
-"1345.80", "Classe executiva", "Azul Linhas Aéreas", "GIG", "NAT", "2023-02-24 15:35:00", "2023-02-24 16:50:00", "01:15:00");
+"1345.80", "Classe executiva", "Azul Linhas Aéreas", "GIG", "NAT", "2023-02-24 15:35:00", "2023-02-24 16:50:00", "011500");
+
+
+-- Selects simples
+select * from vw_compra; where NotaFiscal = 3;
+
+select * from vw_passagem; where IdPassagem = 2;
 
 -- Selects simples
 select * from tb_funcionario;
@@ -571,3 +578,5 @@ select * from tb_classe;
 select * from tb_ciaAerea;
 select * from tb_aero;
 select * from tb_passagem;
+select * from tb_tipopagto;
+select * from vw_compra where NotaFiscal = 4;
