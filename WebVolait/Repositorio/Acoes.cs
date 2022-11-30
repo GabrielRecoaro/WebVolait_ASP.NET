@@ -155,9 +155,7 @@ namespace WebVolait.Repositorio
         }
 
             
-        public List<Funcionario>
-
-        ListarCodFunc(MySqlDataReader dt)
+        public List<Funcionario> ListarCodFunc(MySqlDataReader dt)
             {
                 var AltAl = new List<Funcionario>
                     ();
