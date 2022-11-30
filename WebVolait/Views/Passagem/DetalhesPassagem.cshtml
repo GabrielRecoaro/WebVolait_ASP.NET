@@ -4,165 +4,288 @@
     ViewBag.Title = "DetalhesPassagem";
 }
 
+<section class="step-by-step-purchase passage-details content-main margin">
+    <div class="container">
+        <ul class="step-by-step-purchase__list">
+            <li class="step-by-step-purchase__list__item success">Selecionar passagem</li>
+            <li class="step-by-step-purchase__list__item active">Detalhes passagem</li>
+            <li class="step-by-step-purchase__list__item ">Pagamento</li>
+            <li class="step-by-step-purchase__list__item ">Confirmação compra</li>
+        </ul>
+    </div>
+    <picture class="step-by-step-purchase__background-image">
+        <img src="~/images/background-image-passage-details.jpg" alt="">
+        <div class="step-by-step-purchase__background-image__title-step-by-step">
+            Seu próximo destino
+        </div>
+    </picture>
+    <div class="container">
+        <div class="step-by-step-purchase__content-main">
+            <div class="step-by-step-purchase__content-main__card-passages grid-passage-details-page">
+                <div class="step-by-step-purchase__content-main__card-passages__item">
+                    <div>
+                        <span class="text-secondary-color">Companhia áerea</span>
+                        <span class="text-primary-color">@Model.CiaAerea</span>
+                    </div>
+                    <div>
+                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                            <span class="text-primary-color">@Model.IdAeroPartida</span>
+                            <span class="text-secondary-color">
+                                Duração: <span class="text-primary-color">@Model.DuracaoVoo</span>
+                            </span>
+                            <span class="text-primary-color">@Model.IdAeroDestino</span>
+                        </div>
+                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                            <span>13:15</span>
+                            <span class="text-secondary-color">
+                                <img src="~/images/card-passages.png" alt="">
+                            </span>
+                            <span>23:30</span>
+                        </div>
+                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                            <span>@Model.CidadeAeroPartida</span>
+                            <span>@Model.CidadeAeroDestino</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-values">
+                    <span class="details-values__title">Valores</span>
+
+                    <svg width="350" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <line stroke-dasharray="15, 10, 5, 10, 15" x1="0" y1="10" x2="350" y2="10"></line>
+                    </svg>
+
+                    <div class="details-values__item">
+                        <span>Ticket</span>
+                        <span>R$ @Model.ValorPassagem</span>
+                    </div>
+
+                    <div class="details-values__item">
+                        <span>Desconto</span>
+                        <span>Valor</span>
+                    </div>
+
+
+                    <svg width="350" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <line stroke-dasharray="15, 10, 5, 10, 15" x1="0" y1="10" x2="350" y2="10"></line>
+                    </svg>
+
+                    <a class="button" href="~/Compra/InsertCompra/@Model.IdPassagem">
+                        Continuar Comprando
+                    </a>
+                </div>
+
+                <div class="step-by-step-purchase_content-main__details">
+                    <div class="airline-route">
+                        <span class="airline-route-title">
+                            
+                            @Model.CidadeAeroPartida (@Model.IdAeroPartida) - @Model.CidadeAeroDestino (@Model.IdAeroDestino) 
+                        </span>
+                        <p class="airline-route__item">
+                            
+                             @Model.NomeAeroPartida (@Model.IdAeroPartida) 
+                        </p>
+                        <p class="airline-route__item">
+                            
+                             @Model.NomeAeroDestino (@Model.IdAeroDestino) 
+                        </p>
+                    </div>
+
+                    <svg width="600" height="19" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <line stroke-dasharray="15, 10, 5" x1="0" y1="10" x2="600" y2="10" style="stroke-width: 2px;"></line>
+                    </svg>
+
+                    <div class="details-passage__item">
+                        <span>DURAÇÃO</span>
+                        <p>@Model.DuracaoVoo</p>
+                    </div>
+                    <div class="details-passage__item">
+                        <span>COMPAINHA AÉREA</span>
+                        <p>@Model.CiaAerea</p>
+                    </div>
+                    <div class="details-passage__item">
+                        <span>CLASSE</span>
+                        <p>@Model.Classe</p>
+                    </div>
+                    <div class="details-passage__item">
+                        <span>@Model.IdAeroPartida</span>
+                        <p>@Model.DtHrPartida </p>
+                    </div>
+                    <div class="details-passage__item">
+                        <span>@Model.IdAeroDestino</span>
+                        <p>@Model.DtHrChegada</p>
+                    </div>
+                    <div class="details-passage__item">
+                        <span>DESCRIÇÃO</span>
+                        <p>@Model.DescPassagem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 @*<h2>DetalhesPassagem</h2>
 
-<div>
-    <h4>PassagemViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IdPassagem)
-        </dt>
+    <div>
+        <h4>PassagemViewModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IdPassagem)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IdPassagem)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.IdPassagem)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NomePassagem)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.NomePassagem)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomePassagem)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NomePassagem)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DescPassagem)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DescPassagem)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DescPassagem)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DescPassagem)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ImgPassagem)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ImgPassagem)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ImgPassagem)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ImgPassagem)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ValorPassagem)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ValorPassagem)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ValorPassagem)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ValorPassagem)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DtHrPartida)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DtHrPartida)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DtHrPartida)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DtHrPartida)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DtHrChegada)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DtHrChegada)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DtHrChegada)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DtHrChegada)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DuracaoVoo)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DuracaoVoo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DuracaoVoo)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DuracaoVoo)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CiaAerea)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CiaAerea)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CiaAerea)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CiaAerea)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Classe)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Classe)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Classe)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Classe)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IdAeroPartida)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.IdAeroPartida)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IdAeroPartida)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.IdAeroPartida)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IdAeroDestino)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.IdAeroDestino)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IdAeroDestino)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.IdAeroDestino)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeAeroPartida)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeAeroPartida)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeAeroPartida)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NomeAeroPartida)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeAeroDestino)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeAeroDestino)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeAeroDestino)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NomeAeroDestino)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CidadeAeroPartida)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CidadeAeroPartida)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CidadeAeroPartida)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CidadeAeroPartida)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CidadeAeroDestino)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CidadeAeroDestino)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CidadeAeroDestino)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CidadeAeroDestino)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UFAeroPartida)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.UFAeroPartida)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UFAeroPartida)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.UFAeroPartida)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UFAeroDestino)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.UFAeroDestino)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UFAeroDestino)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.UFAeroDestino)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
- *@
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+*@
 
-<section class="step-by-step-purchase content-main margin">
+@*<section class="step-by-step-purchase content-main margin">
     <div class="container">
         <ul class="step-by-step-purchase__list">
             <li class="step-by-step-purchase__list__item active">Selecionar passagem</li>
@@ -186,279 +309,279 @@
                 <p class="step-by-step-purchase__content-main__text__paragraph">
                     Aqui você encontra as melhores passagens para<br class="break-line">diversos destinos. Pesquise por destinos e <br class="break-line">datas e venha explorar o mundo com a Volait
                 </p>
+            </div>*@
+<!-- <div class="step-by-step-purchase__content-main__card-passages">
+    <div class="step-by-step-purchase__content-main__card-passages__item">
+        <div>
+            <span class="text-secondary-color">Companhia áerea</span>
+            <span class="text-primary-color">Gol airlanes</span>
+        </div>
+        <div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span class="text-primary-color">(GRU)</span>
+                <span class="text-secondary-color">
+                    Duração: <span class="text-primary-color">10h15min</span>
+                </span>
+                <span class="text-primary-color">(VIM)</span>
             </div>
-            <!-- <div class="step-by-step-purchase__content-main__card-passages">
-                <div class="step-by-step-purchase__content-main__card-passages__item">
-                    <div>
-                        <span class="text-secondary-color">Companhia áerea</span>
-                        <span class="text-primary-color">Gol airlanes</span>
-                    </div>
-                    <div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span class="text-primary-color">(GRU)</span>
-                            <span class="text-secondary-color">
-                                Duração: <span class="text-primary-color">10h15min</span>
-                            </span>
-                            <span class="text-primary-color">(VIM)</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span>13:15</span>
-                            <span class="text-secondary-color">
-                                <img src="images/card-passages.png" alt="">
-                            </span>
-                            <span>23:30</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
-                            <span>São Paulo</span>
-                            <span>Rio de Janeiro</span>
-                        </div>
-                    </div>
-                    <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
-                        <span class="text-primary-color">R$ 120</span>
-                        <button class="button">Ver Detalhes</button>
-                    </div>
-                </div>
-                <div class="step-by-step-purchase__content-main__card-passages__item">
-                    <div>
-                        <span class="text-secondary-color">Companhia áerea</span>
-                        <span class="text-primary-color">Gol airlanes</span>
-                    </div>
-                    <div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span class="text-primary-color">(GRU)</span>
-                            <span class="text-secondary-color">
-                                Duração: <span class="text-primary-color">10h15min</span>
-                            </span>
-                            <span class="text-primary-color">(VIM)</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span>13:15</span>
-                            <span class="text-secondary-color">
-                                <img src="images/card-passages.png" alt="">
-                            </span>
-                            <span>23:30</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
-                            <span>São Paulo</span>
-                            <span>Rio de Janeiro</span>
-                        </div>
-                    </div>
-                    <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
-                        <span class="text-primary-color">R$ 120</span>
-                        <button class="button">Ver Detalhes</button>
-                    </div>
-                </div>
-                <div class="step-by-step-purchase__content-main__card-passages__item">
-                    <div>
-                        <span class="text-secondary-color">Companhia áerea</span>
-                        <span class="text-primary-color">Gol airlanes</span>
-                    </div>
-                    <div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span class="text-primary-color">(GRU)</span>
-                            <span class="text-secondary-color">
-                                Duração: <span class="text-primary-color">10h15min</span>
-                            </span>
-                            <span class="text-primary-color">(VIM)</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span>13:15</span>
-                            <span class="text-secondary-color">
-                                <img src="images/card-passages.png" alt="">
-                            </span>
-                            <span>23:30</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
-                            <span>São Paulo</span>
-                            <span>Rio de Janeiro</span>
-                        </div>
-                    </div>
-                    <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
-                        <span class="text-primary-color">R$ 120</span>
-                        <button class="button">Ver Detalhes</button>
-                    </div>
-                </div>
-                <div class="step-by-step-purchase__content-main__card-passages__item">
-                    <div>
-                        <span class="text-secondary-color">Companhia áerea</span>
-                        <span class="text-primary-color">Gol airlanes</span>
-                    </div>
-                    <div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span class="text-primary-color">(GRU)</span>
-                            <span class="text-secondary-color">
-                                Duração: <span class="text-primary-color">10h15min</span>
-                            </span>
-                            <span class="text-primary-color">(VIM)</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span>13:15</span>
-                            <span class="text-secondary-color">
-                                <img src="images/card-passages.png" alt="">
-                            </span>
-                            <span>23:30</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
-                            <span>São Paulo</span>
-                            <span>Rio de Janeiro</span>
-                        </div>
-                    </div>
-                    <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
-                        <span class="text-primary-color">R$ 120</span>
-                        <button class="button">Ver Detalhes</button>
-                    </div>
-                </div>
-                <div class="step-by-step-purchase__content-main__card-passages__item">
-                    <div>
-                        <span class="text-secondary-color">Companhia áerea</span>
-                        <span class="text-primary-color">Gol airlanes</span>
-                    </div>
-                    <div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span class="text-primary-color">(GRU)</span>
-                            <span class="text-secondary-color">
-                                Duração: <span class="text-primary-color">10h15min</span>
-                            </span>
-                            <span class="text-primary-color">(VIM)</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span>13:15</span>
-                            <span class="text-secondary-color">
-                                <img src="images/card-passages.png" alt="">
-                            </span>
-                            <span>23:30</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
-                            <span>São Paulo</span>
-                            <span>Rio de Janeiro</span>
-                        </div>
-                    </div>
-                    <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
-                        <span class="text-primary-color">R$ 120</span>
-                        <button class="button">Ver Detalhes</button>
-                    </div>
-                </div>
-                <div class="step-by-step-purchase__content-main__card-passages__item">
-                    <div>
-                        <span class="text-secondary-color">Companhia áerea</span>
-                        <span class="text-primary-color">Gol airlanes</span>
-                    </div>
-                    <div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span class="text-primary-color">(GRU)</span>
-                            <span class="text-secondary-color">
-                                Duração: <span class="text-primary-color">10h15min</span>
-                            </span>
-                            <span class="text-primary-color">(VIM)</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span>13:15</span>
-                            <span class="text-secondary-color">
-                                <img src="images/card-passages.png" alt="">
-                            </span>
-                            <span>23:30</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
-                            <span>São Paulo</span>
-                            <span>Rio de Janeiro</span>
-                        </div>
-                    </div>
-                    <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
-                        <span class="text-primary-color">R$ 120</span>
-                        <button class="button">Ver Detalhes</button>
-                    </div>
-                </div>
-                <div class="step-by-step-purchase__content-main__card-passages__item">
-                    <div>
-                        <span class="text-secondary-color">Companhia áerea</span>
-                        <span class="text-primary-color">Gol airlanes</span>
-                    </div>
-                    <div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span class="text-primary-color">(GRU)</span>
-                            <span class="text-secondary-color">
-                                Duração: <span class="text-primary-color">10h15min</span>
-                            </span>
-                            <span class="text-primary-color">(VIM)</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span>13:15</span>
-                            <span class="text-secondary-color">
-                                <img src="images/card-passages.png" alt="">
-                            </span>
-                            <span>23:30</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
-                            <span>São Paulo</span>
-                            <span>Rio de Janeiro</span>
-                        </div>
-                    </div>
-                    <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
-                        <span class="text-primary-color">R$ 120</span>
-                        <button class="button">Ver Detalhes</button>
-                    </div>
-                </div>
-                <div class="step-by-step-purchase__content-main__card-passages__item">
-                    <div>
-                        <span class="text-secondary-color">Companhia áerea</span>
-                        <span class="text-primary-color">Gol airlanes</span>
-                    </div>
-                    <div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span class="text-primary-color">(GRU)</span>
-                            <span class="text-secondary-color">
-                                Duração: <span class="text-primary-color">10h15min</span>
-                            </span>
-                            <span class="text-primary-color">(VIM)</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span>13:15</span>
-                            <span class="text-secondary-color">
-                                <img src="images/card-passages.png" alt="">
-                            </span>
-                            <span>23:30</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
-                            <span>São Paulo</span>
-                            <span>Rio de Janeiro</span>
-                        </div>
-                    </div>
-                    <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
-                        <span class="text-primary-color">R$ 120</span>
-                        <button class="button">Ver Detalhes</button>
-                    </div>
-                </div>
-                <div class="step-by-step-purchase__content-main__card-passages__item">
-                    <div>
-                        <span class="text-secondary-color">Companhia áerea</span>
-                        <span class="text-primary-color">Gol airlanes</span>
-                    </div>
-                    <div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span class="text-primary-color">(GRU)</span>
-                            <span class="text-secondary-color">
-                                Duração: <span class="text-primary-color">10h15min</span>
-                            </span>
-                            <span class="text-primary-color">(VIM)</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__upper">
-                            <span>13:15</span>
-                            <span class="text-secondary-color">
-                                <img src="images/card-passages.png" alt="">
-                            </span>
-                            <span>23:30</span>
-                        </div>
-                        <div class="step-by-step-purchase__content-main__card-passages__item__middle">
-                            <span>São Paulo</span>
-                            <span>Rio de Janeiro</span>
-                        </div>
-                    </div>
-                    <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
-                        <span class="text-primary-color">R$ 120</span>
-                        <button class="button">Ver Detalhes</button>
-                    </div>
-                </div>
-            </div> -->
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span>13:15</span>
+                <span class="text-secondary-color">
+                    <img src="images/card-passages.png" alt="">
+                </span>
+                <span>23:30</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                <span>São Paulo</span>
+                <span>Rio de Janeiro</span>
+            </div>
+        </div>
+        <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+            <span class="text-primary-color">R$ 120</span>
+            <button class="button">Ver Detalhes</button>
+        </div>
+    </div>
+    <div class="step-by-step-purchase__content-main__card-passages__item">
+        <div>
+            <span class="text-secondary-color">Companhia áerea</span>
+            <span class="text-primary-color">Gol airlanes</span>
+        </div>
+        <div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span class="text-primary-color">(GRU)</span>
+                <span class="text-secondary-color">
+                    Duração: <span class="text-primary-color">10h15min</span>
+                </span>
+                <span class="text-primary-color">(VIM)</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span>13:15</span>
+                <span class="text-secondary-color">
+                    <img src="images/card-passages.png" alt="">
+                </span>
+                <span>23:30</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                <span>São Paulo</span>
+                <span>Rio de Janeiro</span>
+            </div>
+        </div>
+        <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+            <span class="text-primary-color">R$ 120</span>
+            <button class="button">Ver Detalhes</button>
+        </div>
+    </div>
+    <div class="step-by-step-purchase__content-main__card-passages__item">
+        <div>
+            <span class="text-secondary-color">Companhia áerea</span>
+            <span class="text-primary-color">Gol airlanes</span>
+        </div>
+        <div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span class="text-primary-color">(GRU)</span>
+                <span class="text-secondary-color">
+                    Duração: <span class="text-primary-color">10h15min</span>
+                </span>
+                <span class="text-primary-color">(VIM)</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span>13:15</span>
+                <span class="text-secondary-color">
+                    <img src="images/card-passages.png" alt="">
+                </span>
+                <span>23:30</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                <span>São Paulo</span>
+                <span>Rio de Janeiro</span>
+            </div>
+        </div>
+        <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+            <span class="text-primary-color">R$ 120</span>
+            <button class="button">Ver Detalhes</button>
+        </div>
+    </div>
+    <div class="step-by-step-purchase__content-main__card-passages__item">
+        <div>
+            <span class="text-secondary-color">Companhia áerea</span>
+            <span class="text-primary-color">Gol airlanes</span>
+        </div>
+        <div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span class="text-primary-color">(GRU)</span>
+                <span class="text-secondary-color">
+                    Duração: <span class="text-primary-color">10h15min</span>
+                </span>
+                <span class="text-primary-color">(VIM)</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span>13:15</span>
+                <span class="text-secondary-color">
+                    <img src="images/card-passages.png" alt="">
+                </span>
+                <span>23:30</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                <span>São Paulo</span>
+                <span>Rio de Janeiro</span>
+            </div>
+        </div>
+        <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+            <span class="text-primary-color">R$ 120</span>
+            <button class="button">Ver Detalhes</button>
+        </div>
+    </div>
+    <div class="step-by-step-purchase__content-main__card-passages__item">
+        <div>
+            <span class="text-secondary-color">Companhia áerea</span>
+            <span class="text-primary-color">Gol airlanes</span>
+        </div>
+        <div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span class="text-primary-color">(GRU)</span>
+                <span class="text-secondary-color">
+                    Duração: <span class="text-primary-color">10h15min</span>
+                </span>
+                <span class="text-primary-color">(VIM)</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span>13:15</span>
+                <span class="text-secondary-color">
+                    <img src="images/card-passages.png" alt="">
+                </span>
+                <span>23:30</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                <span>São Paulo</span>
+                <span>Rio de Janeiro</span>
+            </div>
+        </div>
+        <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+            <span class="text-primary-color">R$ 120</span>
+            <button class="button">Ver Detalhes</button>
+        </div>
+    </div>
+    <div class="step-by-step-purchase__content-main__card-passages__item">
+        <div>
+            <span class="text-secondary-color">Companhia áerea</span>
+            <span class="text-primary-color">Gol airlanes</span>
+        </div>
+        <div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span class="text-primary-color">(GRU)</span>
+                <span class="text-secondary-color">
+                    Duração: <span class="text-primary-color">10h15min</span>
+                </span>
+                <span class="text-primary-color">(VIM)</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span>13:15</span>
+                <span class="text-secondary-color">
+                    <img src="images/card-passages.png" alt="">
+                </span>
+                <span>23:30</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                <span>São Paulo</span>
+                <span>Rio de Janeiro</span>
+            </div>
+        </div>
+        <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+            <span class="text-primary-color">R$ 120</span>
+            <button class="button">Ver Detalhes</button>
+        </div>
+    </div>
+    <div class="step-by-step-purchase__content-main__card-passages__item">
+        <div>
+            <span class="text-secondary-color">Companhia áerea</span>
+            <span class="text-primary-color">Gol airlanes</span>
+        </div>
+        <div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span class="text-primary-color">(GRU)</span>
+                <span class="text-secondary-color">
+                    Duração: <span class="text-primary-color">10h15min</span>
+                </span>
+                <span class="text-primary-color">(VIM)</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span>13:15</span>
+                <span class="text-secondary-color">
+                    <img src="images/card-passages.png" alt="">
+                </span>
+                <span>23:30</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                <span>São Paulo</span>
+                <span>Rio de Janeiro</span>
+            </div>
+        </div>
+        <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+            <span class="text-primary-color">R$ 120</span>
+            <button class="button">Ver Detalhes</button>
+        </div>
+    </div>
+    <div class="step-by-step-purchase__content-main__card-passages__item">
+        <div>
+            <span class="text-secondary-color">Companhia áerea</span>
+            <span class="text-primary-color">Gol airlanes</span>
+        </div>
+        <div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span class="text-primary-color">(GRU)</span>
+                <span class="text-secondary-color">
+                    Duração: <span class="text-primary-color">10h15min</span>
+                </span>
+                <span class="text-primary-color">(VIM)</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span>13:15</span>
+                <span class="text-secondary-color">
+                    <img src="images/card-passages.png" alt="">
+                </span>
+                <span>23:30</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                <span>São Paulo</span>
+                <span>Rio de Janeiro</span>
+            </div>
+        </div>
+        <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+            <span class="text-primary-color">R$ 120</span>
+            <button class="button">Ver Detalhes</button>
+        </div>
+    </div>
+    <div class="step-by-step-purchase__content-main__card-passages__item">
+        <div>
+            <span class="text-secondary-color">Companhia áerea</span>
+            <span class="text-primary-color">Gol airlanes</span>
+        </div>
+        <div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span class="text-primary-color">(GRU)</span>
+                <span class="text-secondary-color">
+                    Duração: <span class="text-primary-color">10h15min</span>
+                </span>
+                <span class="text-primary-color">(VIM)</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__upper">
+                <span>13:15</span>
+                <span class="text-secondary-color">
+                    <img src="images/card-passages.png" alt="">
+                </span>
+                <span>23:30</span>
+            </div>
+            <div class="step-by-step-purchase__content-main__card-passages__item__middle">
+                <span>São Paulo</span>
+                <span>Rio de Janeiro</span>
+            </div>
+        </div>
+        <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
+            <span class="text-primary-color">R$ 120</span>
+            <button class="button">Ver Detalhes</button>
+        </div>
+    </div>
+</div> -->
         </div>
     </div>
 </section>

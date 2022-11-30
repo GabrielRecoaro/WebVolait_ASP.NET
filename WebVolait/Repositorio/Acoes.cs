@@ -223,6 +223,14 @@ namespace WebVolait.Repositorio
             return ListarCodPassagem(DadosCodPass);
         }
 
+        public PassagemViewModel ListarPassagensViewModelById(int cod)
+        {
+            var comando = String.Format("select * from vw_passagem where IdPassagem = {0}", cod);
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodPass = cmd.ExecuteReader();
+            return ListarCodPassagem(DadosCodPass).FirstOrDefault();
+        }
+
         public Passagem ListarCodPassagem(int cod)
         {
             var comando = String.Format("select * from vw_passagem where IdPassagem = {0}", cod);

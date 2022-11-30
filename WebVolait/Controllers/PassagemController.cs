@@ -13,7 +13,7 @@ namespace WebVolait.Controllers
     public class PassagemController : Controller
     {
         [HttpGet]
-
+        [Authorize]
         public ActionResult InsertPassagem()
         {
             return View();
@@ -78,7 +78,7 @@ namespace WebVolait.Controllers
 
         public ActionResult DetalhesPassagem(int id)
         {
-            var passagemselecionado = ac.ListarCodPassagem(id);
+            var passagemselecionado = ac.ListarPassagensViewModelById(id);
             return View(passagemselecionado);
         }
 

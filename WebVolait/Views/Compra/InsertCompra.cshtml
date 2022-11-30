@@ -131,11 +131,19 @@
                         @Html.EditorFor(model => model.Cupom, new { htmlAttributes = new { @class = "form__area__input" } })
                         @Html.LabelFor(model => model.Cupom, htmlAttributes: new { @class = "form__area__label" })
                         @Html.ValidationMessageFor(model => model.Cupom, "", htmlAttributes: new { @class = "form__area__error-message" })
-                        @*@Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", new { @class = "form__area__label" })*@
+                       
                     </div>
                 </div>
                 <div class="form__area-flex">
                     <div class="form__area">
+                        @*@Html.DropDownList("Método de pagamento:", new List<SelectListItem>{ 
+                            new SelectListItem{Text="Cartão de Crédito", Value="1"},
+                            new SelectListItem{Text="Cartão de Débito", Value="2"},
+                            new SelectListItem{Text="Cheque", Value="3"},
+                            new SelectListItem{Text="Boleto Bancário", Value="4"},
+                            new SelectListItem{Text="PIX", Value="5"},
+                        })</hr>*@
+
                         @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form__area__input" } })
                         @Html.LabelFor(model => model.CodTipoPagto, htmlAttributes: new { @class = "form__area__label" })
                         @Html.ValidationMessageFor(model => model.CodTipoPagto, "", htmlAttributes: new { @class = "form__area__error-message" })
