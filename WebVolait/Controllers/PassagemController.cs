@@ -58,6 +58,7 @@ namespace WebVolait.Controllers
             return RedirectToAction("ListarPassagem", "Passagem");
 
         }
+
         [Authorize]
         public ActionResult ListarPassagem()
         {
@@ -80,6 +81,8 @@ namespace WebVolait.Controllers
             var passagemselecionado = ac.ListarCodPassagem(id);
             return View(passagemselecionado);
         }
+
+
         [Authorize]
         public ActionResult AlterarPassagem(int id)
         {
@@ -100,7 +103,7 @@ namespace WebVolait.Controllers
             {
                 return View(passagem);
             }
-        }
+    }
 
         [HttpGet]
         [Authorize]

@@ -23,22 +23,8 @@ namespace WebVolait.App_Start
 
             AntiForgeryConfig.UniqueClaimTypeIdentifier = "LoginFuncionario";
 
-            // app.AddAuthorization(options =>
-            // {
-            //     options.AddPolicy("Adm",
-            //         policy => policy.RequireClaim("Delete Role"))
-            // });
+            
         }
 
-        // public void Configuration(IAppBuilder app)
-        // {
-        //     app.UseCookieAuthentication(new CookieAuthenticationOptions
-        //     {
-        //         AuthenticationType = "AppAplicationCookie",
-        //         LoginPath = new PathString("/AutenticacaoCliente/LoginCliente")
-        //     });
-
-        //     AntiForgeryConfig.UniqueClaimTypeIdentifier = "LoginCliente";
-        // }
     }
 }

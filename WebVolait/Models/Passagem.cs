@@ -51,7 +51,7 @@ namespace WebVolait.Models
 
         [Display(Name ="Tempo de duração do voo")]
         [Required(ErrorMessage = "O campo é obrigatório")]
-        public int DuracaoVoo { get; set; }
+        public TimeSpan DuracaoVoo { get; set; }
 
         [Display(Name ="Companhia aérea")]
         [Required(ErrorMessage = "O campo é obrigatório")]
@@ -75,7 +75,7 @@ namespace WebVolait.Models
             command.Parameters.Add("@IdAeroDestino", MySqlDbType.VarChar).Value = passagem.IdAeroDestino;
             command.Parameters.Add("@DtHrPartida", MySqlDbType.DateTime).Value = passagem.DtHrPartida;
             command.Parameters.Add("@DtHrChegada", MySqlDbType.DateTime).Value = passagem.DtHrChegada;
-            command.Parameters.Add("@DuracaoVoo", MySqlDbType.Int16).Value = passagem.DuracaoVoo;
+            command.Parameters.Add("@DuracaoVoo", MySqlDbType.Time).Value = passagem.DuracaoVoo;
             command.Connection = conexao;
             command.ExecuteNonQuery();
             conexao.Close();
@@ -102,7 +102,7 @@ namespace WebVolait.Models
                 tempPassagem.IdAeroDestino = readPassagem["IdAeroDestino"].ToString();
                 tempPassagem.DtHrPartida = DateTime.Parse(readPassagem["DtHrPartida"].ToString());
                 tempPassagem.DtHrChegada = DateTime.Parse(readPassagem["DtHrChegada"].ToString());
-                tempPassagem.DuracaoVoo = Int16.Parse(readPassagem["DuracaoVoo"].ToString());
+                tempPassagem.DuracaoVoo = TimeSpan.Parse(readPassagem["DuracaoVoo"].ToString());
             };
 
             readPassagem.Close();
@@ -128,7 +128,7 @@ namespace WebVolait.Models
             command.Parameters.Add("@IdAeroDestino", MySqlDbType.VarChar).Value = passagem.IdAeroDestino;
             command.Parameters.Add("@DtHrPartida", MySqlDbType.DateTime).Value = passagem.DtHrPartida;
             command.Parameters.Add("@DtHrChegada", MySqlDbType.DateTime).Value = passagem.DtHrChegada;
-            command.Parameters.Add("@DuracaoVoo", MySqlDbType.Int16).Value = passagem.DuracaoVoo;
+            command.Parameters.Add("@DuracaoVoo", MySqlDbType.Time).Value = passagem.DuracaoVoo;
             command.Connection = conexao;
             command.ExecuteNonQuery();
             conexao.Close();

@@ -155,9 +155,7 @@ namespace WebVolait.Repositorio
         }
 
             
-        public List<Funcionario>
-
-        ListarCodFunc(MySqlDataReader dt)
+        public List<Funcionario> ListarCodFunc(MySqlDataReader dt)
             {
                 var AltAl = new List<Funcionario>
                     ();
@@ -217,6 +215,14 @@ namespace WebVolait.Repositorio
 
         // ********************************** LISTAR PASSAGEM
 
+        public List<PassagemViewModel> ListarTodasPassagensViewModel()
+        {
+            var comando = String.Format("select * from vw_passagem");
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodPass = cmd.ExecuteReader();
+            return ListarCodPassagem(DadosCodPass);
+        }
+
         public Passagem ListarCodPassagem(int cod)
         {
             var comando = String.Format("select * from vw_passagem where IdPassagem = {0}", cod);
@@ -242,7 +248,7 @@ namespace WebVolait.Repositorio
                     IdAeroDestino = (dt["IdAeroDestino"].ToString()),
                     DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
                     DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
-                    DuracaoVoo = Int16.Parse(dt["DuracaoVoo"].ToString()),
+                    DuracaoVoo = TimeSpan.Parse(dt["DuracaoVoo"].ToString()),
                     CiaAerea = (dt["CiaAerea"].ToString()),
 
                 };
@@ -252,16 +258,44 @@ namespace WebVolait.Repositorio
             return AltAl;
         }
 
-        public List<Passagem>
-            ListarPassagem()
+        public List<PassagemViewModel> ListarCodPassagem(MySqlDataReader dt)
+        {
+            var AltAl = new List<PassagemViewModel>();
+            while (dt.Read())
+            {
+                var AlTemp = new PassagemViewModel()
+                {
+                    IdPassagem = int.Parse(dt["IdPassagem"].ToString()),
+                    NomePassagem = (dt["NomePassagem"].ToString()),
+                    DescPassagem = (dt["DescPassagem"].ToString()),
+                    ImgPassagem = (dt["ImgPassagem"].ToString()),
+                    ValorPassagem = Decimal.Parse(dt["ValorPassagem"].ToString()),
+                    Classe = (dt["Classe"].ToString()),
+                    IdAeroPartida = (dt["IdAeroPartida"].ToString()),
+                    IdAeroDestino = (dt["IdAeroDestino"].ToString()),
+                    DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
+                    DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
+                    DuracaoVoo = TimeSpan.Parse(dt["DuracaoVoo"].ToString()),
+                    CiaAerea = (dt["CiaAerea"].ToString()),
+                    CidadeAeroPartida = (dt["CidadeAeroPartida"].ToString()),
+                    CidadeAeroDestino = (dt["CidadeAeroDestino"].ToString()),
+                    NomeAeroPartida = (dt["CidadeAeroPartida"].ToString()),
+                    NomeAeroDestino = (dt["CidadeAeroDestino"].ToString())
+                };
+                AltAl.Add(AlTemp);
+            }
+            dt.Close();
+            return AltAl;
+        }
+
+        public List<Passagem> ListarPassagem()
         {
             MySqlCommand cmd = new MySqlCommand("Select * from vw_passagem", con.ConectarBD());
             var DadosPassagem = cmd.ExecuteReader();
             return ListarTodosPassagem(DadosPassagem);
         }
 
-        public List<Passagem>
-            ListarTodosPassagem(MySqlDataReader dt)
+        public List<Passagem> ListarTodosPassagem(MySqlDataReader dt)
         {
             var TodosPassagems = new List<Passagem>();
             while (dt.Read())
@@ -278,7 +312,7 @@ namespace WebVolait.Repositorio
                     IdAeroDestino = (dt["IdAeroDestino"].ToString()),
                     DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
                     DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
-                    DuracaoVoo = Int16.Parse(dt["DuracaoVoo"].ToString()),
+                    DuracaoVoo = TimeSpan.Parse(dt["DuracaoVoo"].ToString()),
                     CiaAerea = (dt["CiaAerea"].ToString()),
                 };
                 TodosPassagems.Add(PassagemTemp);

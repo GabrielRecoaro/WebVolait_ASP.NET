@@ -11,7 +11,9 @@ namespace WebVolait.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            Acoes acoes = new Acoes();
+            var listaPassagensViewModel = acoes.ListarTodasPassagensViewModel();
+            return View(listaPassagensViewModel);
         }
 
         public ActionResult Cadastro()

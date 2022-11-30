@@ -206,6 +206,7 @@
     <Compile Include="ViewModels\CompraViewModel.cs" />
     <Compile Include="ViewModels\LoginClienteViewModel.cs" />
     <Compile Include="ViewModels\LoginFuncionarioViewModel.cs" />
+    <Compile Include="ViewModels\PassagemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -217,6 +218,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\background-image-passages.jpg" />
+    <Content Include="images\card-passages.png" />
     <Content Include="images\hero-background.jpg" />
     <Content Include="images\ico.ico" />
     <Content Include="images\login.png" />
@@ -276,11 +279,11 @@
     <Content Include="Views\Passagem\ListarPassagem.cshtml" />
     <Content Include="Views\Passagem\AlterarPassagem.cshtml" />
     <Content Include="Views\Passagem\DeletarPassagem.cshtml" />
-    <Content Include="Views\Passagem\DetalhesPassagem.cshtml" />
     <Content Include="Views\Compra\TotalCompra.cshtml" />
     <Content Include="Views\Compra\InsertCompra.cshtml" />
     <Content Include="Views\Compra\SelectCompra.cshtml" />
     <Content Include="Views\Passagem\ListarPassagemCliente.cshtml" />
+    <Content Include="Views\Passagem\DetalhesPassagem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
