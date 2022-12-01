@@ -263,15 +263,12 @@
     <Content Include="Views\Home\Cadastro.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\InsertFuncionario.cshtml" />
     <Content Include="Views\AutenticacaoCliente\ListarCliente.cshtml" />
-    <Content Include="Views\Home\Notes.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\ListarFuncionario.cshtml" />
     <Content Include="Views\Gerenciador\Index.cshtml" />
     <Content Include="Views\AutenticacaoCliente\LoginCliente.cshtml" />
-    <Content Include="Views\Home\ListarPassagem.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\LoginFuncionario.cshtml" />
     <Content Include="Views\AutenticacaoCliente\AlterarSenha.cshtml" />
     <Content Include="Views\Contato\Index.cshtml" />
-    <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\AutenticacaoCliente\DeletarCliente.cshtml" />
     <Content Include="Views\AutenticacaoCliente\AlterarCliente.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\AlterarFuncionario.cshtml" />
@@ -290,6 +287,7 @@
     <Content Include="Views\Passagem\ListarPassagemCliente.cshtml" />
     <Content Include="Views\Passagem\DetalhesPassagem.cshtml" />
     <Content Include="Views\AutenticacaoFuncionario\AlterarSenha.cshtml" />
+    <Content Include="Views\Home\Sobre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

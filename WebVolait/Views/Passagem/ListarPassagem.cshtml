@@ -99,9 +99,14 @@
                             Valor
                             <span>R$ @item.ValorPassagem</span>
                         </div>
+
+                        <div>
+                            Companhia Aérea
+                            <span> @item.CiaAerea</span>
+                        </div>
                         @*<div>
-                            <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
-                        </div>*@
+            <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
+        </div>*@
                         <div>
                             Classe
                             <span>@item.Classe</span>
@@ -111,8 +116,8 @@
                             <span>@item.DescPassagem</span>
                         </div>
                         <div>
-                            <a class="button list-edit" href="~/Passagem/AlterarPassagem/@item.IdPassagem"><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
-                            <a class="button list-delete" href="~/Passagem/DeletarPassagem/@item.IdPassagem"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
+                            <a class="button list-edit" href="~/Passagem/AlterarPassagem/@item.IdPassagem"><iconify-icon icon="ci:edit"></iconify-icon>Editar</a></div>
+                            <div><a class="button list-delete" href="~/Passagem/DeletarPassagem/@item.IdPassagem"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
                         </div>
 
                     </div>
