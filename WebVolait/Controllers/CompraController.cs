@@ -38,7 +38,7 @@ namespace WebVolait.Controllers
         public ActionResult InsertCompra(Compra compra)
         {
             compra.InsertCompra(compra);
-            TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
+            TempData["MensagemLogin"] = "Compra realizada com sucesso! Obrigado por escolher Volait!";
             var ultimacompra = ac.ListarUltimaCodCompra();
             return RedirectToAction("SelectCompra/" + ultimacompra.NotaFiscal, "Compra");
         }
@@ -47,35 +47,6 @@ namespace WebVolait.Controllers
         {
             return View();
         }
-
-
-        //public ActionResult ListarCompra()
-        //{
-        //    var ExibirCompra = new Acoes();
-        //    var TodosCompra = ExibirCompra.ListarCompra();
-        //    return View(TodosCompra);
-
-        //}
-
-        //public ActionResult AlterarValorCompra(int id)
-        //{
-        //    var compraselecionado = ac.ListarCodCompra(id);
-        //    return View(compraselecionado);
-        //}
-
-        //[HttpPost]
-        //public ActionResult AlterarValorCompra(Compra compra)
-        //{
-        //    try
-        //    {
-        //        compra.UpdateCompra(compra);
-        //        return RedirectToAction("ListarCompra", "Compra");
-        //    }
-        //    catch
-        //    {
-        //        return View(compra);
-        //    }
-        //}
 
     }
 }

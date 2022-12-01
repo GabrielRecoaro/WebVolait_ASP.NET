@@ -8,10 +8,7 @@
     <div class="container">
         <div class="form-container">
             <form action="/AutenticacaoFuncionario/InsertFuncionario" method="post" class="form form-sign-up-employee">
-                @*@using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                
                 <div class="form__area-flex-title">
                     <h2 class="form__title">Cadastro de funcionário</h2>
                 </div>
@@ -44,7 +41,7 @@
                         @Html.EditorFor(model => model.TelefoneFuncionario, new { htmlAttributes = new { @class = "form__area__input" } })
                         @Html.LabelFor(model => model.TelefoneFuncionario, htmlAttributes: new { @class = "form__area__label" })
                         @Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", htmlAttributes: new { @class = "form__area__error-message" })
-                        @*@Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", new { @class = "form__area__label" })*@
+                     
                     </div>
                 </div>
                 <div class="form__area-flex">

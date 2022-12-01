@@ -14,47 +14,6 @@
     </div>
 }
 
-@*<h2>Login</h2>
-
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.urlRetorno)
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.LoginCliente, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Fazer login" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
-
-    <div>
-        @Html.ActionLink("Cancelar", "Index")
-    </div>*@
-
 
 <main class="content-main login">
     <div class="container">
@@ -78,11 +37,11 @@
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.urlRetorno)
-                @*<form class="form form-login" action="#">*@
+                
                 <div class="form__area-flex-title">
                     <h2 class="form__title">Login</h2>
                 </div>
-                <!-- <div class="form__area-flex"></div> -->
+                
                 <div class="form__area">
                     @Html.EditorFor(model => model.LoginCliente, new { htmlAttributes = new { @class = "form__area__input" } })
                     @Html.LabelFor(model => model.LoginCliente, htmlAttributes: new { @class = "form__area__label" })
@@ -93,7 +52,7 @@
                 </div>
                 <p class="form__text form__accent-text"><a href="#">Esqueceu sua senha?</a></p>
                 <input class="button button--submit" type="submit" value="Enviar">
-                @*</form>*@
+                
             }
         <p>Ainda não possui cadastro? @Html.ActionLink("Cadastre-se", "InsertCliente", "AutenticacaoCliente")</span></p>
         </div>

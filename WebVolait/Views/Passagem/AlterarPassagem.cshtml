@@ -17,7 +17,7 @@
 <main class="content-main insert-passage margin">
     <div class="container">
         <div class="form-container">
-            <!-- enctype="multipart/form-data" -->
+           
             <form id="insert-passage" class="form" action="~/Passagem/AlterarPassagem" method="post">
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(model => model.IdPassagem, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -36,8 +36,7 @@
                 </div>
                 <div class="form__area-flex">
                     <div class="form__area">
-                        @*@Html.EditorFor(model => model.IdAeroPartida, new { htmlAttributes = new { @class = "form__area__input" } })*@
-                        @*@Html.LabelFor(model => model.IdAeroPartida, htmlAttributes: new { @class = "form__area__label" })*@
+                       
                         <div class="form__area__select-box">
                             <select id="IdAeroPartida" name="IdAeroPartida">
                                 <option value="" disabled selected>Aeroporto (Origem)</option>
@@ -50,9 +49,7 @@
                         </div>
                     </div>
                     <div class="form__area">
-                        @*@Html.EditorFor(model => model.IdAeroDestino, new { htmlAttributes = new { @class = "form__area__input" } })*@
-                        @*@Html.DropDownListFor(model => model.IdAeroDestino, new SelectList(ViewBag.ToolList), new { @class = "form__area__input" })*@
-                        @*@Html.LabelFor(model => model.IdAeroDestino, htmlAttributes: new { @class = "form__area__label" })*@
+                        
                         <div class="form__area__select-box">
                             <select id="IdAeroDestino" name="IdAeroDestino">
                                 <option value="" disabled selected>Aeroporto (Destino)</option>
@@ -88,8 +85,7 @@
                         @Html.LabelFor(model => model.ValorPassagem, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        @*@Html.EditorFor(model => model.CiaAerea, new { htmlAttributes = new { @class = "form__area__input" } })
-                @Html.LabelFor(model => model.CiaAerea, htmlAttributes: new { @class = "form__area__label" })*@
+                        
 
                         <div class="form__area__select-box">
                             <select id="CiaAerea" name="CiaAerea">
@@ -110,8 +106,7 @@
                         @Html.LabelFor(model => model.DuracaoVoo, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        @*@Html.EditorFor(model => model.Classe, new { htmlAttributes = new { @class = "form__area__input" } })
-                @Html.LabelFor(model => model.Classe, htmlAttributes: new { @class = "form__area__label" })*@
+                        
 
                         <div class="form__area__select-box">
                             <select id="Classe" name="Classe">

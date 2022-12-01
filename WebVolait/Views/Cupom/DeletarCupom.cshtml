@@ -4,60 +4,6 @@
     ViewBag.Title = "DeletarCupom";
 }
 
-@*<h2>DeletarCupom</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Cupom</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cupomcode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cupomcode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Valordesconto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Valordesconto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cupomvalidade)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cupomvalidade)
-        </dd>
-
-    </dl>
- 
-        @Html.AntiForgeryToken()
-
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            @Html.HiddenFor(model => model.CupomId)
-
-            @Html.HiddenFor(model => model.Cupomcode)
-
-            @Html.HiddenFor(model => model.Valordesconto)
-
-            @Html.HiddenFor(model => model.Cupomvalidade)
-
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-        }
-</div>*@
-
 <main class="content-main delete-insert cupom margin">
     <div class="container">
         <div class="form-container">

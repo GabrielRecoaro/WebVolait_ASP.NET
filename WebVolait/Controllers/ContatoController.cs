@@ -12,6 +12,7 @@ namespace WebVolait.Controllers
         public ActionResult Index()
         {
             return View();
+
         }
     }
 }

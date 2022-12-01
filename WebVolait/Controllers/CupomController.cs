@@ -45,9 +45,9 @@ namespace WebVolait.Controllers
 
             novocupom.InsertCupom(novocupom);
 
-            TempData["MensagemLogin"] = "Cadastro realizado com sucesso!";
+            TempData["MensagemLogin"] = "Cupom cadastrado com sucesso!";
 
-            return RedirectToAction("ListarCupom", "Cupom");
+            return RedirectToAction("Index", "Gerenciador");
 
         }
         [Authorize]
@@ -69,15 +69,10 @@ namespace WebVolait.Controllers
         [Authorize]
         public ActionResult AlterarCupom(Cupom cupom)
         {
-            //try
             {
                 cupom.UpdateCupom(cupom);
                 return RedirectToAction("ListarCupom", "Cupom");
             }
-            //catch
-            //{
-            //    return View(cupom);
-            //}
         }
 
         [HttpGet]
@@ -86,6 +81,7 @@ namespace WebVolait.Controllers
         {
             var cupomselecionado = ac.ListarCodCupom(id);
             return View(cupomselecionado);
+            
         }
 
         [HttpPost]
@@ -96,6 +92,7 @@ namespace WebVolait.Controllers
             {
                 cupom.DeleteCupom(cupom);
                 return RedirectToAction("ListarCupom", "Cupom");
+
             }
             catch
             {
