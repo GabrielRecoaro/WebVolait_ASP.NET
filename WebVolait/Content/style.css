@@ -877,8 +877,7 @@ body {
         justify-content: space-between;
         grid-template-columns: 1fr 1fr 1fr 1fr 125px;
         grid-template-rows: auto auto;
-        grid-template-areas: "one one two three four"
-            "five five six . seven"
+        grid-template-areas: "one one two three four" "five five six . seven"
     }
 
         .list__flex-body__bottom div div {
@@ -990,11 +989,11 @@ body {
         }
 
     .step-by-step-purchase__list__item.success {
-        color: #254EF0
+        color: #63d19e
     }
 
         .step-by-step-purchase__list__item.success::before {
-            background-color: #254EF0;
+            background-color: #63d19e;
             color: #FDFDFD
         }
 
@@ -1457,8 +1456,7 @@ body {
 
 .coupon-list .list__flex-body__bottom div {
     grid-template-columns: 1fr 1fr 1fr 1fr 125px;
-    grid-template-areas: "one one two three four"
-        "five five . three six"
+    grid-template-areas: "one one two three four" "five five . three six"
 }
 
     .coupon-list .list__flex-body__bottom div div:nth-child(1) {
@@ -1500,8 +1498,7 @@ body {
 
 .customers-list .list__flex-body__bottom div {
     grid-template-columns: 2fr 1fr 2fr 1fr 125px;
-    grid-template-areas: "one . two . three"
-        "four . five . six"
+    grid-template-areas: "one . two . three" "four . five . six"
 }
 
     .customers-list .list__flex-body__bottom div div {
@@ -1608,8 +1605,7 @@ body {
     justify-content: space-between;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    grid-template-areas: "one two three four seven"
-        "five six . . eight"
+    grid-template-areas: "one two three four seven" "five six . . eight"
 }
 
     .passages-list .list__flex-body__bottom div div {
@@ -1676,7 +1672,7 @@ body {
     }
 
         .step-by-step-purchase.passage-details .grid-passage-details-page .step-by-step-purchase__content-main__card-passages__item:hover {
-            transform: scale(1.0)
+            transform: scale(0)
         }
 
     .step-by-step-purchase.passage-details .grid-passage-details-page .details-values {
@@ -1794,8 +1790,127 @@ body {
         margin: 0 auto;
         padding: 16px
     }
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
+.step-by-step-purchase.purchase-details .step-by-step-purchase__content-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    transform: translateY(-80px);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.step-by-step-purchase.purchase-details .purchase-data {
+    width: 50%;
+    padding: 24px;
+    border-radius: 10px;
+}
+
+    .step-by-step-purchase.purchase-details .purchase-data.confirm-purchase {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+    }
+
+        .step-by-step-purchase.purchase-details .purchase-data.confirm-purchase .order-confirmed {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+            .step-by-step-purchase.purchase-details .purchase-data.confirm-purchase .order-confirmed span {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 27px;
+                color: #FF9575;
+            }
+
+            .step-by-step-purchase.purchase-details .purchase-data.confirm-purchase .order-confirmed .icon {
+                width: 70px;
+                height: 70px;
+                background-color: #63d19e;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+                .step-by-step-purchase.purchase-details .purchase-data.confirm-purchase .order-confirmed .icon .ico-ico {
+                    color: #fff;
+                    font-size: 18px;
+                }
+
+    .step-by-step-purchase.purchase-details .purchase-data.purchase-details {
+        background-color: #fafafa;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+        .step-by-step-purchase.purchase-details .purchase-data.purchase-details .passages-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+            .step-by-step-purchase.purchase-details .purchase-data.purchase-details .passages-details .order-number {
+                background: #121212;
+                color: #fdfdfd;
+                border-radius: 25px;
+                width: fit-content;
+                padding: 8px 16px;
+            }
+
+            .step-by-step-purchase.purchase-details .purchase-data.purchase-details .passages-details span {
+                font-weight: 700;
+                color: #121212
+            }
+
+                .step-by-step-purchase.purchase-details .purchase-data.purchase-details .passages-details span:nth-child(2) {
+                    color: #FF9575
+                }
+
+            .step-by-step-purchase.purchase-details .purchase-data.purchase-details .passages-details .detail {
+                font-weight: 900;
+                font-size: 16px;
+            }
+
+        .step-by-step-purchase.purchase-details .purchase-data.purchase-details .order-values-details {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: space-between;
+        }
+
+            .step-by-step-purchase.purchase-details .purchase-data.purchase-details .order-values-details .item {
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                justify-content: space-between;
+                padding: 16px 0;
+            }
+
+                .step-by-step-purchase.purchase-details .purchase-data.purchase-details .order-values-details .item span:nth-child(1) {
+                    font-weight: 700;
+                    color: #777;
+                }
+
+                .step-by-step-purchase.purchase-details .purchase-data.purchase-details .order-values-details .item span:nth-child(2) {
+                    font-weight: 700;
+                }
+
+                .step-by-step-purchase.purchase-details .purchase-data.purchase-details .order-values-details .item.total {
+                    color: black;
+                    font-size: 18px;
+                }
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%
