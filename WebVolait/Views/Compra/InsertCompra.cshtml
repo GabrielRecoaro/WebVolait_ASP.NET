@@ -207,6 +207,7 @@
                 <div class="form__area">
                     @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form__area__input" } })
                     @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "form__area__label" })
+                    @Html.ValidationMessageFor(model => model.CPFCliente, "", htmlAttributes: new { @class = "form__area__error-message" })
                 </div>
                 <div class="form__area">
                     @Html.EditorFor(model => model.DataCompra, new { htmlAttributes = new { @class = "form__area__input" } })

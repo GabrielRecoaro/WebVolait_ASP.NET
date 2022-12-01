@@ -28,11 +28,11 @@ namespace WebVolait.Models
 
         [Required(ErrorMessage = "O campo é obrigatório")]
         [Display(Name = "E-mail")]
-        [Remote ("SelectLogin","AutenticacaoCliente", ErrorMessage ="O login já existe!")]
+        [Remote ("SelectLogin","AutenticacaoCliente", ErrorMessage ="O login já existe")]
         public string LoginCliente { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
-        [MaxLength(11)]
+        [StringLength(15, MinimumLength = 11, ErrorMessage = "O número de telefone digitado é inválido")]
         [Display(Name = "Número de Telefone")]
         public string TelefoneCliente { get; set; }
 

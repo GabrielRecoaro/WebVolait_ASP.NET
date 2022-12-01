@@ -27,7 +27,7 @@ namespace WebVolait.Models
         public decimal ValorTotal { get; set; }
 
         [Required(ErrorMessage = "O campo é obrigatório")]
-        [Display(Name = "CPF do cliente")]
+        [Display(Name = "CPF do cliente", AutoGenerateFilter = false)]
         public long CPFCliente { get; set; }
 
         [Display(Name = "Cupom de desconto")]
