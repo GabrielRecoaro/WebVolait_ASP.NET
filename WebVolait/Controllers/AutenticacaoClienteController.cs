@@ -171,15 +171,10 @@ namespace WebVolait.Controllers
         [Authorize]
         public ActionResult DeletarCliente(Cliente cliente)
         {
-            try
-            {
+
                 cliente.DeleteCliente(cliente);
                 return RedirectToAction("ListarCliente", "AutenticacaoCliente");
-            }
-            catch
-            {
-                return RedirectToAction("ListarCliente", "AutenticacaoCliente");
-            }
+
         }
     }
 }

@@ -47,7 +47,7 @@ namespace WebVolait.Controllers
 
             TempData["MensagemLogin"] = "Cupom cadastrado com sucesso!";
 
-            return RedirectToAction("Index", "Gerenciador");
+            return RedirectToAction("ListarCupom", "Cupom");
 
         }
         [Authorize]

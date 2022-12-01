@@ -49,7 +49,7 @@ namespace WebVolait.Controllers
 
             novofuncionario.InsertFuncionario(novofuncionario);
 
-            return RedirectToAction("LoginFuncionario", "AutenticacaoFuncionario");
+            return RedirectToAction("ListarFuncionario", "AutenticacaoFuncionario");
 
         }
 

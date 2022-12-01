@@ -7,21 +7,23 @@
 <main class="content-main coupon-registration margin">
     <div class="container">
         <div class="form-container">
-            <form id="coupon-registration" class="form" action="#">
+            <form id="coupon-registration" class="form" action="~/Cupom/InsertCupom" method="post">
                 <div class="form__area-flex-title">
                     <h2 class="form__title">Cadastro de cupom</h2>
                 </div>
                 <div class="form__area form__area__textarea">
-                    @Html.LabelFor(model => model.Cupomcode, htmlAttributes: new { @class = "form__area__label" })
+
                     @Html.EditorFor(model => model.Cupomcode, new { htmlAttributes = new { @class = "form__area__input" } })
+                    @Html.LabelFor(model => model.Cupomcode, htmlAttributes: new { @class = "form__area__label" })
+
                 </div>
                 <div class="form__area">
-                    @Html.LabelFor(model => model.Cupomvalidade, htmlAttributes: new { @class = "form__area__label" })
                     @Html.EditorFor(model => model.Cupomvalidade, new { htmlAttributes = new { @class = "form__area__input" } })
+                    @Html.LabelFor(model => model.Cupomvalidade, htmlAttributes: new { @class = "form__area__label" })
                 </div>
                 <div class="form__area">
-                    @Html.LabelFor(model => model.Valordesconto, htmlAttributes: new { @class = "form__area__label" })
                     @Html.EditorFor(model => model.Valordesconto, new { htmlAttributes = new { @class = "form__area__input" } })
+                    @Html.LabelFor(model => model.Valordesconto, htmlAttributes: new { @class = "form__area__label" })
                 </div>
                 <div class="form__area-flex flex-button">
                     <input class="button button--grey" type="button" value="Cancelar">

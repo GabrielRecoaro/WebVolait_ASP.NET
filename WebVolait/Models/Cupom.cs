@@ -15,9 +15,10 @@ namespace WebVolait.Models
         public int CupomId { get; set; }
 
         [Display(Name = "Código do cupom")]
+        [StringLength(9, MinimumLength = 9, ErrorMessage = "O Cupom exige 9 digitos")]
         public string Cupomcode { get; set; }
 
-        [Display(Name = "Código do cupom")]
+        [Display(Name = "Valor de Desconto")]
         public decimal Valordesconto { get; set; }
 
         [Display(Name = "Data de validade do cupom")]

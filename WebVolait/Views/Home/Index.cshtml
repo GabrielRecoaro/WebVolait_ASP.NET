@@ -71,7 +71,12 @@
                         </div>
                         <div class="step-by-step-purchase__content-main__card-passages__item__bottom">
                             <span class="text-primary-color">R$ @item.ValorPassagem</span>
-                            <button class="button"><a href="~/Passagem/DetalhesPassagem/@item.IdPassagem" style="text-decoration:none">Ver Detalhes </a></button>
+                            <a class="button" href="~/Passagem/DetalhesPassagem/@item.IdPassagem" style="text-decoration:none; text-align:center; display: flex; justify-content: center; align-items: center;">
+                               Ver Detalhes
+                            </a>
+                            @*<button class="button" style="text-decoration:none;">
+                                <a href="~/Passagem/DetalhesPassagem/@item.IdPassagem" style="text-decoration:none; color: #ffffff; width: 100%; height: 100%;">Ver Detalhes </a>
+                            </button>*@
                         </div>
                     </div>
                 }
