@@ -59,12 +59,12 @@
             @foreach (var item in Model)
             {
                 <div class="list__flex-body__upper">
-                    <div>0001</div>
+                    <div>#</div>
                     <div>
                         <span>@item.NomeFuncionario</span>
                         <span>@item.CPFFuncionario</span>
                     </div>
-                    <div>Coordenador financeiro</div>
+                    <div>Volait.Employee</div>
                     <div>@item.LoginFuncionario</div>
                     <div>
                         @item.TelefoneFuncionario
@@ -79,7 +79,12 @@
                             Nome Completo
                             <span>@item.NomeFuncionario</span>
                         </div>
-                        
+
+                        <div>
+                            CPF
+                            <span>@item.CPFFuncionario</span>
+                        </div>
+
                         <div>
                             Telefone
                             <span>@item.TelefoneFuncionario</span>

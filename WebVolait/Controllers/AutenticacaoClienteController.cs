@@ -128,46 +128,7 @@ namespace WebVolait.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [Authorize]
-        public ActionResult AlterarSenha()
-        {
-            return View();
-        }
-
-        [Authorize]
-        [HttpPost]
-        public ActionResult AlterarSenha(AlterarSenhaClienteViewModel viewmodel)
-        {
-
-            if (!ModelState.IsValid)
-                return View();
-
-            var identity = User.Identity as ClaimsIdentity;
-            var logincliente = identity.Claims.FirstOrDefault(c => c.Type == "LoginCliente").Value;
-
-            Cliente cliente = new Cliente();
-            cliente = cliente.SelectCliente(logincliente);
-
-            if (Hash.GerarHash(viewmodel.SenhaAtual) != cliente.SenhaCliente)
-            {
-                ModelState.AddModelError("SenhaAtual", "Senha incorreta");
-                return View();
-            }
-
-            if (Hash.GerarHash(viewmodel.NovaSenha) == cliente.SenhaCliente)
-            {
-                ModelState.AddModelError("SenhaAtual", "As senhas coincidem");
-                return View();
-            }
-
-            cliente.SenhaCliente = Hash.GerarHash(viewmodel.NovaSenha);
-            cliente.UpdateSenha(cliente);
-
-            TempData["MensagemLogin"] = "Senha alterada com sucesso!";
-
-
-            return RedirectToAction("Index", "Home");
-        }
+        
         [Authorize]
         public ActionResult ListarCliente()
         {

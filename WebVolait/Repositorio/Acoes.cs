@@ -469,5 +469,81 @@ namespace WebVolait.Repositorio
             dt.Close();
             return listAero;
         }
+
+        // ********************************** LISTAR TIPO DE AEROPORTO
+
+        public CiaAerea SelectCiaAereaById(int id)
+        {
+            var comando = String.Format("select * from tb_ciaAerea where CNPJCiaAerea = {0}", id);
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodCompra = cmd.ExecuteReader();
+            return ConverterCiaAereaReaderToList(DadosCodCompra).FirstOrDefault();
+        }
+
+        public List<CiaAerea> SelectTodosCiaAerea()
+        {
+            var comando = "select * from tb_ciaAerea";
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var dadosCiaAerea = cmd.ExecuteReader();
+            return ConverterCiaAereaReaderToList(dadosCiaAerea);
+        }
+
+        public List<CiaAerea> ConverterCiaAereaReaderToList(MySqlDataReader dt)
+        {
+            var listCiaAerea = new List<CiaAerea>();
+
+            while (dt.Read())
+            {
+                CiaAerea tempCiaAerea = new CiaAerea()
+                {
+                    CNPJCiaAerea = long.Parse(dt["CNPJCiaAerea"].ToString()),
+                    CiaAereaID = (dt["CiaAerea"].ToString()),
+                    
+                };
+
+                listCiaAerea.Add(tempCiaAerea);
+
+            }
+            dt.Close();
+            return listCiaAerea;
+        }
+
+        // ********************************** LISTAR TIPO DE AEROPORTO
+
+        public Classe SelectClasseById(int id)
+        {
+            var comando = String.Format("select * from tb_ciaAerea where IdClasse = {0}", id);
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodCompra = cmd.ExecuteReader();
+            return ConverterClasseReaderToList(DadosCodCompra).FirstOrDefault();
+        }
+
+        public List<Classe> SelectTodosClasse()
+        {
+            var comando = "select * from tb_classe";
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var dadosClasse = cmd.ExecuteReader();
+            return ConverterClasseReaderToList(dadosClasse);
+        }
+
+        public List<Classe> ConverterClasseReaderToList(MySqlDataReader dt)
+        {
+            var listClasse = new List<Classe>();
+
+            while (dt.Read())
+            {
+                Classe tempClasse = new Classe()
+                {
+                    IdClasse = int.Parse(dt["IdClasse"].ToString()),
+                    ClasseNome = (dt["Classe"].ToString()),
+
+                };
+
+                listClasse.Add(tempClasse);
+
+            }
+            dt.Close();
+            return listClasse;
+        }
     }
 }

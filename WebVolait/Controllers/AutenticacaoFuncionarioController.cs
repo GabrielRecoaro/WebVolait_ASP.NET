@@ -114,6 +114,49 @@ namespace WebVolait.Controllers
             
 
         }
+
+        [Authorize]
+        public ActionResult AlterarSenha()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AlterarSenha(AlterarSenhaFuncionarioViewModel viewmodel)
+        {
+
+            if (!ModelState.IsValid)
+                return View();
+
+            var identity = User.Identity as ClaimsIdentity;
+            var loginfuncionario = identity.Claims.FirstOrDefault(c => c.Type == "LoginFuncionario").Value;
+
+            Funcionario funcionario = new Funcionario();
+            funcionario = funcionario.SelectFuncionario(loginfuncionario);
+
+            if (Hash.GerarHash(viewmodel.SenhaAtual) != funcionario.SenhaFuncionario)
+            {
+                ModelState.AddModelError("SenhaAtual", "Senha incorreta");
+                return View();
+            }
+
+            if (Hash.GerarHash(viewmodel.NovaSenha) == funcionario.SenhaFuncionario)
+            {
+                ModelState.AddModelError("SenhaAtual", "As senhas coincidem");
+                return View();
+            }
+
+            funcionario.SenhaFuncionario = Hash.GerarHash(viewmodel.NovaSenha);
+            funcionario.UpdateSenha(funcionario);
+
+            TempData["MensagemLogin"] = "Senha alterada com sucesso!";
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
         [Authorize]
         public ActionResult ListarFuncionario()
         {

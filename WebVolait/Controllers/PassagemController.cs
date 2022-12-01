@@ -88,6 +88,8 @@ namespace WebVolait.Controllers
         {
             var passagemselecionado = ac.ListarCodPassagem(id);
             return View(passagemselecionado);
+
+
         }
 
         [HttpPost]
@@ -103,7 +105,8 @@ namespace WebVolait.Controllers
             {
                 return View(passagem);
             }
-    }
+
+        }
 
         [HttpGet]
         [Authorize]

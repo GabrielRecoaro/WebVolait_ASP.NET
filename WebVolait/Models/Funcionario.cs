@@ -73,6 +73,17 @@ namespace WebVolait.Models
             return LoginFuncionario;
         }
 
+        public void UpdateSenha(Funcionario funcionario)
+        {
+            conexao.Open();
+            command.CommandText = "CALL spAlterSenhaFunc(@LoginFuncionario, @SenhaFuncionario);";
+            command.Parameters.Add("@LoginFuncionario", MySqlDbType.VarChar).Value = funcionario.LoginFuncionario;
+            command.Parameters.Add("@SenhaFuncionario", MySqlDbType.VarChar).Value = funcionario.SenhaFuncionario;
+            command.Connection = conexao;
+            command.ExecuteNonQuery();
+            conexao.Close();
+        }
+
 
         public Funcionario SelectFuncionario(string vLoginFuncionario)
         {
