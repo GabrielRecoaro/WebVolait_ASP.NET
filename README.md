@@ -7,8 +7,8 @@ Sistema ASP.NET MVC voltado a empresa "Volait", agência de viagens
 
 ## Funcionalidades
 
-- Cadastrar clientes, funcionários, pacotes e passagens;
-- Venda e exibição de pacotes;
+- Cadastrar clientes, funcionários e passagens;
+- Venda e exibição de passagens;
 - Catálogo informativo.
 
 
