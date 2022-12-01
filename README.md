@@ -19,7 +19,7 @@ Sistema ASP.NET MVC voltado a empresa "Volait", agência de viagens
 - [@otaviodepaula](https://github.com/otaviodepaula)
 - [@brendaberzin](https://github.com/brendaberzin)
 - [@brnbastos](https://github.com/brnbastos)
-- [@pedroaugusto](https://github.com/pedroaugusto)
+- [@pedroaugusto](https://github.com/pedroaugusto90)
 - [@thgalvao](https://github.com/thgalvao)
 
 
