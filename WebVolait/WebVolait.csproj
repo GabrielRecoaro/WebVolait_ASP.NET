@@ -224,6 +224,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\background-image-passage-details.jpg" />
     <Content Include="images\background-image-passages.jpg" />
+    <Content Include="images\background-image-purchase-details.jpg" />
     <Content Include="images\card-passages.png" />
     <Content Include="images\hero-background.jpg" />
     <Content Include="images\ico.ico" />
