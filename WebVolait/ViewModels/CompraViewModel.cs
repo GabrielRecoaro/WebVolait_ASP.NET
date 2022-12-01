@@ -36,7 +36,7 @@ namespace WebVolait.ViewModels
         
         [Display(Name ="Tempo de duração do voo")]
         [Required(ErrorMessage = "O campo é obrigatório")]
-        public int DuracaoVoo { get; set; }
+        public TimeSpan DuracaoVoo { get; set; }
         
         [Display(Name ="Companhia aérea")]
         [Required(ErrorMessage = "O campo é obrigatório")]

@@ -363,7 +363,7 @@ namespace WebVolait.Repositorio
                         ValorPassagem = Decimal.Parse(dt["ValorPassagem"].ToString()),
                         DtHrPartida = DateTime.Parse(dt["DtHrPartida"].ToString()),
                         DtHrChegada = DateTime.Parse(dt["DtHrChegada"].ToString()),
-                        DuracaoVoo = Int16.Parse(dt["DuracaoVoo"].ToString()),
+                        DuracaoVoo = TimeSpan.Parse(dt["DuracaoVoo"].ToString()),
                         CiaAerea = (dt["CiaAerea"].ToString()),
                         Classe = (dt["Classe"].ToString()),
 
@@ -393,37 +393,6 @@ namespace WebVolait.Repositorio
            dt.Close();
            return ListCompraViewModel;
         }
-
-        //public List<Compra>
-        //    ListarCompra()
-        //{
-        //    MySqlCommand cmd = new MySqlCommand("Select * from tb_compra", con.ConectarBD());
-        //    var DadosCompra = cmd.ExecuteReader();
-        //    return ListarTodosCompra(DadosCompra);
-        //}
-
-        //public List<Compra>
-        //    ListarTodosCompra(MySqlDataReader dt)
-        //{
-        //    var TodosCompra = new List<Compra>
-        //        ();
-        //    while (dt.Read())
-        //    {
-        //        var CompraTemp = new Compra()
-        //        {
-        //            NotaFiscal = int.Parse(dt["NotaFiscal"].ToString()),
-        //            DataCompra = DateTime.Parse(dt["DataCompra"].ToString()),
-        //            ValorTotal = decimal.Parse(dt["ValorTotal"].ToString()),
-        //            Cupom = (dt["Cupom"].ToString()),
-        //            CPFCliente = Int64.Parse(dt["CPFCliente"].ToString()),
-        //            CodTipoPagto = (dt["CodTipoPagto"].ToString()),
-
-        //        };
-        //        TodosCompra.Add(CompraTemp);
-        //    }
-        //    dt.Close();
-        //    return TodosCompra;
-        //}
-
+        
     }
 }

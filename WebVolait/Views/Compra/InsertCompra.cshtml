@@ -89,162 +89,154 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>*@
-<!--<main class="content-main sign-up-employee margin">
-    <div class="container">
-        <div class="form-container">
-            <form action="~/Compra/InsertCompra" method="post" class="form form-sign-up-employee">
-                        @Html.HiddenFor(model => model.NotaFiscal, new { htmlAttributes = new { @class = "form__area__input" } })
-                        @Html.HiddenFor(model => model.Passagem, new { htmlAttributes = new { @class = "form__area__input" } })-->
-@*@using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
-<!--<div class="form__area-flex-title">
-    <h2 class="form__title">Realizar Compra</h2>
-</div>
-<div class="form__area-flex">
-    <div class="form__area">
-        @Html.HiddenFor(model => model.NotaFiscal, htmlAttributes: new { @class = "form__area__label" })
-        @Html.ValidationMessageFor(model => model.NotaFiscal, "", htmlAttributes: new { @class = "form__area__error-message" })
-    </div>
 
-    <div class="form__area">
-        @Html.EditorFor(model => model.DataCompra, new { htmlAttributes = new { @class = "form__area__input" } })
-        @Html.LabelFor(model => model.DataCompra, htmlAttributes: new { @class = "form__area__label" })
-        @Html.ValidationMessageFor(model => model.DataCompra, "", htmlAttributes: new { @class = "form__area__error-message" })
-    </div>
-</div>
-<div class="form__area-flex">
-    <div class="form__area">
-        @Html.HiddenFor(model => model.ValorTotal, htmlAttributes: new { @class = "form__area__input" })
-        @Html.HiddenFor(model => model.ValorTotal, new { htmlAttributes = new { @class = "form__area__label" } })
-        @Html.ValidationMessageFor(model => model.ValorTotal, "", htmlAttributes: new { @class = "form__area__error-message" })
-    </div>
-</div>
-<div class="form__area-flex">
-    <div class="form__area">
-        @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form__area__input" } })
-        @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "form__area__label" })
-        @Html.ValidationMessageFor(model => model.CPFCliente, "", htmlAttributes: new { @class = "form__area__error-message" })
-    </div>
-    <div class="form__area">
-        @Html.EditorFor(model => model.Cupom, new { htmlAttributes = new { @class = "form__area__input" } })
-        @Html.LabelFor(model => model.Cupom, htmlAttributes: new { @class = "form__area__label" })
-        @Html.ValidationMessageFor(model => model.Cupom, "", htmlAttributes: new { @class = "form__area__error-message" })
-
-    </div>
-</div>
-<div class="form__area-flex">
-    <div class="form__area">-->
-@*@Html.DropDownList("Método de pagamento:", new List<SelectListItem>{
-        new SelectListItem{Text="Cartão de Crédito", Value="1"},
-        new SelectListItem{Text="Cartão de Débito", Value="2"},
-        new SelectListItem{Text="Cheque", Value="3"},
-        new SelectListItem{Text="Boleto Bancário", Value="4"},
-        new SelectListItem{Text="PIX", Value="5"},
-    })</hr>*@
-
-<!--@Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form__area__input" } })
-        @Html.LabelFor(model => model.CodTipoPagto, htmlAttributes: new { @class = "form__area__label" })
-        @Html.ValidationMessageFor(model => model.CodTipoPagto, "", htmlAttributes: new { @class = "form__area__error-message" })
-    </div>
-    <div class="form__area">
-        @Html.EditorFor(model => model.QuantidadePassagem, new { htmlAttributes = new { @class = "form__area__input" } })
-        @Html.LabelFor(model => model.QuantidadePassagem, htmlAttributes: new { @class = "form__area__label" })
-        @Html.ValidationMessageFor(model => model.QuantidadePassagem, "", htmlAttributes: new { @class = "form__area__error-message" })
-    </div>
-</div>
-<div class="form__area-flex">-->
-@*<div class="form__area">
-        @Html.EditorFor(model => model.QuantidadePassagem, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.LabelFor(model => model.QuantidadePassagem, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.ValidationMessageFor(model => model.QuantidadePassagem, "", htmlAttributes: new { @class = "form__area__error-message" })
-    </div>*@
-<!--<div class="form__area">
-                        @Html.HiddenFor(model => model.Passagem, new { htmlAttributes = new { @class = "form__area__input" } })
-                        @Html.HiddenFor(model => model.Passagem, htmlAttributes: new { @class = "form__area__label" })
-                        @Html.ValidationMessageFor(model => model.Passagem, "", htmlAttributes: new { @class = "form__area__error-message" })
+    @*<main class="content-main sign-up-employee margin">
+        <div class="container">
+            <div class="form-container">
+                <form action="~/Compra/InsertCompra" method="post" class="form form-sign-up-employee">
+                    @Html.HiddenFor(model => model.NotaFiscal, new { htmlAttributes = new { @class = "form__area__input" } })
+                    @Html.HiddenFor(model => model.Passagem, new { htmlAttributes = new { @class = "form__area__input" } })
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form__area-flex-title">
+                        <h2 class="form__title">Realizar Compra</h2>
                     </div>
-                </div>
-                <br /><br />
+                    <div class="form__area-flex">
+                        <div class="form__area">
+                            @Html.HiddenFor(model => model.NotaFiscal, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.NotaFiscal, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        </div>
+
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.DataCompra, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.DataCompra, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.DataCompra, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        </div>
+                    </div>
+                    <div class="form__area-flex">
+                        <div class="form__area">
+                            @Html.HiddenFor(model => model.ValorTotal, htmlAttributes: new { @class = "form__area__input" })
+                            @Html.HiddenFor(model => model.ValorTotal, new { htmlAttributes = new { @class = "form__area__label" } })
+                            @Html.ValidationMessageFor(model => model.ValorTotal, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        </div>
+                    </div>
+                    <div class="form__area-flex">
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.CPFCliente, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        </div>
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.Cupom, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.Cupom, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.Cupom, "", htmlAttributes: new { @class = "form__area__error-message" })
+                            @Html.ValidationMessageFor(model => model.TelefoneFuncionario, "", new { @class = "form__area__label" })
+                        </div>
+                    </div>
+                    <div class="form__area-flex">
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.CodTipoPagto, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.CodTipoPagto, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        </div>
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.QuantidadePassagem, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.LabelFor(model => model.QuantidadePassagem, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.QuantidadePassagem, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        </div>
+                    </div>
+                    <div class="form__area-flex">
+                        <div class="form__area">
+                            @Html.EditorFor(model => model.QuantidadePassagem, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.LabelFor(model => model.QuantidadePassagem, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.ValidationMessageFor(model => model.QuantidadePassagem, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        </div>
+                        <div class="form__area">
+                            @Html.HiddenFor(model => model.Passagem, new { htmlAttributes = new { @class = "form__area__input" } })
+                            @Html.HiddenFor(model => model.Passagem, htmlAttributes: new { @class = "form__area__label" })
+                            @Html.ValidationMessageFor(model => model.Passagem, "", htmlAttributes: new { @class = "form__area__error-message" })
+                        </div>
+                    </div>
+                    <br /><br />
 
 
-                <div class="form__area-flex flex-button">
-                    <input class="button button--grey" type="reset" value="Cancelar">
-                    <input class="button button--blue" type="submit" value="Realizar Pagamento">
-                </div>
-            </form>
+                    <div class="form__area-flex flex-button">
+                        <input class="button button--grey" type="reset" value="Cancelar">
+                        <input class="button button--blue" type="submit" value="Realizar Pagamento">
+                    </div>
+                </form>
 
+            </div>
         </div>
-    </div>
-</main>-->
+    </main>*@
 
 
 
 <section class="step-by-step-purchase purchase-insert content-main margin">
-    <div class="container">
-        <ul class="step-by-step-purchase__list">
-            <li class="step-by-step-purchase__list__item success">Selecionar passagem</li>
-            <li class="step-by-step-purchase__list__item success">Detalhes passagem</li>
-            <li class="step-by-step-purchase__list__item active">Pagamento</li>
-            <li class="step-by-step-purchase__list__item ">Confirmação compra</li>
-        </ul>
-    </div>
-    <picture class="step-by-step-purchase__background-image">
-        <img src="~/images/background-image-purchase.jpg" alt="">
-        <div class="step-by-step-purchase__background-image__title-step-by-step">
-            Seu próximo destino
+        <div class="container">
+            <ul class="step-by-step-purchase__list">
+                <li class="step-by-step-purchase__list__item success">Selecionar passagem</li>
+                <li class="step-by-step-purchase__list__item success">Detalhes passagem</li>
+                <li class="step-by-step-purchase__list__item active">Pagamento</li>
+                <li class="step-by-step-purchase__list__item ">Confirmação compra</li>
+            </ul>
         </div>
-    </picture>
-    <div class="container">
-        <div class="step-by-step-purchase__content-main form-container">
-            <form id="edit-coupon" class="form" action="~/Compra/InsertCompra" method="post">
-                <div class="form__area-flex-title">
-                    <h2 class="form__title">Compre sua passagem</h2>
-                </div>
-                <!-- <div class="form__area form__area__textarea">
-        <textarea class="form__area__input" name="description" id="description" required></textarea>
-        <label class="form__area__label" for="description">Descrição</label>
-    </div> -->
-                <div class="form__area">
-                    @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form__area__input" } })
-                    @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "form__area__label" })
-                </div>
-                <div class="form__area">
-                    @Html.EditorFor(model => model.DataCompra, new { htmlAttributes = new { @class = "form__area__input" } })
-                    @Html.LabelFor(model => model.DataCompra, htmlAttributes: new { @class = "form__area__label" })
-                    @Html.ValidationMessageFor(model => model.DataCompra, "", htmlAttributes: new { @class = "form__area__error-message" })
-                </div>
-                <div class="form__area">
-                    @Html.EditorFor(model => model.QuantidadePassagem, new { htmlAttributes = new { @class = "form__area__input" } })
-                    @Html.LabelFor(model => model.QuantidadePassagem, htmlAttributes: new { @class = "form__area__label" })
-                    @Html.ValidationMessageFor(model => model.QuantidadePassagem, "", htmlAttributes: new { @class = "form__area__error-message" })
-                </div>
-                <div class="form__area">
-                    @Html.EditorFor(model => model.Cupom, new { htmlAttributes = new { @class = "form__area__input" } })
-                    @Html.LabelFor(model => model.Cupom, htmlAttributes: new { @class = "form__area__label" })
-                    @Html.ValidationMessageFor(model => model.Cupom, "", htmlAttributes: new { @class = "form__area__error-message" })
-                </div>
-                <div class="form__area">
-                    @Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form__area__input" } })
-                    @Html.LabelFor(model => model.CodTipoPagto, htmlAttributes: new { @class = "form__area__label" })
-                    @Html.DropDownListFor(model => model.CodTipoPagto, new SelectList(ViewBag.ToolList), "Cartão de crédito", new { @class = "form__area__input" })
-                    @Html.ValidationMessageFor(model => model.CodTipoPagto, "", htmlAttributes: new { @class = "form__area__error-message" })
+        <picture class="step-by-step-purchase__background-image">
+            <img src="~/images/background-image-purchase.jpg" alt="">
+            <div class="step-by-step-purchase__background-image__title-step-by-step">
+                Seu próximo destino
+            </div>
+        </picture>
+        <div class="container">
+            <div class="step-by-step-purchase__content-main form-container">
+                <form id="edit-coupon" class="form" action="~/Compra/InsertCompra" method="post">
+                    <div class="form__area-flex-title">
+                        <h2 class="form__title">Compre sua passagem</h2>
+                    </div>
+                     
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.CPFCliente, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.CPFCliente, htmlAttributes: new { @class = "form__area__label" })
+                    </div>
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.DataCompra, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.DataCompra, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.DataCompra, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.QuantidadePassagem, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.QuantidadePassagem, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.QuantidadePassagem, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                    <div class="form__area">
+                        @Html.EditorFor(model => model.Cupom, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @Html.LabelFor(model => model.Cupom, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.ValidationMessageFor(model => model.Cupom, "", htmlAttributes: new { @class = "form__area__error-message" })
+                    </div>
+                    <div class="form__area">
+                        @*@Html.EditorFor(model => model.CodTipoPagto, new { htmlAttributes = new { @class = "form__area__input" } })*@
+                        @Html.LabelFor(model => model.CodTipoPagto, htmlAttributes: new { @class = "form__area__label" })
+                        @Html.DropDownListFor(model => model.CodTipoPagto, new SelectList(ViewBag.ToolList), "Cartão de crédito", new { @class = "form__area__input" })
+                        @Html.ValidationMessageFor(model => model.CodTipoPagto, "", htmlAttributes: new { @class = "form__area__error-message" })
 
-                    <select class="form__area__input" id="CodTipoPagto" name="CodTipoPagto">
-                        <option value="1" >seleciona faz favor</option>
-                        <option value="2" >Tool Name 1</option>
-                        <option value="3" >Tool Name 2</option>
-                    </select>
-                </div>
-                    @Html.HiddenFor(model => model.NotaFiscal)
-                    @Html.HiddenFor(model => model.Passagem)
-                    @Html.HiddenFor(model => model.ValorTotal)
-                <div class="form__area-flex flex-button">
-                    <input class="button button--grey" type="button" value="Cancelar">
-                    <input form="edit-coupon" class="button button--blue" hrfe="~/Compra/SelectCompra/@Model.NotaFiscal" type="submit" value="Comprar">
-                </div>
-            </form>
+                        <select class="form__area__input" id="CodTipoPagto" name="CodTipoPagto">
+                            <option value="1" >Cartão de crédito</option>
+                            <option value="2"> Cartão de débito</option>
+                            <option value="3">Cheque</option>
+                            <option value="4">Boleto Bancário</option>
+                            <option value="5">PIX</option>
+                        </select>
+                    </div>
+                        @Html.HiddenFor(model => model.NotaFiscal)
+                        @Html.HiddenFor(model => model.Passagem)
+                        @Html.HiddenFor(model => model.ValorTotal)
+                    <div class="form__area-flex flex-button">
+                        <input class="button button--grey" type="button" value="Cancelar">
+                        <input form="edit-coupon" class="button button--blue" hrfe="~/Compra/SelectCompra/@Model.NotaFiscal" type="submit" value="Comprar">
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
