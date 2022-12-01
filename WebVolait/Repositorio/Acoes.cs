@@ -393,6 +393,42 @@ namespace WebVolait.Repositorio
            dt.Close();
            return ListCompraViewModel;
         }
-        
+
+        //
+
+        public Pagamento SelectPagamentoById(int id)
+        {
+            var comando = String.Format("select * from tb_tipopagto where codtipopagto = {0}", id);
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodCompra = cmd.ExecuteReader();
+            return ConverterPagamentoReaderToList(DadosCodCompra).FirstOrDefault();
+        }
+
+        public List<Pagamento> SelectTodosPagamento()
+        {
+            var comando = "select * from tb_tipopagto";
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var dadosPagamento = cmd.ExecuteReader();
+            return ConverterPagamentoReaderToList(dadosPagamento);
+        }
+
+        public List<Pagamento> ConverterPagamentoReaderToList(MySqlDataReader dt)
+        {
+            var listPagamento = new List<Pagamento>();
+
+            while (dt.Read())
+            {
+                Pagamento tempPagamento = new Pagamento()
+                {
+                    IdTipoPgto = Int16.Parse(dt["CodTipoPagto"].ToString()),
+                    TipoPgto = (dt["TipoPagto"].ToString()),
+                };
+
+                listPagamento.Add(tempPagamento);
+
+            }
+            dt.Close();
+            return listPagamento;
+        }
     }
 }
