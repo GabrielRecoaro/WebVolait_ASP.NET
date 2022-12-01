@@ -1672,7 +1672,7 @@ body {
     }
 
         .step-by-step-purchase.passage-details .grid-passage-details-page .step-by-step-purchase__content-main__card-passages__item:hover {
-            transform: scale(0)
+            transform: scale(1)
         }
 
     .step-by-step-purchase.passage-details .grid-passage-details-page .details-values {
@@ -1910,6 +1910,62 @@ body {
                     color: black;
                     font-size: 18px;
                 }
+
+.admin-area .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 80px;
+}
+
+    .admin-area .content .item {
+        min-width: 150px;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 24px;
+        padding: 16px;
+        text-decoration: none;
+        border-radius: 10px;
+        border: 1px solid #DCD5DC;
+        transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+        .admin-area .content .item .icon {
+            min-width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: #FF9575;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin-area .content .item p {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            color: #121212;
+        }
+
+        .admin-area .content .item .icon .ico-ico {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .admin-area .content .item:hover {
+            transform: scale(1.03);
+        }
+
+            .admin-area .content .item:hover > p {
+                transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1);
+                color: #FF9575;
+            }
+
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
     line-height: 1.15;

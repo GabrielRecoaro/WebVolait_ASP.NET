@@ -3,16 +3,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>
 
 <br />
-@Html.ActionLink("Listar Cliente", "ListarCliente", "AutenticacaoCliente")
+
 <br />
-@Html.ActionLink("Listar Funcionarios", "ListarFuncionario", "AutenticacaoFuncionario")
+
 <br />
-@Html.ActionLink("Listar Passagens", "ListarPassagem", "Passagem")
+
 <br />
-@Html.ActionLink("Listar Cupons", "ListarCupom", "Cupom")
+@Html.ActionLink("Cupons", "ListarCupom", "Cupom")
 
 
 <br />
@@ -20,5 +20,45 @@
 <br />
 @Html.ActionLink("Cadastrar Novo Funcionario", "InsertFuncionario", "AutenticacaoFuncionario")
 <br />
-@Html.ActionLink("Alterar Senha", "AlterarSenha", "AutenticacaoFuncionario")
+*@
 
+<section class="admin-area content-main margin">
+    <div class="container">
+        <h1 class="step-by-step-purchase__content-main__text__title">
+            Gerenciador
+        </h1>
+        <div class="content">
+            <a href="~/Passagem/ListarPassagem" class="item">
+                <div class="icon">
+                    <iconify-icon class="ico-ico" icon="material-symbols:flight"></iconify-icon>
+                </div>
+                <p>Passagens</p>
+            </a>
+            <a href="~/AutenticacaoFuncionario/ListarFuncionario" class="item">
+                <div class="icon">
+                    <iconify-icon class="ico-ico" icon="ic:sharp-admin-panel-settings"></iconify-icon>
+                </div>
+                <p>Funcionários</p>
+            </a>
+            <a href="~/AutenticacaoCliente/ListarCliente" class="item">
+                <div class="icon">
+                    <iconify-icon class="ico-ico" icon="mdi:user-group-outline"></iconify-icon>
+                </div>
+                <p>Clientes</p>
+            </a>
+            <a href="~/Cupom/ListarCupom" class="item">
+                <div class="icon">
+                    <iconify-icon class="ico-ico" icon="mdi:coupon"></iconify-icon>
+                </div>
+                <p>Cupons</p>
+            </a>
+            <a href="~/AutenticacaoFuncionario/AlterarSenha" class="item">
+                <div class="icon">
+                    <iconify-icon class="ico-ico" icon="material-symbols:password"></iconify-icon>
+                </div>
+                <p>Alterar senha</p>
+            </a>
+        </div>
+    </div>
+
+</section>
