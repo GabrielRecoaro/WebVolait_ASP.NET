@@ -2,121 +2,13 @@
 
 @{
     ViewBag.Title = "InsertPassagem";
+    List<WebVolait.Models.Aero> listAeroportos = new List<WebVolait.Models.Aero>();
+
+    WebVolait.Repositorio.Acoes ac = new WebVolait.Repositorio.Acoes();
+
+    listAeroportos = ac.SelectTodosAero();
+
 }
-
-@*<h2>InsertPassagem</h2>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>CadastroPassagemViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NomePassagem, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NomePassagem, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NomePassagem, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DescPassagem, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DescPassagem, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DescPassagem, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ImgPassagem, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ImgPassagem, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ImgPassagem, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ValorPassagem, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ValorPassagem, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ValorPassagem, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Classe, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Classe, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Classe, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CiaAerea, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CiaAerea, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CiaAerea, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdAeroPartida, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IdAeroPartida, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IdAeroPartida, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdAeroDestino, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IdAeroDestino, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IdAeroDestino, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DtHrPartida, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DtHrPartida, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DtHrPartida, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DtHrChegada, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DtHrChegada, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DtHrChegada, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DuracaoVoo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DuracaoVoo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DuracaoVoo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-    }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>*@
 
 <main class="content-main insert-passage margin">
     <div class="container">
@@ -138,40 +30,33 @@
                 </div>
                 <div class="form__area-flex">
                     <div class="form__area">
-                        @Html.EditorFor(model => model.IdAeroPartida, new { htmlAttributes = new { @class = "form__area__input" } })
-                        @Html.LabelFor(model => model.IdAeroPartida, htmlAttributes: new { @class = "form__area__label" })
-                        @*<div class="form__area__select-box">
-                            <select name="airport-origin" id="">
+                        @*@Html.EditorFor(model => model.IdAeroPartida, new { htmlAttributes = new { @class = "form__area__input" } })*@
+                        @*@Html.LabelFor(model => model.IdAeroPartida, htmlAttributes: new { @class = "form__area__label" })*@
+                        <div class="form__area__select-box">
+                            <select id="IdAeroPartida" name="IdAeroPartida">
                                 <option value="" disabled selected>Aeroporto (Origem)</option>
-                                <option value="">CMN</option>
-                                <option value="">CWB</option>
-                                <option value="">DIA</option>
-                                <option value="">FLN</option>
+                                @foreach (var itemaero in listAeroportos)
+                                {
+                                    <option value="@itemaero.IdAero">@itemaero.NomeAero</option>
+                                }
                             </select>
                             <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
-                        </div>*@
+                        </div>
                     </div>
                     <div class="form__area">
-                        @Html.EditorFor(model => model.IdAeroDestino, new { htmlAttributes = new { @class = "form__area__input" } })
+                        @*@Html.EditorFor(model => model.IdAeroDestino, new { htmlAttributes = new { @class = "form__area__input" } })*@
                         @*@Html.DropDownListFor(model => model.IdAeroDestino, new SelectList(ViewBag.ToolList), new { @class = "form__area__input" })*@
-                        @Html.LabelFor(model => model.IdAeroDestino, htmlAttributes: new { @class = "form__area__label" })
-                        <!--<div class="form__area__select-box">
-                            <select name="destiny-airport" id="IdAeroDestino" name ="IdAeroDestino">-->
-                                @*<option value disabled selected>Aeroporto (Destino)</option>*@
-                                <!--<option>CMN</option>
-                                <option>CWB</option>
-                                <option>DIA</option>
-                                <option>FLN</option>
-                            </select>-->
-
-                            @*<select class="form-control" data-val="true" data-val-required="The Name field is required." id="ToolName" name="ToolName">
-                                <option value>-please select-</option>
-                                <option>Tool Name 1</option>
-                                <option>Tool Name 2</option>
-                                ....
-                            </select>*@
-                            <!--<iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
-                        </div>-->
+                        @*@Html.LabelFor(model => model.IdAeroDestino, htmlAttributes: new { @class = "form__area__label" })*@
+                        <div class="form__area__select-box">
+                            <select id="IdAeroDestino" name="IdAeroDestino">
+                                <option value="" disabled selected>Aeroporto (Destino)</option>
+                                @foreach (var itemaero in listAeroportos)
+                                {
+                                    <option value="@itemaero.IdAero">@itemaero.NomeAero</option>
+                                }
+                            </select>
+                            <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                        </div>
                     </div>
                 </div>
                 <div class="form__area-flex">
@@ -189,67 +74,7 @@
                         @Html.EditorFor(model => model.ImgPassagem, new { htmlAttributes = new { @class = "form__area__input" } })
                         @Html.LabelFor(model => model.ImgPassagem, htmlAttributes: new { @class = "form__area__label" })
                     </div>
-                    <!--<div class="form__area form__area__preview-image">
-                        <div class="wrapper">
-                            <div class="image">-->
-                                <!-- Medida ideal da imagem: width: 380px, height 200px -->
-                                <!--<img src="" alt="" class="preview-image">
-                            </div>
-                            <div class="content">
-                                <div class="icon icon__camera">
-                                    <iconify-icon icon="ic:baseline-photo-camera"></iconify-icon>
-                                </div>
-                                <div class="text">
-                                    SELECIONE UMA IMAGEM<br>
-                                    <span>Adicione até 16Mb</span>
-                                </div>
-                            </div>
-                            <div class="icon__cancel-button" id="cancel-btn">
-                                <iconify-icon icon="ic:baseline-cancel"></iconify-icon>
-                            </div>
-                            <div class="file-name">
-                                File name here
-                            </div>
-                        </div>
-                        <button onclick="defaultBtnActive()" class="button" id="custom-btn">Adicionar imagem</button>
-                        <input id="default-btn" type="file" hidden>
-                    </div>
-                </div>-->
-
-                @*<script>
-                                const wrapper = document.querySelector(".wrapper");
-                                const fileName = document.querySelector(".file-name");
-                                const cancelBtn = document.querySelector("#cancel-btn");
-                                const defaultBtn = document.querySelector("#default-btn");
-                                const customBtn = document.querySelector("#custom-btn");
-                                const previewImage = document.querySelector(".preview-image");
-                                let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
-                                function defaultBtnActive() {
-                                    defaultBtn.click();
-                                }
-                                defaultBtn.addEventListener("change", function(){
-                                    const file = this.files[0];
-                                    if(file) {
-                                        const reader = new FileReader();
-                                        reader.onload = function() {
-                                        const result = reader.result;
-                                        previewImage.src = result;
-                                        wrapper.classList.add("active");
-                                    }
-                                    cancelBtn.addEventListener("click", function(){
-                                        previewImage.src = "";
-                                        wrapper.classList.remove("active");
-                                    });
-                                    reader.readAsDataURL(file);
-                                    }
-                                    if(this.value) {
-                                        let valueStore = this.value.match(regExp);
-                                        fileName.textContent = valueStore;
-
-                                    }
-                                });
-                </script>*@
-                    </div>
+                </div>
 
                 <div class="form__area-flex">
                     <div class="form__area">
@@ -260,15 +85,15 @@
                         @Html.EditorFor(model => model.CiaAerea, new { htmlAttributes = new { @class = "form__area__input" } })
                         @Html.LabelFor(model => model.CiaAerea, htmlAttributes: new { @class = "form__area__label" })
                         @*<div class="form__area__select-box">
-            <select name="airline" id="">
-                <option value="" disabled selected>Companhia aérea</option>
-                <option value="">Delta Air Lines</option>
-                <option value="">Avianca</option>
-                <option value="">Gol Linhas Aéreas</option>
-                <option value="">Emirates Airlines</option>
-            </select>
-            <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
-        </div>*@
+                            <select name="airline" id="">
+                                <option value="" disabled selected>Companhia aérea</option>
+                                <option value="">Delta Air Lines</option>
+                                <option value="">Avianca</option>
+                                <option value="">Gol Linhas Aéreas</option>
+                                <option value="">Emirates Airlines</option>
+                            </select>
+                            <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                        </div>*@
                     </div>
                 </div>
                 <div class="form__area-flex">

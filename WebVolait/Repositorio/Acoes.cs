@@ -394,7 +394,7 @@ namespace WebVolait.Repositorio
            return ListCompraViewModel;
         }
 
-        //
+        // ********************************** LISTAR TIPO DE PAGAMENTO
 
         public Pagamento SelectPagamentoById(int id)
         {
@@ -429,6 +429,45 @@ namespace WebVolait.Repositorio
             }
             dt.Close();
             return listPagamento;
+        }
+
+        // ********************************** LISTAR TIPO DE AEROPORTO
+
+        public Aero SelectAeroById(int id)
+        {
+            var comando = String.Format("select * from tb_aero where idaero = {0}", id);
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var DadosCodCompra = cmd.ExecuteReader();
+            return ConverterAeroReaderToList(DadosCodCompra).FirstOrDefault();
+        }
+
+        public List<Aero> SelectTodosAero()
+        {
+            var comando = "select * from tb_aero";
+            MySqlCommand cmd = new MySqlCommand(comando, con.ConectarBD());
+            var dadosAero = cmd.ExecuteReader();
+            return ConverterAeroReaderToList(dadosAero);
+        }
+
+        public List<Aero> ConverterAeroReaderToList(MySqlDataReader dt)
+        {
+            var listAero = new List<Aero>();
+
+            while (dt.Read())
+            {
+                Aero tempAero = new Aero()
+                {
+                    IdAero = (dt["IdAero"].ToString()),
+                    NomeAero = (dt["NomeAero"].ToString()),
+                    CidadeAero = (dt["CidadeAero"].ToString()),
+                    UfAero = (dt["UfAero"].ToString()),
+            };
+
+                listAero.Add(tempAero);
+
+            }
+            dt.Close();
+            return listAero;
         }
     }
 }
