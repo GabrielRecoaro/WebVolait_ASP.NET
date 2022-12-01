@@ -2,11 +2,17 @@
 
 @{
     ViewBag.Title = "InsertPassagem";
+
     List<WebVolait.Models.Aero> listAeroportos = new List<WebVolait.Models.Aero>();
-
     WebVolait.Repositorio.Acoes ac = new WebVolait.Repositorio.Acoes();
-
     listAeroportos = ac.SelectTodosAero();
+
+    List<WebVolait.Models.CiaAerea> listCiaAerea = new List<WebVolait.Models.CiaAerea>();
+    listCiaAerea = ac.SelectTodosCiaAerea();
+
+    List<WebVolait.Models.Classe> listClasse = new List<WebVolait.Models.Classe>();
+    listClasse = ac.SelectTodosClasse();
+
 
 }
 
@@ -82,18 +88,20 @@
                         @Html.LabelFor(model => model.ValorPassagem, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        @Html.EditorFor(model => model.CiaAerea, new { htmlAttributes = new { @class = "form__area__input" } })
-                        @Html.LabelFor(model => model.CiaAerea, htmlAttributes: new { @class = "form__area__label" })
-                        @*<div class="form__area__select-box">
-                            <select name="airline" id="">
-                                <option value="" disabled selected>Companhia aérea</option>
-                                <option value="">Delta Air Lines</option>
-                                <option value="">Avianca</option>
-                                <option value="">Gol Linhas Aéreas</option>
-                                <option value="">Emirates Airlines</option>
+                        @*@Html.EditorFor(model => model.CiaAerea, new { htmlAttributes = new { @class = "form__area__input" } })
+        @Html.LabelFor(model => model.CiaAerea, htmlAttributes: new { @class = "form__area__label" })*@
+
+                        <div class="form__area__select-box">
+                            <select id="CiaAerea" name="CiaAerea">
+                                <option value="" disabled selected>Companhia Aérea</option>
+                                @foreach (var itemciaaerea in listCiaAerea)
+                                {
+                                    <option value="@itemciaaerea.CiaAereaID">@itemciaaerea.CiaAereaID</option>
+                                }
                             </select>
                             <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
-                        </div>*@
+                        </div>
+
                     </div>
                 </div>
                 <div class="form__area-flex">
@@ -102,8 +110,19 @@
                         @Html.LabelFor(model => model.DuracaoVoo, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        @Html.EditorFor(model => model.Classe, new { htmlAttributes = new { @class = "form__area__input" } })
-                        @Html.LabelFor(model => model.Classe, htmlAttributes: new { @class = "form__area__label" })                      
+                        @*@Html.EditorFor(model => model.Classe, new { htmlAttributes = new { @class = "form__area__input" } })
+        @Html.LabelFor(model => model.Classe, htmlAttributes: new { @class = "form__area__label" })*@
+
+                        <div class="form__area__select-box">
+                            <select id="Classe" name="Classe">
+                                <option value="" disabled selected>Classe</option>
+                                @foreach (var itemclasse in listClasse)
+                                {
+                                    <option value="@itemclasse.ClasseNome">@itemclasse.ClasseNome</option>
+                                }
+                            </select>
+                            <iconify-icon icon="akar-icons:chevron-up" rotate="180deg"></iconify-icon>
+                        </div>
                     </div>
                 </div>
                 <div class="form__area-flex flex-button">

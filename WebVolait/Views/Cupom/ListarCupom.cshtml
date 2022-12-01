@@ -4,54 +4,14 @@
     ViewBag.Title = "ListarCupom";
 }
 
-<!-- <h2>ListarCupom</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Cupomcode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valordesconto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cupomvalidade)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cupomcode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valordesconto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cupomvalidade)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "AlterarCupom", new { id=item.CupomId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CupomId }) |
-            @Html.ActionLink("Delete", "DeletarCupom", new { id=item.CupomId })
-        </td>
-    </tr>
-}
-
-</table> -->
-
 <main class="content-main coupon-list list margin">
             <div class="container">
                 <h1 class="list__title">
                     Cupons
-                    <button class="button" href="~/Cupom/InsertCupom">
+                    <a class="button" href="~/Cupom/InsertCupom">
                         <iconify-icon icon="carbon:add"></iconify-icon>
-                        @*@Html.ActionLink("Adicionar", "InsertCupom")*@ Adicionar
-                    </button>
+                        Adicionar
+                    </a>
                 </h1>
                 <div class="list__flex-header">
                     <div>#</div>
@@ -112,18 +72,19 @@
                                 Validade
                                 <span>@item.Cupomvalidade</span>
                             </div>
-                            <div>
-                                <a class="button list-edit" href="~/Cupom/AlterarCupom/@item.CupomId"><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
-                            </div>
+
                             <div>
                                 Valor
-                                <span>@item.Valordesconto</span>
+                                <span>R$ @item.Valordesconto</span>
                             </div>
-                            <div><a class="button list-delete" href="~/Cupom/DeletarCupom/@item.CupomId"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
+                           
+                            <div>
+                                <a class="button list-delete" href="~/Cupom/DeletarCupom/@item.CupomId"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a>
+                                <a class="button list-edit" href="~/Cupom/AlterarCupom/@item.CupomId"><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                }
-                
+                }            
             </div>
         </main>

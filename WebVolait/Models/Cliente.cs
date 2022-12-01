@@ -98,17 +98,7 @@ namespace WebVolait.Models
 
             return tempCliente;
         }
-
-        public void UpdateSenha(Cliente cliente)
-        {
-            conexao.Open();
-            command.CommandText = "CALL spAlterSenhaCli(@LoginCliente, @SenhaCliente);";
-            command.Parameters.Add("@LoginCliente", MySqlDbType.VarChar).Value = cliente.LoginCliente;
-            command.Parameters.Add("@SenhaCliente", MySqlDbType.VarChar).Value = cliente.SenhaCliente;
-            command.Connection = conexao;
-            command.ExecuteNonQuery();
-            conexao.Close();
-        }
+     
 
         public void UpdateCliente(Cliente cliente)
         {

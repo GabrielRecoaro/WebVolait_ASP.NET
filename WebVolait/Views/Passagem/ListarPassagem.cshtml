@@ -4,109 +4,17 @@
     ViewBag.Title = "ListarPassagem";
 }
 
-@*<h2>ListarPassagem</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IdPassagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NomePassagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DescPassagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImgPassagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ValorPassagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Classe)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdAeroPartida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdAeroDestino)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DtHrPartida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DtHrChegada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DuracaoVoo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CiaAerea)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdPassagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomePassagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescPassagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImgPassagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ValorPassagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Classe)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdAeroPartida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdAeroDestino)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DtHrPartida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DtHrChegada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DuracaoVoo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CiaAerea)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "AlterarPassagem", new { id=item.IdPassagem }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "DeletarPassagem", new { id = item.IdPassagem })
-        </td>
-    </tr>
-}
-
-</table>*@
 
 <main class="content-main list passages-list margin">
     <div class="container">
         <h1 class="list__title">
             Passagens
-            <button class="button">
+            <a href="~/Passagem/InsertPassagem/" class="button">
                 <iconify-icon icon="carbon:add"></iconify-icon>
                 Adicionar
-            </button>
-        </h1>
+            </a>
+</h1>
         <div class="list__flex-header">
             <div>#</div>
             <div>
@@ -191,9 +99,14 @@
                             Valor
                             <span>R$ @item.ValorPassagem</span>
                         </div>
+
+                        <div>
+                            Companhia Aérea
+                            <span> @item.CiaAerea</span>
+                        </div>
                         @*<div>
-                            <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
-                        </div>*@
+            <a class="button list-details" href=""><iconify-icon icon="carbon:folder-details-reference"></iconify-icon>Detalhes</a>
+        </div>*@
                         <div>
                             Classe
                             <span>@item.Classe</span>
@@ -203,11 +116,10 @@
                             <span>@item.DescPassagem</span>
                         </div>
                         <div>
-                            <a class="button list-edit" href="~/Passagem/AlterarPassagem/@item.IdPassagem"><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                            <a class="button list-edit" href="~/Passagem/AlterarPassagem/@item.IdPassagem"><iconify-icon icon="ci:edit"></iconify-icon>Editar</a></div>
+                            <div><a class="button list-delete" href="~/Passagem/DeletarPassagem/@item.IdPassagem"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
                         </div>
-                        <div>
-                            <a class="button list-delete" href="~/Passagem/DeletarPassagem/@item.IdPassagem"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon>Deletar</a>
-                        </div>
+
                     </div>
                 </div>
             </div>

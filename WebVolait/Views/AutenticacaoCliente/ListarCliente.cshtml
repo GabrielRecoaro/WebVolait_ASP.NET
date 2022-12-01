@@ -4,75 +4,15 @@
     ViewBag.Title = "ListarCliente";
 }
 
-@*<h2>ListarCliente</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CPFCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NomeCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NomeSocialCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LoginCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefoneCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SenhaCliente)
-        </th>
-
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CPFCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeSocialCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoginCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefoneCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SenhaCliente)
-        </td>
-
-        <td>
-            @Html.ActionLink("Edit", "AlterarCliente", new { id = item.CPFCliente }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "DeletarCliente", new { id = item.CPFCliente })
-        </td>
-    </tr>
-}
-
-</table>*@
-
 
 <main class="content-main list customers-list margin">
     <div class="container">
         <h1 class="list__title">
             Clientes
-            <button class="button">
+            <a href="~/AutenticacaoCliente/InsertCliente/" class="button">
                 <iconify-icon icon="carbon:add"></iconify-icon>
                 Adicionar
-            </button>
+            </a>
         </h1>
         <div class="list__flex-header">
             <div>#</div>
@@ -142,10 +82,17 @@
                             Nome Completo
                             <span>@item.NomeCliente</span>
                         </div>
+
+                        <div>
+                            CPF
+                            <span>@item.CPFCliente</span>
+                        </div>
+
                         <div>
                             Telefone
                             <span>@item.TelefoneCliente</span>
                         </div>
+
 
                         <div>
                             Nome social
@@ -156,9 +103,10 @@
                             <span>@item.LoginCliente</span>
                         </div>
                         <div>
-                            <a class="button list-edit" href="~/AutenticacaoCliente/AlterarCliente/@item.CPFCliente"><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                            <a class="button list-edit" href="/AutenticacaoCliente/AlterarCliente/@item.CPFCliente"><iconify-icon icon="ci:edit"></iconify-icon>Editar</a>
+                            <a class="button list-delete" href="~/AutenticacaoCliente/DeletarCliente/@item.CPFCliente"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a>
                         </div>
-                        <div><a class="button list-delete" href="~/AutenticacaoCliente/DeletarCliente/@item.CPFCliente"><iconify-icon icon="fluent:delete-12-filled"></iconify-icon> Deletar</a></div>
+                        <div></div>
                     </div>
                 </div>
             </div>
