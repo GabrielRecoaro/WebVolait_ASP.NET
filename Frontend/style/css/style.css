@@ -1971,6 +1971,227 @@ body {
 }
 
 
+.about-page {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column
+}
+
+.about-page .who-we-are {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: transparent
+}
+
+.about-page .who-we-are__content,
+.about-page .who-we-are__image {
+    flex: 2 1
+}
+
+.about-page .who-we-are__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    background-color: #FDFDFD;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 30px 80px 30px 50px
+}
+
+.about-page .who-we-are__content__instalsiste {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #777
+}
+
+.about-page .who-we-are__content__title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 22px;
+    letter-spacing: 0.03em;
+    color: #3a3a3a
+}
+
+.about-page .who-we-are__content__paragraph {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #777
+}
+
+.about-page .who-we-are__image {
+    position: relative;
+    height: fit-content;
+    width: auto;
+    transform: translateX(-50px)
+}
+
+.about-page .who-we-are__image img {
+    width: 100%;
+    height: auto
+}
+
+.about-page .values__content {
+    width: 100%;
+    padding: 0px 3%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    justify-content: space-around;
+    gap: 60px 100px
+}
+
+.about-page .values__content__item {
+    width: 100%
+}
+
+.about-page .values__content__item h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 38px;
+    color: #3a3a3a
+}
+
+.about-page .leaderships {
+    padding-bottom: 50px
+}
+
+.about-page .leaderships__content {
+    width: 100%;
+    padding: 0px 3%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    justify-content: space-between;
+    padding: 0 200px
+}
+
+@media (max-width: 850px) {
+    .about-page .leaderships__content {
+        padding: 0 0
+    }
+}
+
+.about-page .leaderships__content__item h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 38px;
+    color: #DCD5DC
+}
+
+.about-page .leaderships__content__item:last-child {
+    text-align: end
+}
+
+.about-page section {
+    background-color: #FDFDFD;
+    padding: 6vh 0px
+}
+
+.about-page .title-section {
+    text-transform: capitalize;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 3rem;
+    color: #FF9575
+}
+
+.about-page .paragraph-section {
+    font-family: 'Inter';
+    color: #777;
+    max-width: 700px;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 400;
+    margin: 0 auto
+}
+
+.about-page .image-between {
+    height: 500px;
+    width: 100%;
+    background-image: url("../../images/sobre_missao-visao-valores.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    image-rendering: auto
+}
+
+.about-page .relevant-clients {
+    padding: 60px 0;
+    background-color: #f5f5f5
+}
+
+.about-page .relevant-clients__title {
+    text-align: center;
+    font-size: 3.0rem;
+    text-transform: uppercase;
+    color: #254EF0
+}
+
+.about-page .relevant-clients__paragraph {
+    max-width: 700px;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #3a3a3a;
+    font-weight: 400
+}
+
+.about-page .relevant-clients__slideshow {
+    background-color: inherit
+}
+
+.about-page .relevant-clients__slideshow__item {
+    background-color: #FDFDFD;
+    border-radius: 10px;
+    border: 1px solid #d6d6d6;
+    transition: 0.3s ease
+}
+
+.about-page .relevant-clients__slideshow__item__container-img {
+    overflow: hidden;
+    height: 175px;
+    background: #d6d6d6;
+    display: flex;
+    align-items: center;
+    border-radius: 10px 10px 0px 00px
+}
+
+.about-page .relevant-clients__slideshow__item__container-img img {
+    margin: 0 auto;
+    display: block;
+    width: 150px
+}
+
+.about-page .relevant-clients__slideshow__item__description__title {
+    text-align: center;
+    padding: 20px
+}
+
+.about-page .relevant-clients__slideshow__item__description__location {
+    margin-top: 10px;
+    padding: 20px
+}
+
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
     line-height: 1.15;
