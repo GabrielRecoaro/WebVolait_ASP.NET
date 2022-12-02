@@ -225,6 +225,7 @@
     <Content Include="images\background-image-passage-details.jpg" />
     <Content Include="images\background-image-passages.jpg" />
     <Content Include="images\background-image-purchase-details.jpg" />
+    <Content Include="images\background-image-purchase.jpg" />
     <Content Include="images\card-passages.png" />
     <Content Include="images\hero-background.jpg" />
     <Content Include="images\ico.ico" />
@@ -233,6 +234,7 @@
     <Content Include="images\logo_horizontal.png" />
     <Content Include="images\Logo_Volait.png" />
     <Content Include="images\sign-up.png" />
+    <Content Include="images\sobre_missao-visao-valores.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
