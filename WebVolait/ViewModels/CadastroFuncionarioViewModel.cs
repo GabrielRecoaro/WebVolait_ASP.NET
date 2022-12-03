@@ -25,6 +25,7 @@ namespace WebVolait.ViewModels
 
         [Display(Name = "E-mail")]
         [Required(ErrorMessage = "O campo é obrigatório")]
+        [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*", ErrorMessage = "*E-mail em formato inválido.")]
         public string LoginFuncionario { get; set; }
 
         [Display(Name = "Número de Telefone")]
