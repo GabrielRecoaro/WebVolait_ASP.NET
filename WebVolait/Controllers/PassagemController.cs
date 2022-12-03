@@ -103,6 +103,7 @@ namespace WebVolait.Controllers
             }
             catch
             {
+                TempData["MensagemLogin"] = "Não foi possível realizar a alteração";           
                 return View(passagem);
             }
 
@@ -127,6 +128,7 @@ namespace WebVolait.Controllers
             }
             catch
             {
+                TempData["MensagemLogin"] = "Não foi possível realizar a remoção";               
                 return RedirectToAction("ListarPassagem", "Passagem");
             }
         }

@@ -4,40 +4,52 @@
     ViewBag.Title = "DeletarPassagem";
 }
 
+@if (TempData["MensagemLogin"] != null)
+{
+    <br />
+    <br />
+    <br />
+    <div class="alert alert-danger">
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        @TempData["MensagemLogin"]
 
-        @Html.HiddenFor(model => model.IdPassagem)
+    </div>
+}
 
-        @Html.HiddenFor(model => model.NomePassagem)
 
-        @Html.HiddenFor(model => model.DescPassagem)
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-        @Html.HiddenFor(model => model.ImgPassagem)
+    @Html.HiddenFor(model => model.IdPassagem)
 
-        @Html.HiddenFor(model => model.ValorPassagem)
+    @Html.HiddenFor(model => model.NomePassagem)
 
-        @Html.HiddenFor(model => model.Classe)
+    @Html.HiddenFor(model => model.DescPassagem)
 
-        @Html.HiddenFor(model => model.IdAeroPartida)
+    @Html.HiddenFor(model => model.ImgPassagem)
 
-        @Html.HiddenFor(model => model.IdAeroDestino)
+    @Html.HiddenFor(model => model.ValorPassagem)
 
-        @Html.HiddenFor(model => model.DtHrPartida)
+    @Html.HiddenFor(model => model.Classe)
 
-        @Html.HiddenFor(model => model.DtHrChegada)
+    @Html.HiddenFor(model => model.IdAeroPartida)
 
-        @Html.HiddenFor(model => model.DuracaoVoo)
+    @Html.HiddenFor(model => model.IdAeroDestino)
 
-        @Html.HiddenFor(model => model.CiaAerea)
+    @Html.HiddenFor(model => model.DtHrPartida)
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+    @Html.HiddenFor(model => model.DtHrChegada)
+
+    @Html.HiddenFor(model => model.DuracaoVoo)
+
+    @Html.HiddenFor(model => model.CiaAerea)
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
 </div> -->
 
 <main class="content-main delete-insert passagem margin">

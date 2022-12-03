@@ -155,6 +155,7 @@ namespace WebVolait.Controllers
             }
             catch
             {
+                TempData["MensagemLogin"] = "Não foi possível realizar a alteração";
                 return View(cliente);
             }
         }
@@ -171,10 +172,18 @@ namespace WebVolait.Controllers
         [Authorize]
         public ActionResult DeletarCliente(Cliente cliente)
         {
+            try
+            {
 
                 cliente.DeleteCliente(cliente);
                 return RedirectToAction("ListarCliente", "AutenticacaoCliente");
+            }
 
+            catch
+            {
+                TempData["MensagemLogin"] = "Não foi possível realizar a remoção";
+                return View(cliente);
+            }
         }
     }
 }

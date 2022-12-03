@@ -14,10 +14,22 @@
     listClasse = ac.SelectTodosClasse();
 }
 
+@if (TempData["MensagemLogin"] != null)
+{
+    <br />
+    <br />
+    <br />
+    <div class="alert alert-danger">
+
+        @TempData["MensagemLogin"]
+
+    </div>
+}
+
 <main class="content-main insert-passage margin">
     <div class="container">
         <div class="form-container">
-           
+
             <form id="insert-passage" class="form" action="~/Passagem/AlterarPassagem" method="post">
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(model => model.IdPassagem, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -36,7 +48,7 @@
                 </div>
                 <div class="form__area-flex">
                     <div class="form__area">
-                       
+
                         <div class="form__area__select-box">
                             <select id="IdAeroPartida" name="IdAeroPartida">
                                 <option value="" disabled selected>Aeroporto (Origem)</option>
@@ -49,7 +61,7 @@
                         </div>
                     </div>
                     <div class="form__area">
-                        
+
                         <div class="form__area__select-box">
                             <select id="IdAeroDestino" name="IdAeroDestino">
                                 <option value="" disabled selected>Aeroporto (Destino)</option>
@@ -85,7 +97,7 @@
                         @Html.LabelFor(model => model.ValorPassagem, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        
+
 
                         <div class="form__area__select-box">
                             <select id="CiaAerea" name="CiaAerea">
@@ -106,7 +118,7 @@
                         @Html.LabelFor(model => model.DuracaoVoo, htmlAttributes: new { @class = "form__area__label" })
                     </div>
                     <div class="form__area">
-                        
+
 
                         <div class="form__area__select-box">
                             <select id="Classe" name="Classe">

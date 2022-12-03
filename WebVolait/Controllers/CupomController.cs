@@ -69,9 +69,15 @@ namespace WebVolait.Controllers
         [Authorize]
         public ActionResult AlterarCupom(Cupom cupom)
         {
+            try
             {
                 cupom.UpdateCupom(cupom);
                 return RedirectToAction("ListarCupom", "Cupom");
+            }
+            catch
+            {
+                TempData["MensagemLogin"] = "Não foi possível realizar a alteração";
+                return View(cupom);
             }
         }
 
@@ -96,7 +102,8 @@ namespace WebVolait.Controllers
             }
             catch
             {
-                return RedirectToAction("ListarCupom", "Cupom");
+                TempData["MensagemLogin"] = "Não foi possível realizar a remoção";                
+                return View(cupom);
             }
         }
     }

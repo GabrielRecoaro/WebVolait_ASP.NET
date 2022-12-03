@@ -4,23 +4,35 @@
     ViewBag.Title = "DeletarFuncionario";
 }
 
+@if (TempData["MensagemLogin"] != null)
+{
+    <br />
+    <br />
+    <br />
+    <div class="alert alert-danger">
+
+        @TempData["MensagemLogin"]
+
+    </div>
+}
+
 <main class="content-main delete-insert employee margin">
     <div class="container">
         <div class="form-container">
             <form id="delete-employee" class="form" method="post" action="~/AutenticacaoFuncionario/DeletarFuncionario">
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            
+
                 @Html.HiddenFor(model => model.CPFFuncionario)
-            
+
                 @Html.HiddenFor(model => model.NomeFuncionario)
-                
+
                 @Html.HiddenFor(model => model.NomeSocialFuncionario)
-            
+
                 @Html.HiddenFor(model => model.LoginFuncionario)
-            
+
                 @Html.HiddenFor(model => model.TelefoneFuncionario)
-            
+
                 @Html.HiddenFor(model => model.SenhaFuncionario)
                 <div class="form__area-flex-title">
                     <h2 class="form__title">Excluir funcionário</h2>

@@ -3,7 +3,17 @@
 @{
     ViewBag.Title = "DeletarCliente";
 }
-   
+@if (TempData["MensagemLogin"] != null)
+{
+    <br />
+    <br />
+    <br />
+    <div class="alert alert-danger">
+
+        @TempData["MensagemLogin"]
+
+    </div>
+}
 
 
 <main class="content-main delete-insert user margin">
