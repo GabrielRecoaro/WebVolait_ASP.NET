@@ -38,6 +38,9 @@ Este sistema tem como finalidade incoporar os conhecimentos e conceitos aprendid
 #### Como posso visitar o sistema?
 
 O sistema encontra-se offline no momento, porém sua utilização é possível através do download deste repositório.
+Antes de iniciar, certifique-se de alterar a senha da connection string no item "WebConfig" para a senha respectiva do MySqlWorkBench da sua máquina. Caso ocorra algum erro relacionado ás referências do arquivo, siga o seguinte procedimento:
+
+- Botão direito em Solução 'WebVolait' > Restaurar Pacotes NuGet > Abra o arquivo referências > Exclua a referência 'MySqlData' > Botão direito na pasta 'referências' > Adicione novamente o MySqlData
 
 #### Como posso consultar as viagens e valores das passagens
 
