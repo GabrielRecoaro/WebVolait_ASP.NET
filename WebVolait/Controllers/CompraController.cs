@@ -37,10 +37,19 @@ namespace WebVolait.Controllers
         [HttpPost]
         public ActionResult InsertCompra(Compra compra)
         {
-            compra.InsertCompra(compra);
-            TempData["MensagemLogin"] = "Compra realizada com sucesso! Obrigado por escolher Volait!";
-            var ultimacompra = ac.ListarUltimaCodCompra();
-            return RedirectToAction("SelectCompra/" + ultimacompra.NotaFiscal, "Compra");
+            try
+            {
+                compra.InsertCompra(compra);
+                TempData["MensagemLogin"] = "Compra realizada com sucesso! Obrigado por escolher Volait!";
+                var ultimacompra = ac.ListarUltimaCodCompra();
+                return RedirectToAction("SelectCompra/" + ultimacompra.NotaFiscal, "Compra");
+            }
+
+            catch
+            {
+                TempData["MensagemLogin"] = "Não foi possível realizar a compra. Por favor, verifique se o CPF digitado cadastrado está escrito corretamente e tente novamente.";
+                return View(compra);
+            }
         }
 
         public ActionResult TotalCompra()

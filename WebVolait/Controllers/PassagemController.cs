@@ -52,9 +52,7 @@ namespace WebVolait.Controllers
             };
 
             novopassagem.InsertPasssagem(novopassagem);
-
-            TempData["MensagemLogin"] = "Passagem inserida com sucesso!";
-
+          
             return RedirectToAction("ListarPassagem", "Passagem");
 
         }
@@ -103,7 +101,7 @@ namespace WebVolait.Controllers
             }
             catch
             {
-                TempData["MensagemLogin"] = "Não foi possível realizar a alteração";           
+                TempData["MensagemLogin"] = "Não foi possível realizar a alteração do passagem. Por favor, tente novamente.";           
                 return View(passagem);
             }
 
@@ -128,7 +126,7 @@ namespace WebVolait.Controllers
             }
             catch
             {
-                TempData["MensagemLogin"] = "Não foi possível realizar a remoção";               
+                TempData["MensagemLogin"] = "Não foi possível realizar a remoção do passagem. Por favor, tente novamente.";               
                 return RedirectToAction("ListarPassagem", "Passagem");
             }
         }

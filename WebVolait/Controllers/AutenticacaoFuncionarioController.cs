@@ -184,7 +184,7 @@ namespace WebVolait.Controllers
             }
             catch
             {
-                TempData["MensagemLogin"] = "Não foi possível realizar a alteração";                
+                TempData["MensagemLogin"] = "Não foi possível realizar a alteração do funcionário. Por favor, tente novamente.";                
                 return View(funcionario);
             }
         }
@@ -208,7 +208,7 @@ namespace WebVolait.Controllers
             }
             catch
             {
-                TempData["MensagemLogin"] = "Não foi possível realizar a alteração";              
+                TempData["MensagemLogin"] = "Não foi possível realizar a alteração do funcionário. Por favor, tente novamente.";              
                 return View(funcionario);
             }
         }

@@ -155,7 +155,7 @@ namespace WebVolait.Controllers
             }
             catch
             {
-                TempData["MensagemLogin"] = "Não foi possível realizar a alteração";
+                TempData["MensagemLogin"] = "Não foi possível realizar a alteração do cliente. Por favor, verifique os dados e tente novamente.";
                 return View(cliente);
             }
         }
@@ -181,7 +181,7 @@ namespace WebVolait.Controllers
 
             catch
             {
-                TempData["MensagemLogin"] = "Não foi possível realizar a remoção";
+                TempData["MensagemLogin"] = "Não é possível realizar a remoção de um cliente com uma compra pendente!";
                 return View(cliente);
             }
         }

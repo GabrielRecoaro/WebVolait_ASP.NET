@@ -12,6 +12,19 @@
 
 }
 
+@if (TempData["MensagemLogin"] != null)
+{
+    <br />
+    <br />
+    <br />
+    <div class="alert alert-danger">
+
+        @TempData["MensagemLogin"]
+
+    </div>
+}
+
+
 
 
 <section class="step-by-step-purchase purchase-insert content-main margin">

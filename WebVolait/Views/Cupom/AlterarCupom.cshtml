@@ -4,20 +4,20 @@
     ViewBag.Title = "AlterarCupom";
 }
 
-<h2>AlterarCupom</h2>
+@*<h2>AlterarCupom</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Cupom</h4>
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.CupomId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Cupomcode, htmlAttributes: new { @class = "control-label col-md-2" })
+            
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Cupomcode, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Cupomcode, "", new { @class = "text-danger" })
@@ -27,15 +27,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Valordesconto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Valordesconto, new { htmlAttributes = new { @class = "form-control" } })
+                
                 @Html.ValidationMessageFor(model => model.Valordesconto, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Cupomvalidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cupomvalidade, new { htmlAttributes = new { @class = "form-control" } })
+                
                 @Html.ValidationMessageFor(model => model.Cupomvalidade, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,4 +50,38 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
+
+<main class="content-main edit-coupon margin">
+    <div class="container">
+        <div class="form-container">
+            <form id="edit-coupon" class="form" action="~/Cupom/AlterarCupom" method="post">
+
+                @Html.HiddenFor(model => model.CupomId)
+
+                <div class="form__area-flex-title">
+                    <h2 class="form__title">Editar cupom</h2>
+                </div>
+                <div class="form__area">
+                    <input class="form__area__input readonly" readonly value="@Model.Cupomcode" type="text" name="coupon-code" id="coupon-code" required>
+                </div>
+                <div class="form__area form__area__textarea">
+                    @Html.EditorFor(model => model.Cupomcode, new { htmlAttributes = new { @class = "form__area__input" } })
+                    @Html.LabelFor(model => model.Cupomcode, htmlAttributes: new { @class = "form__area__label" })
+                </div>
+                <div class="form__area">
+                    @Html.EditorFor(model => model.Cupomvalidade, new { htmlAttributes = new { @class = "form__area__input" } })
+                    @Html.LabelFor(model => model.Cupomvalidade, htmlAttributes: new { @class = "form__area__label" })
+                </div>
+                <div class="form__area">
+                    @Html.EditorFor(model => model.Valordesconto, new { htmlAttributes = new { @class = "form__area__input" } })
+                    @Html.LabelFor(model => model.Valordesconto, htmlAttributes: new { @class = "form__area__label" })
+                </div>
+            </form>
+            <div class="form__area-flex flex-button">
+                <input class="button button--grey" type="button" value="Cancelar">
+                <input form="edit-coupon" class="button button--blue" type="submit" value="Salvar">
+            </div>
+        </div>
+    </div>
+</main>
